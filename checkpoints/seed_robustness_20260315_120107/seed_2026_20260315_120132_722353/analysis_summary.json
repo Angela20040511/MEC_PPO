@@ -1,0 +1,12 @@
+{
+  "seed": 2026,
+  "run_dir": "checkpoints\\seed_robustness_20260315_120107\\seed_2026_20260315_120132_722353",
+  "epochs_completed": 33,
+  "stopped_early": true,
+  "best_reward": -401.69672451414914,
+  "final_reward": -438.81173768239177,
+  "best_epoch": 5,
+  "reward_gap": -37.115013168242626,
+  "final_critic_loss": 2618.499163818359,
+  "avg_theta_last10_mean": 0.49243310536791024
+}

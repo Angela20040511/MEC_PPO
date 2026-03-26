@@ -1,0 +1,136 @@
+{
+  "checkpoint_path": "checkpoints\\dense_policy_joint_reward_aligned_credit_experiment_20260321_170716\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_172521_442663\\best_model.pt",
+  "target_epoch": 0,
+  "target_update_epoch": 2,
+  "target_minibatch_id": 8,
+  "actual_adam_update_norm": 0.0689224230225629,
+  "target_update_norm": 0.0689224230225629,
+  "direction_cosines": {
+    "cosine_raw_vs_momentum": 0.7283911035275115,
+    "cosine_raw_vs_preconditioned": 0.606226155178079,
+    "cosine_raw_vs_full_adam": 0.24996400686212625,
+    "cosine_momentum_vs_full_adam": 0.34926234819540497,
+    "cosine_preconditioned_vs_full_adam": 0.441067829369571,
+    "backbone_cosine_raw_vs_momentum": 0.343891082607398,
+    "backbone_cosine_raw_vs_preconditioned": 0.8203655448487273,
+    "backbone_cosine_raw_vs_full_adam": 0.29385408240060684,
+    "head_cosine_raw_vs_momentum": 0.9954429215510991,
+    "head_cosine_raw_vs_preconditioned": 0.9743086079972928,
+    "head_cosine_raw_vs_full_adam": 0.9764639111442636,
+    "raw_grad_norm": 0.49999892711639404,
+    "momentum_norm": 0.31167519092559814,
+    "preconditioned_norm": 409.34320068359375,
+    "full_adam_norm": 137.84475708007812
+  },
+  "direction_effects": {
+    "raw_grad_direction": {
+      "current_batch": {
+        "critic_loss_delta": -0.14862054586410522,
+        "target_pearson_delta": 0.11565351486206055,
+        "return_pearson_delta": 0.11565357446670532,
+        "advantage_pearson_delta": 0.12011604011058807
+      },
+      "held_out_batch": {
+        "critic_loss_delta": -0.11687928438186646,
+        "target_pearson_delta": 0.007175147533416748,
+        "return_pearson_delta": 0.007175147533416748,
+        "advantage_pearson_delta": 0.011234641075134277
+      },
+      "probe": {
+        "critic_loss_delta": -0.22230744361877441,
+        "target_pearson_delta": -0.020326584577560425,
+        "return_pearson_delta": -0.020326614379882812,
+        "advantage_pearson_delta": -0.011712372303009033
+      },
+      "delta_metrics": {
+        "critic_param_delta_norm": 0.06892256595790158,
+        "critic_backbone_delta_norm": 0.04994639566175547,
+        "critic_head_delta_norm": 0.047462029540190555,
+        "grad_norm": 0.49999892711639404,
+        "update_over_grad_ratio": 0.13784514182871146
+      }
+    },
+    "momentum_direction": {
+      "current_batch": {
+        "critic_loss_delta": -0.0959528386592865,
+        "target_pearson_delta": 0.028617441654205322,
+        "return_pearson_delta": 0.02861732244491577,
+        "advantage_pearson_delta": 0.032807812094688416
+      },
+      "held_out_batch": {
+        "critic_loss_delta": -0.062271326780319214,
+        "target_pearson_delta": 0.008105456829071045,
+        "return_pearson_delta": 0.008105337619781494,
+        "advantage_pearson_delta": 0.011508464813232422
+      },
+      "probe": {
+        "critic_loss_delta": -0.27538174390792847,
+        "target_pearson_delta": -0.0047203898429870605,
+        "return_pearson_delta": -0.004720419645309448,
+        "advantage_pearson_delta": 0.02721869945526123
+      },
+      "delta_metrics": {
+        "critic_param_delta_norm": 0.068922594145831,
+        "critic_backbone_delta_norm": 0.027112656425990034,
+        "critic_head_delta_norm": 0.06336190943076704,
+        "grad_norm": 0.31167519092559814,
+        "update_over_grad_ratio": 0.22113541606529663
+      }
+    },
+    "preconditioned_grad_direction": {
+      "current_batch": {
+        "critic_loss_delta": -0.09220778942108154,
+        "target_pearson_delta": 0.12113410234451294,
+        "return_pearson_delta": 0.12113398313522339,
+        "advantage_pearson_delta": 0.13233423233032227
+      },
+      "held_out_batch": {
+        "critic_loss_delta": -0.03803253173828125,
+        "target_pearson_delta": 0.008869588375091553,
+        "return_pearson_delta": 0.008869588375091553,
+        "advantage_pearson_delta": 0.009346038103103638
+      },
+      "probe": {
+        "critic_loss_delta": 0.009843885898590088,
+        "target_pearson_delta": -0.017724841833114624,
+        "return_pearson_delta": -0.01772487163543701,
+        "advantage_pearson_delta": -0.009835243225097656
+      },
+      "delta_metrics": {
+        "critic_param_delta_norm": 0.06892245923462899,
+        "critic_backbone_delta_norm": 0.06813340445002006,
+        "critic_head_delta_norm": 0.0015519159065651817,
+        "grad_norm": 409.34320068359375,
+        "update_over_grad_ratio": 0.0001683731961529202
+      }
+    },
+    "full_adam_direction": {
+      "current_batch": {
+        "critic_loss_delta": -0.06354314088821411,
+        "target_pearson_delta": 0.05844390392303467,
+        "return_pearson_delta": 0.05844396352767944,
+        "advantage_pearson_delta": 0.06824634969234467
+      },
+      "held_out_batch": {
+        "critic_loss_delta": 0.009326457977294922,
+        "target_pearson_delta": 0.013997077941894531,
+        "return_pearson_delta": 0.013997137546539307,
+        "advantage_pearson_delta": 0.0191403329372406
+      },
+      "probe": {
+        "critic_loss_delta": 0.029201745986938477,
+        "target_pearson_delta": -0.00920894742012024,
+        "return_pearson_delta": -0.009209036827087402,
+        "advantage_pearson_delta": 0.05546212196350098
+      },
+      "delta_metrics": {
+        "critic_param_delta_norm": 0.06892246410825022,
+        "critic_backbone_delta_norm": 0.06843048691267357,
+        "critic_head_delta_norm": 0.0037865260807102195,
+        "grad_norm": 137.84475708007812,
+        "update_over_grad_ratio": 0.0005000003227001505
+      }
+    }
+  },
+  "interpretation": "If full_adam_direction is clearly worse than raw_grad at the same update norm, the bad step is primarily coming from optimizer geometry rather than from the raw value-gradient direction itself."
+}

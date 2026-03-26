@@ -1,0 +1,68 @@
+{
+  "root_dir": "checkpoints\\dense_critic_arch_experiment_20260316_152334",
+  "fixed_params": {
+    "topology": "dense",
+    "seed": 2025,
+    "reward_mode": "per_sensor",
+    "value_target_mode": "popart_return_norm",
+    "value_loss_mode": "huber",
+    "actor_learning_rate": 0.0005,
+    "critic_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "value_coeff": 0.5,
+    "update_epochs": 10,
+    "time_steps": 100,
+    "dt_history_window": 8,
+    "dt_prediction_horizon": 2,
+    "dt_hidden_size": 128,
+    "dt_retrain_interval": 5,
+    "dt_train_epochs": 5,
+    "q": 0.65,
+    "Umax": 2,
+    "alpha_p": 0.4,
+    "rho0": 0.75,
+    "gamma_q": 0.1,
+    "gamma_e": 0.15,
+    "start_check_epoch": 1,
+    "max_epochs": 6,
+    "patience": 3,
+    "min_delta": 1.0,
+    "probe_state_count": 64
+  },
+  "critic_arch_modes": [
+    "baseline_critic",
+    "stronger_critic_backbone"
+  ],
+  "runs": [
+    {
+      "critic_arch_mode": "baseline_critic",
+      "run_dir": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\critic_arch_baseline_critic_20260316_152341_362536",
+      "analysis_summary": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\critic_arch_baseline_critic_20260316_152341_362536\\analysis_summary.json"
+    },
+    {
+      "critic_arch_mode": "stronger_critic_backbone",
+      "run_dir": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\critic_arch_stronger_critic_backbone_20260316_152415_255508",
+      "analysis_summary": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\critic_arch_stronger_critic_backbone_20260316_152415_255508\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\critic_arch_summary.csv",
+    "summary_json": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\critic_arch_summary.json",
+    "summary_md": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\critic_arch_summary.md",
+    "critic_loss_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\critic_loss_compare.png",
+    "reward_curve_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\reward_curve_compare.png",
+    "target_stats_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\target_stats_compare.png",
+    "prediction_mean_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\prediction_mean_compare.png",
+    "prediction_std_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\prediction_std_compare.png",
+    "explained_variance_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\explained_variance_compare.png",
+    "prediction_target_corr_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\prediction_target_corr_compare.png",
+    "prediction_std_ratio_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\prediction_std_ratio_compare.png",
+    "probe_prediction_std_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\probe_prediction_std_curve.png",
+    "critic_vs_constant_gain_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\critic_vs_constant_gain_compare.png",
+    "prediction_vs_target_scatter": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\prediction_vs_target_scatter.png",
+    "target_bucket_prediction_mean_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\target_bucket_prediction_mean.png",
+    "critic_hidden_feature_std_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\critic_hidden_feature_std_compare.png",
+    "critic_grad_norm_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\critic_grad_norm_compare.png",
+    "critic_head_bias_plot": "checkpoints\\dense_critic_arch_experiment_20260316_152334\\comparison_plots\\critic_head_bias_compare.png"
+  }
+}

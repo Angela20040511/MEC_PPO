@@ -1,0 +1,68 @@
+{
+  "seed": 2025,
+  "trace_epochs": 2,
+  "classification": "完整训练动态塌缩",
+  "detail": "前两轮 trace 内没有出现统计口径失配，也没有出现单步 route step 被 guard 压掉；如果长程训练最后变成 route_update_count=0，更像是更晚发生的训练动态塌缩。",
+  "first_divergence": null,
+  "baseline_epoch_summaries": [
+    {
+      "mode": "hierarchical_actor_true_conditional_route_policy",
+      "epoch": 0,
+      "train_route_update_count": 40,
+      "train_route_head_grad_norm": 0.13976928860647375,
+      "train_route_backbone_grad_norm": 0.08675396490638944,
+      "trace_rows": 40,
+      "trace_optimizer_step_executed_sum": 40.0,
+      "trace_counted_into_route_update_count_sum": 40.0,
+      "trace_route_param_delta_norm_sum": 1.8879974486001712,
+      "trace_bare_route_head_grad_norm_mean": 0.13976928860647378,
+      "trace_bare_route_backbone_grad_norm_mean": 0.08675396490638945
+    },
+    {
+      "mode": "hierarchical_actor_true_conditional_route_policy",
+      "epoch": 1,
+      "train_route_update_count": 40,
+      "train_route_head_grad_norm": 0.15331650751828374,
+      "train_route_backbone_grad_norm": 0.15212485808651105,
+      "trace_rows": 40,
+      "trace_optimizer_step_executed_sum": 40.0,
+      "trace_counted_into_route_update_count_sum": 40.0,
+      "trace_route_param_delta_norm_sum": 2.243471513729192,
+      "trace_bare_route_head_grad_norm_mean": 0.1533165075182837,
+      "trace_bare_route_backbone_grad_norm_mean": 0.15212485808651105
+    }
+  ],
+  "candidate_epoch_summaries": [
+    {
+      "mode": "hierarchical_actor_true_conditional_route_candidate_score_credit",
+      "epoch": 0,
+      "train_route_update_count": 0,
+      "train_route_head_grad_norm": 0.0,
+      "train_route_backbone_grad_norm": 0.0,
+      "trace_rows": 0,
+      "trace_optimizer_step_executed_sum": 0.0,
+      "trace_counted_into_route_update_count_sum": 0.0,
+      "trace_route_param_delta_norm_sum": 0.0,
+      "trace_bare_route_head_grad_norm_mean": 0.0,
+      "trace_bare_route_backbone_grad_norm_mean": 0.0
+    },
+    {
+      "mode": "hierarchical_actor_true_conditional_route_candidate_score_credit",
+      "epoch": 1,
+      "train_route_update_count": 0,
+      "train_route_head_grad_norm": 0.0,
+      "train_route_backbone_grad_norm": 0.0,
+      "trace_rows": 0,
+      "trace_optimizer_step_executed_sum": 0.0,
+      "trace_counted_into_route_update_count_sum": 0.0,
+      "trace_route_param_delta_norm_sum": 0.0,
+      "trace_bare_route_head_grad_norm_mean": 0.0,
+      "trace_bare_route_backbone_grad_norm_mean": 0.0
+    }
+  ],
+  "output_files": {
+    "combined_csv": "checkpoints\\route_training_drift_trace_20260320_140228\\route_training_drift_trace.csv",
+    "baseline_csv": "checkpoints\\route_training_drift_trace_20260320_140228\\route_training_drift_trace_baseline.csv",
+    "candidate_csv": "checkpoints\\route_training_drift_trace_20260320_140228\\route_training_drift_trace_candidate.csv"
+  }
+}

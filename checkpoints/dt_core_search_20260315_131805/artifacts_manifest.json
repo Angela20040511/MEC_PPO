@@ -1,0 +1,333 @@
+{
+  "root_dir": "checkpoints\\dt_core_search_20260315_131805",
+  "fixed_params": {
+    "seed": 2025,
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "start_check_epoch": 3,
+    "max_epochs": 12,
+    "patience": 3,
+    "min_delta": 1.0,
+    "time_steps": 100,
+    "num_layers": 1,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "train_epochs": 5,
+    "min_history_to_train": 20,
+    "retrain_interval": 5
+  },
+  "grid": {
+    "history_window": [
+      4,
+      8,
+      12,
+      16
+    ],
+    "prediction_horizon": [
+      2,
+      4,
+      6
+    ],
+    "hidden_size": [
+      32,
+      64,
+      128
+    ]
+  },
+  "runs": [
+    {
+      "history_window": 4,
+      "prediction_horizon": 2,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_02_hs_032_20260315_131805_230493",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_02_hs_032_20260315_131805_230493\\analysis_summary.json"
+    },
+    {
+      "history_window": 4,
+      "prediction_horizon": 2,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_02_hs_064_20260315_131811_897990",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_02_hs_064_20260315_131811_897990\\analysis_summary.json"
+    },
+    {
+      "history_window": 4,
+      "prediction_horizon": 2,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_02_hs_128_20260315_131817_686212",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_02_hs_128_20260315_131817_686212\\analysis_summary.json"
+    },
+    {
+      "history_window": 4,
+      "prediction_horizon": 4,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_04_hs_032_20260315_131823_817036",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_04_hs_032_20260315_131823_817036\\analysis_summary.json"
+    },
+    {
+      "history_window": 4,
+      "prediction_horizon": 4,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_04_hs_064_20260315_131830_878616",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_04_hs_064_20260315_131830_878616\\analysis_summary.json"
+    },
+    {
+      "history_window": 4,
+      "prediction_horizon": 4,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_04_hs_128_20260315_131835_854414",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_04_hs_128_20260315_131835_854414\\analysis_summary.json"
+    },
+    {
+      "history_window": 4,
+      "prediction_horizon": 6,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_06_hs_032_20260315_131843_937420",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_06_hs_032_20260315_131843_937420\\analysis_summary.json"
+    },
+    {
+      "history_window": 4,
+      "prediction_horizon": 6,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_06_hs_064_20260315_131850_942652",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_06_hs_064_20260315_131850_942652\\analysis_summary.json"
+    },
+    {
+      "history_window": 4,
+      "prediction_horizon": 6,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_06_hs_128_20260315_131856_296515",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_06_hs_128_20260315_131856_296515\\analysis_summary.json"
+    },
+    {
+      "history_window": 8,
+      "prediction_horizon": 2,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_02_hs_032_20260315_131902_155725",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_02_hs_032_20260315_131902_155725\\analysis_summary.json"
+    },
+    {
+      "history_window": 8,
+      "prediction_horizon": 2,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_02_hs_064_20260315_131908_126728",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_02_hs_064_20260315_131908_126728\\analysis_summary.json"
+    },
+    {
+      "history_window": 8,
+      "prediction_horizon": 2,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_02_hs_128_20260315_131916_876287",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_02_hs_128_20260315_131916_876287\\analysis_summary.json"
+    },
+    {
+      "history_window": 8,
+      "prediction_horizon": 4,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_04_hs_032_20260315_131926_433658",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_04_hs_032_20260315_131926_433658\\analysis_summary.json"
+    },
+    {
+      "history_window": 8,
+      "prediction_horizon": 4,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_04_hs_064_20260315_131934_389870",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_04_hs_064_20260315_131934_389870\\analysis_summary.json"
+    },
+    {
+      "history_window": 8,
+      "prediction_horizon": 4,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_04_hs_128_20260315_131943_001631",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_04_hs_128_20260315_131943_001631\\analysis_summary.json"
+    },
+    {
+      "history_window": 8,
+      "prediction_horizon": 6,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_06_hs_032_20260315_131952_014889",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_06_hs_032_20260315_131952_014889\\analysis_summary.json"
+    },
+    {
+      "history_window": 8,
+      "prediction_horizon": 6,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_06_hs_064_20260315_132000_092544",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_06_hs_064_20260315_132000_092544\\analysis_summary.json"
+    },
+    {
+      "history_window": 8,
+      "prediction_horizon": 6,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_06_hs_128_20260315_132008_116749",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_08_ph_06_hs_128_20260315_132008_116749\\analysis_summary.json"
+    },
+    {
+      "history_window": 12,
+      "prediction_horizon": 2,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_02_hs_032_20260315_132017_525061",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_02_hs_032_20260315_132017_525061\\analysis_summary.json"
+    },
+    {
+      "history_window": 12,
+      "prediction_horizon": 2,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_02_hs_064_20260315_132024_582361",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_02_hs_064_20260315_132024_582361\\analysis_summary.json"
+    },
+    {
+      "history_window": 12,
+      "prediction_horizon": 2,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_02_hs_128_20260315_132036_424347",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_02_hs_128_20260315_132036_424347\\analysis_summary.json"
+    },
+    {
+      "history_window": 12,
+      "prediction_horizon": 4,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_04_hs_032_20260315_132047_403119",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_04_hs_032_20260315_132047_403119\\analysis_summary.json"
+    },
+    {
+      "history_window": 12,
+      "prediction_horizon": 4,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_04_hs_064_20260315_132057_757218",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_04_hs_064_20260315_132057_757218\\analysis_summary.json"
+    },
+    {
+      "history_window": 12,
+      "prediction_horizon": 4,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_04_hs_128_20260315_132106_953167",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_04_hs_128_20260315_132106_953167\\analysis_summary.json"
+    },
+    {
+      "history_window": 12,
+      "prediction_horizon": 6,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_06_hs_032_20260315_132119_020911",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_06_hs_032_20260315_132119_020911\\analysis_summary.json"
+    },
+    {
+      "history_window": 12,
+      "prediction_horizon": 6,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_06_hs_064_20260315_132128_163516",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_06_hs_064_20260315_132128_163516\\analysis_summary.json"
+    },
+    {
+      "history_window": 12,
+      "prediction_horizon": 6,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_06_hs_128_20260315_132137_270317",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_12_ph_06_hs_128_20260315_132137_270317\\analysis_summary.json"
+    },
+    {
+      "history_window": 16,
+      "prediction_horizon": 2,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_02_hs_032_20260315_132148_969397",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_02_hs_032_20260315_132148_969397\\analysis_summary.json"
+    },
+    {
+      "history_window": 16,
+      "prediction_horizon": 2,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_02_hs_064_20260315_132200_578952",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_02_hs_064_20260315_132200_578952\\analysis_summary.json"
+    },
+    {
+      "history_window": 16,
+      "prediction_horizon": 2,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_02_hs_128_20260315_132212_716679",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_02_hs_128_20260315_132212_716679\\analysis_summary.json"
+    },
+    {
+      "history_window": 16,
+      "prediction_horizon": 4,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_04_hs_032_20260315_132229_931060",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_04_hs_032_20260315_132229_931060\\analysis_summary.json"
+    },
+    {
+      "history_window": 16,
+      "prediction_horizon": 4,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_04_hs_064_20260315_132248_327469",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_04_hs_064_20260315_132248_327469\\analysis_summary.json"
+    },
+    {
+      "history_window": 16,
+      "prediction_horizon": 4,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_04_hs_128_20260315_132306_651048",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_04_hs_128_20260315_132306_651048\\analysis_summary.json"
+    },
+    {
+      "history_window": 16,
+      "prediction_horizon": 6,
+      "hidden_size": 32,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_06_hs_032_20260315_132325_236598",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_06_hs_032_20260315_132325_236598\\analysis_summary.json"
+    },
+    {
+      "history_window": 16,
+      "prediction_horizon": 6,
+      "hidden_size": 64,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_06_hs_064_20260315_132339_900205",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_06_hs_064_20260315_132339_900205\\analysis_summary.json"
+    },
+    {
+      "history_window": 16,
+      "prediction_horizon": 6,
+      "hidden_size": 128,
+      "seed": 2025,
+      "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_06_hs_128_20260315_132355_766084",
+      "analysis_summary": "checkpoints\\dt_core_search_20260315_131805\\hw_16_ph_06_hs_128_20260315_132355_766084\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dt_core_search_20260315_131805\\dt_search_summary.csv",
+    "summary_json": "checkpoints\\dt_core_search_20260315_131805\\dt_search_summary.json",
+    "summary_md": "checkpoints\\dt_core_search_20260315_131805\\dt_search_summary.md"
+  }
+}

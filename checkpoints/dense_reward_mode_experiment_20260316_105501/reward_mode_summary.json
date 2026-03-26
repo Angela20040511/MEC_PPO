@@ -1,0 +1,34 @@
+[
+  {
+    "rank":1,
+    "reward_mode":"per_sensor",
+    "run_dir":"checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_per_sensor_20260316_105541_833142",
+    "epochs_completed":5,
+    "best_reward":-149.0321942314,
+    "final_reward":-159.4360029483,
+    "best_epoch":1,
+    "reward_gap":-10.4038087169,
+    "reward_gap_abs":10.4038087169,
+    "final_critic_loss":342.8835079193,
+    "final_reward_delay_term":143.9945900273,
+    "final_reward_energy_term":1.1890731118,
+    "final_reward_backlog_term":14.2523398091,
+    "best_epoch_is_one":1
+  },
+  {
+    "rank":2,
+    "reward_mode":"raw_total",
+    "run_dir":"checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_raw_total_20260316_105501_854632",
+    "epochs_completed":5,
+    "best_reward":-1098.0806754121,
+    "final_reward":-1172.8068996935,
+    "best_epoch":1,
+    "reward_gap":-74.7262242814,
+    "reward_gap_abs":74.7262242814,
+    "final_critic_loss":27245.6072753906,
+    "final_reward_delay_term":1149.0945191555,
+    "final_reward_energy_term":9.5162001684,
+    "final_reward_backlog_term":14.1961803695,
+    "best_epoch_is_one":1
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "rank":1,
+    "actor_learning_rate":0.0003,
+    "update_epochs":8,
+    "entropy_coeff":0.001,
+    "run_dir":"checkpoints\\dense_ppo_tuning_20260315_224314\\entropy_coeff_stage\\entropy_coeff_0p001_20260315_224455_319530",
+    "epochs_completed":5,
+    "best_reward":-1097.9223725887,
+    "final_reward":-1174.5475512256,
+    "best_epoch":1,
+    "reward_gap":-76.6251786369,
+    "reward_gap_abs":76.6251786369,
+    "final_critic_loss":27717.6856079102,
+    "avg_theta_last10":0.502553184,
+    "best_epoch_is_one":1
+  },
+  {
+    "rank":2,
+    "actor_learning_rate":0.0003,
+    "update_epochs":8,
+    "entropy_coeff":0.0005,
+    "run_dir":"checkpoints\\dense_ppo_tuning_20260315_224314\\entropy_coeff_stage\\entropy_coeff_0p0005_20260315_224441_120004",
+    "epochs_completed":5,
+    "best_reward":-1097.9162661295,
+    "final_reward":-1175.0651133915,
+    "best_epoch":1,
+    "reward_gap":-77.148847262,
+    "reward_gap_abs":77.148847262,
+    "final_critic_loss":27743.8704833984,
+    "avg_theta_last10":0.5035649109,
+    "best_epoch_is_one":1
+  }
+]

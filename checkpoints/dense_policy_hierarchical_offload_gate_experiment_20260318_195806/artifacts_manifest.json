@@ -1,0 +1,41 @@
+{
+  "root_dir": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "offload_gate_mode_definitions": {
+      "hierarchical_actor_theta_route": "Hierarchical actor stays fixed: theta head emits raw_theta_b first, route head emits [route_logit_BS1, route_logit_BS2] from shared actor features + detached sigmoid(theta_mean) context. Theta surrogate uses A_theta_b only; route surrogate uses A_route_b only.",
+      "hierarchical_actor_offload_gated_route": "Same hierarchical actor structure as hierarchical_actor_theta_route, but route surrogate is multiplied by route_gate_b = detach(theta_b). Theta surrogate stays unchanged; route advantage definition stays unchanged."
+    },
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_theta_route",
+    "hierarchical_actor_offload_gated_route"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_theta_route",
+      "actor_structure_mode": "hierarchical_actor_theta_route",
+      "run_dir": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_ratio_hierarchical_actor_theta_route_20260318_195810_111111",
+      "analysis_summary": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_ratio_hierarchical_actor_theta_route_20260318_195810_111111\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_ratio_hierarchical_actor_theta_route_20260318_195810_111111\\theta_route_split_stats_by_epoch.csv",
+      "route_gate_stats": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_ratio_hierarchical_actor_theta_route_20260318_195810_111111\\route_gate_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_offload_gated_route",
+      "actor_structure_mode": "hierarchical_actor_theta_route",
+      "run_dir": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_ratio_hierarchical_actor_offload_gated_route_20260318_195900_705889",
+      "analysis_summary": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_ratio_hierarchical_actor_offload_gated_route_20260318_195900_705889\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_ratio_hierarchical_actor_offload_gated_route_20260318_195900_705889\\theta_route_split_stats_by_epoch.csv",
+      "route_gate_stats": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_ratio_hierarchical_actor_offload_gated_route_20260318_195900_705889\\route_gate_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_hierarchical_offload_gate_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_hierarchical_offload_gate_summary.json",
+    "summary_md": "checkpoints\\dense_policy_hierarchical_offload_gate_experiment_20260318_195806\\policy_hierarchical_offload_gate_summary.md"
+  }
+}

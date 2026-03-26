@@ -1,0 +1,16 @@
+{
+  "value_target_mode": "raw_return",
+  "run_dir": "checkpoints\\dense_value_target_experiment_20260316_122139\\value_target_raw_return_20260316_122139_195096",
+  "epochs_completed": 5,
+  "best_reward": -149.03219423135351,
+  "final_reward": -159.43600294828374,
+  "best_epoch": 1,
+  "reward_gap": -10.403808716930229,
+  "reward_gap_abs": 10.403808716930229,
+  "final_critic_loss": 342.8835079193115,
+  "final_raw_return_mean": -33.46818542480469,
+  "final_raw_return_std": 8.812112808227539,
+  "final_value_target_mean": -33.46818542480469,
+  "final_value_target_std": 8.812112808227539,
+  "best_epoch_is_one": 1
+}

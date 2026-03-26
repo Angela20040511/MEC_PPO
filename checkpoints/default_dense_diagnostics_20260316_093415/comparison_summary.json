@@ -1,0 +1,14 @@
+{
+  "state_dim_default": 112,
+  "state_dim_dense": 200,
+  "mean_state_mean_ratio_dense_vs_default": 0.94470559902675,
+  "mean_state_max_ratio_dense_vs_default": 1.0388715955582601,
+  "mean_state_var_ratio_dense_vs_default": 0.9511431370454233,
+  "mean_raw_backlog_ratio_dense_vs_default": 1.8497073396051114,
+  "mean_delay_ratio_dense_vs_default": 2.3171059692174745,
+  "mean_energy_ratio_dense_vs_default": 1.8744348361244705,
+  "mean_reward_delay_term_ratio_dense_vs_default": 2.3171059692174745,
+  "mean_reward_energy_term_ratio_dense_vs_default": 1.874434836124471,
+  "mean_reward_backlog_term_ratio_dense_vs_default": 1.0017339119945556,
+  "final_epoch_critic_loss_ratio_dense_vs_default": 8.512181396930226
+}

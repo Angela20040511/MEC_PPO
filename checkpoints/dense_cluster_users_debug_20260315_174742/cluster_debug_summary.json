@@ -1,0 +1,75 @@
+{
+  "q_summary": [
+    {
+      "q": 0.8,
+      "mean_oma_clusters": 2.3,
+      "mean_noma_clusters": 3.8,
+      "mean_users_in_noma_clusters": 5.7,
+      "max_cluster_size_seen": 2
+    },
+    {
+      "q": 0.85,
+      "mean_oma_clusters": 2.3,
+      "mean_noma_clusters": 3.8,
+      "mean_users_in_noma_clusters": 5.7,
+      "max_cluster_size_seen": 2
+    },
+    {
+      "q": 0.9,
+      "mean_oma_clusters": 2.3,
+      "mean_noma_clusters": 3.8,
+      "mean_users_in_noma_clusters": 5.7,
+      "max_cluster_size_seen": 2
+    },
+    {
+      "q": 0.95,
+      "mean_oma_clusters": 2.3,
+      "mean_noma_clusters": 3.8,
+      "mean_users_in_noma_clusters": 5.7,
+      "max_cluster_size_seen": 2
+    }
+  ],
+  "cross_q_summary": {
+    "total_bs_step_snapshots": 40,
+    "threshold_changed_snapshots": 38,
+    "threshold_constant_snapshots": 2,
+    "oma_changed_snapshots": 0,
+    "noma_changed_snapshots": 0,
+    "cluster_changed_snapshots": 0,
+    "threshold_changed_but_cluster_unchanged": 38,
+    "top_two_tie_snapshots": 2,
+    "candidate_user_count_values": [
+      4
+    ]
+  },
+  "examples": {
+    "threshold_changed_but_cluster_same": {
+      "step": 1,
+      "bs_id": "BS1",
+      "candidate_user_count": 4,
+      "threshold_changed": true,
+      "oma_changed": false,
+      "noma_changed": false,
+      "cluster_changed": false,
+      "top_two_tie": false,
+      "threshold_map": "{\"0.80\": 494220.5712652816, \"0.85\": 500630.62568944064, \"0.90\": 507040.68011359975, \"0.95\": 513450.7345377588}",
+      "oma_map": "{\"0.80\": [\"S2\"], \"0.85\": [\"S2\"], \"0.90\": [\"S2\"], \"0.95\": [\"S2\"]}",
+      "noma_map": "{\"0.80\": [\"S1\", \"S4\", \"S3\"], \"0.85\": [\"S1\", \"S4\", \"S3\"], \"0.90\": [\"S1\", \"S4\", \"S3\"], \"0.95\": [\"S1\", \"S4\", \"S3\"]}",
+      "cluster_map": "{\"0.80\": [[\"S1\", \"S4\"], [\"S3\"]], \"0.85\": [[\"S1\", \"S4\"], [\"S3\"]], \"0.90\": [[\"S1\", \"S4\"], [\"S3\"]], \"0.95\": [[\"S1\", \"S4\"], [\"S3\"]]}"
+    },
+    "threshold_constant_and_cluster_same": {
+      "step": 0,
+      "bs_id": "BS1",
+      "candidate_user_count": 4,
+      "threshold_changed": false,
+      "oma_changed": false,
+      "noma_changed": false,
+      "cluster_changed": false,
+      "top_two_tie": true,
+      "threshold_map": "{\"0.80\": 0.0, \"0.85\": 0.0, \"0.90\": 0.0, \"0.95\": 0.0}",
+      "oma_map": "{\"0.80\": [\"S1\", \"S2\", \"S3\", \"S4\"], \"0.85\": [\"S1\", \"S2\", \"S3\", \"S4\"], \"0.90\": [\"S1\", \"S2\", \"S3\", \"S4\"], \"0.95\": [\"S1\", \"S2\", \"S3\", \"S4\"]}",
+      "noma_map": "{\"0.80\": [], \"0.85\": [], \"0.90\": [], \"0.95\": []}",
+      "cluster_map": "{\"0.80\": [], \"0.85\": [], \"0.90\": [], \"0.95\": []}"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+﻿rank,actor_learning_rate,update_epochs,entropy_coeff,run_dir,epochs_completed,best_reward,final_reward,best_epoch,reward_gap,reward_gap_abs,final_critic_loss,avg_theta_last10,best_epoch_is_one
+1,0.0003,8,0.001,checkpoints\dense_ppo_tuning_20260315_224314\entropy_coeff_stage\entropy_coeff_0p001_20260315_224455_319530,5,-1097.9223725886982,-1174.5475512255812,1,-76.62517863688299,76.62517863688299,27717.68560791016,0.5025531840351609,1
+2,0.0003,8,0.0005,checkpoints\dense_ppo_tuning_20260315_224314\entropy_coeff_stage\entropy_coeff_0p0005_20260315_224441_120004,5,-1097.9162661294886,-1175.0651133915026,1,-77.14884726201399,77.14884726201399,27743.87048339844,0.5035649109061775,1

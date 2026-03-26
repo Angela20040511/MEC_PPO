@@ -1,0 +1,18 @@
+{
+  "candidate": "B",
+  "candidate_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_B",
+  "history_window": 8,
+  "prediction_horizon": 2,
+  "hidden_size": 128,
+  "retrain_interval": 5,
+  "train_epochs": 5,
+  "mean_best_reward": -397.66504507489674,
+  "std_best_reward": 7.478085335996912,
+  "mean_final_reward": -408.39107804883133,
+  "std_final_reward": 7.434051853645393,
+  "mean_reward_gap": -10.726032973934593,
+  "std_reward_gap": 2.6339222307796595,
+  "mean_best_epoch": 4.0,
+  "mean_final_critic_loss": 2690.651700439453,
+  "mean_avg_theta_last10": 0.5013915093145186
+}

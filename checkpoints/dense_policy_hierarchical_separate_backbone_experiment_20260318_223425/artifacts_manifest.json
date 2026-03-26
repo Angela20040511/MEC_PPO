@@ -1,0 +1,44 @@
+{
+  "root_dir": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "separate_backbone_mode_definitions": {
+      "hierarchical_actor_hard_offload_route": "Control group: shared actor backbone, separate theta head and route head, A_theta_b / A_route_b unchanged, route surrogate uses hard offload mask.",
+      "hierarchical_actor_separate_theta_route_backbones": "Test group: theta backbone and route backbone are separated, theta head still outputs raw_theta_b, route head still receives route-backbone features + detached theta context, A_theta_b / A_route_b unchanged, route surrogate still uses hard offload mask."
+    },
+    "route_mask_threshold": 0.5,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_hard_offload_route",
+    "hierarchical_actor_separate_theta_route_backbones"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_hard_offload_route",
+      "actor_structure_mode": "hierarchical_actor_theta_route",
+      "run_dir": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_hard_offload_route_20260318_223429_517136",
+      "analysis_summary": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_hard_offload_route_20260318_223429_517136\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_hard_offload_route_20260318_223429_517136\\theta_route_split_stats_by_epoch.csv",
+      "route_mask_stats": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_hard_offload_route_20260318_223429_517136\\route_mask_stats_by_epoch.csv",
+      "separate_backbone_stats": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_hard_offload_route_20260318_223429_517136\\separate_backbone_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_223458_160141",
+      "analysis_summary": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_223458_160141\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_223458_160141\\theta_route_split_stats_by_epoch.csv",
+      "route_mask_stats": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_223458_160141\\route_mask_stats_by_epoch.csv",
+      "separate_backbone_stats": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_223458_160141\\separate_backbone_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_hierarchical_separate_backbone_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_hierarchical_separate_backbone_summary.json",
+    "summary_md": "checkpoints\\dense_policy_hierarchical_separate_backbone_experiment_20260318_223425\\policy_hierarchical_separate_backbone_summary.md"
+  }
+}

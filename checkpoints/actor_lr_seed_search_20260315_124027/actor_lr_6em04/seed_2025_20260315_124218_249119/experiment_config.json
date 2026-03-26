@@ -1,0 +1,27 @@
+{
+  "seed": 2025,
+  "training": {
+    "num_epochs": 12,
+    "time_steps": 100,
+    "seed": 2025
+  },
+  "ppo": {
+    "hidden_size": 128,
+    "actor_log_std": -1.0,
+    "actor_learning_rate": 0.0006,
+    "critic_learning_rate": 0.0005,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_epsilon": 0.2,
+    "entropy_coeff": 0.001,
+    "value_coeff": 0.5,
+    "update_epochs": 10,
+    "mini_batch_size": 32,
+    "max_grad_norm": 0.5
+  },
+  "early_stopping": {
+    "patience": 3,
+    "min_delta": 1.0,
+    "monitor_start_epoch": 3
+  }
+}

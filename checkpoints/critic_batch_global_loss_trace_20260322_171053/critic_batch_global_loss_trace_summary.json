@@ -1,0 +1,98 @@
+{
+  "mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "seed": 2025,
+  "trace_epochs": 2,
+  "checkpoint_path": "checkpoints\\dense_policy_joint_reward_aligned_credit_experiment_20260321_170716\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_172521_442663\\best_model.pt",
+  "actor_frozen": true,
+  "probe_step_count": 48,
+  "heldout_payload": {
+    "heldout_sample_count": 64,
+    "heldout_batch_count": 2,
+    "source_step_count": 100,
+    "selection_reused_globally": true
+  },
+  "probe_payload": {
+    "probe_step_count": 48,
+    "selection_reused_globally": true
+  },
+  "actor_param_delta_norm_max": 0.0,
+  "first_batch_better_global_worse": {
+    "epoch": 0,
+    "update_epoch": 2,
+    "minibatch_id": 8,
+    "trace_stage": "after_optimizer_step",
+    "current_batch": {
+      "delta_critic_loss": -0.06531363725662231,
+      "delta_target_pearson": 0.044605374336242676,
+      "delta_return_pearson": 0.044605374336242676,
+      "delta_advantage_pearson": 0.08738052845001221
+    },
+    "held_out_batch": {
+      "delta_critic_loss": 0.0018028616905212402,
+      "delta_target_pearson": 0.03636890649795532,
+      "delta_return_pearson": 0.03636893630027771,
+      "delta_advantage_pearson": 0.11512525286525488
+    },
+    "probe": {
+      "delta_critic_loss": 0.010218322277069092,
+      "delta_target_pearson": -0.02780255675315857,
+      "delta_return_pearson": -0.02780255675315857,
+      "delta_advantage_pearson": 0.045938640832901
+    }
+  },
+  "after_optimizer_step_delta_summary": {
+    "current_batch": {
+      "mean_delta_critic_loss_after_optimizer_step": -0.048742698214482516,
+      "mean_delta_target_pearson_after_optimizer_step": 0.05219768187962472,
+      "mean_delta_return_pearson_after_optimizer_step": 0.05219767433591187,
+      "mean_delta_advantage_pearson_after_optimizer_step": 0.05326473837485537,
+      "min_delta_target_pearson_after_optimizer_step": -0.06940281391143799,
+      "max_delta_target_pearson_after_optimizer_step": 0.8543315529823303
+    },
+    "held_out_batch": {
+      "mean_delta_critic_loss_after_optimizer_step": -0.005875662714242935,
+      "mean_delta_target_pearson_after_optimizer_step": 0.0005867978557944298,
+      "mean_delta_return_pearson_after_optimizer_step": 0.0005867982283234597,
+      "mean_delta_advantage_pearson_after_optimizer_step": 0.003955932473763824,
+      "min_delta_target_pearson_after_optimizer_step": -0.047076284885406494,
+      "max_delta_target_pearson_after_optimizer_step": 0.06951473653316498
+    },
+    "probe": {
+      "mean_delta_critic_loss_after_optimizer_step": -0.007110663875937462,
+      "mean_delta_target_pearson_after_optimizer_step": 0.002817161753773689,
+      "mean_delta_return_pearson_after_optimizer_step": 0.002817162126302719,
+      "mean_delta_advantage_pearson_after_optimizer_step": 0.008029226679354906,
+      "min_delta_target_pearson_after_optimizer_step": -0.04078546166419983,
+      "max_delta_target_pearson_after_optimizer_step": 0.04474470019340515
+    }
+  },
+  "epoch_summaries": [
+    {
+      "epoch": 0,
+      "actor_loss": 0.08654011972248554,
+      "critic_loss": 0.3919566547498107,
+      "route_update_count": 0,
+      "theta_update_count": 0,
+      "after_critic_current_batch_target_pearson_mean": 0.688537601288408,
+      "after_critic_heldout_target_pearson_mean": 0.2368739478290081,
+      "after_critic_probe_target_pearson_mean": 0.2664574233815074
+    },
+    {
+      "epoch": 1,
+      "actor_loss": -0.15615850258618594,
+      "critic_loss": 0.23501276497263462,
+      "route_update_count": 0,
+      "theta_update_count": 0,
+      "after_critic_current_batch_target_pearson_mean": 0.7722443118691444,
+      "after_critic_heldout_target_pearson_mean": 0.18734304644167424,
+      "after_critic_probe_target_pearson_mean": 0.5224540993571282
+    }
+  ],
+  "interpretation": "Optimizer steps repeatedly improve current-batch fit while hurting held-out and probe semantics.",
+  "output_files": {
+    "trace_csv": "checkpoints\\critic_batch_global_loss_trace_20260322_171053\\critic_batch_global_loss_trace.csv",
+    "probe_csv": "checkpoints\\critic_batch_global_loss_trace_20260322_171053\\critic_batch_global_loss_trace_probe.csv",
+    "current_batch_csv": "checkpoints\\critic_batch_global_loss_trace_20260322_171053\\critic_batch_global_loss_trace_current_batch.csv",
+    "heldout_batch_csv": "checkpoints\\critic_batch_global_loss_trace_20260322_171053\\critic_batch_global_loss_trace_heldout_batch.csv"
+  }
+}

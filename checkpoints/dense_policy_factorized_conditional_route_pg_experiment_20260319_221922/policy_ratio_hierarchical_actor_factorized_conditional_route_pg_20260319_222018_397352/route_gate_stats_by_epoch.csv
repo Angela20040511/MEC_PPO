@@ -1,0 +1,6 @@
+﻿epoch,policy_surrogate_mode,actor_structure_mode,route_gate_mean,route_gate_std,route_gate_min,route_gate_max,route_gate_active_fraction,offload_rate_mean,theta_head_grad_norm,route_head_grad_norm,theta_backbone_grad_norm,route_backbone_grad_norm
+0,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.49801138043403625,4.941565587072651,9.309513764369772,7.00501848216771,5.825770407005169
+1,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.49893108010292053,3.356113203985746,4.776936944485313,5.572002717216325,4.37167773659735
+2,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.5001022219657898,3.4213133235141244,5.4771813221624726,5.335578055544772,4.449583812878838
+3,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.4967212378978729,3.796002102812253,6.056945913816612,5.6989471579341275,5.277524390452146
+4,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.5025525689125061,3.9614020748920318,6.713775204792273,5.969761156231326,6.027587748964462

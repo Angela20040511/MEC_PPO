@@ -1,0 +1,53 @@
+{
+  "stage": "gamma_q",
+  "stage_dir": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage",
+  "fixed_params": {
+    "topology": "dense",
+    "seed": 2025,
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "time_steps": 100,
+    "dt_history_window": 8,
+    "dt_prediction_horizon": 2,
+    "dt_hidden_size": 128,
+    "dt_retrain_interval": 5,
+    "dt_train_epochs": 5,
+    "q": 0.65,
+    "Umax": 2,
+    "alpha_p": 0.4,
+    "start_check_epoch": 1,
+    "max_epochs": 6,
+    "patience": 3,
+    "min_delta": 1.0,
+    "rho0": 0.75,
+    "gamma_e": 0.15
+  },
+  "gamma_q_grid": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "runs": [
+    {
+      "gamma_q": 0.1,
+      "run_dir": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_0p10_20260315_191319_066723",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_0p10_20260315_191319_066723\\analysis_summary.json"
+    },
+    {
+      "gamma_q": 0.2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_0p20_20260315_191336_493156",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_0p20_20260315_191336_493156\\analysis_summary.json"
+    },
+    {
+      "gamma_q": 0.3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_0p30_20260315_191358_718085",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_0p30_20260315_191358_718085\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_stage_summary.csv",
+    "summary_json": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_stage_summary.json",
+    "summary_md": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_stage_summary.md"
+  }
+}

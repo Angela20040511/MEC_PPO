@@ -1,0 +1,44 @@
+{
+  "root_dir": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "route_mask_threshold": 0.5,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0,
+    "mode_definitions": {
+      "hierarchical_actor_joint_reward_aligned_credit": "Control group: keep reward-aligned joint 3-action residual credit with one-step counterfactual reward scores.",
+      "hierarchical_actor_joint_td_aligned_credit": "Test group: keep hierarchical actor parameterization and joint 3-action credit, but upgrade the candidate score source from one-step reward to one-step TD-aligned score r + gamma * V(next_state_candidate)."
+    },
+    "joint_reference_definition": "For each block and candidate local/bs1/bs2, keep other blocks fixed, deepcopy(simulator), step once to obtain reward and next_state, then build TD-aligned score = r + gamma * V(next_state_candidate).",
+    "joint_candidate_score_normalization": "score_norm = (score - mean_candidate(score)) / (std_candidate(score) + 1e-6)"
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_joint_reward_aligned_credit",
+    "hierarchical_actor_joint_td_aligned_credit"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_joint_reward_aligned_credit",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_182909_053940",
+      "analysis_summary": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_182909_053940\\analysis_summary.json",
+      "joint_reward_aligned_credit_stats": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_182909_053940\\joint_reward_aligned_credit_stats_by_epoch.csv",
+      "joint_td_aligned_credit_stats": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_182909_053940\\joint_td_aligned_credit_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_joint_td_aligned_credit",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_td_aligned_credit_20260321_185117_835707",
+      "analysis_summary": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_td_aligned_credit_20260321_185117_835707\\analysis_summary.json",
+      "joint_reward_aligned_credit_stats": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_td_aligned_credit_20260321_185117_835707\\joint_reward_aligned_credit_stats_by_epoch.csv",
+      "joint_td_aligned_credit_stats": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_td_aligned_credit_20260321_185117_835707\\joint_td_aligned_credit_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_joint_td_aligned_credit_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_joint_td_aligned_credit_summary.json",
+    "summary_md": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_joint_td_aligned_credit_summary.md"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "noma_quantile": 0.8,
+  "max_cluster_size": 3,
+  "seed": 2025,
+  "run_dir": "checkpoints\\fast_scheduler_core_search_20260315_160603\\q_0p80_umax_03_20260315_160617_406646",
+  "epochs_completed": 10,
+  "best_reward": -389.6761891233042,
+  "final_reward": -398.972030145125,
+  "best_epoch": 6,
+  "reward_gap": -9.29584102182082,
+  "reward_gap_abs": 9.29584102182082,
+  "final_critic_loss": 2409.201416015625,
+  "avg_theta_last10": 0.5231838480456156
+}

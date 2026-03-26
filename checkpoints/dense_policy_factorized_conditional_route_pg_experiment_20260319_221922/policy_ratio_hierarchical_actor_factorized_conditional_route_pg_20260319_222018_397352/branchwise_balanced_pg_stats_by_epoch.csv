@@ -1,0 +1,6 @@
+﻿epoch,policy_surrogate_mode,actor_structure_mode,theta_adv_norm_mean,theta_adv_norm_std,route_adv_norm_mean,route_adv_norm_std,route_adv_norm_active_count,route_adv_norm_used_fallback,theta_loss_mean,route_loss_mean,theta_route_loss_ratio,theta_clip_fraction,route_clip_fraction,route_mask_mean,route_mask_active_fraction
+0,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.47458332777023315,0.3824999928474426,0.0,0.0
+1,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5400000214576721,0.5174999833106995,0.0,0.0
+2,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5295833349227905,0.4808333218097687,0.0,0.0
+3,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.44458332657814026,0.42500001192092896,0.0,0.0
+4,hierarchical_actor_factorized_conditional_route_pg,hierarchical_actor_separate_theta_route_backbones,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5245833396911621,0.5195833444595337,0.0,0.0

@@ -1,0 +1,7 @@
+flip_type,count
+reward:bs1->td:bs2,51
+reward:bs1->td:local,12
+reward:bs2->td:bs1,6
+reward:bs2->td:local,17
+reward:local->td:bs1,47
+reward:local->td:bs2,102

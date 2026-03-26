@@ -1,0 +1,4 @@
+| rank | candidate | candidate_dir | history_window | prediction_horizon | hidden_size | retrain_interval | train_epochs | mean_best_reward | std_best_reward | mean_final_reward | std_final_reward | mean_reward_gap | std_reward_gap | mean_best_epoch | mean_final_critic_loss | mean_avg_theta_last10 | abs_mean_reward_gap |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | A | checkpoints\dt_candidate_seed_validation_20260315_154740\candidate_A | 4 | 6 | 32 | 5 | 5 | -384.0348256751241 | 0.0 | -417.2942333868649 | 0.0 | -33.25940771174078 | 0.0 | 6.0 | 2631.364193725586 | 0.5290480703322433 | 33.25940771174078 |
+| 2 | B | checkpoints\dt_candidate_seed_validation_20260315_154740\candidate_B | 8 | 2 | 128 | 5 | 5 | -389.6761891233042 | 0.0 | -398.972030145125 | 0.0 | -9.29584102182082 | 0.0 | 6.0 | 2409.201416015625 | 0.5231838480456156 | 9.29584102182082 |

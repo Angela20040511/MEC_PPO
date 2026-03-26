@@ -1,0 +1,17 @@
+{
+  "reward_mode": "per_sensor",
+  "topology": "dense",
+  "max_epochs": 6,
+  "epochs_completed": 5,
+  "best_epoch": 1,
+  "best_reward": -149.03219423135351,
+  "final_epoch": 4,
+  "final_reward": -159.43600294828374,
+  "reward_gap": -10.403808716930229,
+  "stopped_early": true,
+  "stop_reason": "no significant reward improvement for 3 epochs after epoch 1",
+  "monitor_start_epoch": 1,
+  "early_stopping_patience": 3,
+  "min_delta": 1.0,
+  "restored_best_model": true
+}

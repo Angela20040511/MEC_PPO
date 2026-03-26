@@ -1,0 +1,2 @@
+﻿rank,max_epochs,patience,min_delta,run_dir,epochs_completed,stopped_early,best_reward,final_reward,best_epoch,reward_gap,reward_gap_abs,final_critic_loss,avg_theta_last10_mean,post_peak_degradation,stability_score
+1,30,5,1.0,checkpoints\fine_grained_epoch_early_stop_20260315_112017\max_030_pat_05_delta_1p0_20260315_112017_998158,30,False,-376.1205213620981,-430.12763189035576,26,-54.00711052825767,54.00711052825767,2006.4165985107425,0.5304407044729134,True,37.50473436221263

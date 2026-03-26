@@ -1,0 +1,42 @@
+{
+  "root_dir": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "hard_mask_mode_definitions": {
+      "hierarchical_actor_offload_gated_route": "Shared hierarchical actor stays fixed. Theta surrogate uses A_theta_b only. Route surrogate uses A_route_b only, then is weighted by route_gate_b = detach(theta_b).",
+      "hierarchical_actor_hard_offload_route": "Same hierarchical actor structure and same A_theta_b / A_route_b definitions, but route_mask_b = 1[detach(theta_b) > 0.5]. Route surrogate is masked, then normalized by active route-mask count before combining with theta surrogate."
+    },
+    "route_mask_threshold": 0.5,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_offload_gated_route",
+    "hierarchical_actor_hard_offload_route"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_offload_gated_route",
+      "actor_structure_mode": "hierarchical_actor_theta_route",
+      "run_dir": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_ratio_hierarchical_actor_offload_gated_route_20260318_202902_386780",
+      "analysis_summary": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_ratio_hierarchical_actor_offload_gated_route_20260318_202902_386780\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_ratio_hierarchical_actor_offload_gated_route_20260318_202902_386780\\theta_route_split_stats_by_epoch.csv",
+      "route_mask_stats": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_ratio_hierarchical_actor_offload_gated_route_20260318_202902_386780\\route_mask_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_hard_offload_route",
+      "actor_structure_mode": "hierarchical_actor_theta_route",
+      "run_dir": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_ratio_hierarchical_actor_hard_offload_route_20260318_202926_844501",
+      "analysis_summary": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_ratio_hierarchical_actor_hard_offload_route_20260318_202926_844501\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_ratio_hierarchical_actor_hard_offload_route_20260318_202926_844501\\theta_route_split_stats_by_epoch.csv",
+      "route_mask_stats": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_ratio_hierarchical_actor_hard_offload_route_20260318_202926_844501\\route_mask_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_hierarchical_hard_mask_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_hierarchical_hard_mask_summary.json",
+    "summary_md": "checkpoints\\dense_policy_hierarchical_hard_mask_experiment_20260318_202858\\policy_hierarchical_hard_mask_summary.md"
+  }
+}

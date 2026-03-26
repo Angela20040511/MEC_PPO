@@ -1,0 +1,3 @@
+| rank | actor_learning_rate | lr_dir | mean_best_reward | std_best_reward | mean_final_reward | std_final_reward | mean_reward_gap | std_reward_gap | mean_best_epoch | mean_final_critic_loss | mean_avg_theta_last10 | abs_mean_reward_gap |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 0.0003 | checkpoints\actor_lr_seed_search_20260315_124001\actor_lr_3em04 | -399.7004835289456 | 5.78272509793149 | -407.26574052511876 | 2.5202034017068797 | -7.565256996173218 | 3.26252169622461 | 5.5 | 2618.108143615723 | 0.4890111684630156 | 7.565256996173218 |

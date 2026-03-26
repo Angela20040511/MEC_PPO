@@ -1,0 +1,55 @@
+{
+  "root_dir": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102",
+  "seed": 2025,
+  "policy_ratio_mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "base_critic_learning_rate": 0.0005,
+  "probe_state_count": 64,
+  "training_num_epochs": 6,
+  "training_time_steps": 100,
+  "update_epochs": 10,
+  "selected_groups": [
+    "baseline_critic_adam",
+    "critic_backbone_sgd_momentum_head_adam",
+    "critic_backbone_sgd_plain_head_adam"
+  ],
+  "groups": [
+    {
+      "group_name": "baseline_critic_adam",
+      "critic_backbone_optimizer_name": "adam",
+      "critic_backbone_learning_rate": 0.0005,
+      "critic_backbone_momentum": 0.0,
+      "critic_head_optimizer_name": "adam",
+      "critic_head_learning_rate": 0.0005,
+      "critic_head_momentum": 0.0,
+      "run_dir": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102\\baseline_critic_adam_20260323_093112_526279",
+      "analysis_summary": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102\\baseline_critic_adam_20260323_093112_526279\\analysis_summary.json"
+    },
+    {
+      "group_name": "critic_backbone_sgd_momentum_head_adam",
+      "critic_backbone_optimizer_name": "sgd_momentum",
+      "critic_backbone_learning_rate": 0.001,
+      "critic_backbone_momentum": 0.9,
+      "critic_head_optimizer_name": "adam",
+      "critic_head_learning_rate": 0.0005,
+      "critic_head_momentum": 0.0,
+      "run_dir": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102\\critic_backbone_sgd_momentum_head_adam_20260323_100214_399430",
+      "analysis_summary": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102\\critic_backbone_sgd_momentum_head_adam_20260323_100214_399430\\analysis_summary.json"
+    },
+    {
+      "group_name": "critic_backbone_sgd_plain_head_adam",
+      "critic_backbone_optimizer_name": "sgd_plain",
+      "critic_backbone_learning_rate": 0.001,
+      "critic_backbone_momentum": 0.0,
+      "critic_head_optimizer_name": "adam",
+      "critic_head_learning_rate": 0.0005,
+      "critic_head_momentum": 0.0,
+      "run_dir": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102\\critic_backbone_sgd_plain_head_adam_20260323_102957_343284",
+      "analysis_summary": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102\\critic_backbone_sgd_plain_head_adam_20260323_102957_343284\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102\\critic_split_optimizer_training_validation_summary.csv",
+    "summary_json": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102\\critic_split_optimizer_training_validation_summary.json",
+    "summary_md": "checkpoints\\critic_split_optimizer_training_validation_20260323_093102\\critic_split_optimizer_training_validation_summary.md"
+  }
+}

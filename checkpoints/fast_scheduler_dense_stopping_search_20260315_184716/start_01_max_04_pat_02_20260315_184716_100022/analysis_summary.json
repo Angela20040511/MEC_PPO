@@ -1,0 +1,14 @@
+{
+  "start_check_epoch": 1,
+  "max_epochs": 4,
+  "patience": 2,
+  "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_04_pat_02_20260315_184716_100022",
+  "epochs_completed": 4,
+  "best_reward": -1097.932896504716,
+  "final_reward": -1180.592252928454,
+  "best_epoch": 1,
+  "reward_gap": -82.65935642373802,
+  "reward_gap_abs": 82.65935642373802,
+  "final_critic_loss": 27738.26884765625,
+  "avg_theta_last10": 0.5048155662133205
+}

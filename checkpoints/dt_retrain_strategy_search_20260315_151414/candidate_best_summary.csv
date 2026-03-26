@@ -1,0 +1,3 @@
+﻿candidate,rank,history_window,prediction_horizon,hidden_size,retrain_interval,train_epochs,seed,run_dir,epochs_completed,best_reward,final_reward,best_epoch,reward_gap,reward_gap_abs,final_critic_loss,avg_theta_last10
+A,2,4,6,32,3,3,2025,checkpoints\dt_retrain_strategy_search_20260315_151414\candidate_A_ri_03_te_03_20260315_151414_328510,6,-446.44864397736177,-475.0176387003669,2,-28.56899472300512,28.56899472300512,4111.1239562988285,0.5005479245255865
+B,1,8,2,128,3,3,2025,checkpoints\dt_retrain_strategy_search_20260315_151414\candidate_B_ri_03_te_03_20260315_151423_979755,10,-393.9634103046913,-405.4160702676232,6,-11.452659962931875,11.452659962931875,2503.464739990234,0.5084157006807157

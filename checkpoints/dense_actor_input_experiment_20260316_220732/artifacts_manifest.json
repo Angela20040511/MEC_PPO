@@ -1,0 +1,72 @@
+{
+  "root_dir": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732",
+  "fixed_params": {
+    "topology": "dense",
+    "seed": 2025,
+    "reward_mode": "per_sensor",
+    "value_target_mode": "popart_return_norm",
+    "value_loss_mode": "huber",
+    "critic_arch_mode": "stronger_critic_backbone",
+    "critic_input_mode": "normalized_augmented_critic_input",
+    "actor_learning_rate": 0.0005,
+    "critic_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "value_coeff": 0.5,
+    "update_epochs": 10,
+    "time_steps": 100,
+    "dt_history_window": 8,
+    "dt_prediction_horizon": 2,
+    "dt_hidden_size": 128,
+    "dt_retrain_interval": 5,
+    "dt_train_epochs": 5,
+    "dt_num_layers": 1,
+    "dt_learning_rate": 0.001,
+    "dt_batch_size": 32,
+    "dt_min_history_to_train": 20,
+    "q": 0.65,
+    "Umax": 2,
+    "alpha_p": 0.4,
+    "rho0": 0.75,
+    "gamma_q": 0.1,
+    "gamma_e": 0.15,
+    "start_check_epoch": 1,
+    "max_epochs": 6,
+    "patience": 3,
+    "min_delta": 1.0,
+    "probe_state_count": 64
+  },
+  "actor_input_modes": [
+    "current_actor_input",
+    "normalized_augmented_actor_input"
+  ],
+  "runs": [
+    {
+      "actor_input_mode": "current_actor_input",
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\actor_input_current_actor_input_20260316_220739_825241",
+      "analysis_summary": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\actor_input_current_actor_input_20260316_220739_825241\\analysis_summary.json"
+    },
+    {
+      "actor_input_mode": "normalized_augmented_actor_input",
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\actor_input_normalized_augmented_actor_input_20260316_220804_697903",
+      "analysis_summary": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\actor_input_normalized_augmented_actor_input_20260316_220804_697903\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\actor_input_summary.csv",
+    "summary_json": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\actor_input_summary.json",
+    "summary_md": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\actor_input_summary.md",
+    "critic_loss_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\critic_loss_compare.png",
+    "reward_curve_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\reward_curve_compare.png",
+    "explained_variance_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\explained_variance_compare.png",
+    "prediction_target_corr_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\prediction_target_corr_compare.png",
+    "prediction_std_ratio_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\prediction_std_ratio_compare.png",
+    "actor_input_std_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\actor_input_std_compare.png",
+    "actor_input_dim_std_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\actor_input_dim_std_compare.png",
+    "actor_grad_norm_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\actor_grad_norm_compare.png",
+    "policy_entropy_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\policy_entropy_compare.png",
+    "advantage_stats_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\advantage_stats_compare.png",
+    "action_distribution_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\action_distribution_compare.png",
+    "prediction_vs_target_scatter": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\prediction_vs_target_scatter.png",
+    "target_bucket_prediction_mean_plot": "D:\\MEC_PPO\\checkpoints\\dense_actor_input_experiment_20260316_220732\\comparison_plots\\target_bucket_prediction_mean.png"
+  }
+}

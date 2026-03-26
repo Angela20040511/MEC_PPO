@@ -1,0 +1,126 @@
+{
+  "mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "seed": 2025,
+  "trace_epochs": 2,
+  "checkpoint_path": "checkpoints\\dense_policy_joint_reward_aligned_credit_experiment_20260321_170716\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_172521_442663\\best_model.pt",
+  "probe_step_count": 48,
+  "actor_frozen": true,
+  "actor_param_delta_norm_max": 0.0,
+  "classification": "A",
+  "detail": "The first clear critic semantic drop appears immediately after a critic step.",
+  "first_divergence": {
+    "where": "after_critic",
+    "epoch": 0,
+    "update_epoch": 2,
+    "minibatch_id": 9
+  },
+  "initial_probe_metrics": {
+    "epoch": 0,
+    "update_epoch": 0,
+    "minibatch_id": 0,
+    "trace_stage": "before_actor",
+    "probe_pearson_value_vs_value_target": 0.3278252184391022,
+    "probe_spearman_value_vs_value_target": -0.0318063385784626,
+    "probe_pearson_value_vs_return": 0.3278252184391022,
+    "probe_spearman_value_vs_return": -0.0318063385784626,
+    "probe_pearson_value_vs_advantage": -0.8455946445465088,
+    "probe_spearman_value_vs_advantage": -0.7409899830818176
+  },
+  "first_actor_drop": null,
+  "first_critic_drop": {
+    "epoch": 0.0,
+    "update_epoch": 2.0,
+    "minibatch_id": 9.0,
+    "actor_param_delta_norm_after_actor_before_critic": 0.0,
+    "actor_param_delta_norm_after_critic": 0.0,
+    "actor_param_delta_norm_before_actor": 0.0,
+    "critic_param_delta_norm_after_actor_before_critic": 0.0,
+    "critic_param_delta_norm_after_critic": 0.0639929090354805,
+    "critic_param_delta_norm_before_actor": 0.0,
+    "probe_pearson_value_vs_advantage_after_actor_before_critic": -0.2586418986320495,
+    "probe_pearson_value_vs_advantage_after_critic": -0.209844172000885,
+    "probe_pearson_value_vs_advantage_before_actor": -0.2586418986320495,
+    "probe_pearson_value_vs_return_after_actor_before_critic": 0.3753840625286102,
+    "probe_pearson_value_vs_return_after_critic": 0.3589926064014435,
+    "probe_pearson_value_vs_return_before_actor": 0.3753840625286102,
+    "probe_pearson_value_vs_value_target_after_actor_before_critic": 0.3753840625286102,
+    "probe_pearson_value_vs_value_target_after_critic": 0.3589926064014435,
+    "probe_pearson_value_vs_value_target_before_actor": 0.3753840625286102,
+    "probe_spearman_value_vs_advantage_after_actor_before_critic": -0.4013243615627289,
+    "probe_spearman_value_vs_advantage_after_critic": -0.3100304007530212,
+    "probe_spearman_value_vs_advantage_before_actor": -0.4013243615627289,
+    "probe_spearman_value_vs_return_after_actor_before_critic": 0.1571862697601318,
+    "probe_spearman_value_vs_return_after_critic": 0.22297003865242,
+    "probe_spearman_value_vs_return_before_actor": 0.1571862697601318,
+    "probe_spearman_value_vs_value_target_after_actor_before_critic": 0.1571862697601318,
+    "probe_spearman_value_vs_value_target_after_critic": 0.22297003865242,
+    "probe_spearman_value_vs_value_target_before_actor": 0.1571862697601318,
+    "probe_value_pred_mean_after_actor_before_critic": -25.55706214904785,
+    "probe_value_pred_mean_after_critic": -25.46877861022949,
+    "probe_value_pred_mean_before_actor": -25.55706214904785,
+    "probe_value_pred_std_after_actor_before_critic": 7.605911731719971,
+    "probe_value_pred_std_after_critic": 8.012856483459473,
+    "probe_value_pred_std_before_actor": 7.605911731719971,
+    "actor_delta_probe_pearson_value_vs_value_target": 0.0,
+    "critic_delta_probe_pearson_value_vs_value_target": -0.016391456127166693,
+    "actor_delta_probe_spearman_value_vs_value_target": 0.0,
+    "critic_delta_probe_spearman_value_vs_value_target": 0.06578376889228818,
+    "actor_delta_probe_pearson_value_vs_return": 0.0,
+    "critic_delta_probe_pearson_value_vs_return": -0.016391456127166693,
+    "actor_delta_probe_spearman_value_vs_return": 0.0,
+    "critic_delta_probe_spearman_value_vs_return": 0.06578376889228818,
+    "actor_delta_probe_pearson_value_vs_advantage": 0.0,
+    "critic_delta_probe_pearson_value_vs_advantage": 0.048797726631164495,
+    "actor_delta_probe_spearman_value_vs_advantage": 0.0,
+    "critic_delta_probe_spearman_value_vs_advantage": 0.0912939608097077
+  },
+  "epoch_summaries": [
+    {
+      "mode": "hierarchical_actor_joint_reward_aligned_credit",
+      "epoch": 0,
+      "actor_loss": 0.10061773424968123,
+      "critic_loss": 0.40472918283194304,
+      "route_update_count": 0,
+      "theta_update_count": 0,
+      "probe_after_critic_pearson_value_vs_value_target": 0.38441514149308204,
+      "probe_after_critic_pearson_value_vs_return": 0.3844151541590691
+    },
+    {
+      "mode": "hierarchical_actor_joint_reward_aligned_credit",
+      "epoch": 1,
+      "actor_loss": -0.16521322671324015,
+      "critic_loss": 0.20941204950213432,
+      "route_update_count": 0,
+      "theta_update_count": 0,
+      "probe_after_critic_pearson_value_vs_value_target": 0.689823779463768,
+      "probe_after_critic_pearson_value_vs_return": 0.6898238360881805
+    }
+  ],
+  "comparison_to_normal_trace": {
+    "normal_trace_summary_path": "D:\\MEC_PPO\\checkpoints\\joint_training_critic_drift_trace_20260321_231005\\joint_training_critic_drift_trace_summary.json",
+    "normal_trace_classification": "A",
+    "normal_trace_first_divergence": {
+      "where": "after_critic",
+      "epoch": 0,
+      "update_epoch": 2,
+      "minibatch_id": 9
+    },
+    "normal_trace_probe_summary": {
+      "initial_before_actor_probe_target_pearson": 0.3278252184391022,
+      "final_after_critic_probe_target_pearson": 0.6733196973800659,
+      "initial_before_actor_probe_return_pearson": 0.3278252184391022,
+      "final_after_critic_probe_return_pearson": 0.6733196377754211
+    },
+    "frozen_trace_probe_summary": {
+      "initial_before_actor_probe_target_pearson": 0.3278252184391022,
+      "final_after_critic_probe_target_pearson": 0.6733486652374268,
+      "initial_before_actor_probe_return_pearson": 0.3278252184391022,
+      "final_after_critic_probe_return_pearson": 0.6733488440513611
+    }
+  },
+  "output_files": {
+    "trace_csv": "checkpoints\\actor_frozen_online_critic_trace_20260322_083306\\actor_frozen_online_critic_trace.csv",
+    "probe_csv": "checkpoints\\actor_frozen_online_critic_trace_20260322_083306\\actor_frozen_online_critic_trace_probe.csv",
+    "minibatch_csv": "checkpoints\\actor_frozen_online_critic_trace_20260322_083306\\actor_frozen_online_critic_trace_minibatch.csv"
+  }
+}

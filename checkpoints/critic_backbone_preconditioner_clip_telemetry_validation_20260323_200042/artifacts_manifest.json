@@ -1,0 +1,65 @@
+{
+  "root_dir": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042",
+  "seed": 2025,
+  "policy_ratio_mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "base_critic_learning_rate": 0.0005,
+  "probe_state_count": 64,
+  "training_num_epochs": 6,
+  "training_time_steps": 100,
+  "update_epochs": 10,
+  "critic_backbone_preconditioner_active_threshold": 1e-12,
+  "tracked_hotspot_layers": [
+    "critic_backbone.0.weight",
+    "critic_backbone.3.weight",
+    "critic_backbone.6.weight",
+    "critic_backbone.7.weight",
+    "critic_backbone.7.bias",
+    "critic_backbone.4.bias"
+  ],
+  "selected_groups": [
+    "baseline_critic_adam",
+    "critic_backbone_preconditioner_clip_head_adam",
+    "critic_backbone_preconditioner_clip_ln_focus_head_adam"
+  ],
+  "groups": [
+    {
+      "group_name": "baseline_critic_adam",
+      "run_dir": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\baseline_critic_adam_20260323_200046_822574",
+      "analysis_summary": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\baseline_critic_adam_20260323_200046_822574\\analysis_summary.json",
+      "telemetry_summary": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\baseline_critic_adam_20260323_200046_822574\\preconditioner_telemetry_summary.json",
+      "backbone_preconditioner_cap": null,
+      "clip_focus_parameter_names": []
+    },
+    {
+      "group_name": "critic_backbone_preconditioner_clip_head_adam",
+      "run_dir": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_backbone_preconditioner_clip_head_adam_20260323_201830_865837",
+      "analysis_summary": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_backbone_preconditioner_clip_head_adam_20260323_201830_865837\\analysis_summary.json",
+      "telemetry_summary": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_backbone_preconditioner_clip_head_adam_20260323_201830_865837\\preconditioner_telemetry_summary.json",
+      "backbone_preconditioner_cap": 5000.0,
+      "clip_focus_parameter_names": []
+    },
+    {
+      "group_name": "critic_backbone_preconditioner_clip_ln_focus_head_adam",
+      "run_dir": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_backbone_preconditioner_clip_ln_focus_head_adam_20260323_204601_108566",
+      "analysis_summary": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_backbone_preconditioner_clip_ln_focus_head_adam_20260323_204601_108566\\analysis_summary.json",
+      "telemetry_summary": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_backbone_preconditioner_clip_ln_focus_head_adam_20260323_204601_108566\\preconditioner_telemetry_summary.json",
+      "backbone_preconditioner_cap": 5000.0,
+      "clip_focus_parameter_names": [
+        "critic_backbone.7.weight",
+        "critic_backbone.7.bias",
+        "critic_backbone.4.bias"
+      ]
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_backbone_preconditioner_clip_telemetry_validation_summary.csv",
+    "summary_json": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_backbone_preconditioner_clip_telemetry_validation_summary.json",
+    "summary_md": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_backbone_preconditioner_clip_telemetry_validation_summary.md",
+    "reward_curve_compare": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\reward_curve_compare.png",
+    "advantage_alignment_curve_compare": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\advantage_alignment_curve_compare.png",
+    "critic_health_curve_compare": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_health_curve_compare.png",
+    "critic_drift_compare": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\critic_drift_compare.png",
+    "backbone_preconditioner_telemetry_compare": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\backbone_preconditioner_telemetry_compare.png",
+    "hotspot_layer_telemetry_compare": "checkpoints\\critic_backbone_preconditioner_clip_telemetry_validation_20260323_200042\\hotspot_layer_telemetry_compare.png"
+  }
+}

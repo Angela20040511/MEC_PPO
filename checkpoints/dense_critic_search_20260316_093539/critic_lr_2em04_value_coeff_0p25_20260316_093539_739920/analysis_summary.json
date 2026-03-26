@@ -1,0 +1,14 @@
+{
+  "critic_learning_rate": 0.0002,
+  "value_coeff": 0.25,
+  "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_2em04_value_coeff_0p25_20260316_093539_739920",
+  "epochs_completed": 5,
+  "best_reward": -1098.0806754121104,
+  "final_reward": -1175.8099729562177,
+  "best_epoch": 1,
+  "reward_gap": -77.72929754410734,
+  "reward_gap_abs": 77.72929754410734,
+  "final_critic_loss": 28108.620947265623,
+  "avg_theta_last10": 0.5071537119197137,
+  "best_epoch_is_one": 1
+}

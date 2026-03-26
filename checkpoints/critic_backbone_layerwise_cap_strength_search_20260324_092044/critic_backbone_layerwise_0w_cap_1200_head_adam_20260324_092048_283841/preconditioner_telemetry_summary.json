@@ -1,0 +1,126 @@
+{
+  "active_grad_threshold": 1e-12,
+  "max_preconditioner_cap": null,
+  "layerwise_max_preconditioner_by_name": {
+    "critic_backbone.0.weight": 1200.0,
+    "critic_backbone.6.weight": 4000.0,
+    "critic_backbone.7.weight": 4000.0,
+    "critic_backbone.4.bias": 4000.0
+  },
+  "clip_focus_parameter_names": [
+    "critic_backbone.0.weight",
+    "critic_backbone.4.bias",
+    "critic_backbone.6.weight",
+    "critic_backbone.7.weight"
+  ],
+  "tracked_hotspot_layers": [
+    "critic_backbone.0.weight",
+    "critic_backbone.6.weight",
+    "critic_backbone.7.weight",
+    "critic_backbone.4.bias",
+    "critic_backbone.7.bias"
+  ],
+  "final_backbone_telemetry": {
+    "epoch": 4.0,
+    "final_critic_backbone_delta_norm": 0.0405142003606999,
+    "backbone_active_count": 3107840.0,
+    "backbone_clipped_active_count": 720484.0,
+    "backbone_clipped_active_fraction": 0.23182789332784184,
+    "backbone_active_preconditioner_mean": 148191.953125,
+    "backbone_active_preconditioner_p95": 643535.3031249971,
+    "backbone_active_preconditioner_p99": 4015655.25,
+    "backbone_active_preconditioner_max": 21069484.0,
+    "backbone_active_preconditioner_mean_after_clip": 1472.14013671875,
+    "backbone_active_preconditioner_p95_after_clip": 3378.912426757812,
+    "backbone_active_preconditioner_p99_after_clip": 3999.999755859375,
+    "backbone_active_preconditioner_max_after_clip": 14197.892578125
+  },
+  "final_hotspot_layer_telemetry": {
+    "critic_backbone.0.weight": {
+      "layer_active_count": 1751040,
+      "layer_clipped_active_count": 674631,
+      "layer_clipped_active_fraction": 0.3852744654605263,
+      "layer_active_preconditioner_mean": 261255.0625,
+      "layer_active_preconditioner_p95": 1644466.625,
+      "layer_active_preconditioner_p99": 5494423.5,
+      "layer_active_preconditioner_max": 21069484.0,
+      "layer_active_preconditioner_mean_after_clip": 890.9588012695312,
+      "layer_active_preconditioner_p95_after_clip": 1200.0,
+      "layer_active_preconditioner_p99_after_clip": 1200.0,
+      "layer_active_preconditioner_max_after_clip": 1200.0,
+      "layer_actual_param_delta_norm": 0.02709193299524486,
+      "layer_raw_grad_norm": 0.3447493938729167,
+      "layer_preconditioned_grad_norm": 213.53839359283447
+    },
+    "critic_backbone.4.bias": {
+      "layer_active_count": 5120,
+      "layer_clipped_active_count": 308,
+      "layer_clipped_active_fraction": 0.06015625,
+      "layer_active_preconditioner_mean": 1907.0035400390625,
+      "layer_active_preconditioner_p95": 4265.07392578125,
+      "layer_active_preconditioner_p99": 5177.785327148437,
+      "layer_active_preconditioner_max": 6651.59814453125,
+      "layer_active_preconditioner_mean_after_clip": 1859.6265869140625,
+      "layer_active_preconditioner_p95_after_clip": 3999.999755859375,
+      "layer_active_preconditioner_p99_after_clip": 3999.999755859375,
+      "layer_active_preconditioner_max_after_clip": 3999.999755859375,
+      "layer_actual_param_delta_norm": 0.0020721525710541756,
+      "layer_raw_grad_norm": 0.008405433222651481,
+      "layer_preconditioned_grad_norm": 11.397151875495911
+    },
+    "critic_backbone.6.weight": {
+      "layer_active_count": 655360,
+      "layer_clipped_active_count": 45171,
+      "layer_clipped_active_fraction": 0.06892547607421876,
+      "layer_active_preconditioner_mean": 2934.865478515625,
+      "layer_active_preconditioner_p95": 4266.690698242181,
+      "layer_active_preconditioner_p99": 6602.890380859385,
+      "layer_active_preconditioner_max": 14987.015625,
+      "layer_active_preconditioner_mean_after_clip": 2831.102783203125,
+      "layer_active_preconditioner_p95_after_clip": 3999.999755859375,
+      "layer_active_preconditioner_p99_after_clip": 3999.999755859375,
+      "layer_active_preconditioner_max_after_clip": 3999.999755859375,
+      "layer_actual_param_delta_norm": 0.02062415115069598,
+      "layer_raw_grad_norm": 0.05314702419564128,
+      "layer_preconditioned_grad_norm": 145.32491245269776
+    },
+    "critic_backbone.7.bias": {
+      "layer_active_count": 5120,
+      "layer_clipped_active_count": 0,
+      "layer_clipped_active_fraction": 0.0,
+      "layer_active_preconditioner_mean": 1751.63671875,
+      "layer_active_preconditioner_p95": 2354.7173950195315,
+      "layer_active_preconditioner_p99": 3092.8833886718767,
+      "layer_active_preconditioner_max": 14197.892578125,
+      "layer_active_preconditioner_mean_after_clip": 1751.63671875,
+      "layer_active_preconditioner_p95_after_clip": 2354.7173950195315,
+      "layer_active_preconditioner_p99_after_clip": 3092.8833886718767,
+      "layer_active_preconditioner_max_after_clip": 14197.892578125,
+      "layer_actual_param_delta_norm": 0.002421960148785729,
+      "layer_raw_grad_norm": 0.0063444183702813465,
+      "layer_preconditioned_grad_norm": 10.459848898649216
+    },
+    "critic_backbone.7.weight": {
+      "layer_active_count": 5120,
+      "layer_clipped_active_count": 374,
+      "layer_clipped_active_fraction": 0.073046875,
+      "layer_active_preconditioner_mean": 3712.778076171875,
+      "layer_active_preconditioner_p95": 5065.17548828125,
+      "layer_active_preconditioner_p99": 12434.449960937502,
+      "layer_active_preconditioner_max": 133615.46875,
+      "layer_active_preconditioner_mean_after_clip": 2610.711669921875,
+      "layer_active_preconditioner_p95_after_clip": 3999.999755859375,
+      "layer_active_preconditioner_p99_after_clip": 3999.999755859375,
+      "layer_active_preconditioner_max_after_clip": 3999.999755859375,
+      "layer_actual_param_delta_norm": 0.002457042984315194,
+      "layer_raw_grad_norm": 0.004082939910585992,
+      "layer_preconditioned_grad_norm": 10.474970132112503
+    }
+  },
+  "files": {
+    "backbone_step_telemetry": "checkpoints\\critic_backbone_layerwise_cap_strength_search_20260324_092044\\critic_backbone_layerwise_0w_cap_1200_head_adam_20260324_092048_283841\\backbone_preconditioner_step_telemetry.csv",
+    "hotspot_layer_step_telemetry": "checkpoints\\critic_backbone_layerwise_cap_strength_search_20260324_092044\\critic_backbone_layerwise_0w_cap_1200_head_adam_20260324_092048_283841\\hotspot_layer_preconditioner_step_telemetry.csv",
+    "backbone_epoch_telemetry": "checkpoints\\critic_backbone_layerwise_cap_strength_search_20260324_092044\\critic_backbone_layerwise_0w_cap_1200_head_adam_20260324_092048_283841\\backbone_preconditioner_telemetry_by_epoch.csv",
+    "hotspot_layer_epoch_telemetry": "checkpoints\\critic_backbone_layerwise_cap_strength_search_20260324_092044\\critic_backbone_layerwise_0w_cap_1200_head_adam_20260324_092048_283841\\hotspot_layer_telemetry_by_epoch.csv"
+  }
+}

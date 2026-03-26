@@ -1,0 +1,93 @@
+{
+  "mode": "hierarchical_actor_true_conditional_route_policy",
+  "route_active_count": 381,
+  "route_active_fraction": 0.49609375,
+  "selected_route_index_stats": {
+    "count": 381.0,
+    "mean": 0.43832021951675415,
+    "std": 0.49618101119995117,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "candidate_score_vector_stats": {
+    "count": 762.0,
+    "mean": 0.0,
+    "std": 0.5,
+    "min": -2.1709399223327637,
+    "max": 2.1709399223327637
+  },
+  "selected_score_stats": {
+    "count": 381.0,
+    "mean": 0.0032994516659528017,
+    "std": 0.4999891221523285,
+    "min": -2.1709399223327637,
+    "max": 1.9979193210601807
+  },
+  "expected_score_stats": {
+    "count": 381.0,
+    "mean": -0.002735830144956708,
+    "std": 0.09305917471647263,
+    "min": -0.7039241790771484,
+    "max": 0.5281858444213867
+  },
+  "route_effective_advantage_stats": {
+    "count": 381.0,
+    "mean": -1.2515410929836435e-08,
+    "std": 1.0,
+    "min": -4.341879844665527,
+    "max": 3.096759557723999
+  },
+  "route_old_logprob_stats": {
+    "count": 381.0,
+    "mean": -0.6206977963447571,
+    "std": 0.1516871154308319,
+    "min": -1.1822667121887207,
+    "max": -0.2799041271209717
+  },
+  "route_new_logprob_stats": {
+    "count": 381.0,
+    "mean": -0.6206977963447571,
+    "std": 0.1516871154308319,
+    "min": -1.1822668313980103,
+    "max": -0.27990418672561646
+  },
+  "route_ratio_stats": {
+    "count": 381.0,
+    "mean": 1.0,
+    "std": 5.488060494940328e-08,
+    "min": 0.9999998211860657,
+    "max": 1.000000238418579
+  },
+  "route_surrogate_stats": {
+    "count": 381.0,
+    "mean": -1.1263869836852791e-08,
+    "std": 1.0,
+    "min": -4.341879844665527,
+    "max": 3.096759557723999
+  },
+  "route_loss": 1.1263869836852791e-08,
+  "bare_backward": {
+    "route_head_grad_norm": 0.1279285040529653,
+    "route_backbone_grad_norm": 0.12447211073125426,
+    "route_logstd_grad_norm": 0.0,
+    "route_param_grads_all_zero": false,
+    "theta_head_grad_norm": 0.0,
+    "theta_backbone_grad_norm": 0.0,
+    "theta_logstd_grad_norm": 0.0,
+    "only_route_branch_received_gradient": true
+  },
+  "full_control": {
+    "route_update_count": 1,
+    "route_step_blocked_by_trust_region": false,
+    "route_step_blocked_by_coupled_stop": false,
+    "route_step_blocked_by_other_guard": false,
+    "final_route_head_grad_norm": 0.1279285040529653,
+    "final_route_backbone_grad_norm": 0.12447211073125426,
+    "final_route_logstd_grad_norm": 0.0,
+    "optimizer_step_executed": true,
+    "route_param_delta_norm": 0.14873936965338475,
+    "theta_param_delta_norm": 0.0,
+    "route_params_changed": true,
+    "theta_params_changed": false
+  }
+}

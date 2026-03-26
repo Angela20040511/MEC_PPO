@@ -1,0 +1,2 @@
+﻿seed,run_dir,epochs_completed,stopped_early,best_reward,final_reward,best_epoch,reward_gap,final_critic_loss,avg_theta_last10_mean
+2025,checkpoints\seed_robustness_20260315_120033\seed_2025_20260315_120033_341997,33,True,-393.09730376396254,-450.87445742187754,6,-57.777153657914994,2541.598928833008,0.5049122367607959

@@ -1,0 +1,135 @@
+{
+  "root_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808",
+  "fixed_params": {
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "start_check_epoch": 3,
+    "max_epochs": 12,
+    "patience": 3,
+    "min_delta": 1.0,
+    "time_steps": 100,
+    "num_layers": 1,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "min_history_to_train": 20
+  },
+  "candidates": {
+    "A": {
+      "history_window": 4,
+      "prediction_horizon": 6,
+      "hidden_size": 32,
+      "retrain_interval": 5,
+      "train_epochs": 5
+    },
+    "B": {
+      "history_window": 8,
+      "prediction_horizon": 2,
+      "hidden_size": 128,
+      "retrain_interval": 5,
+      "train_epochs": 5
+    }
+  },
+  "seeds": [
+    2025,
+    2026,
+    2027,
+    2028,
+    2029
+  ],
+  "groups": [
+    {
+      "candidate": "A",
+      "candidate_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_A",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_A\\seed_2025_20260315_154808_115049"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_A\\seed_2026_20260315_154817_193104"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_A\\seed_2027_20260315_154823_804152"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_A\\seed_2028_20260315_154830_836433"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_A\\seed_2029_20260315_154836_918934"
+        }
+      ],
+      "candidate_statistics": {
+        "candidate": "A",
+        "candidate_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_A",
+        "history_window": 4,
+        "prediction_horizon": 6,
+        "hidden_size": 32,
+        "retrain_interval": 5,
+        "train_epochs": 5,
+        "mean_best_reward": -395.51347011588194,
+        "std_best_reward": 6.823780913262844,
+        "mean_final_reward": -424.89742784714946,
+        "std_final_reward": 4.797010703736211,
+        "mean_reward_gap": -29.383957731267504,
+        "std_reward_gap": 3.395069713322771,
+        "mean_best_epoch": 4.0,
+        "mean_final_critic_loss": 2827.363873291016,
+        "mean_avg_theta_last10": 0.5005608588281268
+      }
+    },
+    {
+      "candidate": "B",
+      "candidate_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_B",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_B\\seed_2025_20260315_154842_138333"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_B\\seed_2026_20260315_154852_616703"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_B\\seed_2027_20260315_154902_182596"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_B\\seed_2028_20260315_154911_055909"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_B\\seed_2029_20260315_154919_648285"
+        }
+      ],
+      "candidate_statistics": {
+        "candidate": "B",
+        "candidate_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\candidate_B",
+        "history_window": 8,
+        "prediction_horizon": 2,
+        "hidden_size": 128,
+        "retrain_interval": 5,
+        "train_epochs": 5,
+        "mean_best_reward": -397.66504507489674,
+        "std_best_reward": 7.478085335996912,
+        "mean_final_reward": -408.39107804883133,
+        "std_final_reward": 7.434051853645393,
+        "mean_reward_gap": -10.726032973934593,
+        "std_reward_gap": 2.6339222307796595,
+        "mean_best_epoch": 4.0,
+        "mean_final_critic_loss": 2690.651700439453,
+        "mean_avg_theta_last10": 0.5013915093145186
+      }
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\dt_candidate_seed_summary.csv",
+    "summary_json": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\dt_candidate_seed_summary.json",
+    "summary_md": "checkpoints\\dt_candidate_seed_validation_20260315_154808\\dt_candidate_seed_summary.md"
+  }
+}

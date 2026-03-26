@@ -1,0 +1,57 @@
+{
+  "root_dir": "checkpoints\\seed_robustness_20260315_120107",
+  "fixed_params": {
+    "max_epochs": 37,
+    "patience": 8,
+    "min_delta": 1.0
+  },
+  "seeds": [
+    2025,
+    2026,
+    2027,
+    2028,
+    2029
+  ],
+  "runs": [
+    {
+      "seed": 2025,
+      "run_dir": "checkpoints\\seed_robustness_20260315_120107\\seed_2025_20260315_120107_561568",
+      "analysis_summary": "checkpoints\\seed_robustness_20260315_120107\\seed_2025_20260315_120107_561568\\analysis_summary.json"
+    },
+    {
+      "seed": 2026,
+      "run_dir": "checkpoints\\seed_robustness_20260315_120107\\seed_2026_20260315_120132_722353",
+      "analysis_summary": "checkpoints\\seed_robustness_20260315_120107\\seed_2026_20260315_120132_722353\\analysis_summary.json"
+    },
+    {
+      "seed": 2027,
+      "run_dir": "checkpoints\\seed_robustness_20260315_120107\\seed_2027_20260315_120157_419194",
+      "analysis_summary": "checkpoints\\seed_robustness_20260315_120107\\seed_2027_20260315_120157_419194\\analysis_summary.json"
+    },
+    {
+      "seed": 2028,
+      "run_dir": "checkpoints\\seed_robustness_20260315_120107\\seed_2028_20260315_120220_827051",
+      "analysis_summary": "checkpoints\\seed_robustness_20260315_120107\\seed_2028_20260315_120220_827051\\analysis_summary.json"
+    },
+    {
+      "seed": 2029,
+      "run_dir": "checkpoints\\seed_robustness_20260315_120107\\seed_2029_20260315_120243_847525",
+      "analysis_summary": "checkpoints\\seed_robustness_20260315_120107\\seed_2029_20260315_120243_847525\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\seed_robustness_20260315_120107\\seed_summary.csv",
+    "summary_json": "checkpoints\\seed_robustness_20260315_120107\\seed_summary.json",
+    "summary_md": "checkpoints\\seed_robustness_20260315_120107\\seed_summary.md",
+    "stats_json": "checkpoints\\seed_robustness_20260315_120107\\seed_statistics.json",
+    "statistics": {
+      "mean_best_reward": -399.0058786642139,
+      "std_best_reward": 3.720521334287266,
+      "mean_final_reward": -452.5380086052184,
+      "std_final_reward": 20.208069653606977,
+      "mean_reward_gap": -53.53212994100447,
+      "std_reward_gap": 22.12756347638463,
+      "mean_best_epoch": 6.6
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "root_dir": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "block_td_value_definition": "For blockwise_td_advantage_surrogate_mean: reuse the lightweight 24-block value head on top of the existing critic backbone as block value predictor V_b(s). Define local_cost_b = workload_b + virtual_queue_b + local_queue_b + access_queue_sensor(b), all from the current raw state at the current timestep; r_b = -local_cost_b. Then A_b = r_b + gamma * (1 - done) * V_b(s_next) - V_b(s). The block value head is trained with the configured value loss against this block TD target, using detached critic-backbone features so the global critic mainline remains intact.",
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "blockwise_surrogate_mean",
+    "blockwise_td_advantage_surrogate_mean"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "blockwise_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\policy_ratio_blockwise_surrogate_mean_20260318_081613_518176",
+      "analysis_summary": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\policy_ratio_blockwise_surrogate_mean_20260318_081613_518176\\analysis_summary.json"
+    },
+    {
+      "policy_ratio_mode": "blockwise_td_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\policy_ratio_blockwise_td_advantage_surrogate_mean_20260318_081634_369530",
+      "analysis_summary": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\policy_ratio_blockwise_td_advantage_surrogate_mean_20260318_081634_369530\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\policy_block_td_value_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\policy_block_td_value_summary.json",
+    "summary_md": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\policy_block_td_value_summary.md",
+    "reward_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\reward_curve_compare.png",
+    "policy_loss_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\policy_loss_curve_compare.png",
+    "approx_kl_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\approx_kl_curve_compare.png",
+    "clip_fraction_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\clip_fraction_curve_compare.png",
+    "ratio_stats_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\ratio_stats_curve_compare.png",
+    "advantage_alignment_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\advantage_alignment_curve_compare.png",
+    "advantage_bucket_update_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\advantage_bucket_update_compare.png",
+    "selected_action_prob_gain_by_adv_bucket_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\selected_action_prob_gain_by_adv_bucket_compare.png",
+    "probe_policy_kl_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\probe_policy_kl_curve_compare.png",
+    "selected_action_change_rate_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\selected_action_change_rate_curve_compare.png",
+    "logprob_scale_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\logprob_scale_curve_compare.png",
+    "block_logprob_scale_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\block_logprob_scale_curve_compare.png",
+    "block_clip_fraction_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\block_clip_fraction_curve_compare.png",
+    "block_surrogate_scale_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\block_surrogate_scale_curve_compare.png",
+    "block_td_advantage_entropy_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\block_td_advantage_entropy_curve_compare.png",
+    "top_k_block_td_advantage_share_curve_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\top_k_block_td_advantage_share_curve_compare.png",
+    "critic_health_compare": "checkpoints\\dense_policy_block_td_value_experiment_20260318_081609\\comparison_plots\\critic_health_compare.png"
+  }
+}

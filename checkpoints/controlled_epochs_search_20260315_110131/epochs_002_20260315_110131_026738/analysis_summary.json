@@ -1,0 +1,20 @@
+{
+  "epochs": 2,
+  "run_dir": "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738",
+  "best_reward": -384.266473171511,
+  "final_reward": -456.63791509808783,
+  "best_epoch": 0,
+  "best_delay": 368.35404478972,
+  "best_cost": 372.5215906296441,
+  "delay_at_best_reward": 368.35404478972,
+  "cost_at_best_reward": 372.5215906296441,
+  "final_critic_loss": 4217.24853515625,
+  "avg_theta_trend": "长期卡在0.5附近",
+  "avg_theta_first_mean": 0.5034250877039382,
+  "avg_theta_last_mean": 0.5000043490115174,
+  "avg_theta_slope": -0.003420738692420877,
+  "reward_degradation": "明显",
+  "reward_gap": 72.37144192657684,
+  "critic_loss_status": "基本稳定",
+  "critic_loss_ratio_vs_min": 1.4562093967209981
+}

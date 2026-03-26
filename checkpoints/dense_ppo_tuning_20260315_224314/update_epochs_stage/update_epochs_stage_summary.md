@@ -1,0 +1,5 @@
+| rank | actor_learning_rate | update_epochs | entropy_coeff | run_dir | epochs_completed | best_reward | final_reward | best_epoch | reward_gap | reward_gap_abs | final_critic_loss | avg_theta_last10 | best_epoch_is_one |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 0.0003 | 8 | 0.001 | checkpoints\dense_ppo_tuning_20260315_224314\update_epochs_stage\update_epochs_8_20260315_224425_959068 | 5 | -1097.9223725886982 | -1174.5475512255812 | 1 | -76.62517863688299 | 76.62517863688299 | 27717.68560791016 | 0.5025531840351609 | 1 |
+| 2 | 0.0003 | 6 | 0.001 | checkpoints\dense_ppo_tuning_20260315_224314\update_epochs_stage\update_epochs_6_20260315_224412_115566 | 5 | -1098.744990587554 | -1178.517498866956 | 1 | -79.77250827940202 | 79.77250827940202 | 27834.55322265625 | 0.5028101132886073 | 1 |
+| 3 | 0.0003 | 4 | 0.001 | checkpoints\dense_ppo_tuning_20260315_224314\update_epochs_stage\update_epochs_4_20260315_224358_618278 | 5 | -1102.2535553078253 | -1181.7629863639606 | 1 | -79.50943105613533 | 79.50943105613533 | 28403.275634765625 | 0.4994700142655081 | 1 |

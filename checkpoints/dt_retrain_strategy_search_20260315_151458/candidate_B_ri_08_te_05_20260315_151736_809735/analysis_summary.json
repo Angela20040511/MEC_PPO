@@ -1,0 +1,18 @@
+{
+  "candidate": "B",
+  "history_window": 8,
+  "prediction_horizon": 2,
+  "hidden_size": 128,
+  "retrain_interval": 8,
+  "train_epochs": 5,
+  "seed": 2025,
+  "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_08_te_05_20260315_151736_809735",
+  "epochs_completed": 10,
+  "best_reward": -401.2296178290504,
+  "final_reward": -411.7432592360368,
+  "best_epoch": 6,
+  "reward_gap": -10.51364140698638,
+  "reward_gap_abs": 10.51364140698638,
+  "final_critic_loss": 2664.215478515625,
+  "avg_theta_last10": 0.5040025055497311
+}

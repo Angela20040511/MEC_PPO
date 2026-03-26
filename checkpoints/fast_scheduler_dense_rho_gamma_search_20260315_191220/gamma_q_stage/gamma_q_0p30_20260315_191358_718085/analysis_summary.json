@@ -1,0 +1,15 @@
+{
+  "rho0": 0.75,
+  "gamma_q": 0.3,
+  "gamma_e": 0.15,
+  "run_dir": "checkpoints\\fast_scheduler_dense_rho_gamma_search_20260315_191220\\gamma_q_stage\\gamma_q_0p30_20260315_191358_718085",
+  "epochs_completed": 5,
+  "best_reward": -1098.0962945315696,
+  "final_reward": -1173.9437917148573,
+  "best_epoch": 1,
+  "reward_gap": -75.84749718328771,
+  "reward_gap_abs": 75.84749718328771,
+  "final_critic_loss": 27298.41943359375,
+  "avg_theta_last10": 0.5034234219935281,
+  "best_epoch_is_one": 1
+}

@@ -1,0 +1,59 @@
+{
+  "root_dir": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "factorized_trust_region_mode_definitions": {
+      "hierarchical_actor_factorized_ratio_pg": "Control group: fully factorized theta / route PPO objective with separate backbones, hard route mask, branchwise normalized advantages, and alternating theta-first then route-second updates, but without branch-specific KL early stop.",
+      "hierarchical_actor_factorized_trust_region_pg": "Test group: keep the same fully factorized theta / route PPO objective and alternating theta-first then route-second updates, while adding independent theta / route KL targets with branch-specific early stop inside each PPO epoch.",
+      "hierarchical_actor_factorized_trust_region_pg_route_first": "Test group (route-first): keep the same fully factorized theta / route PPO objective and branch-specific KL early stop, but switch alternating order to route-first then theta-second within each PPO minibatch.",
+      "hierarchical_actor_factorized_trust_region_pg_coupled_stop": "Test group (coupled-stop): keep theta-first alternating order and branch-specific KL early stop, and additionally freeze theta updates for the rest of the current PPO epoch once route KL early-stop is triggered.",
+      "hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop": "Test group (route-first + coupled-stop): keep fully factorized branch objectives and branch-specific KL early stop, use route-first then theta-second order, and freeze theta for the rest of the PPO epoch after route KL early-stop triggers.",
+      "hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_theta_floor": "Test group (route-first + coupled-stop + theta-floor): same as route-first + coupled-stop, but coupled-stop can freeze theta only after at least a minimum number of theta updates have been completed within the current PPO epoch.",
+      "hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_route_confident_mask": "Test group (route-first + coupled-stop + route-confident-mask): same as route-first + coupled-stop, but route branch updates only use high-confidence routing blocks with theta > 0.5 + margin during training.",
+      "hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_route_cap": "Test group (route-first + coupled-stop + route-cap): same as route-first + coupled-stop, but route branch updates are capped to a fixed maximum number per PPO epoch.",
+      "hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_alignment_gate": "Test group (route-first + coupled-stop + alignment-gate): same as route-first + coupled-stop, but each route step is accepted only if minibatch route-step alignment meets a configured threshold; otherwise that route step is rolled back."
+    },
+    "route_mask_threshold": 0.5,
+    "theta_kl_target": 0.03,
+    "route_kl_target": 0.015,
+    "coupled_stop_min_theta_updates_per_epoch": 1,
+    "route_confident_mask_margin": 0.02,
+    "route_update_cap_per_epoch": 2,
+    "route_alignment_gate_threshold": 0.02,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop",
+    "hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_alignment_gate"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_20260319_125338_378940",
+      "analysis_summary": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_20260319_125338_378940/analysis_summary.json",
+      "alternating_branch_pg_stats": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_20260319_125338_378940/alternating_branch_pg_stats_by_epoch.csv",
+      "factorized_ratio_pg_stats": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_20260319_125338_378940/factorized_ratio_pg_stats_by_epoch.csv",
+      "factorized_trust_region_pg_stats": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_20260319_125338_378940/factorized_trust_region_pg_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_20260319_125338_378940/theta_route_split_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_alignment_gate",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_alignment_gate_20260319_125411_511954",
+      "analysis_summary": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_alignment_gate_20260319_125411_511954/analysis_summary.json",
+      "alternating_branch_pg_stats": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_alignment_gate_20260319_125411_511954/alternating_branch_pg_stats_by_epoch.csv",
+      "factorized_ratio_pg_stats": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_alignment_gate_20260319_125411_511954/factorized_ratio_pg_stats_by_epoch.csv",
+      "factorized_trust_region_pg_stats": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_alignment_gate_20260319_125411_511954/factorized_trust_region_pg_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_ratio_hierarchical_actor_factorized_trust_region_pg_route_first_coupled_stop_alignment_gate_20260319_125411_511954/theta_route_split_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_factorized_trust_region_pg_summary.csv",
+    "summary_json": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_factorized_trust_region_pg_summary.json",
+    "summary_md": "checkpoints/exp10_alignment_gate_t002/dense_policy_factorized_trust_region_pg_experiment_20260319_125323/policy_factorized_trust_region_pg_summary.md"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "root_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154740",
+  "fixed_params": {
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "start_check_epoch": 3,
+    "max_epochs": 12,
+    "patience": 3,
+    "min_delta": 1.0,
+    "time_steps": 100,
+    "num_layers": 1,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "min_history_to_train": 20
+  },
+  "candidates": {
+    "A": {
+      "history_window": 4,
+      "prediction_horizon": 6,
+      "hidden_size": 32,
+      "retrain_interval": 5,
+      "train_epochs": 5
+    },
+    "B": {
+      "history_window": 8,
+      "prediction_horizon": 2,
+      "hidden_size": 128,
+      "retrain_interval": 5,
+      "train_epochs": 5
+    }
+  },
+  "seeds": [
+    2025
+  ],
+  "groups": [
+    {
+      "candidate": "A",
+      "candidate_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154740\\candidate_A",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154740\\candidate_A\\seed_2025_20260315_154740_019626"
+        }
+      ],
+      "candidate_statistics": {
+        "candidate": "A",
+        "candidate_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154740\\candidate_A",
+        "history_window": 4,
+        "prediction_horizon": 6,
+        "hidden_size": 32,
+        "retrain_interval": 5,
+        "train_epochs": 5,
+        "mean_best_reward": -384.0348256751241,
+        "std_best_reward": 0.0,
+        "mean_final_reward": -417.2942333868649,
+        "std_final_reward": 0.0,
+        "mean_reward_gap": -33.25940771174078,
+        "std_reward_gap": 0.0,
+        "mean_best_epoch": 6.0,
+        "mean_final_critic_loss": 2631.364193725586,
+        "mean_avg_theta_last10": 0.5290480703322433
+      }
+    },
+    {
+      "candidate": "B",
+      "candidate_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154740\\candidate_B",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154740\\candidate_B\\seed_2025_20260315_154748_472420"
+        }
+      ],
+      "candidate_statistics": {
+        "candidate": "B",
+        "candidate_dir": "checkpoints\\dt_candidate_seed_validation_20260315_154740\\candidate_B",
+        "history_window": 8,
+        "prediction_horizon": 2,
+        "hidden_size": 128,
+        "retrain_interval": 5,
+        "train_epochs": 5,
+        "mean_best_reward": -389.6761891233042,
+        "std_best_reward": 0.0,
+        "mean_final_reward": -398.972030145125,
+        "std_final_reward": 0.0,
+        "mean_reward_gap": -9.29584102182082,
+        "std_reward_gap": 0.0,
+        "mean_best_epoch": 6.0,
+        "mean_final_critic_loss": 2409.201416015625,
+        "mean_avg_theta_last10": 0.5231838480456156
+      }
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dt_candidate_seed_validation_20260315_154740\\dt_candidate_seed_summary.csv",
+    "summary_json": "checkpoints\\dt_candidate_seed_validation_20260315_154740\\dt_candidate_seed_summary.json",
+    "summary_md": "checkpoints\\dt_candidate_seed_validation_20260315_154740\\dt_candidate_seed_summary.md"
+  }
+}

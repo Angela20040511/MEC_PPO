@@ -1,0 +1,33 @@
+{
+  "root_dir": "checkpoints\\seed_robustness_20260315_120033",
+  "fixed_params": {
+    "max_epochs": 37,
+    "patience": 8,
+    "min_delta": 1.0
+  },
+  "seeds": [
+    2025
+  ],
+  "runs": [
+    {
+      "seed": 2025,
+      "run_dir": "checkpoints\\seed_robustness_20260315_120033\\seed_2025_20260315_120033_341997",
+      "analysis_summary": "checkpoints\\seed_robustness_20260315_120033\\seed_2025_20260315_120033_341997\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\seed_robustness_20260315_120033\\seed_summary.csv",
+    "summary_json": "checkpoints\\seed_robustness_20260315_120033\\seed_summary.json",
+    "summary_md": "checkpoints\\seed_robustness_20260315_120033\\seed_summary.md",
+    "stats_json": "checkpoints\\seed_robustness_20260315_120033\\seed_statistics.json",
+    "statistics": {
+      "mean_best_reward": -393.09730376396254,
+      "std_best_reward": 0.0,
+      "mean_final_reward": -450.87445742187754,
+      "std_final_reward": 0.0,
+      "mean_reward_gap": -57.777153657914994,
+      "std_reward_gap": 0.0,
+      "mean_best_epoch": 6.0
+    }
+  }
+}

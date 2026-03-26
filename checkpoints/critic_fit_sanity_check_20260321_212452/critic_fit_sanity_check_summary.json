@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "baseline_mode": "hierarchical_actor_joint_reward_aligned_credit",
+    "checkpoint_path": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_182909_053940\\best_model.pt",
+    "seed": 2025,
+    "fit_steps": 100,
+    "buffer_steps": 100,
+    "critic_only_updated_parameters": [
+      "network.critic_backbone.*",
+      "network.critic_head.*"
+    ],
+    "frozen_parameters": [
+      "all actor parameters",
+      "critic_block_value_head.*",
+      "critic_block_path_value_head.*"
+    ]
+  },
+  "group_summaries": [
+    {
+      "group_name": "A_value_target",
+      "initial": {
+        "group_name": "A_value_target",
+        "step": 0,
+        "critic_loss": 1.7287280559539795,
+        "pred_mean": 1.3734115362167358,
+        "pred_std": 1.8396974802017212,
+        "target_mean": -0.5582566857337952,
+        "target_std": 1.0436861515045166,
+        "raw_pred_mean": -14.647278785705566,
+        "raw_pred_std": 15.977123260498047,
+        "pearson_pred_vs_value_target": 0.06003856973890532,
+        "spearman_pred_vs_value_target": 0.050669066906690666,
+        "pearson_pred_vs_return": 0.060038569666502714,
+        "spearman_pred_vs_return": 0.050669066906690666,
+        "pearson_pred_vs_advantage": -0.8626783510279856,
+        "spearman_pred_vs_advantage": -0.7317371737173717,
+        "mae_pred_vs_value_target": 2.1938812732696533
+      },
+      "final": {
+        "group_name": "A_value_target",
+        "step": 100,
+        "critic_loss": 2.969874913105741e-05,
+        "pred_mean": -0.5587667226791382,
+        "pred_std": 1.044106125831604,
+        "target_mean": -0.5582566857337952,
+        "target_std": 1.0436861515045166,
+        "raw_pred_mean": -31.427566528320312,
+        "raw_pred_std": 9.067693710327148,
+        "pearson_pred_vs_value_target": 0.999972946717412,
+        "spearman_pred_vs_value_target": 0.9997959795979596,
+        "pearson_pred_vs_return": 0.9999729467405332,
+        "spearman_pred_vs_return": 0.9997959795979596,
+        "pearson_pred_vs_advantage": 0.4526083806757642,
+        "spearman_pred_vs_advantage": 0.5176597659765977,
+        "mae_pred_vs_value_target": 0.005809124559164047
+      },
+      "best_loss": 2.969874913105741e-05,
+      "fit_target_definition": "current value_target"
+    },
+    {
+      "group_name": "B_neg_value_target",
+      "initial": {
+        "group_name": "B_neg_value_target",
+        "step": 0,
+        "critic_loss": 1.2459852695465088,
+        "pred_mean": 1.3734115362167358,
+        "pred_std": 1.8396974802017212,
+        "target_mean": 0.5582566857337952,
+        "target_std": 1.0436861515045166,
+        "raw_pred_mean": -14.647278785705566,
+        "raw_pred_std": 15.977123260498047,
+        "pearson_pred_vs_value_target": -0.06003856973890532,
+        "spearman_pred_vs_value_target": -0.050669066906690666,
+        "pearson_pred_vs_return": 0.060038569666502714,
+        "spearman_pred_vs_return": 0.050669066906690666,
+        "pearson_pred_vs_advantage": -0.8626783510279856,
+        "spearman_pred_vs_advantage": -0.7317371737173717,
+        "mae_pred_vs_value_target": 1.652869462966919
+      },
+      "final": {
+        "group_name": "B_neg_value_target",
+        "step": 100,
+        "critic_loss": 0.00014690044918097556,
+        "pred_mean": 0.5580105185508728,
+        "pred_std": 1.043496012687683,
+        "target_mean": 0.5582566857337952,
+        "target_std": 1.0436861515045166,
+        "raw_pred_mean": -21.728750228881836,
+        "raw_pred_std": 9.062395095825195,
+        "pearson_pred_vs_value_target": 0.9998651597969804,
+        "spearman_pred_vs_value_target": 0.9996999699969996,
+        "pearson_pred_vs_return": -0.9998651594805142,
+        "spearman_pred_vs_return": -0.9996999699969996,
+        "pearson_pred_vs_advantage": -0.45399244793898014,
+        "spearman_pred_vs_advantage": -0.5168076807680768,
+        "mae_pred_vs_value_target": 0.009224754758179188
+      },
+      "best_loss": 0.00014690044918097556,
+      "fit_target_definition": "negated current value_target"
+    }
+  ],
+  "comparison": {
+    "group_a_final_loss": 2.969874913105741e-05,
+    "group_b_final_loss": 0.00014690044918097556,
+    "group_a_final_corr_pred_target": 0.999972946717412,
+    "group_b_final_corr_pred_target": 0.9998651597969804,
+    "group_a_loss_drop": 1.7286983572048484,
+    "group_b_loss_drop": 1.2458383690973278,
+    "easier_group": "A_value_target"
+  }
+}

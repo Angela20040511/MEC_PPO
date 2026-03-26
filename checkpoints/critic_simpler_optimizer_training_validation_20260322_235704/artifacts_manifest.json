@@ -1,0 +1,46 @@
+{
+  "root_dir": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704",
+  "seed": 2025,
+  "policy_ratio_mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "base_critic_learning_rate": 0.0005,
+  "probe_state_count": 64,
+  "training_num_epochs": 6,
+  "training_time_steps": 100,
+  "update_epochs": 10,
+  "selected_groups": [
+    "baseline_critic_adam",
+    "critic_sgd_momentum",
+    "critic_sgd_plain"
+  ],
+  "groups": [
+    {
+      "group_name": "baseline_critic_adam",
+      "critic_optimizer_name": "adam",
+      "critic_learning_rate": 0.0005,
+      "critic_momentum": 0.0,
+      "run_dir": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704\\baseline_critic_adam_20260322_235708_495075",
+      "analysis_summary": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704\\baseline_critic_adam_20260322_235708_495075\\analysis_summary.json"
+    },
+    {
+      "group_name": "critic_sgd_momentum",
+      "critic_optimizer_name": "sgd_momentum",
+      "critic_learning_rate": 0.001,
+      "critic_momentum": 0.9,
+      "run_dir": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704\\critic_sgd_momentum_20260323_001128_124315",
+      "analysis_summary": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704\\critic_sgd_momentum_20260323_001128_124315\\analysis_summary.json"
+    },
+    {
+      "group_name": "critic_sgd_plain",
+      "critic_optimizer_name": "sgd_plain",
+      "critic_learning_rate": 0.001,
+      "critic_momentum": 0.0,
+      "run_dir": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704\\critic_sgd_plain_20260323_002635_915224",
+      "analysis_summary": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704\\critic_sgd_plain_20260323_002635_915224\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704\\critic_simpler_optimizer_training_validation_summary.csv",
+    "summary_json": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704\\critic_simpler_optimizer_training_validation_summary.json",
+    "summary_md": "checkpoints\\critic_simpler_optimizer_training_validation_20260322_235704\\critic_simpler_optimizer_training_validation_summary.md"
+  }
+}

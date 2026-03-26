@@ -1,0 +1,83 @@
+{
+  "root_dir": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037",
+  "fixed_params": {
+    "topology": "dense",
+    "seed": 2025,
+    "reward_mode": "per_sensor",
+    "value_target_mode": "popart_return_norm",
+    "value_loss_mode": "huber",
+    "critic_arch_mode": "stronger_critic_backbone",
+    "critic_input_mode": "normalized_augmented_critic_input",
+    "actor_input_mode": "normalized_augmented_actor_input",
+    "actor_raw_input_mode": "baseline_actor_raw",
+    "actor_learning_rate": 0.0005,
+    "critic_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "value_coeff": 0.5,
+    "update_epochs": 10,
+    "time_steps": 100,
+    "dt_history_window": 8,
+    "dt_prediction_horizon": 2,
+    "dt_hidden_size": 128,
+    "dt_retrain_interval": 5,
+    "dt_train_epochs": 5,
+    "dt_num_layers": 1,
+    "dt_learning_rate": 0.001,
+    "dt_batch_size": 32,
+    "dt_min_history_to_train": 20,
+    "q": 0.65,
+    "Umax": 2,
+    "alpha_p": 0.4,
+    "rho0": 0.75,
+    "gamma_q": 0.1,
+    "gamma_e": 0.15,
+    "start_check_epoch": 1,
+    "max_epochs": 6,
+    "patience": 3,
+    "min_delta": 1.0,
+    "probe_state_count": 64
+  },
+  "policy_ratio_modes": [
+    "current_joint_sum_ratio",
+    "mean_logprob_ratio",
+    "block_mean_ratio"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "current_joint_sum_ratio",
+      "run_dir": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_current_joint_sum_ratio_20260317_152040_930432",
+      "analysis_summary": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_current_joint_sum_ratio_20260317_152040_930432\\analysis_summary.json"
+    },
+    {
+      "policy_ratio_mode": "mean_logprob_ratio",
+      "run_dir": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_mean_logprob_ratio_20260317_152106_232525",
+      "analysis_summary": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_mean_logprob_ratio_20260317_152106_232525\\analysis_summary.json"
+    },
+    {
+      "policy_ratio_mode": "block_mean_ratio",
+      "run_dir": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_block_mean_ratio_20260317_152134_174154",
+      "analysis_summary": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_block_mean_ratio_20260317_152134_174154\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_block_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_block_summary.json",
+    "summary_md": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_block_summary.md",
+    "summary_csv_legacy": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_mode_summary.csv",
+    "summary_json_legacy": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_mode_summary.json",
+    "summary_md_legacy": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\policy_ratio_mode_summary.md",
+    "reward_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\reward_curve_compare.png",
+    "policy_loss_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\policy_loss_curve_compare.png",
+    "approx_kl_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\approx_kl_curve_compare.png",
+    "clip_fraction_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\clip_fraction_curve_compare.png",
+    "ratio_stats_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\ratio_stats_curve_compare.png",
+    "advantage_alignment_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\advantage_alignment_curve_compare.png",
+    "advantage_bucket_update_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\advantage_bucket_update_compare.png",
+    "selected_action_prob_gain_by_adv_bucket_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\selected_action_prob_gain_by_adv_bucket_compare.png",
+    "probe_policy_kl_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\probe_policy_kl_curve_compare.png",
+    "selected_action_change_rate_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\selected_action_change_rate_curve_compare.png",
+    "logprob_scale_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\logprob_scale_curve_compare.png",
+    "block_logprob_scale_curve_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\block_logprob_scale_curve_compare.png",
+    "critic_health_compare": "checkpoints\\dense_policy_ratio_block_experiment_20260317_152037\\comparison_plots\\critic_health_compare.png"
+  }
+}

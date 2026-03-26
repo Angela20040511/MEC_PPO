@@ -1,0 +1,61 @@
+{
+  "root_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151414",
+  "fixed_params": {
+    "seed": 2025,
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "start_check_epoch": 3,
+    "max_epochs": 12,
+    "patience": 3,
+    "min_delta": 1.0,
+    "time_steps": 100,
+    "num_layers": 1,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "min_history_to_train": 20
+  },
+  "candidates": {
+    "A": {
+      "history_window": 4,
+      "prediction_horizon": 6,
+      "hidden_size": 32
+    },
+    "B": {
+      "history_window": 8,
+      "prediction_horizon": 2,
+      "hidden_size": 128
+    }
+  },
+  "grid": {
+    "retrain_interval": [
+      3
+    ],
+    "train_epochs": [
+      3
+    ]
+  },
+  "runs": [
+    {
+      "candidate": "A",
+      "retrain_interval": 3,
+      "train_epochs": 3,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151414\\candidate_A_ri_03_te_03_20260315_151414_328510",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151414\\candidate_A_ri_03_te_03_20260315_151414_328510\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 3,
+      "train_epochs": 3,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151414\\candidate_B_ri_03_te_03_20260315_151423_979755",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151414\\candidate_B_ri_03_te_03_20260315_151423_979755\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dt_retrain_strategy_search_20260315_151414\\dt_retrain_strategy_summary.csv",
+    "summary_json": "checkpoints\\dt_retrain_strategy_search_20260315_151414\\dt_retrain_strategy_summary.json",
+    "summary_md": "checkpoints\\dt_retrain_strategy_search_20260315_151414\\dt_retrain_strategy_summary.md",
+    "candidate_best_csv": "checkpoints\\dt_retrain_strategy_search_20260315_151414\\candidate_best_summary.csv",
+    "candidate_best_json": "checkpoints\\dt_retrain_strategy_search_20260315_151414\\candidate_best_summary.json"
+  }
+}

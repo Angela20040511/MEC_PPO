@@ -1,0 +1,242 @@
+{
+  "mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "seed": 2025,
+  "trace_epochs": 2,
+  "checkpoint_path": "checkpoints\\dense_policy_joint_reward_aligned_credit_experiment_20260321_170716\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_172521_442663\\best_model.pt",
+  "probe_step_count": 48,
+  "actor_frozen": true,
+  "group_summaries": {
+    "current_step_size": {
+      "step_size_group": "current_step_size",
+      "critic_step_size_scale": 1.0,
+      "critic_optimizer_lr_by_group": {
+        "group_0": 0.0005
+      },
+      "actor_param_delta_norm_max": 0.0,
+      "first_divergence": {
+        "epoch": 0,
+        "update_epoch": 0,
+        "minibatch_id": 0,
+        "trace_stage": "after_optimizer_step",
+        "delta_metrics": {
+          "probe_pearson_value_vs_value_target": 0.007221132516860962,
+          "probe_spearman_value_vs_value_target": -0.02735562063753605,
+          "probe_pearson_value_vs_return": 0.00722116231918335,
+          "probe_spearman_value_vs_return": -0.02735562063753605
+        },
+        "critic_param_delta_norm": 0.0530448050090163,
+        "update_over_grad_ratio": 0.012232140352256848
+      },
+      "optimizer_probe_target_drop_min": -0.034036025404930115,
+      "optimizer_probe_target_drop_mean": 0.0024344105273485183,
+      "initial_probe_metrics": {
+        "epoch": 0,
+        "update_epoch": 0,
+        "minibatch_id": 0,
+        "trace_stage": "before_actor",
+        "probe_pearson_value_vs_value_target": 0.33636927604675293,
+        "probe_pearson_value_vs_return": 0.33636924624443054,
+        "probe_pearson_value_vs_advantage": -0.8383951783180237
+      },
+      "final_after_critic_probe_metrics": {
+        "epoch": 1,
+        "update_epoch": 9,
+        "minibatch_id": 39,
+        "trace_stage": "after_critic",
+        "probe_pearson_value_vs_value_target": 0.5346325635910034,
+        "probe_pearson_value_vs_return": 0.5346325635910034,
+        "probe_pearson_value_vs_advantage": -0.33099430799484253
+      },
+      "epoch_summaries": [
+        {
+          "step_size_group": "current_step_size",
+          "epoch": 0,
+          "actor_loss": 0.10397886298596859,
+          "critic_loss": 0.34893113244324925,
+          "route_update_count": 0,
+          "theta_update_count": 0,
+          "probe_after_critic_pearson_value_vs_value_target": 0.31170062683522703,
+          "probe_after_critic_pearson_value_vs_return": 0.31170062310993674
+        },
+        {
+          "step_size_group": "current_step_size",
+          "epoch": 1,
+          "actor_loss": -0.16397280022501945,
+          "critic_loss": 0.2043510124552995,
+          "route_update_count": 0,
+          "theta_update_count": 0,
+          "probe_after_critic_pearson_value_vs_value_target": 0.5580015197396279,
+          "probe_after_critic_pearson_value_vs_return": 0.5580015257000923
+        }
+      ]
+    },
+    "quarter_step_size": {
+      "step_size_group": "quarter_step_size",
+      "critic_step_size_scale": 0.25,
+      "critic_optimizer_lr_by_group": {
+        "group_0": 0.0005
+      },
+      "actor_param_delta_norm_max": 0.0,
+      "first_divergence": {
+        "epoch": 0,
+        "update_epoch": 0,
+        "minibatch_id": 0,
+        "trace_stage": "after_optimizer_step",
+        "delta_metrics": {
+          "probe_pearson_value_vs_value_target": 0.002223491668701172,
+          "probe_spearman_value_vs_value_target": -0.010421188548207283,
+          "probe_pearson_value_vs_return": 0.0022235214710235596,
+          "probe_spearman_value_vs_return": -0.010421188548207283
+        },
+        "critic_param_delta_norm": 0.01326120067015765,
+        "update_over_grad_ratio": 0.0030580349538326854
+      },
+      "optimizer_probe_target_drop_min": -0.0027863681316375732,
+      "optimizer_probe_target_drop_mean": 0.001784234866499901,
+      "initial_probe_metrics": {
+        "epoch": 0,
+        "update_epoch": 0,
+        "minibatch_id": 0,
+        "trace_stage": "before_actor",
+        "probe_pearson_value_vs_value_target": 0.33636927604675293,
+        "probe_pearson_value_vs_return": 0.33636924624443054,
+        "probe_pearson_value_vs_advantage": -0.8383951783180237
+      },
+      "final_after_critic_probe_metrics": {
+        "epoch": 1,
+        "update_epoch": 9,
+        "minibatch_id": 39,
+        "trace_stage": "after_critic",
+        "probe_pearson_value_vs_value_target": 0.4799492359161377,
+        "probe_pearson_value_vs_return": 0.4799492359161377,
+        "probe_pearson_value_vs_advantage": -0.5129074454307556
+      },
+      "epoch_summaries": [
+        {
+          "step_size_group": "quarter_step_size",
+          "epoch": 0,
+          "actor_loss": 0.10397886298596859,
+          "critic_loss": 0.5952623732388019,
+          "route_update_count": 0,
+          "theta_update_count": 0,
+          "probe_after_critic_pearson_value_vs_value_target": 0.40372096970677374,
+          "probe_after_critic_pearson_value_vs_return": 0.4037209637463093
+        },
+        {
+          "step_size_group": "quarter_step_size",
+          "epoch": 1,
+          "actor_loss": -0.16397280022501945,
+          "critic_loss": 0.4995677791535854,
+          "route_update_count": 0,
+          "theta_update_count": 0,
+          "probe_after_critic_pearson_value_vs_value_target": 0.4846517190337181,
+          "probe_after_critic_pearson_value_vs_return": 0.48465171083807945
+        }
+      ]
+    },
+    "tenth_step_size": {
+      "step_size_group": "tenth_step_size",
+      "critic_step_size_scale": 0.1,
+      "critic_optimizer_lr_by_group": {
+        "group_0": 0.0005
+      },
+      "actor_param_delta_norm_max": 0.0,
+      "first_divergence": null,
+      "optimizer_probe_target_drop_min": -0.0006086230278015137,
+      "optimizer_probe_target_drop_mean": 0.0011822652071714402,
+      "initial_probe_metrics": {
+        "epoch": 0,
+        "update_epoch": 0,
+        "minibatch_id": 0,
+        "trace_stage": "before_actor",
+        "probe_pearson_value_vs_value_target": 0.33636927604675293,
+        "probe_pearson_value_vs_return": 0.33636924624443054,
+        "probe_pearson_value_vs_advantage": -0.8383951783180237
+      },
+      "final_after_critic_probe_metrics": {
+        "epoch": 1,
+        "update_epoch": 9,
+        "minibatch_id": 39,
+        "trace_stage": "after_critic",
+        "probe_pearson_value_vs_value_target": 0.41898003220558167,
+        "probe_pearson_value_vs_return": 0.4189799726009369,
+        "probe_pearson_value_vs_advantage": -0.6968981623649597
+      },
+      "epoch_summaries": [
+        {
+          "step_size_group": "tenth_step_size",
+          "epoch": 0,
+          "actor_loss": 0.10397886298596859,
+          "critic_loss": 0.7886684667319059,
+          "route_update_count": 0,
+          "theta_update_count": 0,
+          "probe_after_critic_pearson_value_vs_value_target": 0.37725210934877396,
+          "probe_after_critic_pearson_value_vs_return": 0.377252097427845
+        },
+        {
+          "step_size_group": "tenth_step_size",
+          "epoch": 1,
+          "actor_loss": -0.16397280022501945,
+          "critic_loss": 0.6847642939537764,
+          "route_update_count": 0,
+          "theta_update_count": 0,
+          "probe_after_critic_pearson_value_vs_value_target": 0.41549153849482534,
+          "probe_after_critic_pearson_value_vs_return": 0.41549153476953504
+        }
+      ]
+    }
+  },
+  "group_comparison": {
+    "current_step_size": {
+      "first_divergence": {
+        "epoch": 0,
+        "update_epoch": 0,
+        "minibatch_id": 0,
+        "trace_stage": "after_optimizer_step",
+        "delta_metrics": {
+          "probe_pearson_value_vs_value_target": 0.007221132516860962,
+          "probe_spearman_value_vs_value_target": -0.02735562063753605,
+          "probe_pearson_value_vs_return": 0.00722116231918335,
+          "probe_spearman_value_vs_return": -0.02735562063753605
+        },
+        "critic_param_delta_norm": 0.0530448050090163,
+        "update_over_grad_ratio": 0.012232140352256848
+      },
+      "optimizer_probe_target_drop_min": -0.034036025404930115,
+      "optimizer_probe_target_drop_mean": 0.0024344105273485183
+    },
+    "quarter_step_size": {
+      "first_divergence": {
+        "epoch": 0,
+        "update_epoch": 0,
+        "minibatch_id": 0,
+        "trace_stage": "after_optimizer_step",
+        "delta_metrics": {
+          "probe_pearson_value_vs_value_target": 0.002223491668701172,
+          "probe_spearman_value_vs_value_target": -0.010421188548207283,
+          "probe_pearson_value_vs_return": 0.0022235214710235596,
+          "probe_spearman_value_vs_return": -0.010421188548207283
+        },
+        "critic_param_delta_norm": 0.01326120067015765,
+        "update_over_grad_ratio": 0.0030580349538326854
+      },
+      "optimizer_probe_target_drop_min": -0.0027863681316375732,
+      "optimizer_probe_target_drop_mean": 0.001784234866499901
+    },
+    "tenth_step_size": {
+      "first_divergence": null,
+      "optimizer_probe_target_drop_min": -0.0006086230278015137,
+      "optimizer_probe_target_drop_mean": 0.0011822652071714402
+    },
+    "relative_drop_reduction_vs_current": {
+      "quarter_step_size_min_drop_ratio": 0.08186526183618278,
+      "tenth_step_size_min_drop_ratio": 0.01788173033016231
+    }
+  },
+  "interpretation": "Shrinking only the critic step size clearly suppresses the first after-optimizer semantic drop; critic step radius looks like the primary driver.",
+  "output_files": {
+    "trace_csv": "checkpoints\\critic_step_size_online_trace_20260322_134531\\critic_step_size_online_trace.csv",
+    "probe_csv": "checkpoints\\critic_step_size_online_trace_20260322_134531\\critic_step_size_online_trace_probe.csv",
+    "minibatch_csv": "checkpoints\\critic_step_size_online_trace_20260322_134531\\critic_step_size_online_trace_minibatch.csv"
+  }
+}

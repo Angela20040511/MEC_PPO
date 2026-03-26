@@ -1,0 +1,41 @@
+{
+  "root_dir": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935",
+  "seed": 2025,
+  "policy_ratio_mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "training_overrides": {
+    "num_epochs": 12,
+    "time_steps": 200
+  },
+  "tracked_hotspot_layers": [
+    "critic_backbone.0.weight",
+    "critic_backbone.6.weight",
+    "critic_backbone.7.weight",
+    "critic_backbone.4.bias",
+    "critic_backbone.7.bias"
+  ],
+  "completed_groups": [
+    {
+      "group_name": "baseline_critic_adam",
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\baseline_critic_adam_20260325_073940_114563"
+    },
+    {
+      "group_name": "critic_backbone_layerwise_preconditioner_clip_head_adam",
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\critic_backbone_layerwise_preconditioner_clip_head_adam_20260325_091559_918093"
+    },
+    {
+      "group_name": "critic_backbone_layerwise_0w_cap_1200_head_adam",
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\critic_backbone_layerwise_0w_cap_1200_head_adam_20260325_101644_105534"
+    }
+  ],
+  "summary": {
+    "summary_csv": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\critic_backbone_layerwise_cap_long_confirmation_validation_summary.csv",
+    "summary_json": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\critic_backbone_layerwise_cap_long_confirmation_validation_summary.json",
+    "summary_md": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\critic_backbone_layerwise_cap_long_confirmation_validation_summary.md",
+    "reward_curve_compare": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\reward_curve_compare.png",
+    "advantage_alignment_curve_compare": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\advantage_alignment_curve_compare.png",
+    "critic_health_curve_compare": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\critic_health_curve_compare.png",
+    "critic_drift_compare": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\critic_drift_compare.png",
+    "backbone_preconditioner_telemetry_compare": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\backbone_preconditioner_telemetry_compare.png",
+    "hotspot_layer_telemetry_compare": "D:\\MEC_PPO\\checkpoints\\critic_backbone_layerwise_cap_long_confirmation_validation_20260325_073935\\hotspot_layer_telemetry_compare.png"
+  }
+}

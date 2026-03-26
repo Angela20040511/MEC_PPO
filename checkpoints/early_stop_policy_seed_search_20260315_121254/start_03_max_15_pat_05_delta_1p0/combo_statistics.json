@@ -1,0 +1,18 @@
+{
+  "start_check_epoch": 3,
+  "max_epochs": 15,
+  "patience": 5,
+  "min_delta": 1.0,
+  "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_05_delta_1p0",
+  "mean_best_reward": -399.30007940925714,
+  "std_best_reward": 3.913075687532052,
+  "mean_final_reward": -432.16819974437186,
+  "std_final_reward": 12.65661468967265,
+  "mean_reward_gap": -32.86812033511459,
+  "std_reward_gap": 11.134534771314337,
+  "mean_best_epoch": 4.8,
+  "mean_final_critic_loss": 3068.753334350586,
+  "mean_avg_theta_last10": 0.49442751047864314,
+  "early_stop_trigger_rate": 1.0,
+  "mean_epochs_completed": 10.8
+}

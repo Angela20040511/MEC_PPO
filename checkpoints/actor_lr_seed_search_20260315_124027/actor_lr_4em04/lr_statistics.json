@@ -1,0 +1,13 @@
+{
+  "actor_learning_rate": 0.0004,
+  "lr_dir": "checkpoints\\actor_lr_seed_search_20260315_124027\\actor_lr_4em04",
+  "mean_best_reward": -401.1438280787003,
+  "std_best_reward": 4.6820595720224825,
+  "mean_final_reward": -409.5524934985805,
+  "std_final_reward": 1.6680619692236602,
+  "mean_reward_gap": -8.408665419880197,
+  "std_reward_gap": 3.412738102232811,
+  "mean_best_epoch": 4.0,
+  "mean_final_critic_loss": 2728.2022229003906,
+  "mean_avg_theta_last10": 0.49213251999463575
+}

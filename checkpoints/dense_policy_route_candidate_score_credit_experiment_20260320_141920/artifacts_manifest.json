@@ -1,0 +1,48 @@
+{
+  "root_dir": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "route_candidate_score_credit_mode_definitions": {
+      "hierarchical_actor_true_conditional_route_policy": "Control group: true two-level conditional policy with the current route credit path.",
+      "hierarchical_actor_true_conditional_route_candidate_score_credit": "Test group: keep the same true conditional route policy and PPO machinery, but replace the route effective advantage entering PPO with candidate-score residual credit built from existing per-BS path costs."
+    },
+    "route_mask_threshold": 0.5,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0,
+    "candidate_score_source": "negative_current_block_path_cost_bs_now",
+    "candidate_score_normalization": "score_norm = (score - mean_candidate(score)) / (std_candidate(score) + 1e-6)"
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_true_conditional_route_policy",
+    "hierarchical_actor_true_conditional_route_candidate_score_credit"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_true_conditional_route_policy",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_141926_045925",
+      "analysis_summary": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_141926_045925\\analysis_summary.json",
+      "factorized_ratio_pg_stats": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_141926_045925\\factorized_ratio_pg_stats_by_epoch.csv",
+      "conditional_policy_stats": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_141926_045925\\conditional_policy_stats_by_epoch.csv",
+      "route_candidate_score_credit_stats": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_141926_045925\\route_candidate_score_credit_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_141926_045925\\theta_route_split_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_true_conditional_route_candidate_score_credit",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_candidate_score_credit_20260320_142028_219627",
+      "analysis_summary": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_candidate_score_credit_20260320_142028_219627\\analysis_summary.json",
+      "factorized_ratio_pg_stats": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_candidate_score_credit_20260320_142028_219627\\factorized_ratio_pg_stats_by_epoch.csv",
+      "conditional_policy_stats": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_candidate_score_credit_20260320_142028_219627\\conditional_policy_stats_by_epoch.csv",
+      "route_candidate_score_credit_stats": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_candidate_score_credit_20260320_142028_219627\\route_candidate_score_credit_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_ratio_hierarchical_actor_true_conditional_route_candidate_score_credit_20260320_142028_219627\\theta_route_split_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_route_candidate_score_credit_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_route_candidate_score_credit_summary.json",
+    "summary_md": "checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\policy_route_candidate_score_credit_summary.md"
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "root_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458",
+  "fixed_params": {
+    "seed": 2025,
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "start_check_epoch": 3,
+    "max_epochs": 12,
+    "patience": 3,
+    "min_delta": 1.0,
+    "time_steps": 100,
+    "num_layers": 1,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "min_history_to_train": 20
+  },
+  "candidates": {
+    "A": {
+      "history_window": 4,
+      "prediction_horizon": 6,
+      "hidden_size": 32
+    },
+    "B": {
+      "history_window": 8,
+      "prediction_horizon": 2,
+      "hidden_size": 128
+    }
+  },
+  "grid": {
+    "retrain_interval": [
+      3,
+      5,
+      8
+    ],
+    "train_epochs": [
+      3,
+      5,
+      8
+    ]
+  },
+  "runs": [
+    {
+      "candidate": "A",
+      "retrain_interval": 3,
+      "train_epochs": 3,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_03_te_03_20260315_151458_614298",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_03_te_03_20260315_151458_614298\\analysis_summary.json"
+    },
+    {
+      "candidate": "A",
+      "retrain_interval": 3,
+      "train_epochs": 5,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_03_te_05_20260315_151504_850915",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_03_te_05_20260315_151504_850915\\analysis_summary.json"
+    },
+    {
+      "candidate": "A",
+      "retrain_interval": 3,
+      "train_epochs": 8,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_03_te_08_20260315_151515_352288",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_03_te_08_20260315_151515_352288\\analysis_summary.json"
+    },
+    {
+      "candidate": "A",
+      "retrain_interval": 5,
+      "train_epochs": 3,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_05_te_03_20260315_151535_620570",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_05_te_03_20260315_151535_620570\\analysis_summary.json"
+    },
+    {
+      "candidate": "A",
+      "retrain_interval": 5,
+      "train_epochs": 5,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_05_te_05_20260315_151548_083782",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_05_te_05_20260315_151548_083782\\analysis_summary.json"
+    },
+    {
+      "candidate": "A",
+      "retrain_interval": 5,
+      "train_epochs": 8,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_05_te_08_20260315_151600_268197",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_05_te_08_20260315_151600_268197\\analysis_summary.json"
+    },
+    {
+      "candidate": "A",
+      "retrain_interval": 8,
+      "train_epochs": 3,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_08_te_03_20260315_151609_670255",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_08_te_03_20260315_151609_670255\\analysis_summary.json"
+    },
+    {
+      "candidate": "A",
+      "retrain_interval": 8,
+      "train_epochs": 5,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_08_te_05_20260315_151616_142008",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_08_te_05_20260315_151616_142008\\analysis_summary.json"
+    },
+    {
+      "candidate": "A",
+      "retrain_interval": 8,
+      "train_epochs": 8,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_08_te_08_20260315_151620_918121",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_A_ri_08_te_08_20260315_151620_918121\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 3,
+      "train_epochs": 3,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_03_te_03_20260315_151626_831391",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_03_te_03_20260315_151626_831391\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 3,
+      "train_epochs": 5,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_03_te_05_20260315_151636_982096",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_03_te_05_20260315_151636_982096\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 3,
+      "train_epochs": 8,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_03_te_08_20260315_151648_063411",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_03_te_08_20260315_151648_063411\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 5,
+      "train_epochs": 3,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_05_te_03_20260315_151703_655545",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_05_te_03_20260315_151703_655545\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 5,
+      "train_epochs": 5,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_05_te_05_20260315_151710_030053",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_05_te_05_20260315_151710_030053\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 5,
+      "train_epochs": 8,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_05_te_08_20260315_151720_342454",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_05_te_08_20260315_151720_342454\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 8,
+      "train_epochs": 3,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_08_te_03_20260315_151731_357027",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_08_te_03_20260315_151731_357027\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 8,
+      "train_epochs": 5,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_08_te_05_20260315_151736_809735",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_08_te_05_20260315_151736_809735\\analysis_summary.json"
+    },
+    {
+      "candidate": "B",
+      "retrain_interval": 8,
+      "train_epochs": 8,
+      "run_dir": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_08_te_08_20260315_151746_233521",
+      "analysis_summary": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_B_ri_08_te_08_20260315_151746_233521\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\dt_retrain_strategy_summary.csv",
+    "summary_json": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\dt_retrain_strategy_summary.json",
+    "summary_md": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\dt_retrain_strategy_summary.md",
+    "candidate_best_csv": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_best_summary.csv",
+    "candidate_best_json": "checkpoints\\dt_retrain_strategy_search_20260315_151458\\candidate_best_summary.json"
+  }
+}

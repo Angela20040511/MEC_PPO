@@ -1,0 +1,882 @@
+{
+  "root_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254",
+  "fixed_params": {
+    "min_delta": 1.0
+  },
+  "grid": {
+    "start_check_epoch": [
+      3,
+      5,
+      8
+    ],
+    "max_epochs": [
+      12,
+      15,
+      20
+    ],
+    "patience": [
+      3,
+      5
+    ],
+    "seeds": [
+      2025,
+      2026,
+      2027,
+      2028,
+      2029
+    ]
+  },
+  "combos": [
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 12,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_03_delta_1p0\\seed_2025_20260315_121254_341691"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_03_delta_1p0\\seed_2026_20260315_121304_503233"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_03_delta_1p0\\seed_2027_20260315_121314_573522"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_03_delta_1p0\\seed_2028_20260315_121323_789874"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_03_delta_1p0\\seed_2029_20260315_121332_131628"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 3,
+        "max_epochs": 12,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_03_delta_1p0",
+        "mean_best_reward": -399.51516239510903,
+        "std_best_reward": 3.7692619688143587,
+        "mean_final_reward": -408.8533605914011,
+        "std_final_reward": 2.104340907526829,
+        "mean_reward_gap": -9.338198196291966,
+        "std_reward_gap": 2.718012843290823,
+        "mean_best_epoch": 4.0,
+        "mean_final_critic_loss": 2721.9751269531253,
+        "mean_avg_theta_last10": 0.4933470718711591,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 8.0
+      }
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 12,
+      "patience": 5,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_05_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_05_delta_1p0\\seed_2025_20260315_121341_680003"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_05_delta_1p0\\seed_2026_20260315_121354_253762"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_05_delta_1p0\\seed_2027_20260315_121404_964593"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_05_delta_1p0\\seed_2028_20260315_121416_244364"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_05_delta_1p0\\seed_2029_20260315_121426_064788"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 3,
+        "max_epochs": 12,
+        "patience": 5,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_12_pat_05_delta_1p0",
+        "mean_best_reward": -399.30007940925714,
+        "std_best_reward": 3.913075687532052,
+        "mean_final_reward": -439.2342239833762,
+        "std_final_reward": 3.806191835717529,
+        "mean_reward_gap": -39.934144574118875,
+        "std_reward_gap": 4.544285066224534,
+        "mean_best_epoch": 4.8,
+        "mean_final_critic_loss": 3196.104666748047,
+        "mean_avg_theta_last10": 0.4939709414338701,
+        "early_stop_trigger_rate": 0.8,
+        "mean_epochs_completed": 10.4
+      }
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 15,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_03_delta_1p0\\seed_2025_20260315_121434_707210"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_03_delta_1p0\\seed_2026_20260315_121444_496141"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_03_delta_1p0\\seed_2027_20260315_121454_199016"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_03_delta_1p0\\seed_2028_20260315_121502_430079"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_03_delta_1p0\\seed_2029_20260315_121511_294055"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 3,
+        "max_epochs": 15,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_03_delta_1p0",
+        "mean_best_reward": -399.51516239510903,
+        "std_best_reward": 3.7692619688143587,
+        "mean_final_reward": -408.8533605914011,
+        "std_final_reward": 2.104340907526829,
+        "mean_reward_gap": -9.338198196291966,
+        "std_reward_gap": 2.718012843290823,
+        "mean_best_epoch": 4.0,
+        "mean_final_critic_loss": 2721.9751269531253,
+        "mean_avg_theta_last10": 0.4933470718711591,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 8.0
+      }
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 15,
+      "patience": 5,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_05_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_05_delta_1p0\\seed_2025_20260315_121518_870226"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_05_delta_1p0\\seed_2026_20260315_121530_830947"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_05_delta_1p0\\seed_2027_20260315_121542_339943"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_05_delta_1p0\\seed_2028_20260315_121600_785042"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_05_delta_1p0\\seed_2029_20260315_121608_951425"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 3,
+        "max_epochs": 15,
+        "patience": 5,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_15_pat_05_delta_1p0",
+        "mean_best_reward": -399.30007940925714,
+        "std_best_reward": 3.913075687532052,
+        "mean_final_reward": -432.16819974437186,
+        "std_final_reward": 12.65661468967265,
+        "mean_reward_gap": -32.86812033511459,
+        "std_reward_gap": 11.134534771314337,
+        "mean_best_epoch": 4.8,
+        "mean_final_critic_loss": 3068.753334350586,
+        "mean_avg_theta_last10": 0.49442751047864314,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 10.8
+      }
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 20,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_03_delta_1p0\\seed_2025_20260315_121616_187774"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_03_delta_1p0\\seed_2026_20260315_121624_996236"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_03_delta_1p0\\seed_2027_20260315_121632_840283"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_03_delta_1p0\\seed_2028_20260315_121640_680487"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_03_delta_1p0\\seed_2029_20260315_121647_711891"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 3,
+        "max_epochs": 20,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_03_delta_1p0",
+        "mean_best_reward": -399.51516239510903,
+        "std_best_reward": 3.7692619688143587,
+        "mean_final_reward": -408.8533605914011,
+        "std_final_reward": 2.104340907526829,
+        "mean_reward_gap": -9.338198196291966,
+        "std_reward_gap": 2.718012843290823,
+        "mean_best_epoch": 4.0,
+        "mean_final_critic_loss": 2721.9751269531253,
+        "mean_avg_theta_last10": 0.4933470718711591,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 8.0
+      }
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 20,
+      "patience": 5,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_05_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_05_delta_1p0\\seed_2025_20260315_121654_438777"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_05_delta_1p0\\seed_2026_20260315_121704_052653"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_05_delta_1p0\\seed_2027_20260315_121713_306964"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_05_delta_1p0\\seed_2028_20260315_121724_911035"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_05_delta_1p0\\seed_2029_20260315_121734_516962"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 3,
+        "max_epochs": 20,
+        "patience": 5,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_03_max_20_pat_05_delta_1p0",
+        "mean_best_reward": -399.30007940925714,
+        "std_best_reward": 3.913075687532052,
+        "mean_final_reward": -432.16819974437186,
+        "std_final_reward": 12.65661468967265,
+        "mean_reward_gap": -32.86812033511459,
+        "std_reward_gap": 11.134534771314337,
+        "mean_best_epoch": 4.8,
+        "mean_final_critic_loss": 3068.753334350586,
+        "mean_avg_theta_last10": 0.49442751047864314,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 10.8
+      }
+    },
+    {
+      "start_check_epoch": 5,
+      "max_epochs": 12,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_03_delta_1p0\\seed_2025_20260315_121743_425850"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_03_delta_1p0\\seed_2026_20260315_121753_861402"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_03_delta_1p0\\seed_2027_20260315_121803_104755"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_03_delta_1p0\\seed_2028_20260315_121812_175707"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_03_delta_1p0\\seed_2029_20260315_121820_708864"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 5,
+        "max_epochs": 12,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_03_delta_1p0",
+        "mean_best_reward": -399.51516239510903,
+        "std_best_reward": 3.7692619688143587,
+        "mean_final_reward": -415.3913596984339,
+        "std_final_reward": 14.400276767519504,
+        "mean_reward_gap": -15.876197303324783,
+        "std_reward_gap": 13.16066963674251,
+        "mean_best_epoch": 4.0,
+        "mean_final_critic_loss": 2868.0779064941407,
+        "mean_avg_theta_last10": 0.4931058841475089,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 8.6
+      }
+    },
+    {
+      "start_check_epoch": 5,
+      "max_epochs": 12,
+      "patience": 5,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_05_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_05_delta_1p0\\seed_2025_20260315_121829_800331"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_05_delta_1p0\\seed_2026_20260315_121841_341944"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_05_delta_1p0\\seed_2027_20260315_121852_634909"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_05_delta_1p0\\seed_2028_20260315_121904_310256"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_05_delta_1p0\\seed_2029_20260315_121914_581987"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 5,
+        "max_epochs": 12,
+        "patience": 5,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_12_pat_05_delta_1p0",
+        "mean_best_reward": -399.30007940925714,
+        "std_best_reward": 3.913075687532052,
+        "mean_final_reward": -443.1756240280318,
+        "std_final_reward": 7.734370059124655,
+        "mean_reward_gap": -43.875544618774505,
+        "std_reward_gap": 6.116120539933491,
+        "mean_best_epoch": 4.8,
+        "mean_final_critic_loss": 3327.856625366211,
+        "mean_avg_theta_last10": 0.4939875160340866,
+        "early_stop_trigger_rate": 0.8,
+        "mean_epochs_completed": 11.0
+      }
+    },
+    {
+      "start_check_epoch": 5,
+      "max_epochs": 15,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_03_delta_1p0\\seed_2025_20260315_121925_204990"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_03_delta_1p0\\seed_2026_20260315_121935_059564"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_03_delta_1p0\\seed_2027_20260315_121944_547550"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_03_delta_1p0\\seed_2028_20260315_121953_557541"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_03_delta_1p0\\seed_2029_20260315_122002_003417"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 5,
+        "max_epochs": 15,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_03_delta_1p0",
+        "mean_best_reward": -399.51516239510903,
+        "std_best_reward": 3.7692619688143587,
+        "mean_final_reward": -415.3913596984339,
+        "std_final_reward": 14.400276767519504,
+        "mean_reward_gap": -15.876197303324783,
+        "std_reward_gap": 13.16066963674251,
+        "mean_best_epoch": 4.0,
+        "mean_final_critic_loss": 2868.0779064941407,
+        "mean_avg_theta_last10": 0.4931058841475089,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 8.6
+      }
+    },
+    {
+      "start_check_epoch": 5,
+      "max_epochs": 15,
+      "patience": 5,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_05_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_05_delta_1p0\\seed_2025_20260315_122011_716220"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_05_delta_1p0\\seed_2026_20260315_122020_852959"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_05_delta_1p0\\seed_2027_20260315_122032_058041"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_05_delta_1p0\\seed_2028_20260315_122042_958909"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_05_delta_1p0\\seed_2029_20260315_122052_731532"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 5,
+        "max_epochs": 15,
+        "patience": 5,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_15_pat_05_delta_1p0",
+        "mean_best_reward": -399.30007940925714,
+        "std_best_reward": 3.913075687532052,
+        "mean_final_reward": -436.10959978902747,
+        "std_final_reward": 16.162405013683365,
+        "mean_reward_gap": -36.80952037977022,
+        "std_reward_gap": 14.015503015296726,
+        "mean_best_epoch": 4.8,
+        "mean_final_critic_loss": 3200.5052929687504,
+        "mean_avg_theta_last10": 0.4944440850788596,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 11.4
+      }
+    },
+    {
+      "start_check_epoch": 5,
+      "max_epochs": 20,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_03_delta_1p0\\seed_2025_20260315_122101_297485"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_03_delta_1p0\\seed_2026_20260315_122109_706470"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_03_delta_1p0\\seed_2027_20260315_122117_054966"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_03_delta_1p0\\seed_2028_20260315_122124_596979"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_03_delta_1p0\\seed_2029_20260315_122131_461168"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 5,
+        "max_epochs": 20,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_03_delta_1p0",
+        "mean_best_reward": -399.51516239510903,
+        "std_best_reward": 3.7692619688143587,
+        "mean_final_reward": -415.3913596984339,
+        "std_final_reward": 14.400276767519504,
+        "mean_reward_gap": -15.876197303324783,
+        "std_reward_gap": 13.16066963674251,
+        "mean_best_epoch": 4.0,
+        "mean_final_critic_loss": 2868.0779064941407,
+        "mean_avg_theta_last10": 0.4931058841475089,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 8.6
+      }
+    },
+    {
+      "start_check_epoch": 5,
+      "max_epochs": 20,
+      "patience": 5,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_05_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_05_delta_1p0\\seed_2025_20260315_122139_886861"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_05_delta_1p0\\seed_2026_20260315_122149_966332"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_05_delta_1p0\\seed_2027_20260315_122159_052473"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_05_delta_1p0\\seed_2028_20260315_122209_454422"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_05_delta_1p0\\seed_2029_20260315_122217_375066"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 5,
+        "max_epochs": 20,
+        "patience": 5,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_05_max_20_pat_05_delta_1p0",
+        "mean_best_reward": -399.30007940925714,
+        "std_best_reward": 3.913075687532052,
+        "mean_final_reward": -436.10959978902747,
+        "std_final_reward": 16.162405013683365,
+        "mean_reward_gap": -36.80952037977022,
+        "std_reward_gap": 14.015503015296726,
+        "mean_best_epoch": 4.8,
+        "mean_final_critic_loss": 3200.5052929687504,
+        "mean_avg_theta_last10": 0.4944440850788596,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 11.4
+      }
+    },
+    {
+      "start_check_epoch": 8,
+      "max_epochs": 12,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_03_delta_1p0\\seed_2025_20260315_122231_775636"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_03_delta_1p0\\seed_2026_20260315_122243_009017"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_03_delta_1p0\\seed_2027_20260315_122251_380208"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_03_delta_1p0\\seed_2028_20260315_122300_565266"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_03_delta_1p0\\seed_2029_20260315_122309_026742"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 8,
+        "max_epochs": 12,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_03_delta_1p0",
+        "mean_best_reward": -399.30007940925714,
+        "std_best_reward": 3.913075687532052,
+        "mean_final_reward": -428.19957252012057,
+        "std_final_reward": 17.432652294553392,
+        "mean_reward_gap": -28.899493110863318,
+        "std_reward_gap": 15.949499863299106,
+        "mean_best_epoch": 4.8,
+        "mean_final_critic_loss": 3047.972573852539,
+        "mean_avg_theta_last10": 0.4938135581627261,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 11.2
+      }
+    },
+    {
+      "start_check_epoch": 8,
+      "max_epochs": 12,
+      "patience": 5,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_05_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_05_delta_1p0\\seed_2025_20260315_122317_369472"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_05_delta_1p0\\seed_2026_20260315_122326_474694"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_05_delta_1p0\\seed_2027_20260315_122335_360100"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_05_delta_1p0\\seed_2028_20260315_122344_544217"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_05_delta_1p0\\seed_2029_20260315_122353_480681"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 8,
+        "max_epochs": 12,
+        "patience": 5,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_12_pat_05_delta_1p0",
+        "mean_best_reward": -399.0058786642139,
+        "std_best_reward": 3.720521334287266,
+        "mean_final_reward": -431.25038962255877,
+        "std_final_reward": 17.146166692512,
+        "mean_reward_gap": -32.24451095834486,
+        "std_reward_gap": 18.36432520788784,
+        "mean_best_epoch": 6.6,
+        "mean_final_critic_loss": 3025.3443255615234,
+        "mean_avg_theta_last10": 0.49418346981007344,
+        "early_stop_trigger_rate": 0.0,
+        "mean_epochs_completed": 12.0
+      }
+    },
+    {
+      "start_check_epoch": 8,
+      "max_epochs": 15,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_03_delta_1p0\\seed_2025_20260315_122402_330330"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_03_delta_1p0\\seed_2026_20260315_122411_305790"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_03_delta_1p0\\seed_2027_20260315_122419_527576"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_03_delta_1p0\\seed_2028_20260315_122428_721773"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_03_delta_1p0\\seed_2029_20260315_122436_867273"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 8,
+        "max_epochs": 15,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_03_delta_1p0",
+        "mean_best_reward": -399.30007940925714,
+        "std_best_reward": 3.913075687532052,
+        "mean_final_reward": -428.19957252012057,
+        "std_final_reward": 17.432652294553392,
+        "mean_reward_gap": -28.899493110863318,
+        "std_reward_gap": 15.949499863299106,
+        "mean_best_epoch": 4.8,
+        "mean_final_critic_loss": 3047.972573852539,
+        "mean_avg_theta_last10": 0.4938135581627261,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 11.2
+      }
+    },
+    {
+      "start_check_epoch": 8,
+      "max_epochs": 15,
+      "patience": 5,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_05_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_05_delta_1p0\\seed_2025_20260315_122445_423981"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_05_delta_1p0\\seed_2026_20260315_122454_944996"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_05_delta_1p0\\seed_2027_20260315_122504_288329"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_05_delta_1p0\\seed_2028_20260315_122514_339364"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_05_delta_1p0\\seed_2029_20260315_122523_845369"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 8,
+        "max_epochs": 15,
+        "patience": 5,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_15_pat_05_delta_1p0",
+        "mean_best_reward": -399.0058786642139,
+        "std_best_reward": 3.720521334287266,
+        "mean_final_reward": -433.2361686542823,
+        "std_final_reward": 18.484241539879243,
+        "mean_reward_gap": -34.23028999006833,
+        "std_reward_gap": 19.761969794349046,
+        "mean_best_epoch": 6.6,
+        "mean_final_critic_loss": 3064.2825457763674,
+        "mean_avg_theta_last10": 0.49530624577418186,
+        "early_stop_trigger_rate": 0.8,
+        "mean_epochs_completed": 13.6
+      }
+    },
+    {
+      "start_check_epoch": 8,
+      "max_epochs": 20,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_03_delta_1p0\\seed_2025_20260315_122534_146903"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_03_delta_1p0\\seed_2026_20260315_122542_644914"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_03_delta_1p0\\seed_2027_20260315_122550_818943"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_03_delta_1p0\\seed_2028_20260315_122559_810613"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_03_delta_1p0\\seed_2029_20260315_122608_180248"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 8,
+        "max_epochs": 20,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_03_delta_1p0",
+        "mean_best_reward": -399.30007940925714,
+        "std_best_reward": 3.913075687532052,
+        "mean_final_reward": -428.19957252012057,
+        "std_final_reward": 17.432652294553392,
+        "mean_reward_gap": -28.899493110863318,
+        "std_reward_gap": 15.949499863299106,
+        "mean_best_epoch": 4.8,
+        "mean_final_critic_loss": 3047.972573852539,
+        "mean_avg_theta_last10": 0.4938135581627261,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 11.2
+      }
+    },
+    {
+      "start_check_epoch": 8,
+      "max_epochs": 20,
+      "patience": 5,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_05_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_05_delta_1p0\\seed_2025_20260315_122616_558279"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_05_delta_1p0\\seed_2026_20260315_122626_775805"
+        },
+        {
+          "seed": 2027,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_05_delta_1p0\\seed_2027_20260315_122641_656954"
+        },
+        {
+          "seed": 2028,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_05_delta_1p0\\seed_2028_20260315_122653_772501"
+        },
+        {
+          "seed": 2029,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_05_delta_1p0\\seed_2029_20260315_122704_256107"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 8,
+        "max_epochs": 20,
+        "patience": 5,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\start_08_max_20_pat_05_delta_1p0",
+        "mean_best_reward": -399.0058786642139,
+        "std_best_reward": 3.720521334287266,
+        "mean_final_reward": -433.02889960671655,
+        "std_final_reward": 18.38261914979031,
+        "mean_reward_gap": -34.02302094250257,
+        "std_reward_gap": 19.687066618063522,
+        "mean_best_epoch": 6.6,
+        "mean_final_critic_loss": 3008.7384338378906,
+        "mean_avg_theta_last10": 0.49573753098652434,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 14.0
+      }
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\combo_summary.csv",
+    "summary_json": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\combo_summary.json",
+    "summary_md": "checkpoints\\early_stop_policy_seed_search_20260315_121254\\combo_summary.md"
+  }
+}

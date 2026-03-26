@@ -1,0 +1,16 @@
+{
+  "root_dir": "checkpoints\\dense_critic_diagnosis_20260316_145336",
+  "run_dir": "checkpoints\\dense_critic_diagnosis_20260316_145336\\critic_diagnosis_20260316_145345_206518",
+  "fixed_params": {
+    "seed": 2025,
+    "topology": "dense",
+    "reward_mode": "per_sensor",
+    "value_target_mode": "popart_return_norm",
+    "value_loss_mode": "huber"
+  },
+  "summary": {
+    "summary_csv": "checkpoints\\dense_critic_diagnosis_20260316_145336\\critic_diagnosis_summary.csv",
+    "summary_json": "checkpoints\\dense_critic_diagnosis_20260316_145336\\critic_diagnosis_summary.json",
+    "summary_md": "checkpoints\\dense_critic_diagnosis_20260316_145336\\critic_diagnosis_summary.md"
+  }
+}

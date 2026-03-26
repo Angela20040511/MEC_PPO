@@ -1,0 +1,3 @@
+| rank | start_check_epoch | max_epochs | patience | min_delta | combo_dir | mean_best_reward | std_best_reward | mean_final_reward | std_final_reward | mean_reward_gap | std_reward_gap | mean_best_epoch | mean_final_critic_loss | mean_avg_theta_last10 | early_stop_trigger_rate | mean_epochs_completed | abs_mean_reward_gap |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 3 | 12 | 3 | 1.0 | checkpoints\early_stop_policy_seed_search_20260315_121223\start_03_max_12_pat_03_delta_1p0 | -397.39701413905584 | 4.299710375093298 | -406.9997991193176 | 0.37149815661427965 | -9.602784980261731 | 3.9282122184790182 | 5.5 | 2618.111131286621 | 0.49015366194842597 | 1.0 | 9.5 | 9.602784980261731 |

@@ -1,0 +1,3 @@
+| rank | history_window | prediction_horizon | hidden_size | seed | run_dir | epochs_completed | best_reward | final_reward | best_epoch | reward_gap | reward_gap_abs | final_critic_loss | avg_theta_last10 | stability_score | training_stability |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 4 | 2 | 32 | 2025 | checkpoints\dt_core_search_20260315_131737\hw_04_ph_02_hs_032_20260315_131737_704571 | 6 | -432.95038508797865 | -456.21382751322534 | 2 | -23.263442425246694 | 23.263442425246694 | 3787.062823486328 | 0.5154582040516066 | 33.2716067552505 | unstable |

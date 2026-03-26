@@ -1,0 +1,72 @@
+{
+  "root_dir": "D:\\MEC_PPO\\checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920",
+  "first_divergence_before_fix": {
+    "where": "_uses_blockwise_policy_surrogate gate before the first route minibatch",
+    "epoch": 0,
+    "update_epoch": 0,
+    "minibatch_id": 0
+  },
+  "root_cause": "hierarchical_actor_true_conditional_route_candidate_score_credit was missing from _uses_blockwise_policy_surrogate(), so full training never entered the blockwise split-advantage / alternating route update path for this mode",
+  "fix_applied": "added hierarchical_actor_true_conditional_route_candidate_score_credit to _uses_blockwise_policy_surrogate()",
+  "candidate_before_fix": {
+    "epoch0_trace_rows": 0,
+    "epoch0_trace_optimizer_step_executed_sum": 0.0,
+    "epoch0_trace_counted_into_route_update_count_sum": 0.0,
+    "epoch1_trace_rows": 0,
+    "epoch1_trace_optimizer_step_executed_sum": 0.0,
+    "epoch1_trace_counted_into_route_update_count_sum": 0.0
+  },
+  "candidate_after_fix_trace": {
+    "epoch0_trace_rows": 40,
+    "epoch0_trace_optimizer_step_executed_sum": 40.0,
+    "epoch0_trace_counted_into_route_update_count_sum": 40.0,
+    "epoch0_trace_route_param_delta_norm_sum": 1.8908088997511012,
+    "epoch1_trace_rows": 40,
+    "epoch1_trace_optimizer_step_executed_sum": 40.0,
+    "epoch1_trace_counted_into_route_update_count_sum": 40.0,
+    "epoch1_trace_route_param_delta_norm_sum": 2.378739810424481
+  },
+  "rewired_ab_compare": {
+    "baseline": {
+      "best_epoch": 1,
+      "best_reward": -148.6247487476,
+      "final_reward": -163.4585087955,
+      "reward_gap": -14.8337600479,
+      "overall_advantage_action_alignment": -0.078018479,
+      "theta_advantage_alignment": 0.4447491169,
+      "route_advantage_alignment": 0.4958193302,
+      "route_approx_kl": 0.0190601833,
+      "route_clip_fraction": 0.2383873761,
+      "route_update_count": 40,
+      "route_head_grad_norm": 0.1704482863,
+      "route_backbone_grad_norm": 0.1756249595,
+      "value_explained_variance": 0.9331352115,
+      "prediction_target_corr": 0.9679043293,
+      "prediction_std_over_target_std": 0.9070466161,
+      "target_bucket_prediction_slope": 0.8740185966
+    },
+    "candidate": {
+      "best_epoch": 1,
+      "best_reward": -148.8282937011,
+      "final_reward": -288.8702707156,
+      "reward_gap": -140.0419770145,
+      "overall_advantage_action_alignment": -0.1090696231,
+      "theta_advantage_alignment": 0.4362624586,
+      "route_advantage_alignment": -0.0589593202,
+      "route_approx_kl": -0.0239879917,
+      "route_clip_fraction": 0.2179598957,
+      "route_update_count": 40,
+      "route_head_grad_norm": 0.0761338144,
+      "route_backbone_grad_norm": 0.1296833931,
+      "value_explained_variance": 0.8454632759,
+      "prediction_target_corr": 0.9248350859,
+      "prediction_std_over_target_std": 0.8255548477,
+      "target_bucket_prediction_slope": 0.7371371112
+    }
+  },
+  "trace_files": {
+    "before_fix_candidate": "D:\\MEC_PPO\\checkpoints\\route_training_drift_trace_20260320_140441\\route_training_drift_trace_candidate.csv",
+    "after_fix_candidate": "D:\\MEC_PPO\\checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\route_training_drift_trace_rewired_candidate.csv",
+    "after_fix_baseline": "D:\\MEC_PPO\\checkpoints\\dense_policy_route_candidate_score_credit_experiment_20260320_141920\\route_training_drift_trace_rewired_baseline.csv"
+  }
+}

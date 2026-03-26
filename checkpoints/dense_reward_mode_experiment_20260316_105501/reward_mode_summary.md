@@ -1,0 +1,4 @@
+| rank | reward_mode | run_dir | epochs_completed | best_reward | final_reward | best_epoch | reward_gap | reward_gap_abs | final_critic_loss | final_reward_delay_term | final_reward_energy_term | final_reward_backlog_term | best_epoch_is_one |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | per_sensor | checkpoints\dense_reward_mode_experiment_20260316_105501\reward_mode_per_sensor_20260316_105541_833142 | 5 | -149.03219423135351 | -159.43600294828374 | 1 | -10.403808716930229 | 10.403808716930229 | 342.8835079193115 | 143.99459002732306 | 1.1890731118110005 | 14.252339809149593 | 1 |
+| 2 | raw_total | checkpoints\dense_reward_mode_experiment_20260316_105501\reward_mode_raw_total_20260316_105501_854632 | 5 | -1098.0806754121104 | -1172.8068996934662 | 1 | -74.72622428135583 | 74.72622428135583 | 27245.607275390623 | 1149.0945191555425 | 9.51620016839076 | 14.196180369532923 | 1 |

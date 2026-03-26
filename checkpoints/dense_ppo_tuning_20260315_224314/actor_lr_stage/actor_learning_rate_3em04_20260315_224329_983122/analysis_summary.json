@@ -1,0 +1,15 @@
+{
+  "actor_learning_rate": 0.0003,
+  "update_epochs": 10,
+  "entropy_coeff": 0.001,
+  "run_dir": "checkpoints\\dense_ppo_tuning_20260315_224314\\actor_lr_stage\\actor_learning_rate_3em04_20260315_224329_983122",
+  "epochs_completed": 5,
+  "best_reward": -1098.7847201071024,
+  "final_reward": -1174.3292004655464,
+  "best_epoch": 1,
+  "reward_gap": -75.54448035844393,
+  "reward_gap_abs": 75.54448035844393,
+  "final_critic_loss": 27319.95517578125,
+  "avg_theta_last10": 0.5026642090765543,
+  "best_epoch_is_one": 1
+}

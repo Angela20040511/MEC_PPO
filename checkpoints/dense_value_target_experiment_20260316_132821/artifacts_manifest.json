@@ -1,0 +1,56 @@
+{
+  "root_dir": "checkpoints\\dense_value_target_experiment_20260316_132821",
+  "fixed_params": {
+    "topology": "dense",
+    "seed": 2025,
+    "reward_mode": "per_sensor",
+    "actor_learning_rate": 0.0005,
+    "critic_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "value_coeff": 0.5,
+    "update_epochs": 10,
+    "time_steps": 100,
+    "dt_history_window": 8,
+    "dt_prediction_horizon": 2,
+    "dt_hidden_size": 128,
+    "dt_retrain_interval": 5,
+    "dt_train_epochs": 5,
+    "q": 0.65,
+    "Umax": 2,
+    "alpha_p": 0.4,
+    "rho0": 0.75,
+    "gamma_q": 0.1,
+    "gamma_e": 0.15,
+    "start_check_epoch": 1,
+    "max_epochs": 6,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "value_target_modes": [
+    "normalized_return",
+    "popart_return_norm"
+  ],
+  "runs": [
+    {
+      "value_target_mode": "normalized_return",
+      "run_dir": "checkpoints\\dense_value_target_experiment_20260316_132821\\value_target_normalized_return_20260316_132821_830522",
+      "analysis_summary": "checkpoints\\dense_value_target_experiment_20260316_132821\\value_target_normalized_return_20260316_132821_830522\\analysis_summary.json"
+    },
+    {
+      "value_target_mode": "popart_return_norm",
+      "run_dir": "checkpoints\\dense_value_target_experiment_20260316_132821\\value_target_popart_return_norm_20260316_132842_275973",
+      "analysis_summary": "checkpoints\\dense_value_target_experiment_20260316_132821\\value_target_popart_return_norm_20260316_132842_275973\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_value_target_experiment_20260316_132821\\value_target_summary.csv",
+    "summary_json": "checkpoints\\dense_value_target_experiment_20260316_132821\\value_target_summary.json",
+    "summary_md": "checkpoints\\dense_value_target_experiment_20260316_132821\\value_target_summary.md",
+    "critic_loss_plot": "checkpoints\\dense_value_target_experiment_20260316_132821\\comparison_plots\\critic_loss_compare.png",
+    "reward_curve_plot": "checkpoints\\dense_value_target_experiment_20260316_132821\\comparison_plots\\reward_curve_compare.png",
+    "target_stats_plot": "checkpoints\\dense_value_target_experiment_20260316_132821\\comparison_plots\\target_stats_compare.png",
+    "running_stats_plot": "checkpoints\\dense_value_target_experiment_20260316_132821\\comparison_plots\\running_stats_compare.png",
+    "prediction_mean_plot": "checkpoints\\dense_value_target_experiment_20260316_132821\\comparison_plots\\prediction_mean_compare.png",
+    "prediction_std_plot": "checkpoints\\dense_value_target_experiment_20260316_132821\\comparison_plots\\prediction_std_compare.png"
+  }
+}

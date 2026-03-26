@@ -1,0 +1,16 @@
+{
+  "topology": "dense",
+  "max_epochs": 4,
+  "epochs_completed": 4,
+  "best_epoch": 1,
+  "best_reward": -1097.932896504716,
+  "final_epoch": 3,
+  "final_reward": -1180.592252928454,
+  "reward_gap": -82.65935642373802,
+  "stopped_early": false,
+  "stop_reason": "reached_max_epochs",
+  "monitor_start_epoch": 3,
+  "early_stopping_patience": 2,
+  "min_delta": 1.0,
+  "restored_best_model": true
+}

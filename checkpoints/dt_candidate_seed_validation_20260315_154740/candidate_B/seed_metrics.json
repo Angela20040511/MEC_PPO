@@ -1,0 +1,18 @@
+[
+  {
+    "candidate":"B",
+    "history_window":8,
+    "prediction_horizon":2,
+    "hidden_size":128,
+    "retrain_interval":5,
+    "train_epochs":5,
+    "seed":2025,
+    "epochs_completed":10,
+    "best_reward":-389.6761891233,
+    "final_reward":-398.9720301451,
+    "best_epoch":6,
+    "reward_gap":-9.2958410218,
+    "final_critic_loss":2409.2014160156,
+    "avg_theta_last10":0.523183848
+  }
+]

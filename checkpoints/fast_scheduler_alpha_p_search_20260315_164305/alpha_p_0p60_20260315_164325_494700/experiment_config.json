@@ -1,0 +1,93 @@
+{
+  "seed": 2025,
+  "training": {
+    "num_epochs": 12,
+    "time_steps": 100,
+    "seed": 2025
+  },
+  "ppo": {
+    "hidden_size": 128,
+    "actor_log_std": -1.0,
+    "actor_learning_rate": 0.0005,
+    "critic_learning_rate": 0.0005,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_epsilon": 0.2,
+    "entropy_coeff": 0.001,
+    "value_coeff": 0.5,
+    "update_epochs": 10,
+    "mini_batch_size": 32,
+    "max_grad_norm": 0.5
+  },
+  "dt": {
+    "history_window": 8,
+    "prediction_horizon": 2,
+    "hidden_size": 128,
+    "num_layers": 1,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "train_epochs": 5,
+    "min_history_to_train": 20,
+    "retrain_interval": 5
+  },
+  "system": {
+    "slot_length": 1.0,
+    "carrier_freq_ghz": 3.5,
+    "backhaul_freq_ghz": 5.8,
+    "access_noise_density": 1e-17,
+    "backhaul_noise_density": 1e-17,
+    "eta1": 1.0,
+    "eta2": 1.0,
+    "eta1_bh": 1.0,
+    "eta2_bh": 1.0,
+    "epsilon": 1e-09,
+    "min_service_ratio": 0.05,
+    "min_access_rate_bps": 1000000.0,
+    "min_backhaul_rate_bps": 1000000.0,
+    "delay_cap": 1000.0,
+    "alpha_s": 0.35,
+    "alpha_p": 0.6,
+    "eta_g": 0.6,
+    "eta_u": 0.4,
+    "noma_quantile": 0.85,
+    "max_cluster_size": 3,
+    "rho0": 0.85,
+    "gamma_e": 0.15,
+    "gamma_q": 0.2,
+    "rho_min": 0.35,
+    "rho_max": 1.0,
+    "q_target_delay": 0.4,
+    "q_max": 2.0,
+    "backhaul_bandwidth_hz": 80000000.0,
+    "backhaul_power_w": 5.0,
+    "lyapunov_v": 10.0,
+    "omega_e": 0.05,
+    "omega_t": 1.0,
+    "omega_q": 2.0,
+    "queue_norm_bits": 5000000.0,
+    "queue_norm_cycles": 5000000000.0,
+    "energy_budget_alpha": 0.7,
+    "mmpp_transition": [
+      [
+        0.72,
+        0.22,
+        0.06
+      ],
+      [
+        0.18,
+        0.64,
+        0.18
+      ],
+      [
+        0.08,
+        0.27,
+        0.65
+      ]
+    ]
+  },
+  "early_stopping": {
+    "patience": 3,
+    "min_delta": 1.0,
+    "monitor_start_epoch": 3
+  }
+}

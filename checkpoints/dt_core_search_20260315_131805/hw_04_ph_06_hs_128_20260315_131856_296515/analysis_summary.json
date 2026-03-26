@@ -1,0 +1,17 @@
+{
+  "history_window": 4,
+  "prediction_horizon": 6,
+  "hidden_size": 128,
+  "seed": 2025,
+  "run_dir": "checkpoints\\dt_core_search_20260315_131805\\hw_04_ph_06_hs_128_20260315_131856_296515",
+  "epochs_completed": 6,
+  "best_reward": -441.02130237619326,
+  "final_reward": -478.52301968507436,
+  "best_epoch": 2,
+  "reward_gap": -37.5017173088811,
+  "reward_gap_abs": 37.5017173088811,
+  "final_critic_loss": 4089.699234008789,
+  "avg_theta_last10": 0.4901422734670761,
+  "stability_score": 32.8360928685148,
+  "training_stability": "unstable"
+}

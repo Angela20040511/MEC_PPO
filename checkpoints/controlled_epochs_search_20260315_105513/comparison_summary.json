@@ -1,0 +1,27 @@
+[
+  {
+    "rank":1,
+    "epochs":2,
+    "run_dir":"checkpoints\\controlled_epochs_search_20260315_105513\\epochs_002_20260315_105513_087098",
+    "best_reward":-385.605953976,
+    "final_reward":-458.5625468863,
+    "best_epoch":0,
+    "best_delay":369.7862242144,
+    "best_cost":373.9604812031,
+    "delay_at_best_reward":369.7862242144,
+    "cost_at_best_reward":373.9604812031,
+    "final_critic_loss":4165.4448913574,
+    "avg_theta_trend":"长期卡在0.5附近",
+    "avg_theta_first_mean":0.500721505,
+    "avg_theta_last_mean":0.4960104235,
+    "avg_theta_slope":-0.0047110815,
+    "reward_degradation":"明显",
+    "reward_gap":72.9565929102,
+    "critic_loss_status":"基本稳定",
+    "critic_loss_ratio_vs_min":1.4236551108,
+    "plots_dir":"checkpoints\\controlled_epochs_search_20260315_105513\\epochs_002_20260315_105513_087098\\plots",
+    "degradation_score":2,
+    "theta_stuck_penalty":1,
+    "critic_penalty":0
+  }
+]

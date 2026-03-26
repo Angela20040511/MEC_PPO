@@ -1,0 +1,49 @@
+{
+  "root_dir": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "block_value_scale_definition": "For blockwise_value_scaled_advantage_surrogate_mean: add a lightweight 24-block value head on top of the existing critic backbone; raw block scores come from critic_block_value_head(hidden_features). Use softplus(score) + eps for nonnegative block value scores, then s_b_value = positive_score / mean_blocks(positive_score), so each sample has mean scale = 1. Each block uses A_b = A * s_b_value. The new head is trained with the same configured value loss against the current normalized value target, but only through detached critic features so the global critic mainline stays intact.",
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "blockwise_surrogate_mean",
+    "blockwise_value_scaled_advantage_surrogate_mean"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "blockwise_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\policy_ratio_blockwise_surrogate_mean_20260318_004757_189038",
+      "analysis_summary": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\policy_ratio_blockwise_surrogate_mean_20260318_004757_189038\\analysis_summary.json"
+    },
+    {
+      "policy_ratio_mode": "blockwise_value_scaled_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\policy_ratio_blockwise_value_scaled_advantage_surrogate_mean_20260318_004827_427536",
+      "analysis_summary": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\policy_ratio_blockwise_value_scaled_advantage_surrogate_mean_20260318_004827_427536\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\policy_block_value_scale_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\policy_block_value_scale_summary.json",
+    "summary_md": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\policy_block_value_scale_summary.md",
+    "reward_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\reward_curve_compare.png",
+    "policy_loss_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\policy_loss_curve_compare.png",
+    "approx_kl_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\approx_kl_curve_compare.png",
+    "clip_fraction_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\clip_fraction_curve_compare.png",
+    "ratio_stats_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\ratio_stats_curve_compare.png",
+    "advantage_alignment_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\advantage_alignment_curve_compare.png",
+    "advantage_bucket_update_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\advantage_bucket_update_compare.png",
+    "selected_action_prob_gain_by_adv_bucket_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\selected_action_prob_gain_by_adv_bucket_compare.png",
+    "probe_policy_kl_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\probe_policy_kl_curve_compare.png",
+    "selected_action_change_rate_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\selected_action_change_rate_curve_compare.png",
+    "logprob_scale_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\logprob_scale_curve_compare.png",
+    "block_logprob_scale_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\block_logprob_scale_curve_compare.png",
+    "block_clip_fraction_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\block_clip_fraction_curve_compare.png",
+    "block_surrogate_scale_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\block_surrogate_scale_curve_compare.png",
+    "block_value_scale_entropy_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\block_value_scale_entropy_curve_compare.png",
+    "top_k_block_value_scale_share_curve_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\top_k_block_value_scale_share_curve_compare.png",
+    "critic_health_compare": "checkpoints\\dense_policy_block_value_scale_experiment_20260318_004749\\comparison_plots\\critic_health_compare.png"
+  }
+}

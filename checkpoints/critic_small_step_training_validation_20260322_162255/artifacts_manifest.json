@@ -1,0 +1,27 @@
+{
+  "root_dir": "checkpoints\\critic_small_step_training_validation_20260322_162255",
+  "seed": 2025,
+  "policy_ratio_mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "base_critic_learning_rate": 0.0005,
+  "probe_state_count": 64,
+  "training_num_epochs": 6,
+  "training_time_steps": 100,
+  "update_epochs": 10,
+  "groups": [
+    {
+      "group_name": "tenth_critic_lr",
+      "critic_lr_scale": 0.1,
+      "critic_learning_rate": 5e-05,
+      "run_dir": "checkpoints\\critic_small_step_training_validation_20260322_162255\\tenth_critic_lr_20260322_162300_150845",
+      "analysis_summary": "checkpoints\\critic_small_step_training_validation_20260322_162255\\tenth_critic_lr_20260322_162300_150845\\analysis_summary.json"
+    }
+  ],
+  "selected_groups": [
+    "tenth_critic_lr"
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\critic_small_step_training_validation_20260322_162255\\critic_small_step_training_validation_summary.csv",
+    "summary_json": "checkpoints\\critic_small_step_training_validation_20260322_162255\\critic_small_step_training_validation_summary.json",
+    "summary_md": "checkpoints\\critic_small_step_training_validation_20260322_162255\\critic_small_step_training_validation_summary.md"
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "seed":2025,
+    "epochs_completed":10,
+    "best_reward":-393.917758431,
+    "final_reward":-404.7455371234,
+    "best_epoch":6,
+    "reward_gap":-10.8277786924,
+    "final_critic_loss":2553.317678833,
+    "avg_theta_last10_mean":0.4919398725
+  },
+  {
+    "seed":2026,
+    "epochs_completed":9,
+    "best_reward":-405.4832086269,
+    "final_reward":-409.7859439268,
+    "best_epoch":5,
+    "reward_gap":-4.3027352999,
+    "final_critic_loss":2682.8986083984,
+    "avg_theta_last10_mean":0.4860824644
+  }
+]

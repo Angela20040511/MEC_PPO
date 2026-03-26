@@ -1,0 +1,46 @@
+{
+  "root_dir": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "true_conditional_route_mode_definitions": {
+      "hierarchical_actor_factorized_ratio_pg": "Control group: separate theta / route backbones, hard route mask, branchwise normalized advantages, alternating theta-first then route-second updates, and fully factorized theta / route PPO objectives on the raw Gaussian action coordinates.",
+      "hierarchical_actor_true_conditional_route_policy": "Test group: keep the same structure, advantages, alternating updates, and branchwise PPO objectives, but reinterpret the actor as a true two-level conditional policy: first a Bernoulli local-vs-offload decision, then a conditional categorical BS1-vs-BS2 route policy defined only on offload-active samples."
+    },
+    "route_mask_threshold": 0.5,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_factorized_ratio_pg",
+    "hierarchical_actor_true_conditional_route_policy"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_factorized_ratio_pg",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260320_084758_136324",
+      "analysis_summary": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260320_084758_136324\\analysis_summary.json",
+      "alternating_branch_pg_stats": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260320_084758_136324\\alternating_branch_pg_stats_by_epoch.csv",
+      "factorized_ratio_pg_stats": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260320_084758_136324\\factorized_ratio_pg_stats_by_epoch.csv",
+      "conditional_policy_stats": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260320_084758_136324\\conditional_policy_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260320_084758_136324\\theta_route_split_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_true_conditional_route_policy",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_084850_383994",
+      "analysis_summary": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_084850_383994\\analysis_summary.json",
+      "alternating_branch_pg_stats": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_084850_383994\\alternating_branch_pg_stats_by_epoch.csv",
+      "factorized_ratio_pg_stats": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_084850_383994\\factorized_ratio_pg_stats_by_epoch.csv",
+      "conditional_policy_stats": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_084850_383994\\conditional_policy_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_084850_383994\\theta_route_split_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_true_conditional_route_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_true_conditional_route_summary.json",
+    "summary_md": "checkpoints\\dense_policy_true_conditional_route_policy_experiment_20260320_084754\\policy_true_conditional_route_summary.md"
+  }
+}

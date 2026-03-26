@@ -1,0 +1,16 @@
+{
+  "topology": "dense",
+  "max_epochs": 12,
+  "epochs_completed": 6,
+  "best_epoch": 1,
+  "best_reward": -1098.9463945751093,
+  "final_epoch": 5,
+  "final_reward": -1187.7235884380968,
+  "reward_gap": -88.77719386298759,
+  "stopped_early": true,
+  "stop_reason": "no significant reward improvement for 3 epochs after epoch 3",
+  "monitor_start_epoch": 3,
+  "early_stopping_patience": 3,
+  "min_delta": 1.0,
+  "restored_best_model": true
+}

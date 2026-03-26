@@ -1,0 +1,46 @@
+{
+  "root_dir": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "route_residual_credit_mode_definitions": {
+      "hierarchical_actor_true_conditional_route_policy": "Control group: true two-level conditional policy with conditional route categorical bookkeeping on offload-active samples, using the existing scalar route credit path.",
+      "hierarchical_actor_route_residual_credit_vectorized": "Test group: keep the same true conditional policy and alternating PPO updates, but replace the scalar route credit entering PPO with a vectorized selected-minus-expected residual route credit that matches the future masked categorical route abstraction."
+    },
+    "route_mask_threshold": 0.5,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_true_conditional_route_policy",
+    "hierarchical_actor_route_residual_credit_vectorized"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_true_conditional_route_policy",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_103713_394671",
+      "analysis_summary": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_103713_394671\\analysis_summary.json",
+      "factorized_ratio_pg_stats": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_103713_394671\\factorized_ratio_pg_stats_by_epoch.csv",
+      "conditional_policy_stats": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_103713_394671\\conditional_policy_stats_by_epoch.csv",
+      "route_residual_credit_stats": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_103713_394671\\route_residual_credit_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_true_conditional_route_policy_20260320_103713_394671\\theta_route_split_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_route_residual_credit_vectorized",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_route_residual_credit_vectorized_20260320_103738_980679",
+      "analysis_summary": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_route_residual_credit_vectorized_20260320_103738_980679\\analysis_summary.json",
+      "factorized_ratio_pg_stats": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_route_residual_credit_vectorized_20260320_103738_980679\\factorized_ratio_pg_stats_by_epoch.csv",
+      "conditional_policy_stats": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_route_residual_credit_vectorized_20260320_103738_980679\\conditional_policy_stats_by_epoch.csv",
+      "route_residual_credit_stats": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_route_residual_credit_vectorized_20260320_103738_980679\\route_residual_credit_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_ratio_hierarchical_actor_route_residual_credit_vectorized_20260320_103738_980679\\theta_route_split_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_route_residual_credit_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_route_residual_credit_summary.json",
+    "summary_md": "checkpoints\\dense_policy_route_residual_credit_experiment_20260320_103709\\policy_route_residual_credit_summary.md"
+  }
+}

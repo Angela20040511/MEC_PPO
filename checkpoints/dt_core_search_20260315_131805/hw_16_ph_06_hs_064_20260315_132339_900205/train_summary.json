@@ -1,0 +1,15 @@
+{
+  "max_epochs": 12,
+  "epochs_completed": 12,
+  "best_epoch": 10,
+  "best_reward": -384.0507714335562,
+  "final_epoch": 11,
+  "final_reward": -420.49394331589457,
+  "reward_gap": -36.44317188233839,
+  "stopped_early": false,
+  "stop_reason": "reached_max_epochs",
+  "monitor_start_epoch": 3,
+  "early_stopping_patience": 3,
+  "min_delta": 1.0,
+  "restored_best_model": true
+}

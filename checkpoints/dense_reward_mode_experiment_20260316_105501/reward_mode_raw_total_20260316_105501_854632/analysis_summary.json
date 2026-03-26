@@ -1,0 +1,15 @@
+{
+  "reward_mode": "raw_total",
+  "run_dir": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_raw_total_20260316_105501_854632",
+  "epochs_completed": 5,
+  "best_reward": -1098.0806754121104,
+  "final_reward": -1172.8068996934662,
+  "best_epoch": 1,
+  "reward_gap": -74.72622428135583,
+  "reward_gap_abs": 74.72622428135583,
+  "final_critic_loss": 27245.607275390623,
+  "final_reward_delay_term": 1149.0945191555425,
+  "final_reward_energy_term": 9.51620016839076,
+  "final_reward_backlog_term": 14.196180369532923,
+  "best_epoch_is_one": 1
+}

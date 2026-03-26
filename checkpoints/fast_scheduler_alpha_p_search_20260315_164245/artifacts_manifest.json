@@ -1,0 +1,40 @@
+{
+  "root_dir": "checkpoints\\fast_scheduler_alpha_p_search_20260315_164245",
+  "fixed_params": {
+    "seed": 2025,
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "start_check_epoch": 3,
+    "max_epochs": 12,
+    "patience": 3,
+    "min_delta": 1.0,
+    "time_steps": 100,
+    "dt_history_window": 8,
+    "dt_prediction_horizon": 2,
+    "dt_hidden_size": 128,
+    "dt_retrain_interval": 5,
+    "dt_train_epochs": 5,
+    "dt_num_layers": 1,
+    "dt_learning_rate": 0.001,
+    "dt_batch_size": 32,
+    "dt_min_history_to_train": 20,
+    "noma_quantile": 0.85,
+    "max_cluster_size": 3
+  },
+  "alpha_p_grid": [
+    0.2
+  ],
+  "runs": [
+    {
+      "alpha_p": 0.2,
+      "run_dir": "checkpoints\\fast_scheduler_alpha_p_search_20260315_164245\\alpha_p_0p20_20260315_164245_085820",
+      "analysis_summary": "checkpoints\\fast_scheduler_alpha_p_search_20260315_164245\\alpha_p_0p20_20260315_164245_085820\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\fast_scheduler_alpha_p_search_20260315_164245\\fast_scheduler_alpha_p_summary.csv",
+    "summary_json": "checkpoints\\fast_scheduler_alpha_p_search_20260315_164245\\fast_scheduler_alpha_p_summary.json",
+    "summary_md": "checkpoints\\fast_scheduler_alpha_p_search_20260315_164245\\fast_scheduler_alpha_p_summary.md"
+  }
+}

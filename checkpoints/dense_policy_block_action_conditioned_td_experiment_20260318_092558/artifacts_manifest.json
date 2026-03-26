@@ -1,0 +1,54 @@
+{
+  "root_dir": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "block_path_cost_definition": "cost_local_b = workload_b + virtual_queue_b + local_queue_b; cost_bs1_b = workload_b + virtual_queue_b + access_queue_sensor(b) + bs_queue_BS1(task_b); cost_bs2_b = workload_b + virtual_queue_b + access_queue_sensor(b) + bs_queue_BS2(task_b).",
+    "action_conditioned_td_mode_definitions": {
+      "blockwise_td_advantage_surrogate_mean": "local_cost_b = workload_b + virtual_queue_b + local_queue_b + access_queue_sensor(b); r_b = -local_cost_b; A_b = r_b + gamma * (1 - done) * V_b(s_next) - V_b(s).",
+      "blockwise_action_conditioned_td_advantage_surrogate_mean": "p_local = 1 - sigmoid(theta_b); p_bs1, p_bs2 = sigmoid(theta_b) * softmax(route_logits_b); cost_act_b_now = p_local * cost_local_b(now) + p_bs1 * cost_bs1_b(now) + p_bs2 * cost_bs2_b(now); cost_act_b_next = p_local * cost_local_b(next) + p_bs1 * cost_bs1_b(next) + p_bs2 * cost_bs2_b(next); delta_cost_b = cost_act_b_next - cost_act_b_now; r_b = -delta_cost_b = cost_act_b_now - cost_act_b_next; A_b = r_b + gamma * (1 - done) * V_b(s_next) - V_b(s)."
+    },
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "blockwise_td_advantage_surrogate_mean",
+    "blockwise_action_conditioned_td_advantage_surrogate_mean"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "blockwise_td_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\policy_ratio_blockwise_td_advantage_surrogate_mean_20260318_092602_564578",
+      "analysis_summary": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\policy_ratio_blockwise_td_advantage_surrogate_mean_20260318_092602_564578\\analysis_summary.json",
+      "block_action_conditioned_cost_stats": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\policy_ratio_blockwise_td_advantage_surrogate_mean_20260318_092602_564578\\block_action_conditioned_cost_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "blockwise_action_conditioned_td_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\policy_ratio_blockwise_action_conditioned_td_advantage_surrogate_mean_20260318_092624_547548",
+      "analysis_summary": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\policy_ratio_blockwise_action_conditioned_td_advantage_surrogate_mean_20260318_092624_547548\\analysis_summary.json",
+      "block_action_conditioned_cost_stats": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\policy_ratio_blockwise_action_conditioned_td_advantage_surrogate_mean_20260318_092624_547548\\block_action_conditioned_cost_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\policy_block_action_conditioned_td_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\policy_block_action_conditioned_td_summary.json",
+    "summary_md": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\policy_block_action_conditioned_td_summary.md",
+    "reward_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\reward_curve_compare.png",
+    "policy_loss_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\policy_loss_curve_compare.png",
+    "approx_kl_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\approx_kl_curve_compare.png",
+    "clip_fraction_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\clip_fraction_curve_compare.png",
+    "ratio_stats_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\ratio_stats_curve_compare.png",
+    "advantage_alignment_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\advantage_alignment_curve_compare.png",
+    "advantage_bucket_update_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\advantage_bucket_update_compare.png",
+    "selected_action_prob_gain_by_adv_bucket_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\selected_action_prob_gain_by_adv_bucket_compare.png",
+    "probe_policy_kl_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\probe_policy_kl_curve_compare.png",
+    "selected_action_change_rate_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\selected_action_change_rate_curve_compare.png",
+    "block_clip_fraction_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\block_clip_fraction_curve_compare.png",
+    "block_surrogate_scale_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\block_surrogate_scale_curve_compare.png",
+    "block_td_advantage_entropy_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\block_td_advantage_entropy_curve_compare.png",
+    "top_k_block_td_advantage_share_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\top_k_block_td_advantage_share_curve_compare.png",
+    "block_action_conditioned_cost_curve_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\block_action_conditioned_cost_curve_compare.png",
+    "critic_health_compare": "checkpoints\\dense_policy_block_action_conditioned_td_experiment_20260318_092558\\comparison_plots\\critic_health_compare.png"
+  }
+}

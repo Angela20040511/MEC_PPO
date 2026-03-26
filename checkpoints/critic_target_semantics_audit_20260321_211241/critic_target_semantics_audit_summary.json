@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "baseline_mode": "hierarchical_actor_joint_reward_aligned_credit",
+    "checkpoint_path": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_182909_053940\\best_model.pt",
+    "seed": 2025,
+    "audit_steps": 24,
+    "sample_count": 24,
+    "block_count": 24,
+    "row_count": 2304,
+    "value_target_mode": "popart_return_norm",
+    "gamma": 0.99,
+    "gae_lambda": 0.95
+  },
+  "value_path": {
+    "evaluate_value_path": "PPOAgent.evaluate_value(state) -> PPOAgent._value_from_state_tensor(state_tensor) -> PPOAgent._prepare_critic_inputs(update_stats=False) -> ActorCritic.value_from_critic_input(critic_input, mean, std) -> normalized critic prediction * popart_std + popart_mean",
+    "training_value_head_semantics": "Main scalar critic head. Under popart_return_norm, training loss fits normalized targets, while evaluate_value returns the corresponding raw, de-normalized value estimate in return space."
+  },
+  "training_target_pipeline": {
+    "buffer_stored_quantities": {
+      "state": "raw normalized state vector",
+      "next_state": "next raw normalized state vector",
+      "reward": "environment one-step reward",
+      "done": "episode termination flag",
+      "value": "raw scalar value from evaluate_value(state) at rollout time",
+      "advantages": "GAE(lambda) from delta_t",
+      "returns": "advantages + value"
+    },
+    "finish_trajectory_formula": {
+      "delta_t": "reward_t + gamma * value_{t+1} * (1-done_t) - value_t",
+      "gae_t": "delta_t + gamma * gae_lambda * (1-done_t) * gae_{t+1}",
+      "return_t": "gae_t + value_t"
+    },
+    "value_target_construction": {
+      "raw_target": "returns",
+      "popart_stats_update": "running mean/std updated on rollout returns",
+      "normalized_target": "(returns - target_mean) / (target_std + 1e-8)",
+      "value_loss_target": "normalized_target"
+    },
+    "critic_prediction_used_in_loss": {
+      "training_prediction": "network.normalized_value_from_critic_input(critic_input)",
+      "raw_equivalent_prediction": "(evaluate_value(state) - target_mean) / (target_std + 1e-8)",
+      "popart_rescale": "critic head is rescaled before loss so raw semantics stay continuous"
+    },
+    "inference_prediction": {
+      "evaluate_value_output": "raw de-normalized scalar value in return space",
+      "same_semantics_as_training": true
+    },
+    "target_mean": -25.26869773864746,
+    "target_std": 7.841250419616699
+  },
+  "real_rollout_value_semantics": {
+    "value_vs_return": {
+      "pearson": -0.37638762023277694,
+      "spearman": -0.4069565217391304
+    },
+    "value_vs_value_target": {
+      "pearson": -0.37638760152938155,
+      "spearman": -0.4069565217391304
+    },
+    "normalized_value_vs_value_target": {
+      "pearson": -0.3763876129862892,
+      "spearman": -0.4069565217391304
+    },
+    "value_vs_advantage": {
+      "pearson": -0.9246138038616448,
+      "spearman": -0.6547826086956522
+    },
+    "value_vs_one_step_reward": {
+      "pearson": -0.15840915612313858,
+      "spearman": -0.2739130434782609
+    },
+    "value_vs_one_step_td_target": {
+      "pearson": 0.07454884532669012,
+      "spearman": 0.38086956521739124
+    }
+  },
+  "counterfactual_value_semantics": {
+    "selected_counterfactual_value_vs_return": {
+      "pearson": -0.3093857525406735,
+      "spearman": -0.3786972306560874
+    },
+    "selected_counterfactual_value_vs_advantage": {
+      "pearson": -0.1765484850363029,
+      "spearman": -0.36608112930579334
+    },
+    "selected_counterfactual_value_vs_reward_aligned_score": {
+      "pearson": -0.15847372449171274,
+      "spearman": -0.09616966712328957
+    },
+    "best_counterfactual_value_vs_return": {
+      "pearson": -0.30050653180788794,
+      "spearman": -0.3589223515668532
+    },
+    "best_counterfactual_value_vs_advantage": {
+      "pearson": -0.205131540574019,
+      "spearman": -0.3485250791364878
+    },
+    "best_counterfactual_value_vs_reward_aligned_score": {
+      "pearson": -0.1612264213894712,
+      "spearman": -0.10544244018927712
+    }
+  },
+  "distribution_comparison": {
+    "real_rollout_state_value_stats": {
+      "mean": -21.647523880004883,
+      "std": 8.998946189880371,
+      "min": -26.867366790771484,
+      "max": 17.638221740722656,
+      "median": -24.43981170654297
+    },
+    "real_rollout_next_state_value_stats": {
+      "mean": -21.5118408203125,
+      "std": 8.94360065460205,
+      "min": -26.730304718017578,
+      "max": 17.638221740722656,
+      "median": -24.356891632080078
+    },
+    "counterfactual_next_state_value_stats": {
+      "mean": -20.972171783447266,
+      "std": 9.22021198272705,
+      "min": -26.908628463745117,
+      "max": 20.82616424560547,
+      "median": -24.07582664489746
+    },
+    "real_state_feature_stats": {
+      "workload": {
+        "mean": 0.48659059405326843,
+        "std": 0.08987820893526077,
+        "min": 0.370186448097229,
+        "max": 0.735849916934967,
+        "median": 0.4675409197807312
+      },
+      "access_queue": {
+        "mean": 0.12067016959190369,
+        "std": 0.03399534150958061,
+        "min": 0.0,
+        "max": 0.17111559212207794,
+        "median": 0.12665487825870514
+      },
+      "virtual_queue": {
+        "mean": 0.054671794176101685,
+        "std": 0.01353397872298956,
+        "min": 0.0,
+        "max": 0.07118739187717438,
+        "median": 0.05540400743484497
+      },
+      "local_queue": {
+        "mean": 0.037229519337415695,
+        "std": 0.01030995324254036,
+        "min": 0.0,
+        "max": 0.050969332456588745,
+        "median": 0.03912920504808426
+      },
+      "bs_queue": {
+        "mean": 0.17559118568897247,
+        "std": 0.04676481708884239,
+        "min": 0.0,
+        "max": 0.23408769071102142,
+        "median": 0.18950524926185608
+      }
+    },
+    "real_next_state_feature_stats": {
+      "workload": {
+        "mean": 0.47330236434936523,
+        "std": 0.0742625743150711,
+        "min": 0.370186448097229,
+        "max": 0.6277542114257812,
+        "median": 0.4404205083847046
+      },
+      "access_queue": {
+        "mean": 0.12545950710773468,
+        "std": 0.022964997217059135,
+        "min": 0.080630823969841,
+        "max": 0.17111559212207794,
+        "median": 0.12665487825870514
+      },
+      "virtual_queue": {
+        "mean": 0.05719238147139549,
+        "std": 0.007327057421207428,
+        "min": 0.045572489500045776,
+        "max": 0.07118739187717438,
+        "median": 0.05626643821597099
+      },
+      "local_queue": {
+        "mean": 0.0386531762778759,
+        "std": 0.0068488954566419125,
+        "min": 0.026226714253425598,
+        "max": 0.050969332456588745,
+        "median": 0.03912920504808426
+      },
+      "bs_queue": {
+        "mean": 0.18345992267131805,
+        "std": 0.029114916920661926,
+        "min": 0.13254381716251373,
+        "max": 0.23408769071102142,
+        "median": 0.18950524926185608
+      }
+    },
+    "counterfactual_next_state_feature_stats": {
+      "workload": {
+        "mean": 0.4732890725135803,
+        "std": 0.0742468312382698,
+        "min": 0.370186448097229,
+        "max": 0.6277542114257812,
+        "median": 0.4404205083847046
+      },
+      "access_queue": {
+        "mean": 0.1266023963689804,
+        "std": 0.02402571775019169,
+        "min": 0.06936009228229523,
+        "max": 0.19262005388736725,
+        "median": 0.12611544132232666
+      },
+      "virtual_queue": {
+        "mean": 0.057573337107896805,
+        "std": 0.007699110545217991,
+        "min": 0.04090295732021332,
+        "max": 0.0782732367515564,
+        "median": 0.0566544346511364
+      },
+      "local_queue": {
+        "mean": 0.038220539689064026,
+        "std": 0.007176870014518499,
+        "min": 0.022818395867943764,
+        "max": 0.058133721351623535,
+        "median": 0.03872944787144661
+      },
+      "bs_queue": {
+        "mean": 0.18519048392772675,
+        "std": 0.030954554677009583,
+        "min": 0.10830101370811462,
+        "max": 0.26172664761543274,
+        "median": 0.19090008735656738
+      }
+    },
+    "raw_state_distance_stats": {
+      "mean": 0.09413537383079529,
+      "std": 0.08966639637947083,
+      "min": 0.0,
+      "max": 0.5821608901023865,
+      "median": 0.07541128247976303
+    },
+    "critic_input_distance_stats": {
+      "mean": 2.5830721855163574,
+      "std": 2.393246650695801,
+      "min": 0.0,
+      "max": 12.400829315185547,
+      "median": 2.0374538898468018
+    }
+  },
+  "reward_value_ranking": {
+    "reward_best_vs_value_best_match_ratio": 0.5329861111111112,
+    "reward_value_flip_type_counts": {
+      "reward:bs1->value:bs2": 153,
+      "reward:bs1->value:local": 63,
+      "reward:bs2->value:bs1": 21,
+      "reward:bs2->value:local": 81,
+      "reward:local->value:bs1": 174,
+      "reward:local->value:bs2": 315
+    }
+  }
+}

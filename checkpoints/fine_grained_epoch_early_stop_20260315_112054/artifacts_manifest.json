@@ -1,0 +1,740 @@
+{
+  "root_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054",
+  "fixed_params": {
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "time_steps": 100,
+    "monitor_start_epoch": 25
+  },
+  "grid": {
+    "max_epochs": [
+      30,
+      33,
+      35,
+      37,
+      40,
+      45
+    ],
+    "patience": [
+      5,
+      8,
+      10
+    ],
+    "min_delta": [
+      0.5,
+      1.0,
+      2.0
+    ]
+  },
+  "runs": [
+    {
+      "max_epochs": 30,
+      "patience": 5,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_0p5_20260315_112054_659340",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_0p5_20260315_112054_659340\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_0p5_20260315_112054_659340\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_0p5_20260315_112054_659340\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_0p5_20260315_112054_659340\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_0p5_20260315_112054_659340\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 30,
+      "patience": 5,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_1p0_20260315_112114_641316",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_1p0_20260315_112114_641316\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_1p0_20260315_112114_641316\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_1p0_20260315_112114_641316\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_1p0_20260315_112114_641316\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_1p0_20260315_112114_641316\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 30,
+      "patience": 5,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_2p0_20260315_112134_690189",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_2p0_20260315_112134_690189\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_2p0_20260315_112134_690189\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_2p0_20260315_112134_690189\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_2p0_20260315_112134_690189\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_05_delta_2p0_20260315_112134_690189\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 30,
+      "patience": 8,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_0p5_20260315_112153_906300",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_0p5_20260315_112153_906300\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_0p5_20260315_112153_906300\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_0p5_20260315_112153_906300\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_0p5_20260315_112153_906300\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_0p5_20260315_112153_906300\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 30,
+      "patience": 8,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_1p0_20260315_112213_207122",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_1p0_20260315_112213_207122\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_1p0_20260315_112213_207122\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_1p0_20260315_112213_207122\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_1p0_20260315_112213_207122\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_1p0_20260315_112213_207122\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 30,
+      "patience": 8,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_2p0_20260315_112232_432305",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_2p0_20260315_112232_432305\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_2p0_20260315_112232_432305\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_2p0_20260315_112232_432305\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_2p0_20260315_112232_432305\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_08_delta_2p0_20260315_112232_432305\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 30,
+      "patience": 10,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_0p5_20260315_112251_471295",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_0p5_20260315_112251_471295\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_0p5_20260315_112251_471295\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_0p5_20260315_112251_471295\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_0p5_20260315_112251_471295\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_0p5_20260315_112251_471295\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 30,
+      "patience": 10,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_1p0_20260315_112310_671357",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_1p0_20260315_112310_671357\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_1p0_20260315_112310_671357\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_1p0_20260315_112310_671357\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_1p0_20260315_112310_671357\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_1p0_20260315_112310_671357\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 30,
+      "patience": 10,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_2p0_20260315_112330_663246",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_2p0_20260315_112330_663246\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_2p0_20260315_112330_663246\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_2p0_20260315_112330_663246\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_2p0_20260315_112330_663246\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_030_pat_10_delta_2p0_20260315_112330_663246\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 33,
+      "patience": 5,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_0p5_20260315_112349_886252",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_0p5_20260315_112349_886252\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_0p5_20260315_112349_886252\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_0p5_20260315_112349_886252\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_0p5_20260315_112349_886252\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_0p5_20260315_112349_886252\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 33,
+      "patience": 5,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_1p0_20260315_112410_383478",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_1p0_20260315_112410_383478\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_1p0_20260315_112410_383478\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_1p0_20260315_112410_383478\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_1p0_20260315_112410_383478\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_1p0_20260315_112410_383478\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 33,
+      "patience": 5,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_2p0_20260315_112431_311139",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_2p0_20260315_112431_311139\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_2p0_20260315_112431_311139\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_2p0_20260315_112431_311139\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_2p0_20260315_112431_311139\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_05_delta_2p0_20260315_112431_311139\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 33,
+      "patience": 8,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_0p5_20260315_112451_577610",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_0p5_20260315_112451_577610\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_0p5_20260315_112451_577610\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_0p5_20260315_112451_577610\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_0p5_20260315_112451_577610\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_0p5_20260315_112451_577610\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 33,
+      "patience": 8,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_1p0_20260315_112512_367741",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_1p0_20260315_112512_367741\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_1p0_20260315_112512_367741\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_1p0_20260315_112512_367741\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_1p0_20260315_112512_367741\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_1p0_20260315_112512_367741\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 33,
+      "patience": 8,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_2p0_20260315_112534_516068",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_2p0_20260315_112534_516068\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_2p0_20260315_112534_516068\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_2p0_20260315_112534_516068\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_2p0_20260315_112534_516068\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_08_delta_2p0_20260315_112534_516068\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 33,
+      "patience": 10,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_0p5_20260315_112557_358318",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_0p5_20260315_112557_358318\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_0p5_20260315_112557_358318\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_0p5_20260315_112557_358318\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_0p5_20260315_112557_358318\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_0p5_20260315_112557_358318\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 33,
+      "patience": 10,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_1p0_20260315_112618_725143",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_1p0_20260315_112618_725143\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_1p0_20260315_112618_725143\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_1p0_20260315_112618_725143\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_1p0_20260315_112618_725143\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_1p0_20260315_112618_725143\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 33,
+      "patience": 10,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_2p0_20260315_112639_513548",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_2p0_20260315_112639_513548\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_2p0_20260315_112639_513548\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_2p0_20260315_112639_513548\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_2p0_20260315_112639_513548\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_2p0_20260315_112639_513548\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 35,
+      "patience": 5,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_0p5_20260315_112701_130755",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_0p5_20260315_112701_130755\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_0p5_20260315_112701_130755\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_0p5_20260315_112701_130755\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_0p5_20260315_112701_130755\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_0p5_20260315_112701_130755\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 35,
+      "patience": 5,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_1p0_20260315_112723_646077",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_1p0_20260315_112723_646077\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_1p0_20260315_112723_646077\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_1p0_20260315_112723_646077\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_1p0_20260315_112723_646077\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_1p0_20260315_112723_646077\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 35,
+      "patience": 5,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_2p0_20260315_112746_237985",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_2p0_20260315_112746_237985\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_2p0_20260315_112746_237985\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_2p0_20260315_112746_237985\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_2p0_20260315_112746_237985\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_05_delta_2p0_20260315_112746_237985\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 35,
+      "patience": 8,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_0p5_20260315_112807_959294",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_0p5_20260315_112807_959294\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_0p5_20260315_112807_959294\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_0p5_20260315_112807_959294\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_0p5_20260315_112807_959294\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_0p5_20260315_112807_959294\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 35,
+      "patience": 8,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_1p0_20260315_112832_214545",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_1p0_20260315_112832_214545\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_1p0_20260315_112832_214545\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_1p0_20260315_112832_214545\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_1p0_20260315_112832_214545\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_1p0_20260315_112832_214545\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 35,
+      "patience": 8,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_2p0_20260315_112855_202028",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_2p0_20260315_112855_202028\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_2p0_20260315_112855_202028\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_2p0_20260315_112855_202028\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_2p0_20260315_112855_202028\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_08_delta_2p0_20260315_112855_202028\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 35,
+      "patience": 10,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_0p5_20260315_112919_160065",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_0p5_20260315_112919_160065\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_0p5_20260315_112919_160065\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_0p5_20260315_112919_160065\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_0p5_20260315_112919_160065\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_0p5_20260315_112919_160065\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 35,
+      "patience": 10,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_1p0_20260315_112942_791717",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_1p0_20260315_112942_791717\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_1p0_20260315_112942_791717\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_1p0_20260315_112942_791717\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_1p0_20260315_112942_791717\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_1p0_20260315_112942_791717\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 35,
+      "patience": 10,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_2p0_20260315_113006_289740",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_2p0_20260315_113006_289740\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_2p0_20260315_113006_289740\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_2p0_20260315_113006_289740\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_2p0_20260315_113006_289740\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_035_pat_10_delta_2p0_20260315_113006_289740\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 37,
+      "patience": 5,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_0p5_20260315_113030_341218",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_0p5_20260315_113030_341218\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_0p5_20260315_113030_341218\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_0p5_20260315_113030_341218\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_0p5_20260315_113030_341218\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_0p5_20260315_113030_341218\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 37,
+      "patience": 5,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_1p0_20260315_113051_506256",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_1p0_20260315_113051_506256\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_1p0_20260315_113051_506256\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_1p0_20260315_113051_506256\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_1p0_20260315_113051_506256\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_1p0_20260315_113051_506256\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 37,
+      "patience": 5,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_2p0_20260315_113113_373047",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_2p0_20260315_113113_373047\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_2p0_20260315_113113_373047\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_2p0_20260315_113113_373047\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_2p0_20260315_113113_373047\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_05_delta_2p0_20260315_113113_373047\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 37,
+      "patience": 8,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_0p5_20260315_113135_382939",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_0p5_20260315_113135_382939\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_0p5_20260315_113135_382939\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_0p5_20260315_113135_382939\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_0p5_20260315_113135_382939\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_0p5_20260315_113135_382939\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 37,
+      "patience": 8,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_1p0_20260315_113200_636852",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_1p0_20260315_113200_636852\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_1p0_20260315_113200_636852\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_1p0_20260315_113200_636852\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_1p0_20260315_113200_636852\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_1p0_20260315_113200_636852\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 37,
+      "patience": 8,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_2p0_20260315_113224_745337",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_2p0_20260315_113224_745337\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_2p0_20260315_113224_745337\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_2p0_20260315_113224_745337\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_2p0_20260315_113224_745337\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_08_delta_2p0_20260315_113224_745337\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 37,
+      "patience": 10,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_0p5_20260315_113249_310517",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_0p5_20260315_113249_310517\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_0p5_20260315_113249_310517\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_0p5_20260315_113249_310517\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_0p5_20260315_113249_310517\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_0p5_20260315_113249_310517\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 37,
+      "patience": 10,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_1p0_20260315_113313_666998",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_1p0_20260315_113313_666998\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_1p0_20260315_113313_666998\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_1p0_20260315_113313_666998\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_1p0_20260315_113313_666998\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_1p0_20260315_113313_666998\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 37,
+      "patience": 10,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_2p0_20260315_113341_524115",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_2p0_20260315_113341_524115\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_2p0_20260315_113341_524115\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_2p0_20260315_113341_524115\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_2p0_20260315_113341_524115\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_037_pat_10_delta_2p0_20260315_113341_524115\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 40,
+      "patience": 5,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_0p5_20260315_113408_458463",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_0p5_20260315_113408_458463\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_0p5_20260315_113408_458463\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_0p5_20260315_113408_458463\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_0p5_20260315_113408_458463\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_0p5_20260315_113408_458463\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 40,
+      "patience": 5,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_1p0_20260315_113430_882883",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_1p0_20260315_113430_882883\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_1p0_20260315_113430_882883\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_1p0_20260315_113430_882883\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_1p0_20260315_113430_882883\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_1p0_20260315_113430_882883\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 40,
+      "patience": 5,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_2p0_20260315_113452_385287",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_2p0_20260315_113452_385287\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_2p0_20260315_113452_385287\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_2p0_20260315_113452_385287\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_2p0_20260315_113452_385287\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_05_delta_2p0_20260315_113452_385287\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 40,
+      "patience": 8,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_0p5_20260315_113514_667269",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_0p5_20260315_113514_667269\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_0p5_20260315_113514_667269\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_0p5_20260315_113514_667269\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_0p5_20260315_113514_667269\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_0p5_20260315_113514_667269\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 40,
+      "patience": 8,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_1p0_20260315_113542_229579",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_1p0_20260315_113542_229579\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_1p0_20260315_113542_229579\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_1p0_20260315_113542_229579\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_1p0_20260315_113542_229579\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_1p0_20260315_113542_229579\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 40,
+      "patience": 8,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_2p0_20260315_113608_413739",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_2p0_20260315_113608_413739\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_2p0_20260315_113608_413739\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_2p0_20260315_113608_413739\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_2p0_20260315_113608_413739\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_08_delta_2p0_20260315_113608_413739\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 40,
+      "patience": 10,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_0p5_20260315_113635_010788",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_0p5_20260315_113635_010788\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_0p5_20260315_113635_010788\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_0p5_20260315_113635_010788\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_0p5_20260315_113635_010788\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_0p5_20260315_113635_010788\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 40,
+      "patience": 10,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_1p0_20260315_113702_088480",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_1p0_20260315_113702_088480\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_1p0_20260315_113702_088480\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_1p0_20260315_113702_088480\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_1p0_20260315_113702_088480\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_1p0_20260315_113702_088480\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 40,
+      "patience": 10,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_2p0_20260315_113728_663620",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_2p0_20260315_113728_663620\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_2p0_20260315_113728_663620\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_2p0_20260315_113728_663620\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_2p0_20260315_113728_663620\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_040_pat_10_delta_2p0_20260315_113728_663620\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 45,
+      "patience": 5,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_0p5_20260315_113755_108532",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_0p5_20260315_113755_108532\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_0p5_20260315_113755_108532\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_0p5_20260315_113755_108532\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_0p5_20260315_113755_108532\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_0p5_20260315_113755_108532\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 45,
+      "patience": 5,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_1p0_20260315_113817_625487",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_1p0_20260315_113817_625487\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_1p0_20260315_113817_625487\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_1p0_20260315_113817_625487\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_1p0_20260315_113817_625487\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_1p0_20260315_113817_625487\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 45,
+      "patience": 5,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_2p0_20260315_113839_189875",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_2p0_20260315_113839_189875\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_2p0_20260315_113839_189875\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_2p0_20260315_113839_189875\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_2p0_20260315_113839_189875\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_05_delta_2p0_20260315_113839_189875\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 45,
+      "patience": 8,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_0p5_20260315_113901_267351",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_0p5_20260315_113901_267351\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_0p5_20260315_113901_267351\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_0p5_20260315_113901_267351\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_0p5_20260315_113901_267351\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_0p5_20260315_113901_267351\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 45,
+      "patience": 8,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_1p0_20260315_113928_655383",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_1p0_20260315_113928_655383\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_1p0_20260315_113928_655383\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_1p0_20260315_113928_655383\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_1p0_20260315_113928_655383\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_1p0_20260315_113928_655383\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 45,
+      "patience": 8,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_2p0_20260315_113956_237565",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_2p0_20260315_113956_237565\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_2p0_20260315_113956_237565\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_2p0_20260315_113956_237565\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_2p0_20260315_113956_237565\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_08_delta_2p0_20260315_113956_237565\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 45,
+      "patience": 10,
+      "min_delta": 0.5,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_0p5_20260315_114023_652185",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_0p5_20260315_114023_652185\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_0p5_20260315_114023_652185\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_0p5_20260315_114023_652185\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_0p5_20260315_114023_652185\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_0p5_20260315_114023_652185\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 45,
+      "patience": 10,
+      "min_delta": 1.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_1p0_20260315_114052_269197",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_1p0_20260315_114052_269197\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_1p0_20260315_114052_269197\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_1p0_20260315_114052_269197\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_1p0_20260315_114052_269197\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_1p0_20260315_114052_269197\\plots\\reward_curve.png"
+      ]
+    },
+    {
+      "max_epochs": 45,
+      "patience": 10,
+      "min_delta": 2.0,
+      "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_2p0_20260315_114120_919577",
+      "analysis_summary": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_2p0_20260315_114120_919577\\analysis_summary.json",
+      "plots": [
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_2p0_20260315_114120_919577\\plots\\avg_theta_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_2p0_20260315_114120_919577\\plots\\backlog_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_2p0_20260315_114120_919577\\plots\\critic_loss_curve.png",
+        "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_045_pat_10_delta_2p0_20260315_114120_919577\\plots\\reward_curve.png"
+      ]
+    }
+  ],
+  "comparison": {
+    "comparison_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\comparison_plots",
+    "summary_csv": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\comparison_summary.csv",
+    "summary_json": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\comparison_summary.json",
+    "summary_md": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\comparison_summary.md"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "root_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716",
+  "fixed_params": {
+    "topology": "dense",
+    "seed": 2025,
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "time_steps": 100,
+    "dt_history_window": 8,
+    "dt_prediction_horizon": 2,
+    "dt_hidden_size": 128,
+    "dt_retrain_interval": 5,
+    "dt_train_epochs": 5,
+    "dt_num_layers": 1,
+    "dt_learning_rate": 0.001,
+    "dt_batch_size": 32,
+    "dt_min_history_to_train": 20,
+    "noma_quantile": 0.65,
+    "alpha_p": 0.4,
+    "max_cluster_size": 2,
+    "min_delta": 1.0
+  },
+  "grid": {
+    "start_check_epoch": [
+      1,
+      2,
+      3
+    ],
+    "max_epochs": [
+      4,
+      6,
+      8
+    ],
+    "patience": [
+      2,
+      3
+    ]
+  },
+  "runs": [
+    {
+      "start_check_epoch": 1,
+      "max_epochs": 4,
+      "patience": 2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_04_pat_02_20260315_184716_100022",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_04_pat_02_20260315_184716_100022\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 1,
+      "max_epochs": 4,
+      "patience": 3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_04_pat_03_20260315_184731_819964",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_04_pat_03_20260315_184731_819964\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 1,
+      "max_epochs": 6,
+      "patience": 2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_06_pat_02_20260315_184747_882468",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_06_pat_02_20260315_184747_882468\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 1,
+      "max_epochs": 6,
+      "patience": 3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_06_pat_03_20260315_184803_217230",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_06_pat_03_20260315_184803_217230\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 1,
+      "max_epochs": 8,
+      "patience": 2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_08_pat_02_20260315_184819_323344",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_08_pat_02_20260315_184819_323344\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 1,
+      "max_epochs": 8,
+      "patience": 3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_08_pat_03_20260315_184833_796672",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_01_max_08_pat_03_20260315_184833_796672\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 2,
+      "max_epochs": 4,
+      "patience": 2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_04_pat_02_20260315_184848_527268",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_04_pat_02_20260315_184848_527268\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 2,
+      "max_epochs": 4,
+      "patience": 3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_04_pat_03_20260315_184903_089310",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_04_pat_03_20260315_184903_089310\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 2,
+      "max_epochs": 6,
+      "patience": 2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_06_pat_02_20260315_184916_810069",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_06_pat_02_20260315_184916_810069\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 2,
+      "max_epochs": 6,
+      "patience": 3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_06_pat_03_20260315_184931_448156",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_06_pat_03_20260315_184931_448156\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 2,
+      "max_epochs": 8,
+      "patience": 2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_08_pat_02_20260315_184946_523124",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_08_pat_02_20260315_184946_523124\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 2,
+      "max_epochs": 8,
+      "patience": 3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_08_pat_03_20260315_185000_242639",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_02_max_08_pat_03_20260315_185000_242639\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 4,
+      "patience": 2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_04_pat_02_20260315_185015_053773",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_04_pat_02_20260315_185015_053773\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 4,
+      "patience": 3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_04_pat_03_20260315_185034_398371",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_04_pat_03_20260315_185034_398371\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 6,
+      "patience": 2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_06_pat_02_20260315_185056_384381",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_06_pat_02_20260315_185056_384381\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 6,
+      "patience": 3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_06_pat_03_20260315_185113_995320",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_06_pat_03_20260315_185113_995320\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 8,
+      "patience": 2,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_08_pat_02_20260315_185130_413883",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_08_pat_02_20260315_185130_413883\\analysis_summary.json"
+    },
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 8,
+      "patience": 3,
+      "run_dir": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_08_pat_03_20260315_185146_795306",
+      "analysis_summary": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\start_03_max_08_pat_03_20260315_185146_795306\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\fast_scheduler_dense_stopping_summary.csv",
+    "summary_json": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\fast_scheduler_dense_stopping_summary.json",
+    "summary_md": "checkpoints\\fast_scheduler_dense_stopping_search_20260315_184716\\fast_scheduler_dense_stopping_summary.md"
+  }
+}

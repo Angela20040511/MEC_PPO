@@ -1,0 +1,44 @@
+{
+  "root_dir": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "factorized_ratio_mode_definitions": {
+      "hierarchical_actor_alternating_branch_pg": "Control group: separate theta / route backbones, hard route mask, branchwise normalized advantages, and alternating theta-first then route-second updates, but overall diagnostics still inherit the current mixed blockwise summary path.",
+      "hierarchical_actor_factorized_ratio_pg": "Test group: keep the same alternating theta-first then route-second updates, but treat theta and route as explicit PPO branches with separate old/new log-probs, ratios, clipped surrogates, KL, clip fractions, and branch-balanced overall summaries."
+    },
+    "route_mask_threshold": 0.5,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_alternating_branch_pg",
+    "hierarchical_actor_factorized_ratio_pg"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_alternating_branch_pg",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_alternating_branch_pg_20260319_005321_227416",
+      "analysis_summary": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_alternating_branch_pg_20260319_005321_227416\\analysis_summary.json",
+      "alternating_branch_pg_stats": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_alternating_branch_pg_20260319_005321_227416\\alternating_branch_pg_stats_by_epoch.csv",
+      "factorized_ratio_pg_stats": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_alternating_branch_pg_20260319_005321_227416\\factorized_ratio_pg_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_alternating_branch_pg_20260319_005321_227416\\theta_route_split_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_factorized_ratio_pg",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260319_005414_185526",
+      "analysis_summary": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260319_005414_185526\\analysis_summary.json",
+      "alternating_branch_pg_stats": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260319_005414_185526\\alternating_branch_pg_stats_by_epoch.csv",
+      "factorized_ratio_pg_stats": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260319_005414_185526\\factorized_ratio_pg_stats_by_epoch.csv",
+      "theta_route_split_stats": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_ratio_hierarchical_actor_factorized_ratio_pg_20260319_005414_185526\\theta_route_split_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_factorized_ratio_pg_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_factorized_ratio_pg_summary.json",
+    "summary_md": "checkpoints\\dense_policy_factorized_ratio_pg_experiment_20260319_005317\\policy_factorized_ratio_pg_summary.md"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "root_dir": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "hierarchical_actor_mode_definitions": {
+      "theta_route_split_advantage_surrogate": "Flat joint actor head still emits [theta_b, route_logit_BS1, route_logit_BS2] together; loss uses A_theta_b only for theta and A_route_b only for route logits.",
+      "hierarchical_actor_theta_route": "Shared actor backbone stays fixed; theta head emits raw_theta_b first; route head receives shared actor features + detached sigmoid(theta_mean) context, then emits [route_logit_BS1, route_logit_BS2]. A_theta_b trains theta only, A_route_b trains route only."
+    },
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "theta_route_split_advantage_surrogate",
+    "hierarchical_actor_theta_route"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "theta_route_split_advantage_surrogate",
+      "actor_structure_mode": "flat_joint_actor",
+      "run_dir": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444\\policy_ratio_theta_route_split_advantage_surrogate_20260318_191447_210243",
+      "analysis_summary": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444\\policy_ratio_theta_route_split_advantage_surrogate_20260318_191447_210243\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444\\policy_ratio_theta_route_split_advantage_surrogate_20260318_191447_210243\\theta_route_split_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_theta_route",
+      "actor_structure_mode": "hierarchical_actor_theta_route",
+      "run_dir": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444\\policy_ratio_hierarchical_actor_theta_route_20260318_191506_629283",
+      "analysis_summary": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444\\policy_ratio_hierarchical_actor_theta_route_20260318_191506_629283\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444\\policy_ratio_hierarchical_actor_theta_route_20260318_191506_629283\\theta_route_split_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444\\policy_hierarchical_actor_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444\\policy_hierarchical_actor_summary.json",
+    "summary_md": "checkpoints\\dense_policy_hierarchical_actor_experiment_20260318_191444\\policy_hierarchical_actor_summary.md"
+  }
+}

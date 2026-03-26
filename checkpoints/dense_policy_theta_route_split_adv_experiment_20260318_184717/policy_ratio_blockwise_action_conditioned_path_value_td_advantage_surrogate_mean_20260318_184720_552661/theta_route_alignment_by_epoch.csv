@@ -1,0 +1,6 @@
+﻿epoch,theta_advantage_mean,theta_advantage_std,theta_advantage_max,theta_advantage_min,route_advantage_mean,route_advantage_std,route_advantage_max,route_advantage_min,theta_advantage_alignment,route_advantage_alignment,theta_selected_action_prob_gain,route_selected_action_prob_gain,theta_negative_adv_prob_gain,route_negative_adv_prob_gain,theta_clip_fraction,route_clip_fraction,offload_vs_local_value_gap_mean,offload_vs_local_value_gap_std,bs1_vs_bs2_value_gap_mean,bs1_vs_bs2_value_gap_std
+0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.767786463664379e-05,-0.0046015591360628605,0.0,0.0,0.12291666865348816,0.22083333134651184,0.0,0.0,0.0,0.0
+1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.00041401907219551504,0.039223987609148026,0.0,0.0,0.32499998807907104,0.5462499856948853,0.0,0.0,0.0,0.0
+2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.006408873479813337,0.02249825745820999,0.0,0.0,0.31458333134651184,0.5133333206176758,0.0,0.0,0.0,0.0
+3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.030772561207413673,0.036277320235967636,0.0,0.0,0.30000001192092896,0.5233333110809326,0.0,0.0,0.0,0.0
+4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.004222382325679064,0.020171955227851868,0.0,0.0,0.32249999046325684,0.5129166841506958,0.0,0.0,0.0,0.0

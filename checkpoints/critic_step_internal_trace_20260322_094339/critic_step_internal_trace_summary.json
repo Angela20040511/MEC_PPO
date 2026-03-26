@@ -1,0 +1,88 @@
+{
+  "mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "seed": 2025,
+  "trace_epochs": 2,
+  "checkpoint_path": "checkpoints\\dense_policy_joint_reward_aligned_credit_experiment_20260321_170716\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_172521_442663\\best_model.pt",
+  "probe_step_count": 48,
+  "actor_frozen": true,
+  "actor_param_delta_norm_max": 0.0,
+  "classification": "B",
+  "detail": "The first clear semantic drop appears only after critic optimizer.step().",
+  "first_divergence": {
+    "where": "after_optimizer_step",
+    "from_stage": "after_backward_before_step",
+    "epoch": 0,
+    "update_epoch": 2,
+    "minibatch_id": 9,
+    "trace_scope": "minibatch",
+    "delta_metrics": {
+      "probe_pearson_value_vs_value_target": -0.016391456127166748,
+      "probe_spearman_value_vs_value_target": 0.06578376889228821,
+      "probe_pearson_value_vs_return": -0.016391456127166748,
+      "probe_spearman_value_vs_return": 0.06578376889228821,
+      "probe_pearson_value_vs_advantage": 0.04879772663116455,
+      "probe_spearman_value_vs_advantage": 0.09129396080970764
+    }
+  },
+  "initial_probe_metrics": {
+    "epoch": 0,
+    "update_epoch": -1,
+    "minibatch_id": -1,
+    "trace_stage": "before_popart_update",
+    "probe_pearson_value_vs_value_target": 0.3278252184391022,
+    "probe_spearman_value_vs_value_target": -0.0318063385784626,
+    "probe_pearson_value_vs_return": 0.3278252184391022,
+    "probe_spearman_value_vs_return": -0.0318063385784626,
+    "probe_pearson_value_vs_advantage": -0.8455946445465088,
+    "probe_spearman_value_vs_advantage": -0.7409899830818176
+  },
+  "final_after_critic_probe_metrics": {
+    "epoch": 1,
+    "update_epoch": 9,
+    "minibatch_id": 39,
+    "trace_stage": "after_critic",
+    "probe_pearson_value_vs_value_target": 0.6733486652374268,
+    "probe_spearman_value_vs_value_target": 0.47568386793136597,
+    "probe_pearson_value_vs_return": 0.6733488440513611,
+    "probe_spearman_value_vs_return": 0.47568386793136597,
+    "probe_pearson_value_vs_advantage": -0.10206668078899384,
+    "probe_spearman_value_vs_advantage": -0.1160442903637886
+  },
+  "epoch_summaries": [
+    {
+      "mode": "hierarchical_actor_joint_reward_aligned_credit",
+      "epoch": 0,
+      "actor_loss": 0.10061773424968123,
+      "critic_loss": 0.40472918283194304,
+      "route_update_count": 0,
+      "theta_update_count": 0,
+      "probe_after_critic_pearson_value_vs_value_target": 0.38441514149308204,
+      "probe_after_critic_pearson_value_vs_return": 0.3844151541590691
+    },
+    {
+      "mode": "hierarchical_actor_joint_reward_aligned_credit",
+      "epoch": 1,
+      "actor_loss": -0.16521322671324015,
+      "critic_loss": 0.20941204950213432,
+      "route_update_count": 0,
+      "theta_update_count": 0,
+      "probe_after_critic_pearson_value_vs_value_target": 0.689823779463768,
+      "probe_after_critic_pearson_value_vs_return": 0.6898238360881805
+    }
+  ],
+  "comparison_to_actor_frozen_trace": {
+    "actor_frozen_trace_summary_path": "checkpoints\\actor_frozen_online_critic_trace_20260322_083306\\actor_frozen_online_critic_trace_summary.json",
+    "actor_frozen_classification": "A",
+    "actor_frozen_first_divergence": {
+      "where": "after_critic",
+      "epoch": 0,
+      "update_epoch": 2,
+      "minibatch_id": 9
+    }
+  },
+  "output_files": {
+    "trace_csv": "checkpoints\\critic_step_internal_trace_20260322_094339\\critic_step_internal_trace.csv",
+    "probe_csv": "checkpoints\\critic_step_internal_trace_20260322_094339\\critic_step_internal_trace_probe.csv",
+    "minibatch_csv": "checkpoints\\critic_step_internal_trace_20260322_094339\\critic_step_internal_trace_minibatch.csv"
+  }
+}

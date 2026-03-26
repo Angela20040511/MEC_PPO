@@ -1,0 +1,67 @@
+{
+  "root_dir": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "block_path_cost_definition": "cost_local_b = workload_b + virtual_queue_b + local_queue_b; cost_bs1_b = workload_b + virtual_queue_b + access_queue_sensor(b) + bs_queue_BS1(task_b); cost_bs2_b = workload_b + virtual_queue_b + access_queue_sensor(b) + bs_queue_BS2(task_b).",
+    "block_path_value_head_definition": "critic_block_path_value_head outputs 24 x 3 path values on top of the existing critic_backbone; each block emits [V_local_b(s), V_bs1_b(s), V_bs2_b(s)] while the global critic head stays unchanged.",
+    "path_td_supervision_mode_definitions": {
+      "blockwise_action_conditioned_td_advantage_surrogate_mean": "p_local = 1 - sigmoid(theta_b); p_bs1, p_bs2 = sigmoid(theta_b) * softmax(route_logits_b); cost_act_b_now = p_local * cost_local_b(now) + p_bs1 * cost_bs1_b(now) + p_bs2 * cost_bs2_b(now); cost_act_b_next = p_local * cost_local_b(next) + p_bs1 * cost_bs1_b(next) + p_bs2 * cost_bs2_b(next); delta_cost_b = cost_act_b_next - cost_act_b_now; r_b = -delta_cost_b = cost_act_b_now - cost_act_b_next; A_b = r_b + gamma * (1 - done) * V_b(s_next) - V_b(s).",
+      "blockwise_action_conditioned_path_value_td_advantage_surrogate_mean": "p_local = 1 - sigmoid(theta_b); p_bs1, p_bs2 = sigmoid(theta_b) * softmax(route_logits_b); cost_act_b_now = p_local * cost_local_b(now) + p_bs1 * cost_bs1_b(now) + p_bs2 * cost_bs2_b(now); cost_act_b_next = p_local * cost_local_b(next) + p_bs1 * cost_bs1_b(next) + p_bs2 * cost_bs2_b(next); delta_cost_b = cost_act_b_next - cost_act_b_now; r_b = -delta_cost_b = cost_act_b_now - cost_act_b_next; V_act_b(s) = p_local * V_local_b(s) + p_bs1 * V_bs1_b(s) + p_bs2 * V_bs2_b(s); V_act_b(s_next) = p_local * V_local_b(s_next) + p_bs1 * V_bs1_b(s_next) + p_bs2 * V_bs2_b(s_next); A_b = r_b + gamma * (1 - done) * V_act_b(s_next) - V_act_b(s).",
+      "blockwise_path_specific_td_supervised_advantage_surrogate_mean": "p_local = 1 - sigmoid(theta_b); p_bs1, p_bs2 = sigmoid(theta_b) * softmax(route_logits_b); cost_act_b_now = p_local * cost_local_b(now) + p_bs1 * cost_bs1_b(now) + p_bs2 * cost_bs2_b(now); cost_act_b_next = p_local * cost_local_b(next) + p_bs1 * cost_bs1_b(next) + p_bs2 * cost_bs2_b(next); delta_cost_b = cost_act_b_next - cost_act_b_now; r_b = -delta_cost_b = cost_act_b_now - cost_act_b_next; r_local_b = cost_local_b(now) - cost_local_b(next); r_bs1_b = cost_bs1_b(now) - cost_bs1_b(next); r_bs2_b = cost_bs2_b(now) - cost_bs2_b(next); T_local_b = r_local_b + gamma * (1 - done) * V_local_b(s_next); T_bs1_b = r_bs1_b + gamma * (1 - done) * V_bs1_b(s_next); T_bs2_b = r_bs2_b + gamma * (1 - done) * V_bs2_b(s_next); critic_block_path_value_head is directly supervised against [T_local_b, T_bs1_b, T_bs2_b]; actor still uses V_act_b(s) = p_local * V_local_b(s) + p_bs1 * V_bs1_b(s) + p_bs2 * V_bs2_b(s), A_b = r_b + gamma * (1 - done) * V_act_b(s_next) - V_act_b(s)."
+    },
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "blockwise_action_conditioned_td_advantage_surrogate_mean",
+    "blockwise_action_conditioned_path_value_td_advantage_surrogate_mean",
+    "blockwise_path_specific_td_supervised_advantage_surrogate_mean"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "blockwise_action_conditioned_td_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_action_conditioned_td_advantage_surrogate_mean_20260318_131620_859327",
+      "analysis_summary": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_action_conditioned_td_advantage_surrogate_mean_20260318_131620_859327\\analysis_summary.json",
+      "block_path_value_stats": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_action_conditioned_td_advantage_surrogate_mean_20260318_131620_859327\\block_path_value_stats_by_epoch.csv",
+      "path_td_target_stats": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_action_conditioned_td_advantage_surrogate_mean_20260318_131620_859327\\path_td_target_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "blockwise_action_conditioned_path_value_td_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_action_conditioned_path_value_td_advantage_surrogate_mean_20260318_131645_263831",
+      "analysis_summary": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_action_conditioned_path_value_td_advantage_surrogate_mean_20260318_131645_263831\\analysis_summary.json",
+      "block_path_value_stats": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_action_conditioned_path_value_td_advantage_surrogate_mean_20260318_131645_263831\\block_path_value_stats_by_epoch.csv",
+      "path_td_target_stats": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_action_conditioned_path_value_td_advantage_surrogate_mean_20260318_131645_263831\\path_td_target_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "blockwise_path_specific_td_supervised_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_path_specific_td_supervised_advantage_surrogate_mean_20260318_131725_623935",
+      "analysis_summary": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_path_specific_td_supervised_advantage_surrogate_mean_20260318_131725_623935\\analysis_summary.json",
+      "block_path_value_stats": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_path_specific_td_supervised_advantage_surrogate_mean_20260318_131725_623935\\block_path_value_stats_by_epoch.csv",
+      "path_td_target_stats": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_ratio_blockwise_path_specific_td_supervised_advantage_surrogate_mean_20260318_131725_623935\\path_td_target_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_block_path_td_supervision_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_block_path_td_supervision_summary.json",
+    "summary_md": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\policy_block_path_td_supervision_summary.md",
+    "reward_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\reward_curve_compare.png",
+    "policy_loss_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\policy_loss_curve_compare.png",
+    "approx_kl_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\approx_kl_curve_compare.png",
+    "clip_fraction_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\clip_fraction_curve_compare.png",
+    "ratio_stats_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\ratio_stats_curve_compare.png",
+    "advantage_alignment_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\advantage_alignment_curve_compare.png",
+    "advantage_bucket_update_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\advantage_bucket_update_compare.png",
+    "selected_action_prob_gain_by_adv_bucket_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\selected_action_prob_gain_by_adv_bucket_compare.png",
+    "probe_policy_kl_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\probe_policy_kl_curve_compare.png",
+    "selected_action_change_rate_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\selected_action_change_rate_curve_compare.png",
+    "block_clip_fraction_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\block_clip_fraction_curve_compare.png",
+    "block_surrogate_scale_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\block_surrogate_scale_curve_compare.png",
+    "block_td_advantage_entropy_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\block_td_advantage_entropy_curve_compare.png",
+    "top_k_block_td_advantage_share_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\top_k_block_td_advantage_share_curve_compare.png",
+    "block_path_value_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\block_path_value_curve_compare.png",
+    "path_td_target_curve_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\path_td_target_curve_compare.png",
+    "critic_health_compare": "checkpoints\\dense_policy_block_path_td_supervision_experiment_20260318_131616\\comparison_plots\\critic_health_compare.png"
+  }
+}

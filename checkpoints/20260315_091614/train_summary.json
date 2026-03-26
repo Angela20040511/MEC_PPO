@@ -1,0 +1,7 @@
+{
+  "num_epochs": 200,
+  "best_epoch": 33,
+  "best_reward": -373.90376571206525,
+  "final_epoch": 199,
+  "final_reward": -537.3426236797679
+}

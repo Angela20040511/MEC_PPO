@@ -1,0 +1,13 @@
+{
+  "alpha_p": 0.8,
+  "seed": 2025,
+  "run_dir": "checkpoints\\fast_scheduler_alpha_p_search_20260315_164305\\alpha_p_0p80_20260315_164335_330776",
+  "epochs_completed": 10,
+  "best_reward": -388.9745368060195,
+  "final_reward": -398.3936184284126,
+  "best_epoch": 6,
+  "reward_gap": -9.419081622393094,
+  "reward_gap_abs": 9.419081622393094,
+  "final_critic_loss": 2406.2929107666014,
+  "avg_theta_last10": 0.5249952714857579
+}

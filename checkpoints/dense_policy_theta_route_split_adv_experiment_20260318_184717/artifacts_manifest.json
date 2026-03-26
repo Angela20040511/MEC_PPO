@@ -1,0 +1,37 @@
+{
+  "root_dir": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "theta_route_split_mode_definitions": {
+      "blockwise_action_conditioned_path_value_td_advantage_surrogate_mean": "Each block still uses one scalar A_b to drive [theta_b, route_logit_BS1, route_logit_BS2] jointly.",
+      "theta_route_split_advantage_surrogate": "A_theta_b = [r_offload_b + gamma * (1 - done) * V_offload_b(s_next) - V_offload_b(s)] - [r_local_b + gamma * (1 - done) * V_local_b(s_next) - V_local_b(s)]; A_route_b = [r_bs1_b + gamma * (1 - done) * V_bs1_b(s_next) - V_bs1_b(s)] - [r_bs2_b + gamma * (1 - done) * V_bs2_b(s_next) - V_bs2_b(s)]; theta ratio uses only the theta dimension, route ratio uses only the two route logits, then block surrogate = 0.5 * (surrogate_theta + surrogate_route)."
+    },
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "blockwise_action_conditioned_path_value_td_advantage_surrogate_mean",
+    "theta_route_split_advantage_surrogate"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "blockwise_action_conditioned_path_value_td_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717\\policy_ratio_blockwise_action_conditioned_path_value_td_advantage_surrogate_mean_20260318_184720_552661",
+      "analysis_summary": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717\\policy_ratio_blockwise_action_conditioned_path_value_td_advantage_surrogate_mean_20260318_184720_552661\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717\\policy_ratio_blockwise_action_conditioned_path_value_td_advantage_surrogate_mean_20260318_184720_552661\\theta_route_split_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "theta_route_split_advantage_surrogate",
+      "run_dir": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717\\policy_ratio_theta_route_split_advantage_surrogate_20260318_184749_130486",
+      "analysis_summary": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717\\policy_ratio_theta_route_split_advantage_surrogate_20260318_184749_130486\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717\\policy_ratio_theta_route_split_advantage_surrogate_20260318_184749_130486\\theta_route_split_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717\\policy_theta_route_split_adv_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717\\policy_theta_route_split_adv_summary.json",
+    "summary_md": "checkpoints\\dense_policy_theta_route_split_adv_experiment_20260318_184717\\policy_theta_route_split_adv_summary.md"
+  }
+}

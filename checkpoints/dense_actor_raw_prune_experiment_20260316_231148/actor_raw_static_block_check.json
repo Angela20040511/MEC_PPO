@@ -1,0 +1,108 @@
+{
+  "topology": "dense",
+  "seed": 2025,
+  "actor_input_mode": "normalized_augmented_actor_input",
+  "critic_input_mode": "normalized_augmented_critic_input",
+  "modes": {
+    "baseline_actor_raw": {
+      "actor_raw_dim": 200,
+      "actor_input_total_dim": 400,
+      "actor_input_derived_dim": 200,
+      "actor_raw_pruned_dim_count": 0
+    },
+    "prune_compute18_actor_raw": {
+      "actor_raw_dim": 182,
+      "actor_input_total_dim": 382,
+      "actor_input_derived_dim": 200,
+      "actor_raw_pruned_dim_count": 18
+    },
+    "prune_all_static42_actor_raw": {
+      "actor_raw_dim": 158,
+      "actor_input_total_dim": 358,
+      "actor_input_derived_dim": 200,
+      "actor_raw_pruned_dim_count": 42
+    }
+  },
+  "state_dim": 200,
+  "raw_state_blocks": {
+    "sensor_task_core": {
+      "start": 0,
+      "stop_exclusive": 96,
+      "dim": 96,
+      "start_1based": 1,
+      "end_1based": 96
+    },
+    "access_queue": {
+      "start": 96,
+      "stop_exclusive": 104,
+      "dim": 8,
+      "start_1based": 97,
+      "end_1based": 104
+    },
+    "virtual_queue": {
+      "start": 104,
+      "stop_exclusive": 128,
+      "dim": 24,
+      "start_1based": 105,
+      "end_1based": 128
+    },
+    "bs_queue": {
+      "start": 128,
+      "stop_exclusive": 134,
+      "dim": 6,
+      "start_1based": 129,
+      "end_1based": 134
+    },
+    "local_queue": {
+      "start": 134,
+      "stop_exclusive": 158,
+      "dim": 24,
+      "start_1based": 135,
+      "end_1based": 158
+    },
+    "reachable_mask": {
+      "start": 158,
+      "stop_exclusive": 174,
+      "dim": 16,
+      "start_1based": 159,
+      "end_1based": 174
+    },
+    "access_gain": {
+      "start": 174,
+      "stop_exclusive": 182,
+      "dim": 8,
+      "start_1based": 175,
+      "end_1based": 182
+    },
+    "compute_rate": {
+      "start": 182,
+      "stop_exclusive": 200,
+      "dim": 18,
+      "start_1based": 183,
+      "end_1based": 200
+    }
+  },
+  "static_blocks": {
+    "reachable_mask": {
+      "start": 158,
+      "stop_exclusive": 174,
+      "dim": 16,
+      "start_1based": 159,
+      "end_1based": 174
+    },
+    "access_gain": {
+      "start": 174,
+      "stop_exclusive": 182,
+      "dim": 8,
+      "start_1based": 175,
+      "end_1based": 182
+    },
+    "compute_rate": {
+      "start": 182,
+      "stop_exclusive": 200,
+      "dim": 18,
+      "start_1based": 183,
+      "end_1based": 200
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "baseline_mode": "hierarchical_actor_joint_reward_aligned_credit",
+    "checkpoint_path": "checkpoints\\dense_policy_joint_td_aligned_credit_experiment_20260321_182900\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_182909_053940\\best_model.pt",
+    "seed": 2025,
+    "audit_steps": 24,
+    "sample_count": 24,
+    "block_count": 24,
+    "row_count": 576,
+    "gamma": 0.99,
+    "value_source": "agent.evaluate_value(next_state_candidate) via PPOAgent._value_from_state_tensor using the main scalar critic value head under popart_return_norm."
+  },
+  "score_definition": {
+    "reward_term": "counterfactual simulator.step(...) reward for each candidate joint action",
+    "value_term": "V(next_state_candidate) from agent.evaluate_value(next_state_candidate)",
+    "td_term": "reward_term + gamma * value_term"
+  },
+  "correlations": {
+    "selected_reward_vs_advantage": {
+      "pearson": 0.2613668218465624,
+      "spearman": 0.3413101325171156
+    },
+    "selected_reward_vs_return": {
+      "pearson": 0.34755090259720073,
+      "spearman": 0.34207637587631085
+    },
+    "selected_value_vs_advantage": {
+      "pearson": -0.1765484850363029,
+      "spearman": -0.36608112930579334
+    },
+    "selected_value_vs_return": {
+      "pearson": -0.3093857525406735,
+      "spearman": -0.3786972306560874
+    },
+    "selected_td_vs_advantage": {
+      "pearson": -0.1707255544737499,
+      "spearman": -0.33635217597838596
+    },
+    "selected_td_vs_return": {
+      "pearson": -0.3019128863974296,
+      "spearman": -0.36332152885714686
+    },
+    "best_reward_vs_advantage": {
+      "pearson": 0.2505520271870629,
+      "spearman": 0.32212538982891875
+    },
+    "best_reward_vs_return": {
+      "pearson": 0.33927795761722335,
+      "spearman": 0.3225959959865347
+    },
+    "best_value_vs_advantage": {
+      "pearson": -0.205131540574019,
+      "spearman": -0.3485250791364878
+    },
+    "best_value_vs_return": {
+      "pearson": -0.30050653180788794,
+      "spearman": -0.3589223515668532
+    },
+    "best_td_vs_advantage": {
+      "pearson": -0.2003027924345442,
+      "spearman": -0.3219745545219906
+    },
+    "best_td_vs_return": {
+      "pearson": -0.2940080044491736,
+      "spearman": -0.34306434713669054
+    }
+  },
+  "ranking_flip_analysis": {
+    "reward_best_vs_td_best_match_ratio": 0.5920138888888888,
+    "reward_best_vs_value_best_match_ratio": 0.5329861111111112,
+    "value_best_vs_td_best_match_ratio": 0.9305555555555556,
+    "reward_td_flip_type_counts": {
+      "reward:bs1->td:bs2": 51,
+      "reward:bs1->td:local": 12,
+      "reward:bs2->td:bs1": 6,
+      "reward:bs2->td:local": 17,
+      "reward:local->td:bs1": 47,
+      "reward:local->td:bs2": 102
+    }
+  },
+  "scale_analysis": {
+    "std_reward_term_stats": {
+      "mean": 0.02765320471101202,
+      "std": 0.027150990084253215,
+      "min": 0.00021747722348663956,
+      "max": 0.2039780467748642,
+      "median": 0.020559214986860752
+    },
+    "std_gamma_v_term_stats": {
+      "mean": 0.9156522452681707,
+      "std": 1.6990319519317727,
+      "min": 0.0,
+      "max": 11.711881637573242,
+      "median": 0.2058500051498413
+    },
+    "std_td_term_stats": {
+      "mean": 0.9248502909956895,
+      "std": 1.6955657571467577,
+      "min": 0.0008192471577785909,
+      "max": 11.734192848205566,
+      "median": 0.20802617818117142
+    },
+    "mean_abs_r_term": 1.610444991125001,
+    "mean_abs_gamma_v_term": 22.20431442724334,
+    "mean_abs_td_term": 23.662955911623108,
+    "gamma_v_over_r_abs_ratio": 14.159508753981855,
+    "reward_large_value_small_ratio": 0.1892361111111111,
+    "value_dominates_ranking_flip_ratio": 0.4045138888888889,
+    "td_margin_smaller_than_reward_margin_ratio": 0.18229166666666666
+  },
+  "static_explanation_signals": {
+    "reward_td_flip_ratio": 0.4079861111111111,
+    "selected_td_vs_return_weaker_than_reward": true,
+    "selected_td_vs_advantage_weaker_than_reward": true,
+    "td_margin_collapse_signal": 1.0223285254011762,
+    "reward_margin_on_flip_samples": 0.028927139018444306
+  }
+}

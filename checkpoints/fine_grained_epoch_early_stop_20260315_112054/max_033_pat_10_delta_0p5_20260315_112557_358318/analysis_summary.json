@@ -1,0 +1,17 @@
+{
+  "max_epochs": 33,
+  "patience": 10,
+  "min_delta": 0.5,
+  "run_dir": "checkpoints\\fine_grained_epoch_early_stop_20260315_112054\\max_033_pat_10_delta_0p5_20260315_112557_358318",
+  "epochs_completed": 33,
+  "stopped_early": false,
+  "best_reward": -376.1205213620981,
+  "final_reward": -429.43853520003375,
+  "best_epoch": 26,
+  "reward_gap": -53.318013837935666,
+  "reward_gap_abs": 53.318013837935666,
+  "final_critic_loss": 2138.3828216552733,
+  "avg_theta_last10_mean": 0.5282291306653115,
+  "post_peak_degradation": true,
+  "stability_score": 40.48737335564575
+}

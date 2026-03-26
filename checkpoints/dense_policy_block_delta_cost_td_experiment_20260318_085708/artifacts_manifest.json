@@ -1,0 +1,54 @@
+{
+  "root_dir": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "block_local_cost_definition": "local_cost_b = workload_b + virtual_queue_b + local_queue_b + access_queue_sensor(b).",
+    "block_td_mode_definitions": {
+      "blockwise_td_advantage_surrogate_mean": "local_cost_b_now = workload_b(now) + virtual_queue_b(now) + local_queue_b(now) + access_queue_sensor(b)(now); r_b = -local_cost_b_now; A_b = r_b + gamma * (1 - done) * V_b(s_next) - V_b(s).",
+      "blockwise_delta_cost_td_advantage_surrogate_mean": "local_cost_b_now = workload_b(now) + virtual_queue_b(now) + local_queue_b(now) + access_queue_sensor(b)(now); local_cost_b_next = workload_b(next) + virtual_queue_b(next) + local_queue_b(next) + access_queue_sensor(b)(next); delta_cost_b = local_cost_b_next - local_cost_b_now; r_b = -delta_cost_b = local_cost_b_now - local_cost_b_next; A_b = r_b + gamma * (1 - done) * V_b(s_next) - V_b(s)."
+    },
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "blockwise_td_advantage_surrogate_mean",
+    "blockwise_delta_cost_td_advantage_surrogate_mean"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "blockwise_td_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\policy_ratio_blockwise_td_advantage_surrogate_mean_20260318_085712_162328",
+      "analysis_summary": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\policy_ratio_blockwise_td_advantage_surrogate_mean_20260318_085712_162328\\analysis_summary.json",
+      "block_delta_cost_stats": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\policy_ratio_blockwise_td_advantage_surrogate_mean_20260318_085712_162328\\block_delta_cost_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "blockwise_delta_cost_td_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\policy_ratio_blockwise_delta_cost_td_advantage_surrogate_mean_20260318_085732_270565",
+      "analysis_summary": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\policy_ratio_blockwise_delta_cost_td_advantage_surrogate_mean_20260318_085732_270565\\analysis_summary.json",
+      "block_delta_cost_stats": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\policy_ratio_blockwise_delta_cost_td_advantage_surrogate_mean_20260318_085732_270565\\block_delta_cost_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\policy_block_delta_cost_td_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\policy_block_delta_cost_td_summary.json",
+    "summary_md": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\policy_block_delta_cost_td_summary.md",
+    "reward_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\reward_curve_compare.png",
+    "policy_loss_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\policy_loss_curve_compare.png",
+    "approx_kl_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\approx_kl_curve_compare.png",
+    "clip_fraction_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\clip_fraction_curve_compare.png",
+    "ratio_stats_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\ratio_stats_curve_compare.png",
+    "advantage_alignment_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\advantage_alignment_curve_compare.png",
+    "advantage_bucket_update_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\advantage_bucket_update_compare.png",
+    "selected_action_prob_gain_by_adv_bucket_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\selected_action_prob_gain_by_adv_bucket_compare.png",
+    "probe_policy_kl_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\probe_policy_kl_curve_compare.png",
+    "selected_action_change_rate_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\selected_action_change_rate_curve_compare.png",
+    "block_clip_fraction_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\block_clip_fraction_curve_compare.png",
+    "block_surrogate_scale_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\block_surrogate_scale_curve_compare.png",
+    "block_td_advantage_entropy_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\block_td_advantage_entropy_curve_compare.png",
+    "top_k_block_td_advantage_share_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\top_k_block_td_advantage_share_curve_compare.png",
+    "block_delta_cost_curve_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\block_delta_cost_curve_compare.png",
+    "critic_health_compare": "checkpoints\\dense_policy_block_delta_cost_td_experiment_20260318_085708\\comparison_plots\\critic_health_compare.png"
+  }
+}

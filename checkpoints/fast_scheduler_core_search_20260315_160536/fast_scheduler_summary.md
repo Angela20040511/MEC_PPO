@@ -1,0 +1,3 @@
+| rank | noma_quantile | max_cluster_size | seed | run_dir | epochs_completed | best_reward | final_reward | best_epoch | reward_gap | reward_gap_abs | final_critic_loss | avg_theta_last10 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 0.8 | 2 | 2025 | checkpoints\fast_scheduler_core_search_20260315_160536\q_0p80_umax_02_20260315_160536_652399 | 10 | -389.6761891233042 | -398.972030145125 | 6 | -9.29584102182082 | 9.29584102182082 | 2409.201416015625 | 0.5231838480456156 |

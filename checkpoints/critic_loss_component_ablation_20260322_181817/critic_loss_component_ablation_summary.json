@@ -1,0 +1,351 @@
+{
+  "checkpoint_path": "checkpoints\\dense_policy_joint_reward_aligned_credit_experiment_20260321_170716\\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_172521_442663\\best_model.pt",
+  "target_epoch": 0,
+  "target_update_epoch": 2,
+  "target_minibatch_id": 8,
+  "heldout_source_step_count": 100,
+  "heldout_sample_count": 64,
+  "heldout_batch_count": 2,
+  "blend_current_weight": 0.5,
+  "blend_heldout_weight": 0.5,
+  "full_loss_aux_before": 0.06325778365135193,
+  "group_comparison": {
+    "no_op": {
+      "current_batch": {
+        "critic_loss": {
+          "before": 0.3996136486530304,
+          "after": 0.3996136486530304,
+          "delta": 0.0
+        },
+        "target_pearson": {
+          "before": 0.6262403130531311,
+          "after": 0.6262403130531311,
+          "delta": 0.0
+        },
+        "return_pearson": {
+          "before": 0.6262403726577759,
+          "after": 0.6262403726577759,
+          "delta": 0.0
+        },
+        "advantage_pearson": {
+          "before": 0.12078416347503662,
+          "after": 0.12078416347503662,
+          "delta": 0.0
+        }
+      },
+      "held_out_batch": {
+        "critic_loss": {
+          "before": 0.46690577268600464,
+          "after": 0.46690577268600464,
+          "delta": 0.0
+        },
+        "target_pearson": {
+          "before": 0.6415639519691467,
+          "after": 0.6415639519691467,
+          "delta": 0.0
+        },
+        "return_pearson": {
+          "before": 0.641563892364502,
+          "after": 0.641563892364502,
+          "delta": 0.0
+        },
+        "advantage_pearson": {
+          "before": 0.29333165287971497,
+          "after": 0.29333165287971497,
+          "delta": 0.0
+        }
+      },
+      "probe": {
+        "critic_loss": {
+          "before": 0.9337701797485352,
+          "after": 0.9337701797485352,
+          "delta": 0.0
+        },
+        "target_pearson": {
+          "before": 0.3689935803413391,
+          "after": 0.3689935803413391,
+          "delta": 0.0
+        },
+        "return_pearson": {
+          "before": 0.3689936399459839,
+          "after": 0.3689936399459839,
+          "delta": 0.0
+        },
+        "advantage_pearson": {
+          "before": -0.5185487866401672,
+          "after": -0.5185487866401672,
+          "delta": 0.0
+        }
+      },
+      "update_details": {
+        "objective_before": 0.0,
+        "objective_after": 0.0,
+        "main_value_loss_before": 0.0,
+        "main_value_loss_after": 0.0,
+        "aux_loss_before": 0.0,
+        "aux_loss_after": 0.0,
+        "heldout_main_value_loss_before": 0.0,
+        "heldout_main_value_loss_after": 0.0,
+        "grad_norm": 0.0,
+        "critic_param_delta_norm": 0.0,
+        "critic_backbone_delta_norm": 0.0,
+        "critic_head_delta_norm": 0.0,
+        "update_over_grad_ratio": 0.0,
+        "cosine_update_vs_grad": 0.0
+      }
+    },
+    "current_full_critic_loss": {
+      "current_batch": {
+        "critic_loss": {
+          "before": 0.3996136486530304,
+          "after": 0.3360705077648163,
+          "delta": -0.06354314088821411
+        },
+        "target_pearson": {
+          "before": 0.6262403130531311,
+          "after": 0.6846842765808105,
+          "delta": 0.05844396352767944
+        },
+        "return_pearson": {
+          "before": 0.6262403726577759,
+          "after": 0.6846842765808105,
+          "delta": 0.05844390392303467
+        },
+        "advantage_pearson": {
+          "before": 0.12078416347503662,
+          "after": 0.18903042376041412,
+          "delta": 0.0682462602853775
+        }
+      },
+      "held_out_batch": {
+        "critic_loss": {
+          "before": 0.46690577268600464,
+          "after": 0.47623226046562195,
+          "delta": 0.00932648777961731
+        },
+        "target_pearson": {
+          "before": 0.6415639519691467,
+          "after": 0.6555610299110413,
+          "delta": 0.013997077941894531
+        },
+        "return_pearson": {
+          "before": 0.641563892364502,
+          "after": 0.6555609703063965,
+          "delta": 0.013997077941894531
+        },
+        "advantage_pearson": {
+          "before": 0.29333165287971497,
+          "after": 0.3124719560146332,
+          "delta": 0.019140303134918213
+        }
+      },
+      "probe": {
+        "critic_loss": {
+          "before": 0.9337701797485352,
+          "after": 0.962972104549408,
+          "delta": 0.029201924800872803
+        },
+        "target_pearson": {
+          "before": 0.3689935803413391,
+          "after": 0.35978466272354126,
+          "delta": -0.009208917617797852
+        },
+        "return_pearson": {
+          "before": 0.3689936399459839,
+          "after": 0.3597846031188965,
+          "delta": -0.009209036827087402
+        },
+        "advantage_pearson": {
+          "before": -0.5185487866401672,
+          "after": -0.46308663487434387,
+          "delta": 0.055462151765823364
+        }
+      },
+      "update_details": {
+        "objective_before": 0.2630646228790283,
+        "objective_after": 0.23158815503120422,
+        "main_value_loss_before": 0.3996136486530304,
+        "main_value_loss_after": 0.3360705077648163,
+        "aux_loss_before": 0.06325778365135193,
+        "aux_loss_after": 0.06355290859937668,
+        "heldout_main_value_loss_before": 0.0,
+        "heldout_main_value_loss_after": 0.0,
+        "grad_norm": 2.1323801523229564,
+        "critic_param_delta_norm": 0.0689224230225629,
+        "critic_backbone_delta_norm": 0.06843044608005558,
+        "critic_head_delta_norm": 0.0037865243993632034,
+        "update_over_grad_ratio": 0.032321827300578046,
+        "cosine_update_vs_grad": -0.24996407927005052
+      }
+    },
+    "main_value_loss_only": {
+      "current_batch": {
+        "critic_loss": {
+          "before": 0.3996136486530304,
+          "after": 0.33605924248695374,
+          "delta": -0.06355440616607666
+        },
+        "target_pearson": {
+          "before": 0.6262403130531311,
+          "after": 0.6846928596496582,
+          "delta": 0.0584525465965271
+        },
+        "return_pearson": {
+          "before": 0.6262403726577759,
+          "after": 0.684692919254303,
+          "delta": 0.0584525465965271
+        },
+        "advantage_pearson": {
+          "before": 0.12078416347503662,
+          "after": 0.18903812766075134,
+          "delta": 0.06825396418571472
+        }
+      },
+      "held_out_batch": {
+        "critic_loss": {
+          "before": 0.46690577268600464,
+          "after": 0.47622954845428467,
+          "delta": 0.00932377576828003
+        },
+        "target_pearson": {
+          "before": 0.6415639519691467,
+          "after": 0.655561625957489,
+          "delta": 0.013997673988342285
+        },
+        "return_pearson": {
+          "before": 0.641563892364502,
+          "after": 0.655561625957489,
+          "delta": 0.01399773359298706
+        },
+        "advantage_pearson": {
+          "before": 0.29333165287971497,
+          "after": 0.3124723434448242,
+          "delta": 0.019140690565109253
+        }
+      },
+      "probe": {
+        "critic_loss": {
+          "before": 0.9337701797485352,
+          "after": 0.9629726409912109,
+          "delta": 0.02920246124267578
+        },
+        "target_pearson": {
+          "before": 0.3689935803413391,
+          "after": 0.3597830533981323,
+          "delta": -0.009210526943206787
+        },
+        "return_pearson": {
+          "before": 0.3689936399459839,
+          "after": 0.35978302359580994,
+          "delta": -0.00921061635017395
+        },
+        "advantage_pearson": {
+          "before": -0.5185487866401672,
+          "after": -0.4630873203277588,
+          "delta": 0.05546146631240845
+        }
+      },
+      "update_details": {
+        "objective_before": 0.1998068243265152,
+        "objective_after": 0.16802962124347687,
+        "main_value_loss_before": 0.3996136486530304,
+        "main_value_loss_after": 0.33605924248695374,
+        "aux_loss_before": 0.0,
+        "aux_loss_after": 0.0,
+        "heldout_main_value_loss_before": 0.0,
+        "heldout_main_value_loss_after": 0.0,
+        "grad_norm": 2.131699207039702,
+        "critic_param_delta_norm": 0.068537255993265,
+        "critic_backbone_delta_norm": 0.06843257026756558,
+        "critic_head_delta_norm": 0.0037866589047653677,
+        "update_over_grad_ratio": 0.032151466664212404,
+        "cosine_update_vs_grad": -0.24989741228706847
+      }
+    },
+    "blended_current_heldout_loss": {
+      "current_batch": {
+        "critic_loss": {
+          "before": 0.3996136486530304,
+          "after": 0.34858861565589905,
+          "delta": -0.05102503299713135
+        },
+        "target_pearson": {
+          "before": 0.6262403130531311,
+          "after": 0.6683046221733093,
+          "delta": 0.04206430912017822
+        },
+        "return_pearson": {
+          "before": 0.6262403726577759,
+          "after": 0.6683046817779541,
+          "delta": 0.04206430912017822
+        },
+        "advantage_pearson": {
+          "before": 0.12078416347503662,
+          "after": 0.17290183901786804,
+          "delta": 0.05211767554283142
+        }
+      },
+      "held_out_batch": {
+        "critic_loss": {
+          "before": 0.46690577268600464,
+          "after": 0.46087539196014404,
+          "delta": -0.006030380725860596
+        },
+        "target_pearson": {
+          "before": 0.6415639519691467,
+          "after": 0.6598366498947144,
+          "delta": 0.018272697925567627
+        },
+        "return_pearson": {
+          "before": 0.641563892364502,
+          "after": 0.6598366498947144,
+          "delta": 0.018272757530212402
+        },
+        "advantage_pearson": {
+          "before": 0.29333165287971497,
+          "after": 0.3140823543071747,
+          "delta": 0.020750701427459717
+        }
+      },
+      "probe": {
+        "critic_loss": {
+          "before": 0.9337701797485352,
+          "after": 0.9484119415283203,
+          "delta": 0.014641761779785156
+        },
+        "target_pearson": {
+          "before": 0.3689935803413391,
+          "after": 0.3591705858707428,
+          "delta": -0.009822994470596313
+        },
+        "return_pearson": {
+          "before": 0.3689936399459839,
+          "after": 0.3591705858707428,
+          "delta": -0.009823054075241089
+        },
+        "advantage_pearson": {
+          "before": -0.5185487866401672,
+          "after": -0.46794959902763367,
+          "delta": 0.05059918761253357
+        }
+      },
+      "update_details": {
+        "objective_before": 0.21662986278533936,
+        "objective_after": 0.20236599445343018,
+        "main_value_loss_before": 0.3996136486530304,
+        "main_value_loss_after": 0.34858861565589905,
+        "aux_loss_before": 0.0,
+        "aux_loss_after": 0.0,
+        "heldout_main_value_loss_before": 0.46690577268600464,
+        "heldout_main_value_loss_after": 0.46087539196014404,
+        "grad_norm": 1.8636237215606646,
+        "critic_param_delta_norm": 0.06586651407079146,
+        "critic_backbone_delta_norm": 0.06575473279961354,
+        "critic_head_delta_norm": 0.0038357255231827076,
+        "update_over_grad_ratio": 0.03534324730296549,
+        "cosine_update_vs_grad": -0.12930373321578348
+      }
+    }
+  },
+  "interpretation": "Both current-batch-only value fitting and auxiliary critic terms contribute, but the dominant factor is not fully isolated by this bad-step ablation alone."
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "epoch": 0.0,
+    "episode_reward": -18.667573050322474,
+    "episode_cost": 18.270476673244833,
+    "episode_queue_penalty": 0.3970963770776409,
+    "episode_delay": 18.100871509118296,
+    "episode_local_delay_cost": 12.723763914310538,
+    "episode_uplink_delay_cost": 0.5301878769360852,
+    "episode_backhaul_delay_cost": 0.02433498519675021,
+    "episode_bs_compute_delay_cost": 4.822584732674921,
+    "episode_energy": 3.392103282530763,
+    "episode_uplink_energy": 0.05082526845563785,
+    "episode_local_compute_energy": 1.4284327110234507,
+    "episode_bs_compute_energy": 1.9128453030516748,
+    "episode_reward_delay_term": 18.100871509118296,
+    "episode_reward_energy_term": 0.16960516412653817,
+    "episode_reward_backlog_term": 0.3970963770776409,
+    "avg_total_backlog": 0.03970963770776409,
+    "avg_raw_total_backlog": 3504532753.4004493,
+    "avg_normalized_total_backlog": 1.350127682063979,
+    "avg_theta": 0.48671002435718547,
+    "num_steps": 5.0,
+    "actor_loss": -0.15623426347970906,
+    "critic_loss": 121.51497955322266,
+    "entropy": 15.11452932357788
+  }
+]

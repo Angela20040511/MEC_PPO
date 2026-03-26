@@ -1,0 +1,63 @@
+{
+  "root_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121223",
+  "fixed_params": {
+    "min_delta": 1.0
+  },
+  "grid": {
+    "start_check_epoch": [
+      3
+    ],
+    "max_epochs": [
+      12
+    ],
+    "patience": [
+      3
+    ],
+    "seeds": [
+      2025,
+      2026
+    ]
+  },
+  "combos": [
+    {
+      "start_check_epoch": 3,
+      "max_epochs": 12,
+      "patience": 3,
+      "min_delta": 1.0,
+      "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121223\\start_03_max_12_pat_03_delta_1p0",
+      "seed_runs": [
+        {
+          "seed": 2025,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121223\\start_03_max_12_pat_03_delta_1p0\\seed_2025_20260315_121223_222281"
+        },
+        {
+          "seed": 2026,
+          "run_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121223\\start_03_max_12_pat_03_delta_1p0\\seed_2026_20260315_121233_215937"
+        }
+      ],
+      "combo_statistics": {
+        "start_check_epoch": 3,
+        "max_epochs": 12,
+        "patience": 3,
+        "min_delta": 1.0,
+        "combo_dir": "checkpoints\\early_stop_policy_seed_search_20260315_121223\\start_03_max_12_pat_03_delta_1p0",
+        "mean_best_reward": -397.39701413905584,
+        "std_best_reward": 4.299710375093298,
+        "mean_final_reward": -406.9997991193176,
+        "std_final_reward": 0.37149815661427965,
+        "mean_reward_gap": -9.602784980261731,
+        "std_reward_gap": 3.9282122184790182,
+        "mean_best_epoch": 5.5,
+        "mean_final_critic_loss": 2618.111131286621,
+        "mean_avg_theta_last10": 0.49015366194842597,
+        "early_stop_trigger_rate": 1.0,
+        "mean_epochs_completed": 9.5
+      }
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\early_stop_policy_seed_search_20260315_121223\\combo_summary.csv",
+    "summary_json": "checkpoints\\early_stop_policy_seed_search_20260315_121223\\combo_summary.json",
+    "summary_md": "checkpoints\\early_stop_policy_seed_search_20260315_121223\\combo_summary.md"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "root_dir": "checkpoints\\dense_policy_ratio_mode_experiment_20260317_083727",
+  "policy_ratio_modes": [
+    "current_joint_sum_ratio",
+    "mean_logprob_ratio"
+  ],
+  "seed": 2025,
+  "runs": [
+    {
+      "policy_ratio_mode": "current_joint_sum_ratio",
+      "run_dir": "checkpoints\\dense_policy_ratio_mode_experiment_20260317_083727\\policy_ratio_current_joint_sum_ratio_20260317_083735_086508",
+      "analysis_summary": "checkpoints\\dense_policy_ratio_mode_experiment_20260317_083727\\policy_ratio_current_joint_sum_ratio_20260317_083735_086508\\analysis_summary.json"
+    },
+    {
+      "policy_ratio_mode": "mean_logprob_ratio",
+      "run_dir": "checkpoints\\dense_policy_ratio_mode_experiment_20260317_083727\\policy_ratio_mean_logprob_ratio_20260317_083808_203728",
+      "analysis_summary": "checkpoints\\dense_policy_ratio_mode_experiment_20260317_083727\\policy_ratio_mean_logprob_ratio_20260317_083808_203728\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_ratio_mode_experiment_20260317_083727\\policy_ratio_mode_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_ratio_mode_experiment_20260317_083727\\policy_ratio_mode_summary.json",
+    "summary_md": "checkpoints\\dense_policy_ratio_mode_experiment_20260317_083727\\policy_ratio_mode_summary.md"
+  }
+}

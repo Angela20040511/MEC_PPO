@@ -1,0 +1,16 @@
+{
+  "num_epochs": 20,
+  "best_reward_epoch": 13,
+  "best_reward": -4187666.761569934,
+  "best_delay_epoch": 0,
+  "best_delay": 375.66894874221134,
+  "best_critic_loss_epoch": 13,
+  "best_critic_loss": 390606982485.3333,
+  "final_epoch": 19,
+  "final_reward": -4736741.943871311,
+  "final_delay": 454.6294829374813,
+  "final_energy": 92.01596880143431,
+  "final_actor_loss": -0.0816041617654264,
+  "final_critic_loss": 473068179456.0,
+  "final_entropy": 33.148452281951904
+}

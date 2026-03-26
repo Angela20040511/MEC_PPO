@@ -1,0 +1,38 @@
+{
+  "root_dir": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "mode_definitions": {
+      "hierarchical_actor_alternating_branch_pg": "Control group: same separate theta/route backbones, hard route mask, branchwise normalization, and theta-first / route-second alternating updates, but both branch steps still share one actor Adam optimizer state.",
+      "hierarchical_actor_dual_optimizer_alternating_branch_pg": "Test group: keep the same losses and update order, but use separate theta-Adam and route-Adam optimizer states so optimizer momentum no longer couples the two branches."
+    },
+    "route_mask_threshold": 0.5,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_alternating_branch_pg",
+    "hierarchical_actor_dual_optimizer_alternating_branch_pg"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_alternating_branch_pg",
+      "run_dir": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032\\policy_ratio_hierarchical_actor_alternating_branch_pg_20260319_014036_956212",
+      "analysis_summary": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032\\policy_ratio_hierarchical_actor_alternating_branch_pg_20260319_014036_956212\\analysis_summary.json",
+      "alternating_branch_pg_stats": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032\\policy_ratio_hierarchical_actor_alternating_branch_pg_20260319_014036_956212\\alternating_branch_pg_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_dual_optimizer_alternating_branch_pg",
+      "run_dir": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032\\policy_ratio_hierarchical_actor_dual_optimizer_alternating_branch_pg_20260319_014130_825265",
+      "analysis_summary": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032\\policy_ratio_hierarchical_actor_dual_optimizer_alternating_branch_pg_20260319_014130_825265\\analysis_summary.json",
+      "alternating_branch_pg_stats": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032\\policy_ratio_hierarchical_actor_dual_optimizer_alternating_branch_pg_20260319_014130_825265\\alternating_branch_pg_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032\\policy_dual_optimizer_alternating_branch_pg_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032\\policy_dual_optimizer_alternating_branch_pg_summary.json",
+    "summary_md": "checkpoints\\dense_policy_dual_optimizer_alternating_branch_pg_experiment_20260319_014032\\policy_dual_optimizer_alternating_branch_pg_summary.md"
+  }
+}

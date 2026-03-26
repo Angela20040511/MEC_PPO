@@ -1,0 +1,51 @@
+{
+  "root_dir": "checkpoints\\dense_reward_mode_experiment_20260316_105501",
+  "fixed_params": {
+    "topology": "dense",
+    "seed": 2025,
+    "actor_learning_rate": 0.0005,
+    "critic_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "value_coeff": 0.5,
+    "update_epochs": 10,
+    "time_steps": 100,
+    "dt_history_window": 8,
+    "dt_prediction_horizon": 2,
+    "dt_hidden_size": 128,
+    "dt_retrain_interval": 5,
+    "dt_train_epochs": 5,
+    "q": 0.65,
+    "Umax": 2,
+    "alpha_p": 0.4,
+    "rho0": 0.75,
+    "gamma_q": 0.1,
+    "gamma_e": 0.15,
+    "start_check_epoch": 1,
+    "max_epochs": 6,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "reward_modes": [
+    "raw_total",
+    "per_sensor"
+  ],
+  "runs": [
+    {
+      "reward_mode": "raw_total",
+      "run_dir": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_raw_total_20260316_105501_854632",
+      "analysis_summary": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_raw_total_20260316_105501_854632\\analysis_summary.json"
+    },
+    {
+      "reward_mode": "per_sensor",
+      "run_dir": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_per_sensor_20260316_105541_833142",
+      "analysis_summary": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_per_sensor_20260316_105541_833142\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_summary.csv",
+    "summary_json": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_summary.json",
+    "summary_md": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\reward_mode_summary.md",
+    "critic_loss_plot": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\comparison_plots\\critic_loss_compare.png",
+    "reward_terms_plot": "checkpoints\\dense_reward_mode_experiment_20260316_105501\\comparison_plots\\reward_terms_compare.png"
+  }
+}

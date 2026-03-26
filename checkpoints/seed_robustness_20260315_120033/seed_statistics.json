@@ -1,0 +1,9 @@
+{
+  "mean_best_reward": -393.09730376396254,
+  "std_best_reward": 0.0,
+  "mean_final_reward": -450.87445742187754,
+  "std_final_reward": 0.0,
+  "mean_reward_gap": -57.777153657914994,
+  "std_reward_gap": 0.0,
+  "mean_best_epoch": 6.0
+}

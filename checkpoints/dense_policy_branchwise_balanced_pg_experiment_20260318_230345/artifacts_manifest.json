@@ -1,0 +1,44 @@
+{
+  "root_dir": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "branchwise_balanced_mode_definitions": {
+      "hierarchical_actor_separate_theta_route_backbones": "Control group: separate theta / route backbones with hard offload-masked route updates; theta and route surrogates still use current aggregation.",
+      "hierarchical_actor_branchwise_balanced_pg": "Test group: same separate theta / route backbones and same hard offload mask, but theta advantages are normalized on all blocks, route advantages are normalized only on active route blocks, theta loss averages over all blocks, route loss averages over active route blocks, and final actor loss = 0.5 * theta_loss + 0.5 * route_loss."
+    },
+    "route_mask_threshold": 0.5,
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "hierarchical_actor_separate_theta_route_backbones",
+    "hierarchical_actor_branchwise_balanced_pg"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_230349_592537",
+      "analysis_summary": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_230349_592537\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_230349_592537\\theta_route_split_stats_by_epoch.csv",
+      "route_mask_stats": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_230349_592537\\route_mask_stats_by_epoch.csv",
+      "branchwise_balanced_pg_stats": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_separate_theta_route_backbones_20260318_230349_592537\\branchwise_balanced_pg_stats_by_epoch.csv"
+    },
+    {
+      "policy_ratio_mode": "hierarchical_actor_branchwise_balanced_pg",
+      "actor_structure_mode": "hierarchical_actor_separate_theta_route_backbones",
+      "run_dir": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_branchwise_balanced_pg_20260318_230415_002088",
+      "analysis_summary": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_branchwise_balanced_pg_20260318_230415_002088\\analysis_summary.json",
+      "theta_route_split_stats": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_branchwise_balanced_pg_20260318_230415_002088\\theta_route_split_stats_by_epoch.csv",
+      "route_mask_stats": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_branchwise_balanced_pg_20260318_230415_002088\\route_mask_stats_by_epoch.csv",
+      "branchwise_balanced_pg_stats": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_ratio_hierarchical_actor_branchwise_balanced_pg_20260318_230415_002088\\branchwise_balanced_pg_stats_by_epoch.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_branchwise_balanced_pg_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_branchwise_balanced_pg_summary.json",
+    "summary_md": "checkpoints\\dense_policy_branchwise_balanced_pg_experiment_20260318_230345\\policy_branchwise_balanced_pg_summary.md"
+  }
+}

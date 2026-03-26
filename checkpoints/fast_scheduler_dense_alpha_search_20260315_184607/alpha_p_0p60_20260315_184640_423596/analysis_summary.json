@@ -1,0 +1,14 @@
+{
+  "alpha_p": 0.6,
+  "noma_quantile": 0.65,
+  "max_cluster_size": 2,
+  "run_dir": "checkpoints\\fast_scheduler_dense_alpha_search_20260315_184607\\alpha_p_0p60_20260315_184640_423596",
+  "epochs_completed": 6,
+  "best_reward": -1097.1153018609657,
+  "final_reward": -1185.7738843844322,
+  "best_epoch": 1,
+  "reward_gap": -88.65858252346652,
+  "reward_gap_abs": 88.65858252346652,
+  "final_critic_loss": 29022.598876953125,
+  "avg_theta_last10": 0.5035438545429496
+}

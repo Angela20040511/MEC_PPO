@@ -1,0 +1,50 @@
+{
+  "root_dir": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728",
+  "fixed_params": {
+    "seed": 2025,
+    "probe_state_count": 64,
+    "block_advantage_scale_definition": "For blockwise_scaled_advantage_surrogate_mean only: per-block local_activity = workload + virtual_queue + local_queue + sensor-shared access_queue, all from the current normalized state at the same timestep; block_adv_scale = (local_activity + eps) / mean_blocks(local_activity + eps), so scales are nonnegative and each sample has mean block scale = 1.",
+    "start_check_epoch": 1,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "policy_ratio_modes": [
+    "blockwise_surrogate_mean",
+    "blockwise_scaled_advantage_surrogate_mean"
+  ],
+  "runs": [
+    {
+      "policy_ratio_mode": "blockwise_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\policy_ratio_blockwise_surrogate_mean_20260317_223735_590970",
+      "analysis_summary": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\policy_ratio_blockwise_surrogate_mean_20260317_223735_590970\\analysis_summary.json"
+    },
+    {
+      "policy_ratio_mode": "blockwise_scaled_advantage_surrogate_mean",
+      "run_dir": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\policy_ratio_blockwise_scaled_advantage_surrogate_mean_20260317_223827_985879",
+      "analysis_summary": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\policy_ratio_blockwise_scaled_advantage_surrogate_mean_20260317_223827_985879\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\policy_block_advantage_summary.csv",
+    "summary_json": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\policy_block_advantage_summary.json",
+    "summary_md": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\policy_block_advantage_summary.md",
+    "reward_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\reward_curve_compare.png",
+    "policy_loss_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\policy_loss_curve_compare.png",
+    "approx_kl_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\approx_kl_curve_compare.png",
+    "clip_fraction_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\clip_fraction_curve_compare.png",
+    "ratio_stats_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\ratio_stats_curve_compare.png",
+    "advantage_alignment_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\advantage_alignment_curve_compare.png",
+    "advantage_bucket_update_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\advantage_bucket_update_compare.png",
+    "selected_action_prob_gain_by_adv_bucket_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\selected_action_prob_gain_by_adv_bucket_compare.png",
+    "probe_policy_kl_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\probe_policy_kl_curve_compare.png",
+    "selected_action_change_rate_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\selected_action_change_rate_curve_compare.png",
+    "logprob_scale_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\logprob_scale_curve_compare.png",
+    "block_logprob_scale_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\block_logprob_scale_curve_compare.png",
+    "block_clip_fraction_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\block_clip_fraction_curve_compare.png",
+    "block_surrogate_scale_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\block_surrogate_scale_curve_compare.png",
+    "block_adv_scale_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\block_adv_scale_curve_compare.png",
+    "block_adv_scale_entropy_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\block_adv_scale_entropy_curve_compare.png",
+    "top_k_block_adv_scale_share_curve_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\top_k_block_adv_scale_share_curve_compare.png",
+    "critic_health_compare": "checkpoints\\dense_policy_block_advantage_experiment_20260317_223728\\comparison_plots\\critic_health_compare.png"
+  }
+}

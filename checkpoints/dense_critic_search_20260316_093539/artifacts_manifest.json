@@ -1,0 +1,94 @@
+{
+  "root_dir": "checkpoints\\dense_critic_search_20260316_093539",
+  "fixed_params": {
+    "topology": "dense",
+    "seed": 2025,
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "time_steps": 100,
+    "q": 0.65,
+    "Umax": 2,
+    "alpha_p": 0.4,
+    "rho0": 0.75,
+    "gamma_q": 0.1,
+    "gamma_e": 0.15,
+    "start_check_epoch": 1,
+    "max_epochs": 6,
+    "patience": 3,
+    "min_delta": 1.0
+  },
+  "grid": {
+    "critic_learning_rate": [
+      0.0002,
+      0.0005,
+      0.001
+    ],
+    "value_coeff": [
+      0.25,
+      0.5,
+      1.0
+    ]
+  },
+  "runs": [
+    {
+      "critic_learning_rate": 0.0002,
+      "value_coeff": 0.25,
+      "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_2em04_value_coeff_0p25_20260316_093539_739920",
+      "analysis_summary": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_2em04_value_coeff_0p25_20260316_093539_739920\\analysis_summary.json"
+    },
+    {
+      "critic_learning_rate": 0.0002,
+      "value_coeff": 0.5,
+      "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_2em04_value_coeff_0p5_20260316_093557_415834",
+      "analysis_summary": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_2em04_value_coeff_0p5_20260316_093557_415834\\analysis_summary.json"
+    },
+    {
+      "critic_learning_rate": 0.0002,
+      "value_coeff": 1.0,
+      "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_2em04_value_coeff_1p0_20260316_093622_779957",
+      "analysis_summary": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_2em04_value_coeff_1p0_20260316_093622_779957\\analysis_summary.json"
+    },
+    {
+      "critic_learning_rate": 0.0005,
+      "value_coeff": 0.25,
+      "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_5em04_value_coeff_0p25_20260316_093644_070015",
+      "analysis_summary": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_5em04_value_coeff_0p25_20260316_093644_070015\\analysis_summary.json"
+    },
+    {
+      "critic_learning_rate": 0.0005,
+      "value_coeff": 0.5,
+      "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_5em04_value_coeff_0p5_20260316_093702_074806",
+      "analysis_summary": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_5em04_value_coeff_0p5_20260316_093702_074806\\analysis_summary.json"
+    },
+    {
+      "critic_learning_rate": 0.0005,
+      "value_coeff": 1.0,
+      "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_5em04_value_coeff_1p0_20260316_093720_802848",
+      "analysis_summary": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_5em04_value_coeff_1p0_20260316_093720_802848\\analysis_summary.json"
+    },
+    {
+      "critic_learning_rate": 0.001,
+      "value_coeff": 0.25,
+      "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_1em03_value_coeff_0p25_20260316_093738_974113",
+      "analysis_summary": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_1em03_value_coeff_0p25_20260316_093738_974113\\analysis_summary.json"
+    },
+    {
+      "critic_learning_rate": 0.001,
+      "value_coeff": 0.5,
+      "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_1em03_value_coeff_0p5_20260316_093759_166862",
+      "analysis_summary": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_1em03_value_coeff_0p5_20260316_093759_166862\\analysis_summary.json"
+    },
+    {
+      "critic_learning_rate": 0.001,
+      "value_coeff": 1.0,
+      "run_dir": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_1em03_value_coeff_1p0_20260316_093815_690081",
+      "analysis_summary": "checkpoints\\dense_critic_search_20260316_093539\\critic_lr_1em03_value_coeff_1p0_20260316_093815_690081\\analysis_summary.json"
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\dense_critic_search_20260316_093539\\dense_critic_summary.csv",
+    "summary_json": "checkpoints\\dense_critic_search_20260316_093539\\dense_critic_summary.json",
+    "summary_md": "checkpoints\\dense_critic_search_20260316_093539\\dense_critic_summary.md"
+  }
+}

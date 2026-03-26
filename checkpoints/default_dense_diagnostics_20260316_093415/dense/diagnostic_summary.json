@@ -1,0 +1,21 @@
+{
+  "topology": "dense",
+  "state_dim": 200,
+  "action_dim": 72,
+  "mean_state_mean": 0.38640629058716053,
+  "mean_state_max": 1.3039564311504364,
+  "mean_state_var": 0.12591847671777676,
+  "mean_raw_total_backlog": 9462086824.123163,
+  "mean_normalized_total_backlog": 3.963613471206267,
+  "mean_total_backlog": 0.06392924953558496,
+  "mean_total_delay": 11.035451016318001,
+  "mean_total_energy": 1.7857575271233528,
+  "mean_queue_penalty": 0.12785849907116992,
+  "mean_reward_delay_term": 11.035451016318001,
+  "mean_reward_energy_term": 0.08928787635616767,
+  "mean_reward_backlog_term": 0.12785849907116992,
+  "mean_avg_theta": 0.49395449933913366,
+  "mean_reward": -11.252597391745338,
+  "final_epoch_critic_loss": 29391.245947265626,
+  "max_epoch_critic_loss": 29391.245947265626
+}

@@ -1,0 +1,20 @@
+{
+  "noma_quantile": 0.9,
+  "max_cluster_size": 3,
+  "run_dir": "checkpoints\\fast_scheduler_dense_core_search_20260315_170250\\q_0p90_umax_03_20260315_170535_848460",
+  "epochs_completed": 6,
+  "best_reward": -1123.1340604907396,
+  "final_reward": -1220.3944199381597,
+  "best_epoch": 1,
+  "reward_gap": -97.26035944742011,
+  "reward_gap_abs": 97.26035944742011,
+  "final_critic_loss": 30878.43430175781,
+  "avg_theta_last10": 0.5047042637029867,
+  "mean_oma_cluster_count": 2.06,
+  "mean_noma_cluster_count": 1.9800000000000002,
+  "mean_multi_user_cluster_count": 1.9800000000000002,
+  "mean_users_in_noma_clusters": 5.94,
+  "mean_cluster_size": 1.99,
+  "mean_multi_user_step_fraction": 0.9900000000000001,
+  "max_cluster_size_seen": 3
+}

@@ -1,0 +1,41 @@
+{
+  "root_dir": "checkpoints\\controlled_epochs_search_20260315_110131",
+  "fixed_params": {
+    "actor_learning_rate": 0.0005,
+    "entropy_coeff": 0.001,
+    "update_epochs": 10,
+    "time_steps": 100
+  },
+  "epochs_grid": [
+    2
+  ],
+  "runs": [
+    {
+      "epochs": 2,
+      "run_dir": "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738",
+      "plots": [
+        "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738\\plots\\backlog_theta.png",
+        "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738\\plots\\cost_queue_penalty.png",
+        "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738\\plots\\delay_breakdown.png",
+        "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738\\plots\\delay_energy.png",
+        "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738\\plots\\energy_breakdown.png",
+        "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738\\plots\\losses_entropy.png",
+        "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738\\plots\\reward.png"
+      ],
+      "analysis_summary": "checkpoints\\controlled_epochs_search_20260315_110131\\epochs_002_20260315_110131_026738\\analysis_summary.json"
+    }
+  ],
+  "comparison": {
+    "comparison_dir": "checkpoints\\controlled_epochs_search_20260315_110131\\comparison_plots",
+    "comparison_plots": [
+      "checkpoints\\controlled_epochs_search_20260315_110131\\comparison_plots\\avg_theta_comparison.png",
+      "checkpoints\\controlled_epochs_search_20260315_110131\\comparison_plots\\backlog_comparison.png",
+      "checkpoints\\controlled_epochs_search_20260315_110131\\comparison_plots\\best_final_reward_comparison.png",
+      "checkpoints\\controlled_epochs_search_20260315_110131\\comparison_plots\\critic_loss_comparison.png",
+      "checkpoints\\controlled_epochs_search_20260315_110131\\comparison_plots\\reward_comparison.png"
+    ],
+    "summary_csv": "checkpoints\\controlled_epochs_search_20260315_110131\\comparison_summary.csv",
+    "summary_json": "checkpoints\\controlled_epochs_search_20260315_110131\\comparison_summary.json",
+    "summary_md": "checkpoints\\controlled_epochs_search_20260315_110131\\comparison_summary.md"
+  }
+}

@@ -1,0 +1,313 @@
+# Critic Value Loss Form Ablation
+
+- checkpoint: `checkpoints\dense_policy_joint_reward_aligned_credit_experiment_20260321_170716\policy_ratio_hierarchical_actor_joint_reward_aligned_credit_20260321_172521_442663\best_model.pt`
+- captured minibatch: epoch `0` / update_epoch `2` / minibatch `8`
+- current value loss mode: `huber`
+- interpretation: Current, plain Huber, and unclipped are effectively the same here; loss-form differences alone do not explain the bad step strongly.
+
+## Group Comparison
+
+```json
+{
+  "no_op": {
+    "current_batch": {
+      "critic_loss": {
+        "before": 0.3996136486530304,
+        "after": 0.3996136486530304,
+        "delta": 0.0
+      },
+      "target_pearson": {
+        "before": 0.6262403130531311,
+        "after": 0.6262403130531311,
+        "delta": 0.0
+      }
+    },
+    "held_out_batch": {
+      "critic_loss": {
+        "before": 0.46690577268600464,
+        "after": 0.46690577268600464,
+        "delta": 0.0
+      },
+      "target_pearson": {
+        "before": 0.6415639519691467,
+        "after": 0.6415639519691467,
+        "delta": 0.0
+      }
+    },
+    "probe": {
+      "critic_loss": {
+        "before": 0.9337701797485352,
+        "after": 0.9337701797485352,
+        "delta": 0.0
+      },
+      "target_pearson": {
+        "before": 0.3689935803413391,
+        "after": 0.3689935803413391,
+        "delta": 0.0
+      }
+    },
+    "update_details": {
+      "objective_before": 0.0,
+      "objective_after": 0.0,
+      "main_value_loss_before": 0.0,
+      "main_value_loss_after": 0.0,
+      "group_applicable": 0.0,
+      "loss_form_note": "no_update",
+      "grad_norm": 0.0,
+      "critic_param_delta_norm": 0.0,
+      "update_over_grad_ratio": 0.0,
+      "cosine_update_vs_grad": 0.0
+    }
+  },
+  "current_value_loss_form": {
+    "current_batch": {
+      "critic_loss": {
+        "before": 0.3996136486530304,
+        "after": 0.33605924248695374,
+        "delta": -0.06355440616607666
+      },
+      "target_pearson": {
+        "before": 0.6262403130531311,
+        "after": 0.6846928596496582,
+        "delta": 0.0584525465965271
+      }
+    },
+    "held_out_batch": {
+      "critic_loss": {
+        "before": 0.46690577268600464,
+        "after": 0.47622954845428467,
+        "delta": 0.00932377576828003
+      },
+      "target_pearson": {
+        "before": 0.6415639519691467,
+        "after": 0.655561625957489,
+        "delta": 0.013997673988342285
+      }
+    },
+    "probe": {
+      "critic_loss": {
+        "before": 0.9337701797485352,
+        "after": 0.9629726409912109,
+        "delta": 0.02920246124267578
+      },
+      "target_pearson": {
+        "before": 0.3689935803413391,
+        "after": 0.3597830533981323,
+        "delta": -0.009210526943206787
+      }
+    },
+    "update_details": {
+      "objective_before": 0.1998068243265152,
+      "objective_after": 0.16802962124347687,
+      "main_value_loss_before": 0.3996136486530304,
+      "main_value_loss_after": 0.33605924248695374,
+      "group_applicable": 1.0,
+      "loss_form_note": "current_config_huber",
+      "grad_norm": 2.131699207039702,
+      "critic_param_delta_norm": 0.068537255993265,
+      "update_over_grad_ratio": 0.032151466664212404,
+      "cosine_update_vs_grad": -0.24989741228706847
+    }
+  },
+  "plain_mse_value_loss": {
+    "current_batch": {
+      "critic_loss": {
+        "before": 0.3996136486530304,
+        "after": 0.3270438611507416,
+        "delta": -0.07256978750228882
+      },
+      "target_pearson": {
+        "before": 0.6262403130531311,
+        "after": 0.6935076713562012,
+        "delta": 0.06726735830307007
+      }
+    },
+    "held_out_batch": {
+      "critic_loss": {
+        "before": 0.46690577268600464,
+        "after": 0.4733993709087372,
+        "delta": 0.006493598222732544
+      },
+      "target_pearson": {
+        "before": 0.6415639519691467,
+        "after": 0.6568121910095215,
+        "delta": 0.015248239040374756
+      }
+    },
+    "probe": {
+      "critic_loss": {
+        "before": 0.9337701797485352,
+        "after": 0.9610717296600342,
+        "delta": 0.027301549911499023
+      },
+      "target_pearson": {
+        "before": 0.3689935803413391,
+        "after": 0.35990607738494873,
+        "delta": -0.00908750295639038
+      }
+    },
+    "update_details": {
+      "objective_before": 0.44510021805763245,
+      "objective_after": 0.3577693998813629,
+      "main_value_loss_before": 0.8902004361152649,
+      "main_value_loss_after": 0.7155387997627258,
+      "group_applicable": 1.0,
+      "loss_form_note": "plain_mse",
+      "grad_norm": 5.559670210128344,
+      "critic_param_delta_norm": 0.06814589100198767,
+      "update_over_grad_ratio": 0.01225718224758057,
+      "cosine_update_vs_grad": -0.25867722862209525
+    }
+  },
+  "plain_huber_value_loss": {
+    "current_batch": {
+      "critic_loss": {
+        "before": 0.3996136486530304,
+        "after": 0.33605924248695374,
+        "delta": -0.06355440616607666
+      },
+      "target_pearson": {
+        "before": 0.6262403130531311,
+        "after": 0.6846928596496582,
+        "delta": 0.0584525465965271
+      }
+    },
+    "held_out_batch": {
+      "critic_loss": {
+        "before": 0.46690577268600464,
+        "after": 0.47622954845428467,
+        "delta": 0.00932377576828003
+      },
+      "target_pearson": {
+        "before": 0.6415639519691467,
+        "after": 0.655561625957489,
+        "delta": 0.013997673988342285
+      }
+    },
+    "probe": {
+      "critic_loss": {
+        "before": 0.9337701797485352,
+        "after": 0.9629726409912109,
+        "delta": 0.02920246124267578
+      },
+      "target_pearson": {
+        "before": 0.3689935803413391,
+        "after": 0.3597830533981323,
+        "delta": -0.009210526943206787
+      }
+    },
+    "update_details": {
+      "objective_before": 0.1998068243265152,
+      "objective_after": 0.16802962124347687,
+      "main_value_loss_before": 0.3996136486530304,
+      "main_value_loss_after": 0.33605924248695374,
+      "group_applicable": 1.0,
+      "loss_form_note": "plain_huber_delta_1.0",
+      "grad_norm": 2.131699207039702,
+      "critic_param_delta_norm": 0.068537255993265,
+      "update_over_grad_ratio": 0.032151466664212404,
+      "cosine_update_vs_grad": -0.24989741228706847
+    }
+  },
+  "unclipped_value_loss_only": {
+    "current_batch": {
+      "critic_loss": {
+        "before": 0.3996136486530304,
+        "after": 0.33605924248695374,
+        "delta": -0.06355440616607666
+      },
+      "target_pearson": {
+        "before": 0.6262403130531311,
+        "after": 0.6846928596496582,
+        "delta": 0.0584525465965271
+      }
+    },
+    "held_out_batch": {
+      "critic_loss": {
+        "before": 0.46690577268600464,
+        "after": 0.47622954845428467,
+        "delta": 0.00932377576828003
+      },
+      "target_pearson": {
+        "before": 0.6415639519691467,
+        "after": 0.655561625957489,
+        "delta": 0.013997673988342285
+      }
+    },
+    "probe": {
+      "critic_loss": {
+        "before": 0.9337701797485352,
+        "after": 0.9629726409912109,
+        "delta": 0.02920246124267578
+      },
+      "target_pearson": {
+        "before": 0.3689935803413391,
+        "after": 0.3597830533981323,
+        "delta": -0.009210526943206787
+      }
+    },
+    "update_details": {
+      "objective_before": 0.1998068243265152,
+      "objective_after": 0.16802962124347687,
+      "main_value_loss_before": 0.3996136486530304,
+      "main_value_loss_after": 0.33605924248695374,
+      "group_applicable": 1.0,
+      "loss_form_note": "equivalent_to_current_no_value_clipping_present",
+      "grad_norm": 2.131699207039702,
+      "critic_param_delta_norm": 0.068537255993265,
+      "update_over_grad_ratio": 0.032151466664212404,
+      "cosine_update_vs_grad": -0.24989741228706847
+    }
+  },
+  "clipped_value_loss_only": {
+    "current_batch": {
+      "critic_loss": {
+        "before": 0.3996136486530304,
+        "after": 0.3996136486530304,
+        "delta": 0.0
+      },
+      "target_pearson": {
+        "before": 0.6262403130531311,
+        "after": 0.6262403130531311,
+        "delta": 0.0
+      }
+    },
+    "held_out_batch": {
+      "critic_loss": {
+        "before": 0.46690577268600464,
+        "after": 0.46690577268600464,
+        "delta": 0.0
+      },
+      "target_pearson": {
+        "before": 0.6415639519691467,
+        "after": 0.6415639519691467,
+        "delta": 0.0
+      }
+    },
+    "probe": {
+      "critic_loss": {
+        "before": 0.9337701797485352,
+        "after": 0.9337701797485352,
+        "delta": 0.0
+      },
+      "target_pearson": {
+        "before": 0.3689935803413391,
+        "after": 0.3689935803413391,
+        "delta": 0.0
+      }
+    },
+    "update_details": {
+      "objective_before": 0.0,
+      "objective_after": 0.0,
+      "main_value_loss_before": 0.0,
+      "main_value_loss_after": 0.0,
+      "group_applicable": 0.0,
+      "loss_form_note": "not_applicable_current_main_value_loss_has_no_value_clipping_branch",
+      "grad_norm": 0.0,
+      "critic_param_delta_norm": 0.0,
+      "update_over_grad_ratio": 0.0,
+      "cosine_update_vs_grad": 0.0
+    }
+  }
+}
+```

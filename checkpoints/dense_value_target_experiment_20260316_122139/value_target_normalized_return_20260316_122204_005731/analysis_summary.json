@@ -1,0 +1,16 @@
+{
+  "value_target_mode": "normalized_return",
+  "run_dir": "checkpoints\\dense_value_target_experiment_20260316_122139\\value_target_normalized_return_20260316_122204_005731",
+  "epochs_completed": 5,
+  "best_reward": -149.03219423135351,
+  "final_reward": -159.4359974214354,
+  "best_epoch": 1,
+  "reward_gap": -10.403803190081874,
+  "reward_gap_abs": 10.403803190081874,
+  "final_critic_loss": 4.4155678987503055,
+  "final_raw_return_mean": -33.46818542480469,
+  "final_raw_return_std": 8.812111854553223,
+  "final_value_target_mean": -3.33786012163273e-08,
+  "final_value_target_std": 1.0,
+  "best_epoch_is_one": 1
+}

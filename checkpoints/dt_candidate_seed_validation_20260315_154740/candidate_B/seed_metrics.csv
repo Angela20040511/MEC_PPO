@@ -1,0 +1,2 @@
+﻿candidate,history_window,prediction_horizon,hidden_size,retrain_interval,train_epochs,seed,epochs_completed,best_reward,final_reward,best_epoch,reward_gap,final_critic_loss,avg_theta_last10
+B,8,2,128,5,5,2025,10,-389.6761891233042,-398.972030145125,6,-9.29584102182082,2409.201416015625,0.5231838480456156

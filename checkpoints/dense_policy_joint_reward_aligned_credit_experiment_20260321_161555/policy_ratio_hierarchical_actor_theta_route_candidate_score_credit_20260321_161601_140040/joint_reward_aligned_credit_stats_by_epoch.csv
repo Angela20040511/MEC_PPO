@@ -1,0 +1,6 @@
+﻿epoch,advantage_action_alignment,joint_approx_kl,joint_clip_fraction,joint_selected_score_mean,joint_expected_score_mean,joint_residual_credit_mean,joint_residual_credit_std,joint_action_decision_agreement_ratio_under_reward_aligned
+0,0.05197836458683014,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+1,0.016909275203943253,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2,0.2636788487434387,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+3,0.3381490707397461,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+4,-0.013297333382070065,0.0,0.0,0.0,0.0,0.0,0.0,0.0

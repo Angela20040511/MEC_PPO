@@ -1,0 +1,3 @@
+| rank | alpha_p | seed | run_dir | epochs_completed | best_reward | final_reward | best_epoch | reward_gap | reward_gap_abs | final_critic_loss | avg_theta_last10 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 0.2 | 2025 | checkpoints\fast_scheduler_alpha_p_search_20260315_164245\alpha_p_0p20_20260315_164245_085820 | 10 | -388.89774281187545 | -398.5610001515931 | 6 | -9.663257339717632 | 9.663257339717632 | 2402.792239379882 | 0.5233578570254032 |
