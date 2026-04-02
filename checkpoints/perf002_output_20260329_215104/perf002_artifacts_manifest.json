@@ -1,0 +1,56 @@
+{
+  "experiment_id": "perf002",
+  "root_dir": "D:\\MEC_PPO\\checkpoints\\perf002_output_20260329_215104",
+  "device": "cuda",
+  "torch_version": "2.4.1+cu118",
+  "cuda_device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "benchmark_summary_json": "D:\\MEC_PPO\\checkpoints\\perf002_output_20260329_215104\\perf002_sampling_benchmark_summary.json",
+  "bridge_summary_json": "D:\\MEC_PPO\\checkpoints\\perf002_output_20260329_215104\\perf002_bridge_validation_summary.json",
+  "narrow_scope_layers": [
+    "critic_backbone.0.weight",
+    "critic_backbone.6.weight"
+  ],
+  "narrow_scope_selection": {
+    "source_summary_path": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_blended_baseline_promotion_and_smooth_geometry_probe_summary.json",
+    "reference_group": "004_pure_blended_soft_geometry_head_adam",
+    "selection_rule": "Select the top-2 layers by mean((1 - soft_scale_mean) * trigger_fraction * delta_norm) computed from 004 per-seed soft-geometry telemetry.",
+    "ranked_layers": [
+      {
+        "layer_name": "critic_backbone.0.weight",
+        "mean_scale": 0.28617746851521786,
+        "mean_trigger": 0.0934548242283719,
+        "mean_delta_norm": 0.008074893893873586,
+        "selection_score": 0.0005387996512980437
+      },
+      {
+        "layer_name": "critic_backbone.6.weight",
+        "mean_scale": 0.9608218600531916,
+        "mean_trigger": 0.09995727539062499,
+        "mean_delta_norm": 0.01673772297466972,
+        "selection_score": 6.565647929139033e-05
+      },
+      {
+        "layer_name": "critic_backbone.7.weight",
+        "mean_scale": 0.9766366537588893,
+        "mean_trigger": 0.034542410714285716,
+        "mean_delta_norm": 0.0010620879745277178,
+        "selection_score": 9.464274624529551e-07
+      },
+      {
+        "layer_name": "critic_backbone.4.bias",
+        "mean_scale": 0.986941715059063,
+        "mean_trigger": 0.01484375,
+        "mean_delta_norm": 0.0013293012201237226,
+        "selection_score": 2.524545581900198e-07
+      }
+    ],
+    "selected_layers": [
+      "critic_backbone.0.weight",
+      "critic_backbone.6.weight"
+    ]
+  },
+  "vectorized_env_counts_attempted": [
+    2,
+    4
+  ]
+}

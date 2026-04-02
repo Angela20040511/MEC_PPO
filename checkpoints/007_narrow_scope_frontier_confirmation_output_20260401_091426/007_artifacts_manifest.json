@@ -1,0 +1,38 @@
+{
+  "experiment_id": "007",
+  "output_root": "D:\\MEC_PPO\\checkpoints\\007_narrow_scope_frontier_confirmation_output_20260401_091426",
+  "training_semantics": "compatible_default",
+  "policy_ratio_mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "seeds": [
+    2024,
+    2025
+  ],
+  "num_epochs": 12,
+  "time_steps": 200,
+  "groups": [
+    "007_pure_blended_narrow_scope_soft_geometry_priority_adam",
+    "007_pure_blended_baseline_reference_adam"
+  ],
+  "runs": [
+    {
+      "group_name": "007_pure_blended_narrow_scope_soft_geometry_priority_adam",
+      "seed": 2024,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\007_narrow_scope_frontier_confirmation_output_20260401_091426\\007_seed_2024_runs\\007_pure_blended_narrow_scope_soft_geometry_priority_adam_20260401_091428_189707"
+    },
+    {
+      "group_name": "007_pure_blended_baseline_reference_adam",
+      "seed": 2024,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\007_narrow_scope_frontier_confirmation_output_20260401_091426\\007_seed_2024_runs\\007_pure_blended_baseline_reference_adam_20260401_104846_088312"
+    },
+    {
+      "group_name": "007_pure_blended_narrow_scope_soft_geometry_priority_adam",
+      "seed": 2025,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\007_narrow_scope_frontier_confirmation_output_20260401_091426\\007_seed_2025_runs\\007_pure_blended_narrow_scope_soft_geometry_priority_adam_20260401_141208_891385"
+    },
+    {
+      "group_name": "007_pure_blended_baseline_reference_adam",
+      "seed": 2025,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\007_narrow_scope_frontier_confirmation_output_20260401_091426\\007_seed_2025_runs\\007_pure_blended_baseline_reference_adam_20260401_151654_882177"
+    }
+  ]
+}

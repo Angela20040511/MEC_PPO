@@ -1,0 +1,79 @@
+{
+  "experiment_id": "002",
+  "root_dir": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127",
+  "seed": 2025,
+  "policy_ratio_mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "training_num_epochs": 12,
+  "training_time_steps": 200,
+  "update_epochs": 10,
+  "mini_batch_size": 32,
+  "blended_value_rule": {
+    "current_weight": 0.8,
+    "heldout_weight": 0.2,
+    "fixed_heldout_sample_count": 64,
+    "fixed_heldout_batch_count": 2
+  },
+  "step_monitor_rule": {
+    "current_loss_improve_epsilon": 1e-06,
+    "heldout_loss_tolerance": 0.0001,
+    "probe_pearson_tolerance": 0.0001,
+    "enforce": false
+  },
+  "tracked_hotspot_layers": [
+    "critic_backbone.0.weight",
+    "critic_backbone.6.weight",
+    "critic_backbone.7.weight",
+    "critic_backbone.4.bias",
+    "critic_backbone.7.bias"
+  ],
+  "groups": [
+    {
+      "group_name": "002_baseline_critic_adam",
+      "run_dir": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_baseline_critic_adam_20260326_232213_035629",
+      "analysis_summary": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_baseline_critic_adam_20260326_232213_035629\\analysis_summary.json",
+      "step_trace_csv": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_baseline_critic_adam_20260326_232213_035629\\002_002_baseline_critic_adam_critic_step_acceptance_trace.csv",
+      "telemetry_summary": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_baseline_critic_adam_20260326_232213_035629\\preconditioner_telemetry_summary.json",
+      "layerwise_backbone_preconditioner_caps": {},
+      "clip_focus_parameter_names": []
+    },
+    {
+      "group_name": "002_critic_blended_current_heldout_head_adam",
+      "run_dir": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_current_heldout_head_adam_20260327_004159_420839",
+      "analysis_summary": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_current_heldout_head_adam_20260327_004159_420839\\analysis_summary.json",
+      "step_trace_csv": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_current_heldout_head_adam_20260327_004159_420839\\002_002_critic_blended_current_heldout_head_adam_critic_step_acceptance_trace.csv",
+      "telemetry_summary": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_current_heldout_head_adam_20260327_004159_420839\\preconditioner_telemetry_summary.json",
+      "layerwise_backbone_preconditioner_caps": {},
+      "clip_focus_parameter_names": []
+    },
+    {
+      "group_name": "002_critic_blended_current_heldout_plus_layerwise_cap_head_adam",
+      "run_dir": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_015331_336441",
+      "analysis_summary": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_015331_336441\\analysis_summary.json",
+      "step_trace_csv": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_015331_336441\\002_002_critic_blended_current_heldout_plus_layerwise_cap_head_adam_critic_step_acceptance_trace.csv",
+      "telemetry_summary": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_015331_336441\\preconditioner_telemetry_summary.json",
+      "layerwise_backbone_preconditioner_caps": {
+        "critic_backbone.0.weight": 2000.0,
+        "critic_backbone.6.weight": 4000.0,
+        "critic_backbone.7.weight": 4000.0,
+        "critic_backbone.4.bias": 4000.0
+      },
+      "clip_focus_parameter_names": [
+        "critic_backbone.0.weight",
+        "critic_backbone.6.weight",
+        "critic_backbone.7.weight",
+        "critic_backbone.4.bias"
+      ]
+    }
+  ],
+  "summary": {
+    "summary_csv": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_long_confirmation_validation_summary.csv",
+    "summary_json": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_long_confirmation_validation_summary.json",
+    "summary_md": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_blended_long_confirmation_validation_summary.md",
+    "reward_curve_compare": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_reward_curve_compare.png",
+    "advantage_alignment_curve_compare": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_advantage_alignment_curve_compare.png",
+    "critic_health_curve_compare": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_health_curve_compare.png",
+    "critic_drift_compare": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_critic_drift_compare.png",
+    "blended_vs_baseline_compare": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_blended_vs_baseline_compare.png",
+    "blended_plus_cap_compare": "checkpoints\\002_critic_blended_long_confirmation_validation_output_20260326_232127\\002_blended_plus_cap_compare.png"
+  }
+}

@@ -1,0 +1,2 @@
+﻿epoch,ratio_mean,ratio_std,ratio_min,ratio_max,clip_fraction,positive_adv_clip_fraction,negative_adv_clip_fraction,approx_kl,entropy_loss,policy_loss,ratio_by_adv_sign
+0,0.9690437316894531,0.03851982578635216,0.8946285247802734,1.0722663402557373,0.0,0.0,0.0,0.0322272889316082,-0.030163584277033806,0.0004627487505786121,"{""negative"": {""count"": 100, ""max"": 1.0722663402557373, ""mean"": 0.9690437316894531, ""min"": 0.8946285247802734, ""std"": 0.03851982578635216}, ""positive"": {""count"": 0, ""max"": 0.0, ""mean"": 0.0, ""min"": 0.0, ""std"": 0.0}}"

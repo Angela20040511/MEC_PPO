@@ -1,0 +1,9 @@
+{
+  "experiment_id": "perf004",
+  "root_dir": "D:\\MEC_PPO\\checkpoints\\perf004_output_20260330_112246",
+  "device": "cuda",
+  "torch_version": "2.4.1+cu118",
+  "cuda_device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "debug_summary_json": "D:\\MEC_PPO\\checkpoints\\perf004_output_20260330_112246\\perf004_bridge_debug_summary.json",
+  "bridge_summary_json": "D:\\MEC_PPO\\checkpoints\\perf004_output_20260330_112246\\perf004_bridge_validation_summary.json"
+}

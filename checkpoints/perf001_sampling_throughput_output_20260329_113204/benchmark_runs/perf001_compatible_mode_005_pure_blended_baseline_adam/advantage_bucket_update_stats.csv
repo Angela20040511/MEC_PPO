@@ -1,0 +1,5 @@
+﻿bucket_name,bucket_sample_count,bucket_mean_advantage,bucket_mean_ratio,bucket_mean_delta_log_prob_selected_action,bucket_mean_selected_action_prob_gain,bucket_mean_clip_fraction,epoch
+high_positive,0,0.0,0.0,0.0,0.0,0.0,0
+mid_positive,0,0.0,0.0,0.0,0.0,0.0,0
+near_zero,0,0.0,0.0,0.0,0.0,0.0,0
+negative,100,-21.93240737915039,0.9680440425872803,-0.03322784602642059,-0.03195592015981674,0.0,0
