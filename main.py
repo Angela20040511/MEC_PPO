@@ -7,6 +7,7 @@ from datetime import datetime
 from pathlib import Path
 
 from rl.ppo_agent import PPOAgent
+from safety import validate_runtime_config
 from train import build_runtime_config, rollout_agent, train_agent
 
 
@@ -26,7 +27,7 @@ def find_latest_best_checkpoint(checkpoint_dir: str) -> Path | None:
     if not candidates:
         return None
 
-    return max(candidates, key=lambda p: p.parent.name)
+    return max(candidates, key=lambda p: p.stat().st_mtime)
 
 
 def main() -> None:
@@ -49,12 +50,22 @@ def main() -> None:
         default=None,
         help="Specific checkpoint path for rollout",
     )
+    parser.add_argument(
+        "--allow-legacy-mode",
+        action="store_true",
+        help="Bypass runtime safety guard that blocks known legacy dense policy modes.",
+    )
     args = parser.parse_args()
 
     config = build_runtime_config(
         num_epochs=args.epochs,
         time_steps=args.time_steps,
         topology_mode=args.topology,
+    )
+    validate_runtime_config(
+        config,
+        topology_mode=args.topology,
+        allow_legacy_mode=args.allow_legacy_mode,
     )
 
     if args.mode == "train":

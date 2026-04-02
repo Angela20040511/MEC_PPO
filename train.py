@@ -10,6 +10,7 @@ from typing import Any
 
 from config import MECConfig, build_config, build_default_config
 from rl.ppo_agent import PPOAgent
+from safety import resolve_policy_ratio_mode
 from simulator.simulator import Simulator
 
 
@@ -156,6 +157,34 @@ def train_agent(
                 "best_reward": best_reward,
                 "final_epoch": len(logs) - 1 if logs else -1,
                 "final_reward": logs[-1]["episode_reward"] if logs else None,
+            },
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
+
+    with (checkpoint_root / "experiment_config.json").open("w", encoding="utf-8") as f:
+        json.dump(
+            {
+                "training": {
+                    "num_epochs": int(config.training.num_epochs),
+                    "time_steps": int(config.training.time_steps),
+                    "seed": int(config.training.seed),
+                    "seed_policy": "reset_seed = base_seed + epoch",
+                },
+                "policy": {
+                    "policy_ratio_mode_raw": config.ppo.policy_ratio_mode,
+                    "policy_ratio_mode_resolved": resolve_policy_ratio_mode(
+                        config.ppo.policy_ratio_mode
+                    ),
+                    "actor_structure_mode": config.ppo.actor_structure_mode,
+                    "critic_arch_mode": config.ppo.critic_arch_mode,
+                    "actor_input_mode": config.ppo.actor_input_mode,
+                    "critic_input_mode": config.ppo.critic_input_mode,
+                },
+                "system": {
+                    "reward_mode": config.system.reward_mode,
+                },
             },
             f,
             ensure_ascii=False,

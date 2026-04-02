@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -3665,6 +3666,10 @@ class PPOAgent:
         route_alignment_gate_score_count_value = 0
         route_step_alignment_min_value = float("inf")
         route_step_alignment_max_value = float("-inf")
+        route_alignment_gate_snapshot_time_ms_value = 0.0
+        route_alignment_gate_restore_time_ms_value = 0.0
+        route_alignment_gate_snapshot_count_value = 0
+        route_alignment_gate_restore_count_value = 0
         theta_update_count_value = 0
         route_update_count_value = 0
         critic_backbone_grad_norm_value = 0.0
@@ -4851,6 +4856,10 @@ class PPOAgent:
                         nonlocal route_alignment_gate_score_count_value
                         nonlocal route_step_alignment_min_value
                         nonlocal route_step_alignment_max_value
+                        nonlocal route_alignment_gate_snapshot_time_ms_value
+                        nonlocal route_alignment_gate_restore_time_ms_value
+                        nonlocal route_alignment_gate_snapshot_count_value
+                        nonlocal route_alignment_gate_restore_count_value
                         nonlocal route_credit_fallback_trigger_count_value
                         nonlocal route_credit_support_eval_count_value
                         nonlocal theta_step_happened_before_route_step_current
@@ -5130,9 +5139,14 @@ class PPOAgent:
                             route_optimizer = self._route_actor_optimizer()
                             route_optimizer_state_before_step: dict[str, Any] | None = None
                             if self._uses_route_alignment_gate_factorized_trust_region_pg():
+                                snapshot_start = time.perf_counter()
                                 route_optimizer_state_before_step = copy.deepcopy(
                                     route_optimizer.state_dict()
                                 )
+                                route_alignment_gate_snapshot_time_ms_value += (
+                                    time.perf_counter() - snapshot_start
+                                ) * 1000.0
+                                route_alignment_gate_snapshot_count_value += 1
                             route_optimizer.zero_grad()
                             route_only_objective.backward()
                             self._apply_route_only_gradient_mask()
@@ -5252,9 +5266,14 @@ class PPOAgent:
                                             frozen_route_log_std,
                                         )
                                         if route_optimizer_state_before_step is not None:
+                                            restore_start = time.perf_counter()
                                             route_optimizer.load_state_dict(
                                                 route_optimizer_state_before_step
                                             )
+                                            route_alignment_gate_restore_time_ms_value += (
+                                                time.perf_counter() - restore_start
+                                            ) * 1000.0
+                                            route_alignment_gate_restore_count_value += 1
                                         route_alignment_gate_reject_count_value += 1
                                         return
 
@@ -7697,6 +7716,8 @@ class PPOAgent:
             ),
             "policy_surrogate_mode": self._policy_ratio_mode(),
             "policy_ratio_mode": self.config.policy_ratio_mode,
+            "policy_ratio_mode_raw": self.config.policy_ratio_mode,
+            "policy_ratio_mode_resolved": self._policy_ratio_mode(),
             "actor_structure_mode": self._actor_structure_mode(),
             "action_dim": int(self.action_dim),
             "action_block_count": int(len(action_block_layout)),
@@ -7949,6 +7970,16 @@ class PPOAgent:
             "route_alignment_gate_score_mean": float(
                 route_alignment_gate_score_sum_value / route_alignment_gate_score_denominator
             ),
+            "route_alignment_gate_snapshot_time_ms": float(
+                route_alignment_gate_snapshot_time_ms_value
+            ),
+            "route_alignment_gate_restore_time_ms": float(
+                route_alignment_gate_restore_time_ms_value
+            ),
+            "route_alignment_gate_snapshot_count": int(
+                route_alignment_gate_snapshot_count_value
+            ),
+            "route_alignment_gate_restore_count": int(route_alignment_gate_restore_count_value),
             "route_step_alignment_mean": float(
                 route_alignment_gate_score_sum_value / route_alignment_gate_score_denominator
             ),

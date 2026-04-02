@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import warnings
 
 import numpy as np
 import torch
@@ -82,7 +83,7 @@ class PPOBuffer:
         self.advantages = advantages
         self.returns = returns
 
-    def as_tensors(self, device: torch.device) -> dict[str, torch.Tensor]:
+    def as_tensors(self, device: torch.device, strict: bool = True) -> dict[str, torch.Tensor]:
         """把缓存数据转成 PyTorch 张量。"""
         if self.advantages is None or self.returns is None:
             raise RuntimeError("finish_trajectory must be called before as_tensors")
@@ -115,13 +116,32 @@ class PPOBuffer:
             "returns": torch.tensor(self.returns, dtype=torch.float32, device=device),
             "dones": torch.tensor(self.dones, dtype=torch.float32, device=device),
         }
-        if len(self.joint_reward_aligned_scores) == len(self.states) and self.joint_reward_aligned_scores:
+        reward_score_count = len(self.joint_reward_aligned_scores)
+        td_score_count = len(self.joint_td_aligned_scores)
+        state_count = len(self.states)
+        if reward_score_count not in {0, state_count}:
+            message = (
+                "joint_reward_aligned_scores length mismatch: "
+                f"scores={reward_score_count}, states={state_count}"
+            )
+            if strict:
+                raise RuntimeError(message)
+            warnings.warn(message, RuntimeWarning, stacklevel=2)
+        if reward_score_count == state_count and self.joint_reward_aligned_scores:
             tensor_dict["joint_reward_aligned_scores"] = torch.tensor(
                 np.stack(self.joint_reward_aligned_scores),
                 dtype=torch.float32,
                 device=device,
             )
-        if len(self.joint_td_aligned_scores) == len(self.states) and self.joint_td_aligned_scores:
+        if td_score_count not in {0, state_count}:
+            message = (
+                "joint_td_aligned_scores length mismatch: "
+                f"scores={td_score_count}, states={state_count}"
+            )
+            if strict:
+                raise RuntimeError(message)
+            warnings.warn(message, RuntimeWarning, stacklevel=2)
+        if td_score_count == state_count and self.joint_td_aligned_scores:
             tensor_dict["joint_td_aligned_scores"] = torch.tensor(
                 np.stack(self.joint_td_aligned_scores),
                 dtype=torch.float32,
