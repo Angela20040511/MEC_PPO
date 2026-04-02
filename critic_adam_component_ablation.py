@@ -51,7 +51,7 @@ def _collect_single_rollout_epoch(
     state = simulator.reset(seed=config.training.seed + epoch)
     done = False
     for _ in range(config.training.time_steps):
-        action, log_prob, value = agent.select_action(state)
+        action, log_prob, value, policy_cache = agent.select_action_with_info(state)
         joint_reward_aligned_scores, _joint_td_scores = compute_joint_counterfactual_scores(
             agent,
             simulator,
@@ -67,6 +67,7 @@ def _collect_single_rollout_epoch(
             value,
             next_state,
             joint_reward_aligned_scores=joint_reward_aligned_scores,
+            policy_cache=policy_cache,
         )
         state = next_state
         if done:

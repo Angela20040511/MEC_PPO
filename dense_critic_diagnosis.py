@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import copy
@@ -7,6 +7,7 @@ import json
 from dataclasses import asdict, replace
 from datetime import datetime
 from pathlib import Path
+from time import perf_counter
 from typing import Any
 
 import matplotlib
@@ -188,11 +189,14 @@ def compute_joint_counterfactual_scores(
     agent: PPOAgent,
     simulator: Simulator,
     action: np.ndarray,
+    batch_value_inference: bool = True,
 ) -> tuple[np.ndarray, np.ndarray]:
     block_slices = agent._action_block_slices()
     reward_scores = np.zeros((len(block_slices), 3), dtype=np.float32)
     td_scores = np.zeros((len(block_slices), 3), dtype=np.float32)
     flat_action = np.asarray(action, dtype=np.float32).reshape(-1)
+    pending_next_states: list[np.ndarray] = []
+    pending_slots: list[tuple[int, int, float]] = []
     for block_id, block_slice in enumerate(block_slices):
         for candidate_index in range(3):
             variant_action = _set_block_joint_candidate(
@@ -203,9 +207,26 @@ def compute_joint_counterfactual_scores(
             simulator_cf = copy.deepcopy(simulator)
             next_state_cf, reward_cf, done_cf, _ = simulator_cf.step(variant_action)
             reward_scores[block_id, candidate_index] = float(reward_cf)
-            next_value_cf = 0.0 if done_cf else float(agent.evaluate_value(next_state_cf))
+            if done_cf:
+                td_scores[block_id, candidate_index] = float(reward_cf)
+            else:
+                pending_next_states.append(np.asarray(next_state_cf, dtype=np.float32))
+                pending_slots.append((block_id, candidate_index, float(reward_cf)))
+    if pending_next_states:
+        if batch_value_inference:
+            next_values = agent.evaluate_value_batch(np.stack(pending_next_states, axis=0))
+        else:
+            next_values = np.asarray(
+                [agent.evaluate_value(state) for state in pending_next_states],
+                dtype=np.float32,
+            )
+        for (block_id, candidate_index, reward_cf), next_value_cf in zip(
+            pending_slots,
+            next_values,
+            strict=False,
+        ):
             td_scores[block_id, candidate_index] = float(
-                reward_cf + agent.config.gamma * next_value_cf
+                reward_cf + agent.config.gamma * float(next_value_cf)
             )
     return reward_scores, td_scores
 
@@ -405,6 +426,7 @@ def save_probe_policy_update_payload(
 ) -> Path:
     """Persist decoded probe-policy comparisons for one epoch."""
     payload_path = run_dir / f"probe_policy_update_payload_epoch_{epoch:02d}.csv"
+    payload_path.parent.mkdir(parents=True, exist_ok=True)
     payload_df.to_csv(payload_path, index=False, encoding="utf-8-sig")
     return payload_path
 
@@ -418,6 +440,7 @@ def save_prediction_target_payload(
     constant_predictions: list[float],
 ) -> Path:
     payload_path = run_dir / f"prediction_target_payload_epoch_{epoch:02d}.csv"
+    payload_path.parent.mkdir(parents=True, exist_ok=True)
     rows = [
         {
             "value_target": target,
@@ -449,6 +472,7 @@ def run_training_epoch(
     probe_states: np.ndarray,
     probe_action_noise: np.ndarray,
     run_dir: Path,
+    rollout_options: dict[str, Any] | None = None,
 ) -> tuple[
     dict[str, float | int | str],
     Path,
@@ -464,7 +488,16 @@ def run_training_epoch(
     list[dict[str, float | int | str]],
     list[dict[str, float | int | str]],
 ]:
+    rollout_options = dict(rollout_options or {})
+    rollout_cache_enabled = bool(rollout_options.get("rollout_cache_enabled", True))
+    enable_joint_counterfactual_scores = bool(
+        rollout_options.get("enable_joint_counterfactual_scores", True)
+    )
+    counterfactual_batch_value_inference = bool(
+        rollout_options.get("counterfactual_batch_value_inference", True)
+    )
     state = simulator.reset(seed=config.training.seed + epoch)
+    epoch_start_time = perf_counter()
 
     episode_reward = 0.0
     episode_delay = 0.0
@@ -479,15 +512,30 @@ def run_training_epoch(
 
     step_count = 0
     done = False
+    rollout_total_time = 0.0
+    select_action_time = 0.0
+    counterfactual_time = 0.0
+    env_step_time = 0.0
+    store_transition_time = 0.0
     for _ in range(config.training.time_steps):
-        action, log_prob, value = agent.select_action(state)
+        rollout_step_start = perf_counter()
+        if rollout_cache_enabled:
+            action_timer_start = perf_counter()
+            action, log_prob, value, policy_cache = agent.select_action_with_info(state)
+            select_action_time += perf_counter() - action_timer_start
+        else:
+            action_timer_start = perf_counter()
+            action, log_prob, value = agent.select_action(state)
+            select_action_time += perf_counter() - action_timer_start
+            policy_cache = None
         joint_reward_aligned_scores = None
         joint_td_aligned_scores = None
-        if config.ppo.policy_ratio_mode in {
+        if enable_joint_counterfactual_scores and config.ppo.policy_ratio_mode in {
             "hierarchical_actor_theta_route_candidate_score_credit",
             "hierarchical_actor_joint_reward_aligned_credit",
             "hierarchical_actor_joint_td_aligned_credit",
         }:
+            counterfactual_timer_start = perf_counter()
             (
                 joint_reward_aligned_scores,
                 joint_td_aligned_scores,
@@ -495,9 +543,14 @@ def run_training_epoch(
                 agent,
                 simulator,
                 np.asarray(action, dtype=np.float32),
+                batch_value_inference=counterfactual_batch_value_inference,
             )
+            counterfactual_time += perf_counter() - counterfactual_timer_start
+        env_step_timer_start = perf_counter()
         next_state, reward, done, info = simulator.step(action)
+        env_step_time += perf_counter() - env_step_timer_start
 
+        store_transition_timer_start = perf_counter()
         agent.store_transition(
             state,
             action,
@@ -508,8 +561,11 @@ def run_training_epoch(
             next_state,
             joint_reward_aligned_scores=joint_reward_aligned_scores,
             joint_td_aligned_scores=joint_td_aligned_scores,
+            policy_cache=policy_cache,
         )
+        store_transition_time += perf_counter() - store_transition_timer_start
         state = next_state
+        rollout_total_time += perf_counter() - rollout_step_start
 
         episode_reward += float(reward)
         episode_delay += float(info["raw_total_delay"])
@@ -526,10 +582,12 @@ def run_training_epoch(
         if done:
             break
 
+    learner_update_start = perf_counter()
     last_value = 0.0 if done else agent.evaluate_value(state)
     agent.finish_trajectory(last_value)
     old_probe_policy = capture_probe_policy_snapshot(agent, probe_states)
     losses = agent.train()
+    learner_update_time = perf_counter() - learner_update_start
     new_probe_policy = capture_probe_policy_snapshot(agent, probe_states)
     probe_metrics = diagnose_probe_states(agent, probe_states)
     probe_policy_metrics, probe_policy_payload = compare_probe_policy_snapshots(
@@ -1027,6 +1085,74 @@ def run_training_epoch(
         "critic_head_bias_mean": losses["critic_head_bias_mean"],
         "critic_backbone_grad_norm": losses["critic_backbone_grad_norm"],
         "critic_head_grad_norm": losses["critic_head_grad_norm"],
+        "critic_loss_current_batch": losses.get("critic_loss_current_batch", losses["critic_loss"]),
+        "critic_loss_heldout_batch": losses.get("critic_loss_heldout_batch", 0.0),
+        "critic_blended_value_loss_enabled": losses.get(
+            "critic_blended_value_loss_enabled",
+            0.0,
+        ),
+        "critic_blended_current_weight": losses.get("critic_blended_current_weight", 1.0),
+        "critic_blended_heldout_weight": losses.get("critic_blended_heldout_weight", 0.0),
+        "critic_blended_heldout_batch_count": losses.get(
+            "critic_blended_heldout_batch_count",
+            0.0,
+        ),
+        "critic_step_monitor_enabled": losses.get("critic_step_monitor_enabled", 0.0),
+        "critic_step_acceptance_enforced": losses.get(
+            "critic_step_acceptance_enforced",
+            0.0,
+        ),
+        "critic_step_attempt_count": losses.get("critic_step_attempt_count", 0),
+        "critic_step_accept_count": losses.get("critic_step_accept_count", 0),
+        "critic_step_reject_count": losses.get("critic_step_reject_count", 0),
+        "critic_step_would_reject_count": losses.get("critic_step_would_reject_count", 0),
+        "critic_step_reject_rate": losses.get("critic_step_reject_rate", 0.0),
+        "critic_step_accept_rate": losses.get("critic_step_accept_rate", 0.0),
+        "critic_step_would_reject_rate": losses.get("critic_step_would_reject_rate", 0.0),
+        "critic_step_current_loss_improve_epsilon": losses.get(
+            "critic_step_current_loss_improve_epsilon",
+            0.0,
+        ),
+        "critic_step_heldout_loss_tolerance": losses.get(
+            "critic_step_heldout_loss_tolerance",
+            0.0,
+        ),
+        "critic_step_probe_pearson_tolerance": losses.get(
+            "critic_step_probe_pearson_tolerance",
+            0.0,
+        ),
+        "critic_step_mean_current_loss_before": losses.get(
+            "critic_step_mean_current_loss_before",
+            0.0,
+        ),
+        "critic_step_mean_current_loss_after_attempt": losses.get(
+            "critic_step_mean_current_loss_after_attempt",
+            0.0,
+        ),
+        "critic_step_mean_heldout_loss_before": losses.get(
+            "critic_step_mean_heldout_loss_before",
+            0.0,
+        ),
+        "critic_step_mean_heldout_loss_after_attempt": losses.get(
+            "critic_step_mean_heldout_loss_after_attempt",
+            0.0,
+        ),
+        "critic_step_mean_probe_target_pearson_before": losses.get(
+            "critic_step_mean_probe_target_pearson_before",
+            0.0,
+        ),
+        "critic_step_mean_probe_target_pearson_after_attempt": losses.get(
+            "critic_step_mean_probe_target_pearson_after_attempt",
+            0.0,
+        ),
+        "critic_step_reject_reason_breakdown": losses.get(
+            "critic_step_reject_reason_breakdown",
+            "{}",
+        ),
+        "critic_step_would_reject_reason_breakdown": losses.get(
+            "critic_step_would_reject_reason_breakdown",
+            "{}",
+        ),
         "actor_input_mean": losses["actor_input_mean"],
         "actor_input_std": losses["actor_input_std"],
         "actor_input_dim_std_mean": losses["actor_input_dim_std_mean"],
@@ -1056,6 +1182,27 @@ def run_training_epoch(
     }
     log.update(probe_metrics)
     log.update(probe_policy_metrics)
+    log.update(
+        {
+            "rollout_total_time_sec": float(rollout_total_time),
+            "select_action_time_sec": float(select_action_time),
+            "counterfactual_time_sec": float(counterfactual_time),
+            "env_step_time_sec": float(env_step_time),
+            "store_transition_time_sec": float(store_transition_time),
+            "learner_update_time_sec": float(learner_update_time),
+            "epoch_wall_clock_time_sec": float(perf_counter() - epoch_start_time),
+            "rollout_step_avg_ms": float(1000.0 * rollout_total_time / max(step_count, 1)),
+            "select_action_avg_ms": float(1000.0 * select_action_time / max(step_count, 1)),
+            "counterfactual_avg_ms": float(1000.0 * counterfactual_time / max(step_count, 1)),
+            "env_step_avg_ms": float(1000.0 * env_step_time / max(step_count, 1)),
+            "store_transition_avg_ms": float(1000.0 * store_transition_time / max(step_count, 1)),
+            "env_steps_per_second": float(step_count / max(rollout_total_time, 1e-8)),
+            "rollout_cache_enabled": float(rollout_cache_enabled),
+            "enable_joint_counterfactual_scores": float(enable_joint_counterfactual_scores),
+            "counterfactual_batch_value_inference": float(counterfactual_batch_value_inference),
+            "digital_twin_fit_enabled": float(simulator.enable_digital_twin_fit),
+        }
+    )
     return (
         log,
         payload_path,
@@ -1080,8 +1227,12 @@ def train_with_diagnosis(
     probe_states: np.ndarray,
     agent_kwargs: dict[str, Any] | None = None,
     agent_setup_hook: Any | None = None,
+    rollout_options: dict[str, Any] | None = None,
+    simulator_setup_hook: Any | None = None,
 ) -> tuple[PPOAgent, list[dict[str, float | int | str]], dict[str, object], Path]:
     simulator = Simulator(config)
+    if simulator_setup_hook is not None:
+        simulator_setup_hook(simulator)
     agent = PPOAgent(
         config=config.ppo,
         state_dim=config.state_dim,
@@ -1140,6 +1291,7 @@ def train_with_diagnosis(
             probe_states=probe_states,
             probe_action_noise=probe_action_noise,
             run_dir=run_dir,
+            rollout_options=rollout_options,
         )
         final_payload_path = payload_path
         final_probe_policy_payload_path = probe_policy_payload_path
@@ -3558,3 +3710,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

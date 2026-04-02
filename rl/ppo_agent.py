@@ -940,6 +940,27 @@ class PPOAgent:
         payload = getattr(self, "critic_training_drift_heldout_payload", None)
         return payload if isinstance(payload, dict) else None
 
+    def _critic_blended_fixed_heldout_payload(self) -> dict[str, torch.Tensor] | None:
+        """Return the optional fixed held-out payload for blended critic loss."""
+        payload = getattr(self, "critic_blended_fixed_heldout_payload", None)
+        return payload if isinstance(payload, dict) else None
+
+    def _critic_step_acceptance_config(self) -> dict[str, Any] | None:
+        """Return the optional critic-step monitor / acceptance configuration."""
+        config = getattr(self, "critic_step_acceptance_config", None)
+        return config if isinstance(config, dict) else None
+
+    def _critic_step_acceptance_trace_buffer(self) -> list[dict[str, Any]] | None:
+        """Return the optional critic-step monitor trace buffer."""
+        trace_buffer = getattr(self, "critic_step_acceptance_trace_rows", None)
+        return trace_buffer if isinstance(trace_buffer, list) else None
+
+    def _append_critic_step_acceptance_trace_row(self, row: dict[str, Any]) -> None:
+        """Append one critic-step monitor row when the trace buffer is enabled."""
+        trace_buffer = self._critic_step_acceptance_trace_buffer()
+        if trace_buffer is not None:
+            trace_buffer.append(row)
+
     def _freeze_actor_training_updates(self) -> bool:
         """Return whether actor optimizer steps should be skipped for tracing."""
         return bool(getattr(self, "freeze_actor_training_updates", False))
@@ -971,6 +992,53 @@ class PPOAgent:
         """Restore frozen parameters after an optimizer step to block optimizer-state drift."""
         for parameter, snapshot in zip(parameters, snapshots):
             parameter.data.copy_(snapshot)
+
+    def _critic_trace_loss_and_semantics(
+        self,
+        critic_inputs: torch.Tensor,
+        value_targets: torch.Tensor,
+        returns: torch.Tensor,
+        advantages: torch.Tensor,
+        rewards: torch.Tensor,
+        prediction_target_mean: torch.Tensor,
+        prediction_target_std: torch.Tensor,
+    ) -> tuple[dict[str, float], float]:
+        """Evaluate critic loss and semantic correlations for a fixed payload."""
+        with torch.no_grad():
+            value_predictions = self._trace_raw_value_predictions_from_critic_inputs(
+                critic_inputs,
+                prediction_target_mean,
+                prediction_target_std,
+            )
+            critic_features = self.network.critic_features_from_critic_input(critic_inputs)
+            normalized_values = self.network.critic_head(critic_features).squeeze(-1)
+            if self.config.value_target_mode == "popart_return_norm":
+                critic_predictions_for_loss = normalized_values
+            else:
+                raw_values = self.network.value_from_critic_input(critic_inputs).squeeze(-1)
+                if self.config.value_target_mode in {
+                    "normalized_return",
+                    "running_return_norm",
+                }:
+                    critic_predictions_for_loss = (
+                        raw_values - prediction_target_mean
+                    ) / (prediction_target_std + 1e-8)
+                else:
+                    critic_predictions_for_loss = raw_values
+            semantics = self._critic_trace_semantic_summary(
+                value_predictions,
+                value_targets,
+                returns,
+                advantages,
+                rewards,
+            )
+            critic_loss = float(
+                self._compute_value_loss(
+                    critic_predictions_for_loss,
+                    value_targets,
+                ).item()
+            )
+        return semantics, critic_loss
 
     def _snapshot_actor_log_std_indices(self, output_indices: list[int]) -> torch.Tensor | None:
         """Snapshot selected actor-log-std coordinates for exact branch freezing."""
@@ -2711,35 +2779,96 @@ class PPOAgent:
             torch.tensor(self._current_running_return_std(), dtype=reference.dtype, device=reference.device),
         )
 
+    def select_action_batch(
+        self,
+        states: np.ndarray,
+        deterministic: bool = False,
+        return_policy_cache: bool = False,
+    ) -> tuple[np.ndarray, np.ndarray, np.ndarray] | tuple[
+        np.ndarray,
+        np.ndarray,
+        np.ndarray,
+        dict[str, np.ndarray],
+    ]:
+        """Batch actor/value inference for one or more states."""
+        state_array = np.asarray(states, dtype=np.float32)
+        if state_array.ndim == 1:
+            state_array = np.expand_dims(state_array, axis=0)
+        state_tensor = torch.as_tensor(state_array, dtype=torch.float32, device=self.device)
+        with torch.no_grad():
+            actor_inputs, _, _ = self._prepare_actor_inputs(state_tensor, update_stats=False)
+            distribution = self.network.policy_from_actor_input(actor_inputs)
+            value_tensor = self._value_from_state_tensor(state_tensor).squeeze(-1)
+            action_tensor = distribution.mean if deterministic else distribution.sample()
+            log_prob_components_tensor = distribution.log_prob(action_tensor)
+            log_prob_tensor = self._aggregate_log_prob_components_with_states(
+                log_prob_components_tensor,
+                state_tensor,
+            )
+
+        action_array = action_tensor.detach().cpu().numpy().astype(np.float32, copy=False)
+        log_prob_array = log_prob_tensor.detach().cpu().numpy().astype(np.float32, copy=False)
+        value_array = value_tensor.detach().cpu().numpy().astype(np.float32, copy=False)
+        if not return_policy_cache:
+            return action_array, log_prob_array, value_array
+
+        policy_cache = {
+            "log_prob_components": log_prob_components_tensor.detach()
+            .cpu()
+            .numpy()
+            .astype(np.float32, copy=False),
+            "action_mean": distribution.mean.detach().cpu().numpy().astype(np.float32, copy=False),
+            "action_std": distribution.stddev.detach().cpu().numpy().astype(np.float32, copy=False),
+        }
+        return action_array, log_prob_array, value_array, policy_cache
+
+    def select_action_with_info(
+        self,
+        state: np.ndarray,
+        deterministic: bool = False,
+    ) -> tuple[np.ndarray, float, float, dict[str, np.ndarray]]:
+        """Single-state wrapper that also returns cached policy outputs for rollout reuse."""
+        action_batch, log_prob_batch, value_batch, policy_cache = self.select_action_batch(
+            state,
+            deterministic=deterministic,
+            return_policy_cache=True,
+        )
+        single_cache = {
+            key: np.asarray(value[0], dtype=np.float32).copy()
+            for key, value in policy_cache.items()
+        }
+        return (
+            np.asarray(action_batch[0], dtype=np.float32).copy(),
+            float(log_prob_batch[0]),
+            float(value_batch[0]),
+            single_cache,
+        )
+
     def select_action(
         self,
         state: np.ndarray,
         deterministic: bool = False,
     ) -> tuple[np.ndarray, float, float]:
-        """Sample or greedily select an action."""
-        state_tensor = torch.tensor(state, dtype=torch.float32, device=self.device).unsqueeze(0)
-        with torch.no_grad():
-            actor_inputs, _, _ = self._prepare_actor_inputs(state_tensor, update_stats=False)
-            distribution = self.network.policy_from_actor_input(actor_inputs)
-            value = self._value_from_state_tensor(state_tensor)
-            action_tensor = distribution.mean if deterministic else distribution.sample()
-            log_prob_components = distribution.log_prob(action_tensor)
-            log_prob = self._aggregate_log_prob_components_with_states(
-                log_prob_components,
-                state_tensor,
-            )
-        return (
-            action_tensor.squeeze(0).cpu().numpy(),
-            float(log_prob.item()),
-            float(value.squeeze(-1).item()),
+        """Backward-compatible single-state actor API."""
+        action, log_prob, value, _policy_cache = self.select_action_with_info(
+            state,
+            deterministic=deterministic,
         )
+        return action, log_prob, value
 
     def evaluate_value(self, state: np.ndarray) -> float:
         """Estimate the state value."""
-        state_tensor = torch.tensor(state, dtype=torch.float32, device=self.device).unsqueeze(0)
+        return float(self.evaluate_value_batch(state)[0])
+
+    def evaluate_value_batch(self, states: np.ndarray) -> np.ndarray:
+        """Batch critic inference for one or more states."""
+        state_array = np.asarray(states, dtype=np.float32)
+        if state_array.ndim == 1:
+            state_array = np.expand_dims(state_array, axis=0)
+        state_tensor = torch.as_tensor(state_array, dtype=torch.float32, device=self.device)
         with torch.no_grad():
-            value = self._value_from_state_tensor(state_tensor)
-        return float(value.squeeze(-1).item())
+            value = self._value_from_state_tensor(state_tensor).squeeze(-1)
+        return value.detach().cpu().numpy().astype(np.float32, copy=False)
 
     def store_transition(
         self,
@@ -2752,17 +2881,38 @@ class PPOAgent:
         next_state: np.ndarray | None = None,
         joint_reward_aligned_scores: np.ndarray | None = None,
         joint_td_aligned_scores: np.ndarray | None = None,
+        policy_cache: dict[str, np.ndarray] | None = None,
+        buffer: PPOBuffer | None = None,
     ) -> None:
         """Store one environment transition."""
-        state_tensor = torch.tensor(state, dtype=torch.float32, device=self.device).unsqueeze(0)
-        action_tensor = torch.tensor(action, dtype=torch.float32, device=self.device).unsqueeze(0)
-        with torch.no_grad():
-            actor_inputs, _, _ = self._prepare_actor_inputs(state_tensor, update_stats=False)
-            distribution = self.network.policy_from_actor_input(actor_inputs)
-            log_prob_components = distribution.log_prob(action_tensor).squeeze(0).cpu().numpy()
-            action_mean = distribution.mean.squeeze(0).cpu().numpy()
-            action_std = distribution.stddev.squeeze(0).cpu().numpy()
-        self.buffer.store_transition(
+        if policy_cache is None:
+            state_tensor = torch.as_tensor(
+                np.asarray(state, dtype=np.float32),
+                dtype=torch.float32,
+                device=self.device,
+            ).unsqueeze(0)
+            action_tensor = torch.as_tensor(
+                np.asarray(action, dtype=np.float32),
+                dtype=torch.float32,
+                device=self.device,
+            ).unsqueeze(0)
+            with torch.no_grad():
+                actor_inputs, _, _ = self._prepare_actor_inputs(state_tensor, update_stats=False)
+                distribution = self.network.policy_from_actor_input(actor_inputs)
+                log_prob_components = (
+                    distribution.log_prob(action_tensor).squeeze(0).cpu().numpy().astype(np.float32, copy=False)
+                )
+                action_mean = distribution.mean.squeeze(0).cpu().numpy().astype(np.float32, copy=False)
+                action_std = distribution.stddev.squeeze(0).cpu().numpy().astype(np.float32, copy=False)
+        else:
+            log_prob_components = np.asarray(
+                policy_cache["log_prob_components"],
+                dtype=np.float32,
+            )
+            action_mean = np.asarray(policy_cache["action_mean"], dtype=np.float32)
+            action_std = np.asarray(policy_cache["action_std"], dtype=np.float32)
+        target_buffer = buffer if buffer is not None else self.buffer
+        target_buffer.store_transition(
             state,
             action,
             log_prob,
@@ -2788,6 +2938,78 @@ class PPOAgent:
                 else None
             ),
         )
+
+    def store_transition_batch(
+        self,
+        states: np.ndarray,
+        actions: np.ndarray,
+        log_probs: np.ndarray,
+        rewards: np.ndarray,
+        dones: np.ndarray,
+        values: np.ndarray,
+        next_states: np.ndarray | None = None,
+        joint_reward_aligned_scores: np.ndarray | None = None,
+        joint_td_aligned_scores: np.ndarray | None = None,
+        policy_cache: dict[str, np.ndarray] | None = None,
+        buffers: list[PPOBuffer] | None = None,
+    ) -> None:
+        """Batch wrapper over the rollout buffer for vectorized sampling."""
+        state_array = np.asarray(states, dtype=np.float32)
+        action_array = np.asarray(actions, dtype=np.float32)
+        log_prob_array = np.asarray(log_probs, dtype=np.float32)
+        reward_array = np.asarray(rewards, dtype=np.float32)
+        done_array = np.asarray(dones, dtype=np.float32)
+        value_array = np.asarray(values, dtype=np.float32)
+        next_state_array = (
+            np.asarray(next_states, dtype=np.float32)
+            if next_states is not None
+            else None
+        )
+        reward_score_array = (
+            np.asarray(joint_reward_aligned_scores, dtype=np.float32)
+            if joint_reward_aligned_scores is not None
+            else None
+        )
+        td_score_array = (
+            np.asarray(joint_td_aligned_scores, dtype=np.float32)
+            if joint_td_aligned_scores is not None
+            else None
+        )
+        cache_arrays = {
+            key: np.asarray(value, dtype=np.float32)
+            for key, value in (policy_cache or {}).items()
+        }
+        for index in range(state_array.shape[0]):
+            single_cache = (
+                {key: value[index] for key, value in cache_arrays.items()}
+                if cache_arrays
+                else None
+            )
+            self.store_transition(
+                state=state_array[index],
+                action=action_array[index],
+                log_prob=float(log_prob_array[index]),
+                reward=float(reward_array[index]),
+                done=bool(done_array[index]),
+                value=float(value_array[index]),
+                next_state=(
+                    next_state_array[index]
+                    if next_state_array is not None
+                    else None
+                ),
+                joint_reward_aligned_scores=(
+                    reward_score_array[index]
+                    if reward_score_array is not None
+                    else None
+                ),
+                joint_td_aligned_scores=(
+                    td_score_array[index]
+                    if td_score_array is not None
+                    else None
+                ),
+                policy_cache=single_cache,
+                buffer=(buffers[index] if buffers is not None else None),
+            )
 
     def finish_trajectory(self, last_value: float) -> None:
         """Finish the current trajectory and compute GAE."""
@@ -3604,6 +3826,7 @@ class PPOAgent:
         critic_blended_heldout_batch_count = int(
             max(1, getattr(self, "critic_blended_heldout_batch_count", 1))
         )
+        critic_blended_fixed_heldout_payload = self._critic_blended_fixed_heldout_payload()
         blended_heldout_indices = None
         blended_heldout_states = None
         blended_heldout_critic_inputs = None
@@ -3611,27 +3834,73 @@ class PPOAgent:
         all_train_indices = torch.arange(states.size(0), device=self.device)
         if critic_blended_value_loss_enabled:
             mini_batch_size = int(self.config.mini_batch_size)
-            max_heldout_count = max(0, int(states.size(0)) - mini_batch_size)
-            requested_heldout_count = mini_batch_size * critic_blended_heldout_batch_count
-            heldout_count = min(max_heldout_count, requested_heldout_count)
-            heldout_count = (heldout_count // mini_batch_size) * mini_batch_size
-            if heldout_count >= mini_batch_size:
-                heldout_generator = torch.Generator(device=self.device)
-                heldout_generator.manual_seed(31000 + int(self.policy_update_call_count))
-                heldout_perm = torch.randperm(
-                    states.size(0),
-                    generator=heldout_generator,
-                    device=self.device,
+            if critic_blended_fixed_heldout_payload is not None:
+                blended_heldout_states = critic_blended_fixed_heldout_payload["states"]
+                blended_heldout_critic_inputs, _, _ = self._prepare_critic_inputs(
+                    blended_heldout_states,
+                    update_stats=False,
                 )
-                blended_heldout_indices = heldout_perm[:heldout_count]
-                heldout_mask = torch.ones(states.size(0), dtype=torch.bool, device=self.device)
-                heldout_mask[blended_heldout_indices] = False
-                all_train_indices = all_train_indices[heldout_mask]
-                blended_heldout_states = states[blended_heldout_indices]
-                blended_heldout_critic_inputs = full_critic_inputs[blended_heldout_indices]
-                blended_heldout_value_targets = value_targets[blended_heldout_indices]
+                blended_heldout_value_targets = self._value_targets_from_returns_with_stats(
+                    critic_blended_fixed_heldout_payload["returns"],
+                    target_mean,
+                    target_std,
+                )
+                heldout_count = (
+                    blended_heldout_critic_inputs.size(0)
+                    // mini_batch_size
+                ) * mini_batch_size
+                if heldout_count >= mini_batch_size:
+                    blended_heldout_critic_inputs = blended_heldout_critic_inputs[:heldout_count]
+                    blended_heldout_value_targets = blended_heldout_value_targets[:heldout_count]
+                else:
+                    critic_blended_value_loss_enabled = False
             else:
-                critic_blended_value_loss_enabled = False
+                max_heldout_count = max(0, int(states.size(0)) - mini_batch_size)
+                requested_heldout_count = mini_batch_size * critic_blended_heldout_batch_count
+                heldout_count = min(max_heldout_count, requested_heldout_count)
+                heldout_count = (heldout_count // mini_batch_size) * mini_batch_size
+                if heldout_count >= mini_batch_size:
+                    heldout_generator = torch.Generator(device=self.device)
+                    heldout_generator.manual_seed(31000 + int(self.policy_update_call_count))
+                    heldout_perm = torch.randperm(
+                        states.size(0),
+                        generator=heldout_generator,
+                        device=self.device,
+                    )
+                    blended_heldout_indices = heldout_perm[:heldout_count]
+                    heldout_mask = torch.ones(states.size(0), dtype=torch.bool, device=self.device)
+                    heldout_mask[blended_heldout_indices] = False
+                    all_train_indices = all_train_indices[heldout_mask]
+                    blended_heldout_states = states[blended_heldout_indices]
+                    blended_heldout_critic_inputs = full_critic_inputs[blended_heldout_indices]
+                    blended_heldout_value_targets = value_targets[blended_heldout_indices]
+                else:
+                    critic_blended_value_loss_enabled = False
+
+        critic_step_acceptance_config = self._critic_step_acceptance_config()
+        critic_step_monitor_enabled = bool(
+            critic_step_acceptance_config is not None
+            and critic_step_acceptance_config.get("enabled", False)
+        )
+        critic_step_enforce_enabled = bool(
+            critic_step_monitor_enabled
+            and critic_step_acceptance_config.get("enforce", False)
+        )
+        critic_step_current_loss_improve_epsilon = float(
+            0.0
+            if critic_step_acceptance_config is None
+            else critic_step_acceptance_config.get("current_loss_improve_epsilon", 1e-6)
+        )
+        critic_step_heldout_loss_tolerance = float(
+            0.0
+            if critic_step_acceptance_config is None
+            else critic_step_acceptance_config.get("heldout_loss_tolerance", 1e-4)
+        )
+        critic_step_probe_pearson_tolerance = float(
+            0.0
+            if critic_step_acceptance_config is None
+            else critic_step_acceptance_config.get("probe_pearson_tolerance", 1e-4)
+        )
 
         actor_loss_value = 0.0
         critic_loss_value = 0.0
@@ -3679,6 +3948,18 @@ class PPOAgent:
         critic_backbone_preconditioner_active_max_before_clip_value = 0.0
         critic_backbone_preconditioner_active_max_after_clip_value = 0.0
         critic_backbone_preconditioner_cap_value = 0.0
+        critic_step_attempt_count_value = 0
+        critic_step_accept_count_value = 0
+        critic_step_reject_count_value = 0
+        critic_step_would_reject_count_value = 0
+        critic_step_current_loss_before_sum_value = 0.0
+        critic_step_current_loss_after_sum_value = 0.0
+        critic_step_heldout_loss_before_sum_value = 0.0
+        critic_step_heldout_loss_after_sum_value = 0.0
+        critic_step_probe_pearson_before_sum_value = 0.0
+        critic_step_probe_pearson_after_sum_value = 0.0
+        critic_step_reject_reason_counts: dict[str, int] = {}
+        critic_step_would_reject_reason_counts: dict[str, int] = {}
         coupled_stop_warmup_epochs = int(max(0, getattr(self.config, "coupled_stop_warmup_epochs", 0)))
         coupled_stop_is_active_this_train_epoch = train_epoch_index >= coupled_stop_warmup_epochs
         route_training_drift_trace_enabled = self._route_training_drift_trace_buffer() is not None
@@ -3710,60 +3991,14 @@ class PPOAgent:
             if not critic_training_drift_trace_enabled:
                 return
             with torch.no_grad():
-                def _trace_set_summary(
-                    critic_inputs_payload: torch.Tensor,
-                    value_targets_payload: torch.Tensor,
-                    returns_payload: torch.Tensor,
-                    advantages_payload: torch.Tensor,
-                    rewards_payload: torch.Tensor,
-                ) -> tuple[dict[str, float], float]:
-                    value_predictions_payload = self._trace_raw_value_predictions_from_critic_inputs(
-                        critic_inputs_payload,
-                        prediction_target_mean,
-                        prediction_target_std,
-                    )
-                    critic_features_payload = self.network.critic_features_from_critic_input(
-                        critic_inputs_payload
-                    )
-                    normalized_values_payload = self.network.critic_head(
-                        critic_features_payload
-                    ).squeeze(-1)
-                    if self.config.value_target_mode == "popart_return_norm":
-                        critic_predictions_for_loss_payload = normalized_values_payload
-                    else:
-                        raw_values_payload = self.network.value_from_critic_input(
-                            critic_inputs_payload
-                        ).squeeze(-1)
-                        if self.config.value_target_mode in {
-                            "normalized_return",
-                            "running_return_norm",
-                        }:
-                            critic_predictions_for_loss_payload = (
-                                raw_values_payload - prediction_target_mean
-                            ) / (prediction_target_std + 1e-8)
-                        else:
-                            critic_predictions_for_loss_payload = raw_values_payload
-                    semantics_payload = self._critic_trace_semantic_summary(
-                        value_predictions_payload,
-                        value_targets_payload,
-                        returns_payload,
-                        advantages_payload,
-                        rewards_payload,
-                    )
-                    critic_loss_payload = float(
-                        self._compute_value_loss(
-                            critic_predictions_for_loss_payload,
-                            value_targets_payload,
-                        ).item()
-                    )
-                    return semantics_payload, critic_loss_payload
-
-                batch_semantics, batch_critic_loss_trace = _trace_set_summary(
+                batch_semantics, batch_critic_loss_trace = self._critic_trace_loss_and_semantics(
                     critic_inputs_for_trace,
                     value_targets_for_trace,
                     returns_for_trace,
                     advantages_for_trace,
                     rewards_for_trace,
+                    prediction_target_mean,
+                    prediction_target_std,
                 )
                 probe_metrics: dict[str, float] = {
                     "probe_critic_loss": 0.0,
@@ -3817,12 +4052,14 @@ class PPOAgent:
                         probe_states,
                         update_stats=False,
                     )
-                    probe_semantics, probe_critic_loss_trace = _trace_set_summary(
+                    probe_semantics, probe_critic_loss_trace = self._critic_trace_loss_and_semantics(
                         probe_critic_inputs,
                         probe_value_targets,
                         probe_returns,
                         probe_advantages,
                         probe_rewards,
+                        prediction_target_mean,
+                        prediction_target_std,
                     )
                     probe_metrics = {"probe_critic_loss": probe_critic_loss_trace}
                     probe_metrics.update(
@@ -3842,12 +4079,14 @@ class PPOAgent:
                         heldout_states,
                         update_stats=False,
                     )
-                    heldout_semantics, heldout_critic_loss_trace = _trace_set_summary(
+                    heldout_semantics, heldout_critic_loss_trace = self._critic_trace_loss_and_semantics(
                         heldout_critic_inputs,
                         heldout_value_targets,
                         heldout_returns,
                         heldout_advantages,
                         heldout_rewards,
+                        prediction_target_mean,
+                        prediction_target_std,
                     )
                     heldout_metrics = {"heldout_critic_loss": heldout_critic_loss_trace}
                     heldout_metrics.update(
@@ -4359,7 +4598,6 @@ class PPOAgent:
                 critic_loss = critic_loss_current
                 if (
                     critic_blended_value_loss_enabled
-                    and blended_heldout_indices is not None
                     and blended_heldout_critic_inputs is not None
                     and blended_heldout_value_targets is not None
                     and blended_heldout_critic_inputs.size(0) >= int(self.config.mini_batch_size)
@@ -5603,6 +5841,76 @@ class PPOAgent:
                     raise CriticOptimizerAblationCaptured(
                         "Captured critic optimizer ablation snapshot before optimizer.step()."
                     )
+                critic_step_optimizer_state_before_step = None
+                critic_step_current_loss_before = float(critic_loss_current.item())
+                critic_step_current_loss_after = critic_step_current_loss_before
+                critic_step_heldout_loss_before = 0.0
+                critic_step_heldout_loss_after = 0.0
+                critic_step_probe_pearson_before = 0.0
+                critic_step_probe_pearson_after = 0.0
+                critic_step_current_improved = True
+                critic_step_heldout_degraded = False
+                critic_step_probe_degraded = False
+                critic_step_would_reject = False
+                critic_step_accepted = True
+                critic_step_reject_reason_labels: list[str] = []
+                attempted_critic_param_delta_norm_current = 0.0
+                attempted_critic_backbone_delta_norm_current = 0.0
+                attempted_critic_head_delta_norm_current = 0.0
+                if critic_step_monitor_enabled:
+                    critic_step_attempt_count_value += 1
+                    critic_step_current_loss_before_sum_value += critic_step_current_loss_before
+                    if critic_step_enforce_enabled:
+                        critic_step_optimizer_state_before_step = copy.deepcopy(
+                            self.critic_optimizer.state_dict()
+                        )
+                    if critic_training_drift_heldout_payload is not None:
+                        heldout_gate_value_targets = self._value_targets_from_returns_with_stats(
+                            critic_training_drift_heldout_payload["returns"],
+                            target_mean,
+                            target_std,
+                        )
+                        heldout_gate_critic_inputs, _, _ = self._prepare_critic_inputs(
+                            critic_training_drift_heldout_payload["states"],
+                            update_stats=False,
+                        )
+                        _heldout_semantics_before, critic_step_heldout_loss_before = (
+                            self._critic_trace_loss_and_semantics(
+                                heldout_gate_critic_inputs,
+                                heldout_gate_value_targets,
+                                critic_training_drift_heldout_payload["returns"],
+                                critic_training_drift_heldout_payload["advantages"],
+                                critic_training_drift_heldout_payload["rewards"],
+                                target_mean,
+                                target_std,
+                            )
+                        )
+                    critic_step_heldout_loss_before_sum_value += critic_step_heldout_loss_before
+                    if critic_training_drift_probe_payload is not None:
+                        probe_gate_value_targets = self._value_targets_from_returns_with_stats(
+                            critic_training_drift_probe_payload["returns"],
+                            target_mean,
+                            target_std,
+                        )
+                        probe_gate_critic_inputs, _, _ = self._prepare_critic_inputs(
+                            critic_training_drift_probe_payload["states"],
+                            update_stats=False,
+                        )
+                        probe_semantics_before, _probe_loss_before = (
+                            self._critic_trace_loss_and_semantics(
+                                probe_gate_critic_inputs,
+                                probe_gate_value_targets,
+                                critic_training_drift_probe_payload["returns"],
+                                critic_training_drift_probe_payload["advantages"],
+                                critic_training_drift_probe_payload["rewards"],
+                                target_mean,
+                                target_std,
+                            )
+                        )
+                        critic_step_probe_pearson_before = float(
+                            probe_semantics_before.get("pearson_value_vs_value_target", 0.0)
+                        )
+                    critic_step_probe_pearson_before_sum_value += critic_step_probe_pearson_before
                 if hasattr(self.critic_optimizer, "set_telemetry_context"):
                     self.critic_optimizer.set_telemetry_context(
                         train_epoch=int(train_epoch_index),
@@ -5629,9 +5937,9 @@ class PPOAgent:
                     critic_head_params_before_step,
                     critic_head_params_after_step,
                 )
-                critic_param_delta_norm_value += critic_param_delta_norm_current
-                critic_backbone_delta_norm_value += critic_backbone_delta_norm_current
-                critic_head_delta_norm_value += critic_head_delta_norm_current
+                attempted_critic_param_delta_norm_current = critic_param_delta_norm_current
+                attempted_critic_backbone_delta_norm_current = critic_backbone_delta_norm_current
+                attempted_critic_head_delta_norm_current = critic_head_delta_norm_current
                 if hasattr(self.critic_optimizer, "consume_debug_metrics"):
                     critic_optimizer_debug_metrics = self.critic_optimizer.consume_debug_metrics()
                     if isinstance(critic_optimizer_debug_metrics, dict):
@@ -5682,6 +5990,191 @@ class PPOAgent:
                                 )
                             ),
                         )
+                if critic_step_monitor_enabled:
+                    batch_semantics_after, critic_step_current_loss_after = (
+                        self._critic_trace_loss_and_semantics(
+                            batch_critic_inputs,
+                            batch_value_targets,
+                            batch_returns,
+                            batch_raw_advantages,
+                            batch_rewards,
+                            target_mean,
+                            target_std,
+                        )
+                    )
+                    if critic_training_drift_heldout_payload is not None:
+                        heldout_gate_value_targets = self._value_targets_from_returns_with_stats(
+                            critic_training_drift_heldout_payload["returns"],
+                            target_mean,
+                            target_std,
+                        )
+                        heldout_gate_critic_inputs, _, _ = self._prepare_critic_inputs(
+                            critic_training_drift_heldout_payload["states"],
+                            update_stats=False,
+                        )
+                        _heldout_semantics_after, critic_step_heldout_loss_after = (
+                            self._critic_trace_loss_and_semantics(
+                                heldout_gate_critic_inputs,
+                                heldout_gate_value_targets,
+                                critic_training_drift_heldout_payload["returns"],
+                                critic_training_drift_heldout_payload["advantages"],
+                                critic_training_drift_heldout_payload["rewards"],
+                                target_mean,
+                                target_std,
+                            )
+                        )
+                    if critic_training_drift_probe_payload is not None:
+                        probe_gate_value_targets = self._value_targets_from_returns_with_stats(
+                            critic_training_drift_probe_payload["returns"],
+                            target_mean,
+                            target_std,
+                        )
+                        probe_gate_critic_inputs, _, _ = self._prepare_critic_inputs(
+                            critic_training_drift_probe_payload["states"],
+                            update_stats=False,
+                        )
+                        probe_semantics_after, _probe_loss_after = (
+                            self._critic_trace_loss_and_semantics(
+                                probe_gate_critic_inputs,
+                                probe_gate_value_targets,
+                                critic_training_drift_probe_payload["returns"],
+                                critic_training_drift_probe_payload["advantages"],
+                                critic_training_drift_probe_payload["rewards"],
+                                target_mean,
+                                target_std,
+                            )
+                        )
+                        critic_step_probe_pearson_after = float(
+                            probe_semantics_after.get("pearson_value_vs_value_target", 0.0)
+                        )
+
+                    critic_step_current_loss_after_sum_value += critic_step_current_loss_after
+                    critic_step_heldout_loss_after_sum_value += critic_step_heldout_loss_after
+                    critic_step_probe_pearson_after_sum_value += critic_step_probe_pearson_after
+
+                    critic_step_current_improved = (
+                        critic_step_current_loss_after
+                        < critic_step_current_loss_before
+                        - critic_step_current_loss_improve_epsilon
+                    )
+                    critic_step_heldout_degraded = (
+                        critic_training_drift_heldout_payload is not None
+                        and critic_step_heldout_loss_after
+                        > critic_step_heldout_loss_before + critic_step_heldout_loss_tolerance
+                    )
+                    critic_step_probe_degraded = (
+                        critic_training_drift_probe_payload is not None
+                        and critic_step_probe_pearson_after
+                        < critic_step_probe_pearson_before - critic_step_probe_pearson_tolerance
+                    )
+                    if not critic_step_current_improved:
+                        critic_step_reject_reason_labels.append(
+                            "current_batch_loss_not_decreased"
+                        )
+                    if critic_step_heldout_degraded:
+                        critic_step_reject_reason_labels.append("heldout_loss_increase")
+                    if critic_step_probe_degraded:
+                        critic_step_reject_reason_labels.append("probe_target_pearson_drop")
+                    critic_step_would_reject = bool(critic_step_reject_reason_labels)
+                    if critic_step_would_reject:
+                        critic_step_would_reject_count_value += 1
+                        for reason_label in critic_step_reject_reason_labels:
+                            critic_step_would_reject_reason_counts[reason_label] = (
+                                critic_step_would_reject_reason_counts.get(reason_label, 0) + 1
+                            )
+                    if critic_step_enforce_enabled and critic_step_would_reject:
+                        critic_step_accepted = False
+                        critic_step_reject_count_value += 1
+                        for reason_label in critic_step_reject_reason_labels:
+                            critic_step_reject_reason_counts[reason_label] = (
+                                critic_step_reject_reason_counts.get(reason_label, 0) + 1
+                            )
+                        self._restore_parameter_list(
+                            self.critic_params,
+                            critic_params_before_step,
+                        )
+                        self._restore_parameter_list(
+                            list(self.network.critic_backbone.parameters()),
+                            critic_backbone_params_before_step,
+                        )
+                        self._restore_parameter_list(
+                            list(self.network.critic_head.parameters()),
+                            critic_head_params_before_step,
+                        )
+                        if critic_step_optimizer_state_before_step is not None:
+                            self.critic_optimizer.load_state_dict(
+                                critic_step_optimizer_state_before_step
+                            )
+                        critic_param_delta_norm_current = 0.0
+                        critic_backbone_delta_norm_current = 0.0
+                        critic_head_delta_norm_current = 0.0
+                    else:
+                        critic_step_accept_count_value += 1
+                    self._append_critic_step_acceptance_trace_row(
+                        {
+                            "mode": self.config.policy_ratio_mode,
+                            "epoch": int(train_epoch_index),
+                            "update_epoch": int(update_epoch_index),
+                            "minibatch_id": int(current_critic_trace_minibatch_id),
+                            "current_batch_loss_before": float(critic_step_current_loss_before),
+                            "current_batch_loss_after_attempt": float(
+                                critic_step_current_loss_after
+                            ),
+                            "heldout_loss_before": float(critic_step_heldout_loss_before),
+                            "heldout_loss_after_attempt": float(
+                                critic_step_heldout_loss_after
+                            ),
+                            "probe_target_pearson_before": float(
+                                critic_step_probe_pearson_before
+                            ),
+                            "probe_target_pearson_after_attempt": float(
+                                critic_step_probe_pearson_after
+                            ),
+                            "current_batch_improved": float(
+                                1.0 if critic_step_current_improved else 0.0
+                            ),
+                            "heldout_degraded": float(
+                                1.0 if critic_step_heldout_degraded else 0.0
+                            ),
+                            "probe_degraded": float(
+                                1.0 if critic_step_probe_degraded else 0.0
+                            ),
+                            "would_reject": float(1.0 if critic_step_would_reject else 0.0),
+                            "accepted": float(1.0 if critic_step_accepted else 0.0),
+                            "rejected": float(0.0 if critic_step_accepted else 1.0),
+                            "reject_reasons": "|".join(critic_step_reject_reason_labels),
+                            "attempted_critic_param_delta_norm": float(
+                                attempted_critic_param_delta_norm_current
+                            ),
+                            "attempted_critic_backbone_delta_norm": float(
+                                attempted_critic_backbone_delta_norm_current
+                            ),
+                            "attempted_critic_head_delta_norm": float(
+                                attempted_critic_head_delta_norm_current
+                            ),
+                            "effective_critic_param_delta_norm": float(
+                                critic_param_delta_norm_current
+                            ),
+                            "effective_critic_backbone_delta_norm": float(
+                                critic_backbone_delta_norm_current
+                            ),
+                            "effective_critic_head_delta_norm": float(
+                                critic_head_delta_norm_current
+                            ),
+                            "current_loss_improve_epsilon": float(
+                                critic_step_current_loss_improve_epsilon
+                            ),
+                            "heldout_loss_tolerance": float(
+                                critic_step_heldout_loss_tolerance
+                            ),
+                            "probe_pearson_tolerance": float(
+                                critic_step_probe_pearson_tolerance
+                            ),
+                        }
+                    )
+                critic_param_delta_norm_value += critic_param_delta_norm_current
+                critic_backbone_delta_norm_value += critic_backbone_delta_norm_current
+                critic_head_delta_norm_value += critic_head_delta_norm_current
                 if critic_training_internal_stage_trace_enabled:
                     _append_critic_drift_stage("after_optimizer_step")
                 _append_critic_drift_stage("after_critic")
@@ -5714,6 +6207,7 @@ class PPOAgent:
             if route_alignment_gate_score_count_value > 0
             else 0.0
         )
+        critic_step_denominator = max(1, critic_step_attempt_count_value)
         with torch.no_grad():
             full_distribution, full_actor_diagnostics = (
                 self.network.policy_with_diagnostics_from_actor_input(full_actor_inputs)
@@ -7614,8 +8108,8 @@ class PPOAgent:
             "critic_blended_heldout_weight": float(critic_blended_heldout_weight),
             "critic_blended_heldout_batch_count": float(
                 0
-                if blended_heldout_indices is None
-                else blended_heldout_indices.numel() // int(self.config.mini_batch_size)
+                if blended_heldout_critic_inputs is None
+                else blended_heldout_critic_inputs.size(0) // int(self.config.mini_batch_size)
             ),
             "entropy": entropy_value / update_count,
             "policy_entropy": entropy_value / update_count,
@@ -8151,6 +8645,62 @@ class PPOAgent:
             ),
             "critic_backbone_preconditioner_active_max_after_clip": float(
                 critic_backbone_preconditioner_active_max_after_clip_value
+            ),
+            "critic_step_monitor_enabled": float(
+                1.0 if critic_step_monitor_enabled else 0.0
+            ),
+            "critic_step_acceptance_enforced": float(
+                1.0 if critic_step_enforce_enabled else 0.0
+            ),
+            "critic_step_attempt_count": int(critic_step_attempt_count_value),
+            "critic_step_accept_count": int(critic_step_accept_count_value),
+            "critic_step_reject_count": int(critic_step_reject_count_value),
+            "critic_step_would_reject_count": int(critic_step_would_reject_count_value),
+            "critic_step_reject_rate": float(
+                critic_step_reject_count_value / critic_step_denominator
+            ),
+            "critic_step_accept_rate": float(
+                critic_step_accept_count_value / critic_step_denominator
+            ),
+            "critic_step_would_reject_rate": float(
+                critic_step_would_reject_count_value / critic_step_denominator
+            ),
+            "critic_step_current_loss_improve_epsilon": float(
+                critic_step_current_loss_improve_epsilon
+            ),
+            "critic_step_heldout_loss_tolerance": float(
+                critic_step_heldout_loss_tolerance
+            ),
+            "critic_step_probe_pearson_tolerance": float(
+                critic_step_probe_pearson_tolerance
+            ),
+            "critic_step_mean_current_loss_before": float(
+                critic_step_current_loss_before_sum_value / critic_step_denominator
+            ),
+            "critic_step_mean_current_loss_after_attempt": float(
+                critic_step_current_loss_after_sum_value / critic_step_denominator
+            ),
+            "critic_step_mean_heldout_loss_before": float(
+                critic_step_heldout_loss_before_sum_value / critic_step_denominator
+            ),
+            "critic_step_mean_heldout_loss_after_attempt": float(
+                critic_step_heldout_loss_after_sum_value / critic_step_denominator
+            ),
+            "critic_step_mean_probe_target_pearson_before": float(
+                critic_step_probe_pearson_before_sum_value / critic_step_denominator
+            ),
+            "critic_step_mean_probe_target_pearson_after_attempt": float(
+                critic_step_probe_pearson_after_sum_value / critic_step_denominator
+            ),
+            "critic_step_reject_reason_breakdown": json.dumps(
+                critic_step_reject_reason_counts,
+                ensure_ascii=False,
+                sort_keys=True,
+            ),
+            "critic_step_would_reject_reason_breakdown": json.dumps(
+                critic_step_would_reject_reason_counts,
+                ensure_ascii=False,
+                sort_keys=True,
             ),
             "actor_input_mean": actor_input_diagnostics["actor_input_mean"],
             "actor_input_std": actor_input_diagnostics["actor_input_std"],

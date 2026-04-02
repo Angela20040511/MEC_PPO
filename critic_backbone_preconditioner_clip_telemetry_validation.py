@@ -110,6 +110,14 @@ def _concat_arrays(values: list[np.ndarray]) -> np.ndarray:
     return np.concatenate(values, axis=0).astype(np.float32, copy=False)
 
 
+def _softplus_scalar(value: float) -> float:
+    if value > 20.0:
+        return float(value)
+    if value < -20.0:
+        return float(math.exp(value))
+    return float(math.log1p(math.exp(value)))
+
+
 class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
     """Adam with active preconditioner telemetry and optional clipping."""
 
@@ -121,8 +129,12 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
         eps: float = 1e-8,
         max_preconditioner: float | None = None,
         layerwise_max_preconditioner_by_name: dict[str, float] | None = None,
+        layerwise_soft_reference_preconditioner_by_name: dict[str, float] | None = None,
         active_grad_threshold: float = ACTIVE_GRAD_THRESHOLD,
         clip_focus_parameter_names: tuple[str, ...] | None = None,
+        soft_geometry_focus_parameter_names: tuple[str, ...] | None = None,
+        soft_geometry_alpha: float = 0.0,
+        soft_geometry_beta: float = 8.0,
         tracked_hotspot_layers: tuple[str, ...] = TRACKED_HOTSPOT_LAYERS,
     ) -> None:
         params = [param for _name, param in named_params]
@@ -136,12 +148,23 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
             str(name): float(cap)
             for name, cap in (layerwise_max_preconditioner_by_name or {}).items()
         }
+        self.layerwise_soft_reference_preconditioner_by_name = {
+            str(name): float(reference)
+            for name, reference in (layerwise_soft_reference_preconditioner_by_name or {}).items()
+        }
         self.active_grad_threshold = float(active_grad_threshold)
         self.clip_focus_parameter_names = (
             set(clip_focus_parameter_names)
             if clip_focus_parameter_names is not None
             else None
         )
+        self.soft_geometry_focus_parameter_names = (
+            set(soft_geometry_focus_parameter_names)
+            if soft_geometry_focus_parameter_names is not None
+            else set(self.layerwise_soft_reference_preconditioner_by_name.keys())
+        )
+        self.soft_geometry_alpha = float(soft_geometry_alpha)
+        self.soft_geometry_beta = float(soft_geometry_beta)
         self.tracked_hotspot_layers = tuple(tracked_hotspot_layers)
         self.current_context = {
             "train_epoch": -1,
@@ -175,6 +198,9 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
                 "active_count": 0,
                 "clipped_count": 0,
                 "delta_norms": [],
+                "soft_scale_factors": [],
+                "soft_trigger_active_fractions": [],
+                "soft_overflow_stats": [],
             }
             self.backbone_epoch_storage[epoch] = bucket
         return bucket
@@ -191,6 +217,9 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
                 "actual_param_delta_norms": [],
                 "raw_grad_norms": [],
                 "preconditioned_grad_norms": [],
+                "soft_scale_factors": [],
+                "soft_trigger_active_fractions": [],
+                "soft_overflow_stats": [],
             }
             self.layer_epoch_storage[key] = bucket
         return bucket
@@ -209,6 +238,9 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
         backbone_active_count = 0
         backbone_clipped_count = 0
         backbone_delta_norm_sq = 0.0
+        backbone_soft_scale_factors: list[float] = []
+        backbone_soft_trigger_active_fractions: list[float] = []
+        backbone_soft_overflow_stats: list[float] = []
 
         for group in self.param_groups:
             lr = float(group["lr"])
@@ -277,6 +309,42 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
 
                 step_size = lr / bias_correction1
                 param_delta = step_size * exp_avg / denom_after_clip
+                layer_soft_reference = self.layerwise_soft_reference_preconditioner_by_name.get(
+                    param_name
+                )
+                layer_soft_scale_factor = 1.0
+                layer_soft_trigger_active_fraction = 0.0
+                layer_soft_overflow_stat = 0.0
+                if (
+                    layer_soft_reference is not None
+                    and param_name in self.soft_geometry_focus_parameter_names
+                    and bool(active_mask.any().item())
+                ):
+                    active_pre_before_tensor = preconditioner_before[active_mask]
+                    layer_active_pre_p95 = float(
+                        torch.quantile(active_pre_before_tensor.float(), 0.95).item()
+                    )
+                    normalized_over_reference = (
+                        layer_active_pre_p95 / max(float(layer_soft_reference), 1e-12)
+                    ) - 1.0
+                    smooth_overflow = _softplus_scalar(
+                        self.soft_geometry_beta * normalized_over_reference
+                    ) / max(self.soft_geometry_beta, 1e-12)
+                    layer_soft_overflow_stat = float(math.log1p(smooth_overflow))
+                    layer_soft_scale_factor = float(
+                        1.0 / (1.0 + self.soft_geometry_alpha * layer_soft_overflow_stat)
+                    )
+                    layer_soft_trigger_active_fraction = float(
+                        (
+                            active_pre_before_tensor > float(layer_soft_reference)
+                        ).float().mean().item()
+                    )
+                    param_delta.mul_(layer_soft_scale_factor)
+                    backbone_soft_scale_factors.append(float(layer_soft_scale_factor))
+                    backbone_soft_trigger_active_fractions.append(
+                        float(layer_soft_trigger_active_fraction)
+                    )
+                    backbone_soft_overflow_stats.append(float(layer_soft_overflow_stat))
                 param.add_(-param_delta)
 
                 if bool(active_mask.any().item()):
@@ -370,6 +438,18 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
                             "layer_preconditioned_grad_norm": float(
                                 layer_preconditioned_grad_norm
                             ),
+                            "layer_soft_geometry_reference_preconditioner": float(
+                                layer_soft_reference or 0.0
+                            ),
+                            "layer_soft_geometry_scale_factor": float(
+                                layer_soft_scale_factor
+                            ),
+                            "layer_soft_geometry_trigger_active_fraction": float(
+                                layer_soft_trigger_active_fraction
+                            ),
+                            "layer_soft_geometry_overflow_stat": float(
+                                layer_soft_overflow_stat
+                            ),
                         }
                     )
                     layer_bucket = self._layer_epoch_bucket(train_epoch, param_name)
@@ -385,6 +465,11 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
                     layer_bucket["preconditioned_grad_norms"].append(
                         float(layer_preconditioned_grad_norm)
                     )
+                    layer_bucket["soft_scale_factors"].append(float(layer_soft_scale_factor))
+                    layer_bucket["soft_trigger_active_fractions"].append(
+                        float(layer_soft_trigger_active_fraction)
+                    )
+                    layer_bucket["soft_overflow_stats"].append(float(layer_soft_overflow_stat))
 
         backbone_pre_before = _concat_arrays(backbone_pre_before_chunks)
         backbone_pre_after = _concat_arrays(backbone_pre_after_chunks)
@@ -437,6 +522,37 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
                 )
                 if backbone_active_count > 0
                 else 0.0,
+                "backbone_soft_geometry_scale_factor_mean": _safe_mean(
+                    backbone_soft_scale_factors
+                )
+                if backbone_soft_scale_factors
+                else 1.0,
+                "backbone_soft_geometry_scale_factor_p50": float(
+                    np.quantile(np.asarray(backbone_soft_scale_factors, dtype=np.float32), 0.50)
+                )
+                if backbone_soft_scale_factors
+                else 1.0,
+                "backbone_soft_geometry_scale_factor_p95": float(
+                    np.quantile(np.asarray(backbone_soft_scale_factors, dtype=np.float32), 0.95)
+                )
+                if backbone_soft_scale_factors
+                else 1.0,
+                "backbone_soft_geometry_scale_factor_min": float(
+                    min(backbone_soft_scale_factors)
+                )
+                if backbone_soft_scale_factors
+                else 1.0,
+                "backbone_soft_geometry_trigger_active_fraction": _safe_mean(
+                    backbone_soft_trigger_active_fractions
+                ),
+                "backbone_soft_geometry_overflow_stat_mean": _safe_mean(
+                    backbone_soft_overflow_stats
+                ),
+                "backbone_soft_geometry_overflow_stat_p95": float(
+                    np.quantile(np.asarray(backbone_soft_overflow_stats, dtype=np.float32), 0.95)
+                )
+                if backbone_soft_overflow_stats
+                else 0.0,
             }
         )
         backbone_bucket = self._backbone_epoch_bucket(train_epoch)
@@ -446,6 +562,11 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
         backbone_bucket["active_count"] += int(backbone_active_count)
         backbone_bucket["clipped_count"] += int(backbone_clipped_count)
         backbone_bucket["delta_norms"].append(float(backbone_delta_norm))
+        backbone_bucket["soft_scale_factors"].extend(backbone_soft_scale_factors)
+        backbone_bucket["soft_trigger_active_fractions"].extend(
+            backbone_soft_trigger_active_fractions
+        )
+        backbone_bucket["soft_overflow_stats"].extend(backbone_soft_overflow_stats)
         return loss
 
     def _build_backbone_epoch_df(self) -> pd.DataFrame:
@@ -497,6 +618,37 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
                     else 0.0,
                     "backbone_active_preconditioner_max_after_clip": float(after.max())
                     if active_count > 0
+                    else 0.0,
+                    "backbone_soft_geometry_scale_factor_mean": _safe_mean(
+                        bucket["soft_scale_factors"]
+                    )
+                    if bucket["soft_scale_factors"]
+                    else 1.0,
+                    "backbone_soft_geometry_scale_factor_p50": float(
+                        np.quantile(np.asarray(bucket["soft_scale_factors"], dtype=np.float32), 0.50)
+                    )
+                    if bucket["soft_scale_factors"]
+                    else 1.0,
+                    "backbone_soft_geometry_scale_factor_p95": float(
+                        np.quantile(np.asarray(bucket["soft_scale_factors"], dtype=np.float32), 0.95)
+                    )
+                    if bucket["soft_scale_factors"]
+                    else 1.0,
+                    "backbone_soft_geometry_scale_factor_min": float(
+                        min(bucket["soft_scale_factors"])
+                    )
+                    if bucket["soft_scale_factors"]
+                    else 1.0,
+                    "backbone_soft_geometry_trigger_active_fraction": _safe_mean(
+                        bucket["soft_trigger_active_fractions"]
+                    ),
+                    "backbone_soft_geometry_overflow_stat_mean": _safe_mean(
+                        bucket["soft_overflow_stats"]
+                    ),
+                    "backbone_soft_geometry_overflow_stat_p95": float(
+                        np.quantile(np.asarray(bucket["soft_overflow_stats"], dtype=np.float32), 0.95)
+                    )
+                    if bucket["soft_overflow_stats"]
                     else 0.0,
                 }
             )
@@ -553,6 +705,37 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
                     "layer_preconditioned_grad_norm": _safe_mean(
                         bucket["preconditioned_grad_norms"]
                     ),
+                    "layer_soft_geometry_scale_factor": _safe_mean(
+                        bucket["soft_scale_factors"]
+                    )
+                    if bucket["soft_scale_factors"]
+                    else 1.0,
+                    "layer_soft_geometry_scale_factor_min": float(
+                        min(bucket["soft_scale_factors"])
+                    )
+                    if bucket["soft_scale_factors"]
+                    else 1.0,
+                    "layer_soft_geometry_scale_factor_p50": float(
+                        np.quantile(np.asarray(bucket["soft_scale_factors"], dtype=np.float32), 0.50)
+                    )
+                    if bucket["soft_scale_factors"]
+                    else 1.0,
+                    "layer_soft_geometry_scale_factor_p95": float(
+                        np.quantile(np.asarray(bucket["soft_scale_factors"], dtype=np.float32), 0.95)
+                    )
+                    if bucket["soft_scale_factors"]
+                    else 1.0,
+                    "layer_soft_geometry_trigger_active_fraction": _safe_mean(
+                        bucket["soft_trigger_active_fractions"]
+                    ),
+                    "layer_soft_geometry_overflow_stat": _safe_mean(
+                        bucket["soft_overflow_stats"]
+                    ),
+                    "layer_soft_geometry_overflow_stat_p95": float(
+                        np.quantile(np.asarray(bucket["soft_overflow_stats"], dtype=np.float32), 0.95)
+                    )
+                    if bucket["soft_overflow_stats"]
+                    else 0.0,
                 }
             )
         return pd.DataFrame(rows)
@@ -594,9 +777,15 @@ class TelemetryActivePreconditionerAdam(torch.optim.Optimizer):
                 float(self.max_preconditioner) if self.max_preconditioner is not None else None
             ),
             "layerwise_max_preconditioner_by_name": self.layerwise_max_preconditioner_by_name,
+            "layerwise_soft_reference_preconditioner_by_name": (
+                self.layerwise_soft_reference_preconditioner_by_name
+            ),
             "clip_focus_parameter_names": sorted(self.clip_focus_parameter_names)
             if self.clip_focus_parameter_names is not None
             else [],
+            "soft_geometry_focus_parameter_names": sorted(self.soft_geometry_focus_parameter_names),
+            "soft_geometry_alpha": float(self.soft_geometry_alpha),
+            "soft_geometry_beta": float(self.soft_geometry_beta),
             "tracked_hotspot_layers": list(self.tracked_hotspot_layers),
             "final_backbone_telemetry": final_backbone,
             "final_hotspot_layer_telemetry": final_layer_summary,

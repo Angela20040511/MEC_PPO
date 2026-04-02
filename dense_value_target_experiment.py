@@ -166,10 +166,18 @@ def run_training_epoch(
     step_count = 0
     done = False
     for _ in range(config.training.time_steps):
-        action, log_prob, value = agent.select_action(state)
+        action, log_prob, value, policy_cache = agent.select_action_with_info(state)
         next_state, reward, done, info = simulator.step(action)
 
-        agent.store_transition(state, action, log_prob, reward, done, value)
+        agent.store_transition(
+            state,
+            action,
+            log_prob,
+            reward,
+            done,
+            value,
+            policy_cache=policy_cache,
+        )
         state = next_state
 
         episode_reward += float(reward)

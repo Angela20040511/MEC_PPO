@@ -207,9 +207,17 @@ def run_topology_diagnostic(
             state_max = np.maximum(state_max, state)
             observed_state_count += 1
 
-            action, log_prob, value = agent.select_action(state)
+            action, log_prob, value, policy_cache = agent.select_action_with_info(state)
             next_state, reward, done, info = simulator.step(action)
-            agent.store_transition(state, action, log_prob, reward, done, value)
+            agent.store_transition(
+                state,
+                action,
+                log_prob,
+                reward,
+                done,
+                value,
+                policy_cache=policy_cache,
+            )
 
             epoch_metrics["state_mean"] += summary["state_mean"]
             epoch_metrics["state_max"] += summary["state_max"]
