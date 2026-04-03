@@ -1,0 +1,109 @@
+{
+  "experiment_id": "003",
+  "root_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307",
+  "seeds": [
+    2023,
+    2024,
+    2025
+  ],
+  "groups": [
+    "003_baseline_critic_adam",
+    "003_critic_blended_current_heldout_head_adam",
+    "003_critic_blended_current_heldout_plus_layerwise_cap_head_adam"
+  ],
+  "device": "cuda",
+  "per_seed": [
+    {
+      "seed": 2023,
+      "seed_run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs",
+      "groups": [
+        {
+          "group_name": "003_baseline_critic_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_baseline_critic_adam_20260327_084403_469512",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_baseline_critic_adam_20260327_084403_469512\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_baseline_critic_adam_20260327_084403_469512\\003_003_baseline_critic_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_baseline_critic_adam_20260327_084403_469512\\preconditioner_telemetry_summary.json",
+          "resumed_existing_run": true
+        },
+        {
+          "group_name": "003_critic_blended_current_heldout_head_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_critic_blended_current_heldout_head_adam_20260327_102150_779118",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_critic_blended_current_heldout_head_adam_20260327_102150_779118\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_critic_blended_current_heldout_head_adam_20260327_102150_779118\\003_003_critic_blended_current_heldout_head_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_critic_blended_current_heldout_head_adam_20260327_102150_779118\\preconditioner_telemetry_summary.json",
+          "resumed_existing_run": true
+        },
+        {
+          "group_name": "003_critic_blended_current_heldout_plus_layerwise_cap_head_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_120345_581414",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_120345_581414\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_120345_581414\\003_003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2023_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_120345_581414\\preconditioner_telemetry_summary.json",
+          "resumed_existing_run": true
+        }
+      ]
+    },
+    {
+      "seed": 2024,
+      "seed_run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs",
+      "groups": [
+        {
+          "group_name": "003_baseline_critic_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_baseline_critic_adam_20260327_141159_579311",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_baseline_critic_adam_20260327_141159_579311\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_baseline_critic_adam_20260327_141159_579311\\003_003_baseline_critic_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_baseline_critic_adam_20260327_141159_579311\\preconditioner_telemetry_summary.json",
+          "resumed_existing_run": true
+        },
+        {
+          "group_name": "003_critic_blended_current_heldout_head_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_critic_blended_current_heldout_head_adam_20260327_160515_939450",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_critic_blended_current_heldout_head_adam_20260327_160515_939450\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_critic_blended_current_heldout_head_adam_20260327_160515_939450\\003_003_critic_blended_current_heldout_head_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_critic_blended_current_heldout_head_adam_20260327_160515_939450\\preconditioner_telemetry_summary.json",
+          "resumed_existing_run": true
+        },
+        {
+          "group_name": "003_critic_blended_current_heldout_plus_layerwise_cap_head_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_192343_804128",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_192343_804128\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_192343_804128\\003_003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2024_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260327_192343_804128\\preconditioner_telemetry_summary.json",
+          "resumed_existing_run": true
+        }
+      ]
+    },
+    {
+      "seed": 2025,
+      "seed_run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs",
+      "groups": [
+        {
+          "group_name": "003_baseline_critic_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_baseline_critic_adam_20260327_232726_483296",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_baseline_critic_adam_20260327_232726_483296\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_baseline_critic_adam_20260327_232726_483296\\003_003_baseline_critic_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_baseline_critic_adam_20260327_232726_483296\\preconditioner_telemetry_summary.json"
+        },
+        {
+          "group_name": "003_critic_blended_current_heldout_head_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_critic_blended_current_heldout_head_adam_20260328_015704_368785",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_critic_blended_current_heldout_head_adam_20260328_015704_368785\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_critic_blended_current_heldout_head_adam_20260328_015704_368785\\003_003_critic_blended_current_heldout_head_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_critic_blended_current_heldout_head_adam_20260328_015704_368785\\preconditioner_telemetry_summary.json"
+        },
+        {
+          "group_name": "003_critic_blended_current_heldout_plus_layerwise_cap_head_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260328_035226_524047",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260328_035226_524047\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260328_035226_524047\\003_003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_seed_2025_runs\\003_critic_blended_current_heldout_plus_layerwise_cap_head_adam_20260328_035226_524047\\preconditioner_telemetry_summary.json"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "summary_json": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_critic_blended_multiseed_confirmation_validation_summary.json",
+    "summary_csv": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_critic_blended_multiseed_confirmation_validation_summary.csv",
+    "summary_md": "D:\\MEC_PPO\\checkpoints\\003_critic_blended_multiseed_confirmation_validation_output_20260327_084307\\003_critic_blended_multiseed_confirmation_validation_summary.md"
+  }
+}

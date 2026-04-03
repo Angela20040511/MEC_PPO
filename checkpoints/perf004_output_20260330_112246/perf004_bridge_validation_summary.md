@@ -1,0 +1,29 @@
+# perf004 Bridge Validation
+
+## Raw Rows
+| mode_name | seed | group_name | device | best_epoch | best_reward | final_reward | value_explained_variance | prediction_target_corr | critic_loss_current_batch | critic_loss_heldout_batch | would_reject_rate | backbone_active_preconditioner_p99 | run_dir | wall_clock_sec | vector_env_count |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| compatible_default | 2024 | 005_pure_blended_baseline_adam | cuda | 2 | -145.8959771216727 | -156.3600768867247 | 0.982740581035614 | 0.9918352365493774 | 0.1142183391668368 | 0.0492577161872759 | 0.7 | 5324739.0 | D:\MEC_PPO\checkpoints\perf003_output_20260330_051246\bridge_runs\perf003_compatible_default_005_pure_blended_baseline_adam_20260330_060237_358852 | 1249.749156299993 | 1 |
+| compatible_default | 2024 | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam | cuda | 2 | -144.8648308856695 | -156.46292276363965 | 0.9862428307533264 | 0.9935135841369628 | 0.1104580821469426 | 0.0436883960152044 | 0.65 | 4686898.0 | D:\MEC_PPO\checkpoints\perf003_output_20260330_051246\bridge_runs\perf003_compatible_default_005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_20260330_062328_351561 | 1232.2147355000052 | 1 |
+| vectorized_2env_batch_aligned | 2024 | 005_pure_blended_baseline_adam | cuda | 2 | -150.99530255017493 | -157.5520358796337 | 0.9918737411499025 | 0.99602210521698 | 0.0843465309444582 | 0.0287059146910905 | 0.725 | 5514882.0 | D:\MEC_PPO\checkpoints\perf004_output_20260330_112246\bridge_runs\perf004_vectorized_2env_batch_aligned_005_pure_blended_baseline_adam_20260330_115544_828752 | 3640.0109378999914 | 2 |
+| vectorized_2env_batch_aligned | 2024 | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam | cuda | 2 | -150.59390598502293 | -158.69109303224803 | 0.9821754693984984 | 0.9910919070243835 | 0.113560901035089 | 0.0253551384899765 | 0.75 | 4494562.485000049 | D:\MEC_PPO\checkpoints\perf004_output_20260330_112246\bridge_runs\perf004_vectorized_2env_batch_aligned_005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_20260330_115544_828752 | 3676.3102082000114 | 2 |
+
+## Comparison Rows
+| mode_name | comparison | metric_name | delta |
+| --- | --- | --- | --- |
+| compatible_default | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | best_reward | 1.0311462360031953 |
+| compatible_default | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | final_reward | -0.10284587691495517 |
+| compatible_default | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | value_explained_variance | 0.0035022497177124023 |
+| compatible_default | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | prediction_target_corr | 0.0016783475875853382 |
+| compatible_default | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | critic_loss_current_batch | -0.0037602570198942004 |
+| compatible_default | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | critic_loss_heldout_batch | -0.0055693201720715055 |
+| compatible_default | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | would_reject_rate | -0.04999999999999993 |
+| compatible_default | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | backbone_active_preconditioner_p99 | -637841.0 |
+| vectorized_2env_batch_aligned | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | best_reward | 0.4013965651519982 |
+| vectorized_2env_batch_aligned | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | final_reward | -1.1390571526143276 |
+| vectorized_2env_batch_aligned | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | value_explained_variance | -0.00969827175140403 |
+| vectorized_2env_batch_aligned | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | prediction_target_corr | -0.0049301981925964355 |
+| vectorized_2env_batch_aligned | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | critic_loss_current_batch | 0.029214370090630812 |
+| vectorized_2env_batch_aligned | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | critic_loss_heldout_batch | -0.003350776201114 |
+| vectorized_2env_batch_aligned | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | would_reject_rate | 0.025000000000000022 |
+| vectorized_2env_batch_aligned | 005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam | backbone_active_preconditioner_p99 | -1020319.5149999512 |

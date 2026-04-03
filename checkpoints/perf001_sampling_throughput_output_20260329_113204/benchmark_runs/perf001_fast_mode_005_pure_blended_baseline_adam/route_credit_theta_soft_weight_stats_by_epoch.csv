@@ -1,0 +1,2 @@
+﻿epoch,offload_active_fraction,theta_positive_fraction,route_credit_weight_mean,route_credit_weight_std,route_credit_effective_fraction,route_credit_effective_count,theta_ratio_mean,route_ratio_mean,theta_approx_kl,route_approx_kl,theta_clip_fraction,route_clip_fraction,advantage_action_alignment
+0,0.518750011920929,0.5024999976158142,1.0,0.0,0.518750011920929,1245.0,0.9885475635528564,0.999991774559021,0.031295809894800186,0.0017956190276890993,0.47583335638046265,0.006425702944397926,0.13969029486179352

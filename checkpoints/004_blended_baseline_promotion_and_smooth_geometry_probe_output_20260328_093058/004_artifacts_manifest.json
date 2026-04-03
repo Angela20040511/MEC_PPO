@@ -1,0 +1,84 @@
+{
+  "experiment_id": "004",
+  "root_dir": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058",
+  "seeds": [
+    2024,
+    2025
+  ],
+  "groups": [
+    "004_pure_blended_baseline_adam",
+    "004_pure_blended_soft_geometry_head_adam",
+    "004_pure_blended_legacy_hardcap_reference_adam"
+  ],
+  "device": "cuda",
+  "torch_version": "2.4.1+cu118",
+  "cuda_device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "soft_geometry_formula": "For each hotspot layer l, compute active_pre_p95(l) from the current minibatch; let z_l = active_pre_p95(l) / ref_l - 1.0, overflow_l = log(1 + softplus(beta * z_l) / beta), and scale_l = 1 / (1 + alpha * overflow_l). Apply param_delta_l <- scale_l * param_delta_l. This probe uses alpha=0.35 and beta=8.0.",
+  "per_seed": [
+    {
+      "seed": 2024,
+      "seed_run_dir": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs",
+      "groups": [
+        {
+          "group_name": "004_pure_blended_baseline_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_baseline_adam_20260328_093213_841481",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_baseline_adam_20260328_093213_841481\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_baseline_adam_20260328_093213_841481\\004_004_pure_blended_baseline_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_baseline_adam_20260328_093213_841481\\preconditioner_telemetry_summary.json",
+          "device": "cuda"
+        },
+        {
+          "group_name": "004_pure_blended_soft_geometry_head_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_soft_geometry_head_adam_20260328_105807_321991",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_soft_geometry_head_adam_20260328_105807_321991\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_soft_geometry_head_adam_20260328_105807_321991\\004_004_pure_blended_soft_geometry_head_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_soft_geometry_head_adam_20260328_105807_321991\\preconditioner_telemetry_summary.json",
+          "device": "cuda"
+        },
+        {
+          "group_name": "004_pure_blended_legacy_hardcap_reference_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_legacy_hardcap_reference_adam_20260328_121536_696082",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_legacy_hardcap_reference_adam_20260328_121536_696082\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_legacy_hardcap_reference_adam_20260328_121536_696082\\004_004_pure_blended_legacy_hardcap_reference_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2024_runs\\004_pure_blended_legacy_hardcap_reference_adam_20260328_121536_696082\\preconditioner_telemetry_summary.json",
+          "device": "cuda"
+        }
+      ]
+    },
+    {
+      "seed": 2025,
+      "seed_run_dir": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs",
+      "groups": [
+        {
+          "group_name": "004_pure_blended_baseline_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_baseline_adam_20260328_133156_602842",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_baseline_adam_20260328_133156_602842\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_baseline_adam_20260328_133156_602842\\004_004_pure_blended_baseline_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_baseline_adam_20260328_133156_602842\\preconditioner_telemetry_summary.json",
+          "device": "cuda"
+        },
+        {
+          "group_name": "004_pure_blended_soft_geometry_head_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_soft_geometry_head_adam_20260328_144334_720583",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_soft_geometry_head_adam_20260328_144334_720583\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_soft_geometry_head_adam_20260328_144334_720583\\004_004_pure_blended_soft_geometry_head_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_soft_geometry_head_adam_20260328_144334_720583\\preconditioner_telemetry_summary.json",
+          "device": "cuda"
+        },
+        {
+          "group_name": "004_pure_blended_legacy_hardcap_reference_adam",
+          "run_dir": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_legacy_hardcap_reference_adam_20260328_155601_143048",
+          "analysis_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_legacy_hardcap_reference_adam_20260328_155601_143048\\analysis_summary.json",
+          "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_legacy_hardcap_reference_adam_20260328_155601_143048\\004_004_pure_blended_legacy_hardcap_reference_adam_critic_step_acceptance_trace.csv",
+          "telemetry_summary": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_seed_2025_runs\\004_pure_blended_legacy_hardcap_reference_adam_20260328_155601_143048\\preconditioner_telemetry_summary.json",
+          "device": "cuda"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "summary_json": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_blended_baseline_promotion_and_smooth_geometry_probe_summary.json",
+    "summary_csv": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_blended_baseline_promotion_and_smooth_geometry_probe_summary.csv",
+    "summary_md": "D:\\MEC_PPO\\checkpoints\\004_blended_baseline_promotion_and_smooth_geometry_probe_output_20260328_093058\\004_blended_baseline_promotion_and_smooth_geometry_probe_summary.md"
+  }
+}

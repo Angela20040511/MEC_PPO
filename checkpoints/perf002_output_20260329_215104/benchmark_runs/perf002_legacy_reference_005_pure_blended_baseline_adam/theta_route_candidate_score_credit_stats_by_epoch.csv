@@ -1,0 +1,2 @@
+﻿epoch,advantage_action_alignment,theta_advantage_alignment,route_advantage_alignment,theta_approx_kl,route_approx_kl,theta_clip_fraction,route_clip_fraction,offload_decision_agreement_ratio,route_decision_agreement_ratio,theta_residual_credit_mean,route_residual_credit_mean
+0,0.15322352945804596,0.032545361667871475,-0.034195564687252045,0.032100021839141846,0.0021811174228787422,0.4816666841506958,0.004029009025543928,0.4833333492279053,0.49717968702316284,-0.026802537962794304,-0.001718043116852641

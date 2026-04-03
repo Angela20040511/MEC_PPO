@@ -1,0 +1,184 @@
+{
+  "experiment_id": "perf003",
+  "rows": [
+    {
+      "mode_name": "compatible_default",
+      "debug_group": "005_pure_blended_baseline_adam",
+      "vector_env_count": 1,
+      "per_env_full_horizon": 1,
+      "vector_seed_strategy": "compatible",
+      "rollout_lengths_json": "[100]",
+      "done_flags_json": "[1]",
+      "truncated_flags_json": "[0]",
+      "bootstrap_values_json": "[0.0]",
+      "final_slots_json": "[100]",
+      "mean_rollout_length": 100.0,
+      "bootstrap_nonzero_fraction": 0.0,
+      "truncation_fraction": 0.0,
+      "merged_batch_size": 100,
+      "value_mean": 0.02291695401072502,
+      "value_std": 0.18576450645923615,
+      "advantage_mean": -21.925199508666992,
+      "advantage_std": 6.552316188812256,
+      "return_mean": -21.902284622192383,
+      "return_std": 6.557854652404785,
+      "last_advantage_mean": -1.1211541891098022,
+      "last_return_mean": -1.2947601079940796,
+      "tail_advantage_abs_mean": 3.7592215538024902,
+      "tail_return_mean": -3.7015888690948486
+    },
+    {
+      "mode_name": "vectorized_2env_perf002_old",
+      "debug_group": "005_pure_blended_baseline_adam",
+      "vector_env_count": 2,
+      "per_env_full_horizon": 0,
+      "vector_seed_strategy": "perf002_old",
+      "rollout_lengths_json": "[50, 50]",
+      "done_flags_json": "[0, 0]",
+      "truncated_flags_json": "[1, 1]",
+      "bootstrap_values_json": "[-0.1947900950908661, -0.05764767527580261]",
+      "final_slots_json": "[50, 50]",
+      "mean_rollout_length": 50.0,
+      "bootstrap_nonzero_fraction": 1.0,
+      "truncation_fraction": 1.0,
+      "merged_batch_size": 100,
+      "value_mean": -0.1686195582151413,
+      "value_std": 0.15641853213310242,
+      "advantage_mean": -19.1310977935791,
+      "advantage_std": 7.482089042663574,
+      "return_mean": -19.299718856811523,
+      "return_std": 7.466011047363281,
+      "last_advantage_mean": -1.5356354713439941,
+      "last_return_mean": -1.72368985414505,
+      "tail_advantage_abs_mean": 3.610048294067383,
+      "tail_return_mean": -3.791731595993042
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "debug_group": "005_pure_blended_baseline_adam",
+      "vector_env_count": 2,
+      "per_env_full_horizon": 1,
+      "vector_seed_strategy": "aligned_with_compatible",
+      "rollout_lengths_json": "[100, 100]",
+      "done_flags_json": "[1, 1]",
+      "truncated_flags_json": "[0, 0]",
+      "bootstrap_values_json": "[0.0, 0.0]",
+      "final_slots_json": "[100, 100]",
+      "mean_rollout_length": 100.0,
+      "bootstrap_nonzero_fraction": 0.0,
+      "truncation_fraction": 0.0,
+      "merged_batch_size": 200,
+      "value_mean": 0.03200327977538109,
+      "value_std": 0.20168498158454895,
+      "advantage_mean": -21.944116592407227,
+      "advantage_std": 6.457300186157227,
+      "return_mean": -21.912109375,
+      "return_std": 6.406386852264404,
+      "last_advantage_mean": -1.3125144839286804,
+      "last_return_mean": -1.533618152141571,
+      "tail_advantage_abs_mean": 4.317275762557983,
+      "tail_return_mean": -4.407881498336792
+    }
+  ],
+  "metadata": {
+    "debug_seed": 2024,
+    "debug_time_steps": 100,
+    "debug_group": "005_pure_blended_baseline_adam",
+    "most_suspicious_sources": [
+      {
+        "rank": 1,
+        "source": "per_env_segment_truncation_before_done",
+        "why_suspicious": "perf002 vec2 used 50-step segments inside a 100-step environment horizon, so every env buffer ended with done=0 and nonzero bootstrap value.",
+        "compatible_value": 0.0,
+        "old_vec2_value": 1.0,
+        "aligned_vec2_value": 0.0
+      },
+      {
+        "rank": 2,
+        "source": "epoch_reset_seed_schedule_mismatch",
+        "why_suspicious": "compatible reset uses seed+epoch, while perf002 vec2 used seed+epoch*1000+env_index, which changes the arrival / queue state distribution before learning even starts.",
+        "compatible_value": "seed+epoch",
+        "old_vec2_value": "seed+epoch*1000+env_index",
+        "aligned_vec2_value": "seed+epoch+env_index"
+      },
+      {
+        "rank": 3,
+        "source": "learner_batch_size_growth_after_full_horizon_fix",
+        "why_suspicious": "after repairing per-env horizon alignment, vec2 now feeds 200 transitions per epoch into learner instead of 100, which still changes batch statistics even though GAE boundaries align better.",
+        "compatible_value": 100,
+        "old_vec2_value": 100,
+        "aligned_vec2_value": 200
+      }
+    ]
+  },
+  "suspicion_rows": [
+    {
+      "rank": 1,
+      "source": "per_env_segment_truncation_before_done",
+      "why_suspicious": "perf002 vec2 used 50-step segments inside a 100-step environment horizon, so every env buffer ended with done=0 and nonzero bootstrap value.",
+      "compatible_value": 0.0,
+      "old_vec2_value": 1.0,
+      "aligned_vec2_value": 0.0
+    },
+    {
+      "rank": 2,
+      "source": "epoch_reset_seed_schedule_mismatch",
+      "why_suspicious": "compatible reset uses seed+epoch, while perf002 vec2 used seed+epoch*1000+env_index, which changes the arrival / queue state distribution before learning even starts.",
+      "compatible_value": "seed+epoch",
+      "old_vec2_value": "seed+epoch*1000+env_index",
+      "aligned_vec2_value": "seed+epoch+env_index"
+    },
+    {
+      "rank": 3,
+      "source": "learner_batch_size_growth_after_full_horizon_fix",
+      "why_suspicious": "after repairing per-env horizon alignment, vec2 now feeds 200 transitions per epoch into learner instead of 100, which still changes batch statistics even though GAE boundaries align better.",
+      "compatible_value": 100,
+      "old_vec2_value": 100,
+      "aligned_vec2_value": 200
+    }
+  ],
+  "distribution_summaries": {
+    "compatible_default": {
+      "advantages_mean": -21.925199508666992,
+      "advantages_std": 6.552316188812256,
+      "advantages_min": -30.301673889160156,
+      "advantages_max": -1.1211541891098022,
+      "returns_mean": -21.902284622192383,
+      "returns_std": 6.557854652404785,
+      "returns_min": -30.214616775512695,
+      "returns_max": -1.2947601079940796,
+      "values_mean": 0.02291695401072502,
+      "values_std": 0.18576450645923615,
+      "values_min": -0.4469882845878601,
+      "values_max": 0.4098972678184509
+    },
+    "vectorized_2env_perf002_old": {
+      "advantages_mean": -19.1310977935791,
+      "advantages_std": 7.482089042663574,
+      "advantages_min": -28.848628997802734,
+      "advantages_max": -1.0304069519042969,
+      "returns_mean": -19.299718856811523,
+      "returns_std": 7.466011047363281,
+      "returns_min": -29.039186477661133,
+      "returns_max": -1.3718301057815552,
+      "values_mean": -0.1686195582151413,
+      "values_std": 0.15641853213310242,
+      "values_min": -0.5564002394676208,
+      "values_max": 0.17034229636192322
+    },
+    "vectorized_2env_aligned": {
+      "advantages_mean": -21.944116592407227,
+      "advantages_std": 6.457300186157227,
+      "advantages_min": -30.401254653930664,
+      "advantages_max": -1.006528377532959,
+      "returns_mean": -21.912109375,
+      "returns_std": 6.406386852264404,
+      "returns_min": -30.218101501464844,
+      "returns_max": -1.2967265844345093,
+      "values_mean": 0.03200327977538109,
+      "values_std": 0.20168498158454895,
+      "values_min": -0.46233996748924255,
+      "values_max": 0.5617430210113525
+    }
+  }
+}

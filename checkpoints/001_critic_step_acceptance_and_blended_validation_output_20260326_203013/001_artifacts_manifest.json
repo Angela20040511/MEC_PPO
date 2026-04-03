@@ -1,0 +1,36 @@
+{
+  "experiment_id": "001",
+  "root_dir": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013",
+  "seed": 2025,
+  "groups": [
+    {
+      "group_name": "baseline_critic_adam",
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_baseline_critic_adam_20260326_203052_001250",
+      "analysis_summary": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_baseline_critic_adam_20260326_203052_001250\\analysis_summary.json",
+      "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_baseline_critic_adam_20260326_203052_001250\\001_baseline_critic_adam_critic_step_acceptance_trace.csv"
+    },
+    {
+      "group_name": "critic_step_acceptance_head_adam",
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_step_acceptance_head_adam_20260326_210103_828731",
+      "analysis_summary": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_step_acceptance_head_adam_20260326_210103_828731\\analysis_summary.json",
+      "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_step_acceptance_head_adam_20260326_210103_828731\\001_critic_step_acceptance_head_adam_critic_step_acceptance_trace.csv"
+    },
+    {
+      "group_name": "critic_blended_current_heldout_head_adam",
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_blended_current_heldout_head_adam_20260326_212559_898643",
+      "analysis_summary": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_blended_current_heldout_head_adam_20260326_212559_898643\\analysis_summary.json",
+      "step_trace_csv": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_blended_current_heldout_head_adam_20260326_212559_898643\\001_critic_blended_current_heldout_head_adam_critic_step_acceptance_trace.csv"
+    }
+  ],
+  "summary": {
+    "summary_csv": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_step_acceptance_and_blended_validation_summary.csv",
+    "summary_json": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_step_acceptance_and_blended_validation_summary.json",
+    "summary_md": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_step_acceptance_and_blended_validation_summary.md",
+    "reward_curve_compare": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_reward_curve_compare.png",
+    "advantage_alignment_curve_compare": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_advantage_alignment_curve_compare.png",
+    "critic_health_curve_compare": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_health_curve_compare.png",
+    "critic_drift_compare": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_critic_drift_compare.png",
+    "heldout_probe_gate_compare": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_heldout_probe_gate_compare.png",
+    "blended_vs_baseline_compare": "D:\\MEC_PPO\\checkpoints\\001_critic_step_acceptance_and_blended_validation_output_20260326_203013\\001_blended_vs_baseline_compare.png"
+  }
+}

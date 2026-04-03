@@ -1,0 +1,13 @@
+# Debug Rows
+| mode_name | debug_group | vector_env_count | per_env_full_horizon | vector_seed_strategy | rollout_lengths_json | done_flags_json | truncated_flags_json | bootstrap_values_json | final_slots_json | mean_rollout_length | bootstrap_nonzero_fraction | truncation_fraction | merged_batch_size | value_mean | value_std | advantage_mean | advantage_std | return_mean | return_std | last_advantage_mean | last_return_mean | tail_advantage_abs_mean | tail_return_mean |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| compatible_default | 005_pure_blended_baseline_adam | 1 | 1 | compatible | [100] | [1] | [0] | [0.0] | [100] | 100.0 | 0.0 | 0.0 | 100 | 0.02291695401072502 | 0.18576450645923615 | -21.925199508666992 | 6.552316188812256 | -21.902284622192383 | 6.557854652404785 | -1.1211541891098022 | -1.2947601079940796 | 3.7592215538024902 | -3.7015888690948486 |
+| vectorized_2env_perf002_old | 005_pure_blended_baseline_adam | 2 | 0 | perf002_old | [50, 50] | [0, 0] | [1, 1] | [-0.1947900950908661, -0.05764767527580261] | [50, 50] | 50.0 | 1.0 | 1.0 | 100 | -0.1686195582151413 | 0.15641853213310242 | -19.1310977935791 | 7.482089042663574 | -19.299718856811523 | 7.466011047363281 | -1.5356354713439941 | -1.72368985414505 | 3.610048294067383 | -3.791731595993042 |
+| vectorized_2env_aligned | 005_pure_blended_baseline_adam | 2 | 1 | aligned_with_compatible | [100, 100] | [1, 1] | [0, 0] | [0.0, 0.0] | [100, 100] | 100.0 | 0.0 | 0.0 | 200 | 0.03200327977538109 | 0.20168498158454895 | -21.944116592407227 | 6.457300186157227 | -21.912109375 | 6.406386852264404 | -1.3125144839286804 | -1.533618152141571 | 4.317275762557983 | -4.407881498336792 |
+
+# Suspicion Ranking
+| rank | source | why_suspicious | compatible_value | old_vec2_value | aligned_vec2_value |
+| --- | --- | --- | --- | --- | --- |
+| 1 | per_env_segment_truncation_before_done | perf002 vec2 used 50-step segments inside a 100-step environment horizon, so every env buffer ended with done=0 and nonzero bootstrap value. | 0.0 | 1.0 | 0.0 |
+| 2 | epoch_reset_seed_schedule_mismatch | compatible reset uses seed+epoch, while perf002 vec2 used seed+epoch*1000+env_index, which changes the arrival / queue state distribution before learning even starts. | seed+epoch | seed+epoch*1000+env_index | seed+epoch+env_index |
+| 3 | learner_batch_size_growth_after_full_horizon_fix | after repairing per-env horizon alignment, vec2 now feeds 200 transitions per epoch into learner instead of 100, which still changes batch statistics even though GAE boundaries align better. | 100 | 100 | 200 |

@@ -1,0 +1,2 @@
+﻿epoch,offload_active_fraction,route_logprob_active_fraction,route_selected_score_mean,route_expected_score_mean,route_residual_credit_mean,route_residual_credit_std,route_ratio_mean,route_approx_kl,route_clip_fraction,advantage_action_alignment
+0,0.5170833468437195,0.5170833468437195,-0.003211560193449259,-0.0014935157960280776,-0.001718043116852641,0.9787857532501221,0.9992923736572266,0.0021811174228787422,0.004029009025543928,0.15322352945804596

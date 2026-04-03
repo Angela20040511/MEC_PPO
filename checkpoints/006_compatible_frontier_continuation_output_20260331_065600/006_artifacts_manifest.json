@@ -1,0 +1,38 @@
+{
+  "experiment_id": "006",
+  "output_root": "D:\\MEC_PPO\\checkpoints\\006_compatible_frontier_continuation_output_20260331_065600",
+  "training_semantics": "compatible_default",
+  "policy_ratio_mode": "hierarchical_actor_joint_reward_aligned_credit",
+  "seeds": [
+    2024,
+    2025
+  ],
+  "num_epochs": 12,
+  "time_steps": 200,
+  "groups": [
+    "006_pure_blended_baseline_adam",
+    "006_pure_blended_narrow_scope_soft_geometry_adam"
+  ],
+  "runs": [
+    {
+      "group_name": "006_pure_blended_baseline_adam",
+      "seed": 2024,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\006_compatible_frontier_continuation_output_20260331_065600\\006_seed_2024_runs\\006_pure_blended_baseline_adam_20260331_065600_923951"
+    },
+    {
+      "group_name": "006_pure_blended_narrow_scope_soft_geometry_adam",
+      "seed": 2024,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\006_compatible_frontier_continuation_output_20260331_065600\\006_seed_2024_runs\\006_pure_blended_narrow_scope_soft_geometry_adam_20260331_093931_875655"
+    },
+    {
+      "group_name": "006_pure_blended_baseline_adam",
+      "seed": 2025,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\006_compatible_frontier_continuation_output_20260331_065600\\006_seed_2025_runs\\006_pure_blended_baseline_adam_20260331_191935_091495"
+    },
+    {
+      "group_name": "006_pure_blended_narrow_scope_soft_geometry_adam",
+      "seed": 2025,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\006_compatible_frontier_continuation_output_20260331_065600\\006_seed_2025_runs\\006_pure_blended_narrow_scope_soft_geometry_adam_20260331_214941_306036"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "experiment_id": "perf003",
+  "bridge_length": {
+    "seed": 2024,
+    "num_epochs": 6,
+    "time_steps": 100,
+    "rationale": "Keep 6 x 100 to stay directly comparable with perf002 while checking whether vec2 bridge ordering becomes closer after implementation alignment."
+  },
+  "raw_rows": [
+    {
+      "mode_name": "compatible_default",
+      "seed": 2024,
+      "group_name": "005_pure_blended_baseline_adam",
+      "device": "cuda",
+      "best_epoch": 2,
+      "best_reward": -145.8959771216727,
+      "final_reward": -156.3600768867247,
+      "value_explained_variance": 0.982740581035614,
+      "prediction_target_corr": 0.9918352365493774,
+      "critic_loss_current_batch": 0.1142183391668368,
+      "critic_loss_heldout_batch": 0.0492577161872759,
+      "would_reject_rate": 0.7,
+      "backbone_active_preconditioner_p99": 5324739.0,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\perf003_output_20260330_051246\\bridge_runs\\perf003_compatible_default_005_pure_blended_baseline_adam_20260330_060237_358852",
+      "wall_clock_sec": 1249.749156299993,
+      "vector_env_count": 1
+    },
+    {
+      "mode_name": "compatible_default",
+      "seed": 2024,
+      "group_name": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam",
+      "device": "cuda",
+      "best_epoch": 2,
+      "best_reward": -144.8648308856695,
+      "final_reward": -156.46292276363965,
+      "value_explained_variance": 0.9862428307533264,
+      "prediction_target_corr": 0.9935135841369628,
+      "critic_loss_current_batch": 0.1104580821469426,
+      "critic_loss_heldout_batch": 0.0436883960152044,
+      "would_reject_rate": 0.65,
+      "backbone_active_preconditioner_p99": 4686898.0,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\perf003_output_20260330_051246\\bridge_runs\\perf003_compatible_default_005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_20260330_062328_351561",
+      "wall_clock_sec": 1232.2147355000052,
+      "vector_env_count": 1
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "seed": 2024,
+      "group_name": "005_pure_blended_baseline_adam",
+      "device": "cuda",
+      "best_epoch": 2,
+      "best_reward": -148.310148078634,
+      "final_reward": -160.10763708244588,
+      "value_explained_variance": 0.9977622628211976,
+      "prediction_target_corr": 0.9989063143730164,
+      "critic_loss_current_batch": 0.0637894235168849,
+      "critic_loss_heldout_batch": 0.0115366089182706,
+      "would_reject_rate": 0.7142857142857143,
+      "backbone_active_preconditioner_p99": 6945305.144999818,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\perf003_output_20260330_051246\\bridge_runs\\perf003_vectorized_2env_aligned_005_pure_blended_baseline_adam_20260330_064401_712921",
+      "wall_clock_sec": 2453.993875,
+      "vector_env_count": 2
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "seed": 2024,
+      "group_name": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam",
+      "device": "cuda",
+      "best_epoch": 2,
+      "best_reward": -148.1802423066127,
+      "final_reward": -161.2782268588265,
+      "value_explained_variance": 0.994496524333954,
+      "prediction_target_corr": 0.997246265411377,
+      "critic_loss_current_batch": 0.0679834423753033,
+      "critic_loss_heldout_batch": 0.0115912225962217,
+      "would_reject_rate": 0.6285714285714286,
+      "backbone_active_preconditioner_p99": 5800355.5,
+      "run_dir": "D:\\MEC_PPO\\checkpoints\\perf003_output_20260330_051246\\bridge_runs\\perf003_vectorized_2env_aligned_005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_20260330_072457_570854",
+      "wall_clock_sec": 2467.1386700000003,
+      "vector_env_count": 2
+    }
+  ],
+  "comparison_rows": [
+    {
+      "mode_name": "compatible_default",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "best_reward",
+      "delta": 1.0311462360031953
+    },
+    {
+      "mode_name": "compatible_default",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "final_reward",
+      "delta": -0.10284587691495517
+    },
+    {
+      "mode_name": "compatible_default",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "value_explained_variance",
+      "delta": 0.0035022497177124023
+    },
+    {
+      "mode_name": "compatible_default",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "prediction_target_corr",
+      "delta": 0.0016783475875853382
+    },
+    {
+      "mode_name": "compatible_default",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "critic_loss_current_batch",
+      "delta": -0.0037602570198942004
+    },
+    {
+      "mode_name": "compatible_default",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "critic_loss_heldout_batch",
+      "delta": -0.0055693201720715055
+    },
+    {
+      "mode_name": "compatible_default",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "would_reject_rate",
+      "delta": -0.04999999999999993
+    },
+    {
+      "mode_name": "compatible_default",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "backbone_active_preconditioner_p99",
+      "delta": -637841.0
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "best_reward",
+      "delta": 0.1299057720212886
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "final_reward",
+      "delta": -1.1705897763806377
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "value_explained_variance",
+      "delta": -0.0032657384872436523
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "prediction_target_corr",
+      "delta": -0.0016600489616394043
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "critic_loss_current_batch",
+      "delta": 0.0041940188584184
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "critic_loss_heldout_batch",
+      "delta": 5.4613677951100004e-05
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "would_reject_rate",
+      "delta": -0.08571428571428574
+    },
+    {
+      "mode_name": "vectorized_2env_aligned",
+      "comparison": "005_pure_blended_soft_geometry_light_alpha_narrow_scope_adam_minus_005_pure_blended_baseline_adam",
+      "metric_name": "backbone_active_preconditioner_p99",
+      "delta": -1144949.644999818
+    }
+  ]
+}
