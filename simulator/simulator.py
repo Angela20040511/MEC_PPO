@@ -63,6 +63,7 @@ class Simulator:
     digital_twin: DigitalTwin = field(init=False)
     lyapunov_scheduler: LyapunovScheduler = field(init=False)
     fast_scheduler: FastScheduler = field(init=False)
+    enable_digital_twin_fit: bool = True
 
     def __post_init__(self) -> None:
         """初始化仿真器依赖的所有子模块。"""
@@ -593,7 +594,8 @@ class Simulator:
 
         done = self.state.slot + 1 >= self.config.training.time_steps
         self.state.advance_slot()
-        self.digital_twin.maybe_fit(self.state)
+        if self.enable_digital_twin_fit:
+            self.digital_twin.maybe_fit(self.state)
         next_state = self.get_observation()
 
         info: dict[str, Any] = {

@@ -64,7 +64,7 @@ def _collect_fixed_probe_payload(
 
     for step_index in range(PROBE_STEP_COUNT):
         states.append(np.array(state, dtype=np.float32, copy=True))
-        action, _log_prob, value = agent.select_action(state)
+        action, _log_prob, value, _policy_cache = agent.select_action_with_info(state)
         next_state, reward, done, _info = simulator.step(action)
         rewards.append(float(reward))
         dones.append(bool(done))
@@ -104,7 +104,7 @@ def _collect_fixed_heldout_payload(
 
     for step_index in range(config.training.time_steps):
         states.append(np.array(state, dtype=np.float32, copy=True))
-        action, _log_prob, value = agent.select_action(state)
+        action, _log_prob, value, _policy_cache = agent.select_action_with_info(state)
         next_state, reward, done, _info = simulator.step(action)
         rewards.append(float(reward))
         dones.append(bool(done))
@@ -155,7 +155,7 @@ def _collect_one_epoch(
     state = simulator.reset(seed=config.training.seed + epoch)
     done = False
     for _ in range(config.training.time_steps):
-        action, log_prob, value = agent.select_action(state)
+        action, log_prob, value, policy_cache = agent.select_action_with_info(state)
         joint_reward_aligned_scores, _joint_td_scores = compute_joint_counterfactual_scores(
             agent,
             simulator,
@@ -171,6 +171,7 @@ def _collect_one_epoch(
             value,
             next_state,
             joint_reward_aligned_scores=joint_reward_aligned_scores,
+            policy_cache=policy_cache,
         )
         state = next_state
         if done:

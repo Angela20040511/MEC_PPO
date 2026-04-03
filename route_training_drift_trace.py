@@ -34,9 +34,18 @@ def _collect_one_epoch(agent: PPOAgent, simulator: Simulator, config: Any, epoch
     state = simulator.reset(seed=config.training.seed + epoch)
     done = False
     for _ in range(config.training.time_steps):
-        action, log_prob, value = agent.select_action(state)
+        action, log_prob, value, policy_cache = agent.select_action_with_info(state)
         next_state, reward, done, _ = simulator.step(action)
-        agent.store_transition(state, action, log_prob, reward, done, value, next_state)
+        agent.store_transition(
+            state,
+            action,
+            log_prob,
+            reward,
+            done,
+            value,
+            next_state,
+            policy_cache=policy_cache,
+        )
         state = next_state
         if done:
             break

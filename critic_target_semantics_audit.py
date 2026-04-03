@@ -150,7 +150,7 @@ def _collect_rollout_with_counterfactuals(
 
     max_steps = min(int(audit_steps), int(config.training.time_steps))
     for sample_id in range(max_steps):
-        action, log_prob, value = agent.select_action(state)
+        action, log_prob, value, policy_cache = agent.select_action_with_info(state)
         action_np = np.asarray(action, dtype=np.float32).reshape(-1)
         reward_scores = np.zeros((len(block_slices), 3), dtype=np.float32)
         value_scores = np.zeros((len(block_slices), 3), dtype=np.float32)
@@ -167,7 +167,16 @@ def _collect_rollout_with_counterfactuals(
                 next_states_cf[block_id, candidate_index] = np.asarray(next_state_cf, dtype=np.float32)
 
         next_state, reward, done, _ = simulator.step(action_np)
-        agent.store_transition(state, action_np, log_prob, reward, done, value, next_state)
+        agent.store_transition(
+            state,
+            action_np,
+            log_prob,
+            reward,
+            done,
+            value,
+            next_state,
+            policy_cache=policy_cache,
+        )
         sample_payloads.append(
             {
                 "sample_id": sample_id,

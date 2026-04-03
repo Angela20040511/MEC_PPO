@@ -149,6 +149,35 @@ class PPOBuffer:
             )
         return tensor_dict
 
+    def extend_from(self, other: "PPOBuffer") -> None:
+        """Append another finished buffer into the current buffer."""
+        if other.advantages is None or other.returns is None:
+            raise RuntimeError("source buffer must finish_trajectory before extend_from")
+        self.states.extend(other.states)
+        self.next_states.extend(other.next_states)
+        self.actions.extend(other.actions)
+        self.log_probs.extend(other.log_probs)
+        self.log_prob_components.extend(other.log_prob_components)
+        self.action_means.extend(other.action_means)
+        self.action_stds.extend(other.action_stds)
+        self.joint_reward_aligned_scores.extend(other.joint_reward_aligned_scores)
+        self.joint_td_aligned_scores.extend(other.joint_td_aligned_scores)
+        self.rewards.extend(other.rewards)
+        self.dones.extend(other.dones)
+        self.values.extend(other.values)
+        if self.advantages is None:
+            self.advantages = other.advantages.copy()
+            self.returns = other.returns.copy()
+        else:
+            self.advantages = np.concatenate([self.advantages, other.advantages]).astype(
+                np.float32,
+                copy=False,
+            )
+            self.returns = np.concatenate([self.returns, other.returns]).astype(
+                np.float32,
+                copy=False,
+            )
+
     def clear(self) -> None:
         """清空缓存。"""
         self.states.clear()
